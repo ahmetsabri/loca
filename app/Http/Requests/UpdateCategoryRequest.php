@@ -11,7 +11,7 @@ class UpdateCategoryRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -19,10 +19,13 @@ class UpdateCategoryRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
-    {
-        return [
-            //
-        ];
-    }
+      public function rules(): array
+      {
+          return [
+              'name' => ['required','array'],
+              'name.tr' => ['required'],
+              'name.ru' => ['required'],
+              'name.en' => ['required'],
+          ];
+      }
 }

@@ -8,59 +8,39 @@ use App\Models\Category;
 
 class CategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $categories = Category::isRoot()->withCount('children')->get();
+        return view('admin.categories.index', compact('categories'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreCategoryRequest $request)
     {
-        //
+        $parentId = Category::find($request->parent_id)?->id;
+        Category::create(array_merge(['parent_id'=>$parentId], $request->validated()));
+        return back()->with('success', 'success');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Category $category)
     {
-        //
+        $category = $category->load('children', 'ancestorsAndSelf')->loadCount('children');
+        return view('admin.categories.show', compact('category'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Category $category)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+        $category->update($request->validated());
+        return back()->with('success', 'success');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Category $category)
     {
-        //
+        foreach ($category->descendants as $child) {
+            $child->delete();
+        }
+
+        $category->delete();
+
+        return back()->with('success', 'success');
     }
 }
