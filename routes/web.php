@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -33,7 +34,13 @@ Route::middleware('auth')->group(function () {
         Route::post('/{info}', [InfoController::class, 'update'])->name('info.update');
         Route::get('{info}/delete', [InfoController::class, 'destroy'])->name('info.delete');
     });
-
+    Route::prefix('feature')->group(function () {
+        Route::get('/', [FeatureController::class, 'index'])->name('feature.index');
+        Route::post('/', [FeatureController::class, 'store'])->name('feature.store');
+        Route::get('/{feature}', [FeatureController::class, 'show'])->name('feature.show');
+        Route::post('/{feature}', [FeatureController::class, 'update'])->name('feature.update');
+        Route::get('{feature}/delete', [FeatureController::class, 'destroy'])->name('feature.delete');
+    });
 });
 
 require __DIR__.'/auth.php';
