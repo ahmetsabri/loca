@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\InfoController;
+use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -40,6 +41,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/{feature}', [FeatureController::class, 'show'])->name('feature.show');
         Route::post('/{feature}', [FeatureController::class, 'update'])->name('feature.update');
         Route::get('{feature}/delete', [FeatureController::class, 'destroy'])->name('feature.delete');
+    });
+    Route::prefix('portfolio')->group(function () {
+        Route::get('/', [PortfolioController::class, 'index'])->name('portfolio.index');
+        Route::get('create', [PortfolioController::class, 'create'])->name('portfolio.create');
+        Route::post('/', [PortfolioController::class, 'store'])->name('portfolio.store');
+        Route::get('/{portfolio}', [PortfolioController::class, 'show'])->name('portfolio.show');
+        Route::get('/{portfolio}', [PortfolioController::class, 'edit'])->name('portfolio.edit');
+        Route::post('/{portfolio}', [PortfolioController::class, 'update'])->name('portfolio.update');
+        Route::get('{portfolio}/delete', [PortfolioController::class, 'destroy'])->name('portfolio.delete');
+        Route::get('{portfolio}/image/{image}/delete', [PortfolioController::class, 'removeImage'])->name('image.delete');
     });
 });
 

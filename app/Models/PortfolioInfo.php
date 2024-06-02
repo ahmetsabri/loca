@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
+
+class PortfolioInfo extends Model
+{
+    use HasFactory;
+    use HasTranslations;
+
+    protected $guarded = [];
+
+    public $translatable = ['value'];
+
+    // info relation
+    public function info()
+    {
+        return $this->belongsTo(Info::class);
+    }
+}

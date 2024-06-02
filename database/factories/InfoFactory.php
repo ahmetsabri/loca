@@ -17,7 +17,11 @@ class InfoFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => [
+                'tr' => fake()->sentence(3),
+                'en' => fake()->sentence(3),
+                'ru' => fake()->sentence(3),
+            ],
         ];
     }
 }
