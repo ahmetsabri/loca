@@ -135,7 +135,6 @@
                         placeholder="{{__('description_en')}}"></textarea>
                 </div>
             </div>
-            {{-- add divider here --}}
 
             @include('admin.portfolios.info_form')
             @include('admin.portfolios.feature_form')

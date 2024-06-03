@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Arr;
 use Illuminate\Validation\Rule;
@@ -70,16 +69,10 @@ class StorePortfolioRequest extends FormRequest
     {
         $data = [];
         foreach ($this->features as $id => $feature) {
-            $filledFeatures = array_filter($feature, fn ($locale) => Arr::get($locale, 'tr') ||  Arr::get($locale, 'ru') ||  Arr::get($locale, 'en'));
+            $filledFeatures = array_filter($feature, fn ($locale) => Arr::get($locale, 'tr') || Arr::get($locale, 'ru') || Arr::get($locale, 'en'));
             $data[] = $filledFeatures;
         }
 
-
         return array_filter($data);
-    }
-
-    protected function failedValidation(Validator $validator)
-    {
-        dd($validator->errors());
     }
 }

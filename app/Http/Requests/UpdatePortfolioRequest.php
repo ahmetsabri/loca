@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Arr;
 use Illuminate\Validation\Rule;
@@ -16,7 +15,6 @@ class UpdatePortfolioRequest extends FormRequest
 
     public function rules(): array
     {
-        // dd($this->features);
         return [
             'title' => ['required', 'array'],
             'title.tr' => ['required', 'string'],
@@ -34,7 +32,7 @@ class UpdatePortfolioRequest extends FormRequest
             'location' => ['required', 'string'],
             'images' => ['sometimes', 'array'],
             'images.*' => ['required', 'image'],
-            'brochure' => ['sometimes', 'nullable','mimes:pdf', 'extensions:pdf'],
+            'brochure' => ['sometimes', 'nullable', 'mimes:pdf', 'extensions:pdf'],
 
             'info' => ['required', 'array'],
             'info.*.tr' => ['sometimes', 'nullable'],
@@ -68,16 +66,10 @@ class UpdatePortfolioRequest extends FormRequest
     {
         $data = [];
         foreach ($this->features as $id => $feature) {
-            $filledFeatures = array_filter($feature, fn ($locale) => Arr::get($locale, 'tr') ||  Arr::get($locale, 'ru') ||  Arr::get($locale, 'en'));
+            $filledFeatures = array_filter($feature, fn ($locale) => Arr::get($locale, 'tr') || Arr::get($locale, 'ru') || Arr::get($locale, 'en'));
             $data[] = $filledFeatures;
         }
 
-        return (array_filter($data));
-    }
-
-
-    protected function failedValidation(Validator $validator)
-    {
-        dd($validator->errors());
+        return array_filter($data);
     }
 }

@@ -20,7 +20,6 @@ class Portfolio extends Model
         return $this->morphMany(Image::class, 'imageable');
     }
 
-
     public function infos()
     {
         return $this->hasMany(PortfolioInfo::class)->with('info');
