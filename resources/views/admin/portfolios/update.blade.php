@@ -8,7 +8,6 @@
         <div class="flex flex-wrap">
             <div class="w-full">
                 <h1 class="text-xl">
-                    {{__('basic_info')}}
                 </h1>
             </div>
         </div>

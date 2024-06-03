@@ -19,7 +19,6 @@ class StorePortfolioRequest extends FormRequest
 
     public function rules(): array
     {
-        // dd($this->all());
         return [
             'title' => ['required', 'array'],
             'title.tr' => ['required', 'string'],
@@ -71,17 +70,11 @@ class StorePortfolioRequest extends FormRequest
     {
         $data = [];
         foreach ($this->features as $id => $feature) {
-            $filledFeatures = array_filter($feature, fn ($locale) => Arr::get($locale, 'tr'));
-            // dd($filledFeatures);
-            $onlyTurkish = array_filter($filledFeatures, function ($feature) {
-                return Arr::get($feature, 'tr') && (! Arr::get($feature, 'en') && ! Arr::get($feature, 'ru'));
-            });
-            foreach ($onlyTurkish as $index => $trfeature) {
-                $onlyTurkish[$id]['ru'] = $onlyTurkish[$id]['en'] = $onlyTurkish[$id]['tr'];
-                unset($filledFeatures[$id][$index]);
-            }
-            $data[$id] = array_values($onlyTurkish + $filledFeatures);
+            $filledFeatures = array_filter($feature, fn ($locale) => Arr::get($locale, 'tr') ||  Arr::get($locale, 'ru') ||  Arr::get($locale, 'en'));
+            $data[] = $filledFeatures;
         }
+
+
         return array_filter($data);
     }
 

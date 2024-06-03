@@ -9,6 +9,7 @@ use App\Models\Feature;
 use App\Models\Image;
 use App\Models\Info;
 use App\Models\Portfolio;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -55,15 +56,10 @@ class PortfolioController extends Controller
 
         $features = $request->mapFeatures();
 
-        foreach ($features as $id => $feature) {
-            collect($feature)->each(function ($value, $key) use ($id, $portfolio) {
-                $portfolio->features()->create([
-                    'feature_id' => $id,
-                    'value' => $value,
-                ]);
-            });
-        }
 
+        $this->saveFeatures($portfolio, $features);
+
+        // TODO:implement this exception
         DB::beginTransaction();
         try {
             DB::commit();
@@ -75,6 +71,7 @@ class PortfolioController extends Controller
 
         return back()->with('success', 'success');
     }
+
 
     public function show(Portfolio $portfolio)
     {
@@ -92,7 +89,47 @@ class PortfolioController extends Controller
 
     public function update(UpdatePortfolioRequest $request, Portfolio $portfolio)
     {
-        //
+        $portfolioBasicData = $request->safe();
+        if ($request->hasFile('brochure')) {
+            Storage::disk('public')->delete($portfolio->brochure_path);
+            $brochure = $request->file('brochure')->storePublicly('portfolio/brochures', ['disk' => 'public']);
+            $portfolioBasicData = $portfolioBasicData->merge(['brochure_path' => $brochure]);
+        }
+
+        $portfolio->update($portfolioBasicData->except('brochure', 'images', 'info', 'features'));
+        if ($request->hasFile('images')) {
+            foreach ($request->images as $image) {
+                $path = $image->storePublicly('portfolio/images', ['disk' => 'public']);
+                $portfolio->images()->create(['path' => $path]);
+            }
+        }
+
+        $infos = $request->mapInfo();
+
+        foreach ($infos as $id => $info) {
+            $portfolio->infos()->updateOrCreate([
+                'info_id' => $id,
+                'value' => $info,
+            ]);
+        }
+
+        $portfolio->features()->delete();
+
+        $features = $request->mapFeatures();
+        // dd($features);
+        $this->saveFeatures($portfolio, $features);
+
+        // TODO:implement this exception
+        DB::beginTransaction();
+        try {
+            DB::commit();
+        } catch (\Throwable $th) {
+            DB::rollBack();
+
+            return back()->with('error', 'failed');
+        }
+
+        return back()->with('success', 'success');
     }
 
     public function destroy(Portfolio $portfolio)
@@ -114,5 +151,30 @@ class PortfolioController extends Controller
         Storage::disk('public')->delete($image->path);
         $image->delete();
         return back()->with('success', 'success');
+    }
+
+    public function saveFeatures(Portfolio $portfolio, array $features)
+    {
+        foreach ($features as $allFeature) {
+            foreach ($allFeature as $id => $feature) {
+                if (Arr::get($feature, 'tr')&&Arr::get($feature, 'en')&&Arr::get($feature, 'ru')) {
+                    $portfolio->features()->create([
+                        'feature_id'=>$id,
+                        'value' => $feature
+                    ]);
+                    continue;
+                }
+
+
+                $portfolio->features()->create([
+                    'feature_id' => $id,
+                    'value' => [
+                        'tr' => Arr::get($feature, 'tr'),
+                        'en' => Arr::get($feature, 'tr'),
+                        'ru' => Arr::get($feature, 'tr'),
+                    ]
+                ]);
+            }
+        }
     }
 }
