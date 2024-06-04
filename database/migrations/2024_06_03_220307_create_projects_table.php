@@ -24,10 +24,10 @@ return new class () extends Migration {
             $table->unsignedBigInteger('price_in_eur')->nullable();
 
 
-            $table->json('transportation')->nullable();
             $table->string('brochure_path')->nullable();
             $table->string('promotion_url')->nullable();
-
+            $table->json('payment_plan')->nullable();
+            $table->json('extra_payment')->nullable();
             $table->timestamps();
         });
     }

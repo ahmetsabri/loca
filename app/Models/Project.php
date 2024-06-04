@@ -13,4 +13,14 @@ class Project extends Model
     protected $guarded = [];
 
     public $translatable = ['title', 'description'];
+
+    public function features()
+    {
+        return $this->hasMany(Feature::class);
+    }
+
+    public function transportaions()
+    {
+        return $this->hasMany(ProjectTransportation::class);
+    }
 }

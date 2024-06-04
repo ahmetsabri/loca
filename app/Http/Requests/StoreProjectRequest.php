@@ -11,7 +11,7 @@ class StoreProjectRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,6 +21,7 @@ class StoreProjectRequest extends FormRequest
      */
     public function rules(): array
     {
+        dd($this->all());
         return [
             //
         ];

@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CountryController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -52,6 +54,17 @@ Route::middleware('auth')->group(function () {
         Route::get('{portfolio}/delete', [PortfolioController::class, 'destroy'])->name('portfolio.delete');
         Route::get('{portfolio}/image/{image}/delete', [PortfolioController::class, 'removeImage'])->name('image.delete');
     });
+    Route::prefix('project')->group(function () {
+        Route::get('/', [ProjectController::class, 'index'])->name('project.index');
+        Route::get('create', [ProjectController::class, 'create'])->name('project.create');
+        Route::post('/', [ProjectController::class, 'store'])->name('project.store');
+        Route::get('/{project}', [ProjectController::class, 'show'])->name('project.show');
+        Route::get('/{project}/edit', [ProjectController::class, 'edit'])->name('project.edit');
+        Route::post('/{project}/update', [ProjectController::class, 'update'])->name('project.update');
+        Route::get('{project}/delete', [ProjectController::class, 'destroy'])->name('project.delete');
+        Route::get('{project}/image/{image}/delete', [ProjectController::class, 'removeImage'])->name('project.image.delete');
+    });
 });
-
+Route::get('towns/{province}', [CountryController::class, 'towns'])->name('province.towns');
+Route::get('districts/{town?}', [CountryController::class, 'districts'])->name('towns.districts');
 require __DIR__.'/auth.php';
