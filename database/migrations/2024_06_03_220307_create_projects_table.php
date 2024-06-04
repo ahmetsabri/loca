@@ -7,7 +7,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class () extends Migration {
+return new class() extends Migration
+{
     public function up(): void
     {
         Schema::create('projects', function (Blueprint $table) {
@@ -22,7 +23,6 @@ return new class () extends Migration {
             $table->unsignedBigInteger('price_in_tl');
             $table->unsignedBigInteger('price_in_usd')->nullable();
             $table->unsignedBigInteger('price_in_eur')->nullable();
-
 
             $table->string('brochure_path')->nullable();
             $table->string('promotion_url')->nullable();

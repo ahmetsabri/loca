@@ -12,12 +12,14 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::paginate(20);
+
         return view('admin.projects.index', compact('projects'));
     }
 
     public function create()
     {
         $provinces = Province::all();
+
         return view('admin.projects.create', compact('provinces'));
     }
 

@@ -6,7 +6,6 @@ use App\Models\Country;
 use App\Models\District;
 use App\Models\Province;
 use App\Models\Town;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class CountrySeeder extends Seeder
@@ -16,7 +15,7 @@ class CountrySeeder extends Seeder
      */
     public function run(): void
     {
-        $country = Country::firstOrCreate(['name'=>'Türkiye']);
+        $country = Country::firstOrCreate(['name' => 'Türkiye']);
 
         $data = json_decode(file_get_contents(public_path('assets/data.json')), 1);
 
@@ -29,14 +28,14 @@ class CountrySeeder extends Seeder
             foreach ($il['counties'] as $county) {
                 $town = Town::createOrFirst([
                     'province_id' => $prov->id,
-                    'name' => $county['name']
+                    'name' => $county['name'],
                 ]);
 
                 foreach ($county['districts'] as $mahalle) {
                     foreach ($mahalle['neighborhoods'] as $m) {
                         District::createOrFirst([
                             'town_id' => $town->id,
-                            'name' => $m['name']
+                            'name' => $m['name'],
                         ]);
                     }
                 }
