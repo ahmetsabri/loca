@@ -135,10 +135,6 @@ class PortfolioController extends Controller
     {
         $portfolio->infos()->delete();
         $portfolio->features()->delete();
-        foreach ($portfolio->images as $image) {
-            Storage::disk('public')->delete($image->path);
-        }
-        $portfolio->images()->delete();
         $portfolio->delete();
 
         return back()->with('success', 'success');
@@ -147,7 +143,6 @@ class PortfolioController extends Controller
     public function removeImage(Portfolio $portfolio, Image $image)
     {
         abort_if($portfolio->id != $image->imageable_id, 404);
-        Storage::disk('public')->delete($image->path);
         $image->delete();
 
         return back()->with('success', 'success');

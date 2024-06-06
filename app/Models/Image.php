@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Image extends Model
 {
@@ -19,5 +20,13 @@ class Image extends Model
     public function getFullUrlAttribute(): string
     {
         return asset("storage/{$this->path}");
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+        static::deleting(function (self $image) {
+            Storage::disk('public')->delete($image->path);
+        });
     }
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Translatable\HasTranslations;
 
 class Portfolio extends Model
@@ -33,5 +34,16 @@ class Portfolio extends Model
     public function category()
     {
         return $this->belongsTo(Category::class)->with('ancestors');
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+        static::deleting(function (self $portfolio) {
+            Storage::disk('public')->delete($portfolio->brochure_path);
+            $portfolio->images()->each(function ($image) {
+                $image->delete();
+            });
+        });
     }
 }
