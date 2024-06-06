@@ -19,7 +19,7 @@
                 </div>
                 <div>
                             <label for="province" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white capitalize">province</label>
-                            <select id="province" name="province_id"
+                            <select required id="province" name="province_id"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                                <option value="">{{ __('select_province') }}</option>
                                 @foreach($provinces as $province)
@@ -29,9 +29,9 @@
                         </div>
                         <div>
                             <label for="town" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white capitalize">town</label>
-                            <select id="town" name="town_id"
+                            <select required id="town" name="town_id"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                  <option>{{ __('select_town') }}</option>
+                  <option disabled>{{ __('select_town') }}</option>
                                 <template x-for="town in towns">
                                 <option @click="loadDistricts(town.id)" x-text="town.name" :value="town.id"></option>
                     </template>
@@ -39,9 +39,9 @@
                         </div>
                         <div>
                             <label for="district" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white capitalize">district</label>
-                            <select id="district" name="district_id"
+                            <select required id="district" name="district_id"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-              <option>{{ __('select_district') }}</option>
+              <option disabled>{{ __('select_district') }}</option>
                                 <template x-for="district in districts">
                                 <option x-text="district.name" :value="district.id"></option>
                     </template>

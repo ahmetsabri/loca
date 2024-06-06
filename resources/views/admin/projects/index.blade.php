@@ -57,7 +57,7 @@
                                 class="px-3 py-2 text-sm font-medium text-center text-white bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">{{__('edit')}}</a>
 
 
-                            <button @click="deleteproject(`{{route('project.delete',$project)}}`)" type="button"
+                            <button @click="deleteProject(`{{route('project.delete',$project)}}`)" type="button"
                                 class="px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">{{__('delete')}}</button>
                         </td>
                     </tr>

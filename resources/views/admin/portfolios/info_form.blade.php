@@ -1,7 +1,7 @@
 <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
-{{__('info')}}
+<span class="text-indigo-700 font-bold text-3xl capitalize">{{__('info')}}</span>
             @foreach($infos as $info)
-<h4 class="font-bold mt-5">{{$info->name}}</h4>
+<h4 class="font-bold mt-5 text-lg text-indigo-700">{{$info->name}}</h4>
     <div class="flex">
     @foreach(['tr','ru','en'] as $locale)
      <div class="mb-5 mx-1">

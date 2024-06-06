@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Arr;
 use Illuminate\Validation\Rule;
@@ -18,12 +19,12 @@ class UpdatePortfolioRequest extends FormRequest
         return [
             'title' => ['required', 'array'],
             'title.tr' => ['required', 'string'],
-            'title.ru' => ['sometimes', 'nullable', 'string'],
-            'title.en' => ['sometimes', 'nullable', 'string'],
+            'title.ru' => ['required', 'nullable', 'string'],
+            'title.en' => ['required', 'nullable', 'string'],
             'description' => ['required', 'array'],
             'description.tr' => ['required', 'string'],
             'description.ru' => ['required', 'nullable', 'string'],
-            'description.en' => ['sometimes', 'nullable', 'string'],
+            'description.en' => ['required', 'nullable', 'string'],
             'price_in_tl' => ['required', 'integer', 'gt:0'],
             'price_in_eur' => ['required', 'integer', 'gt:0'],
             'price_in_usd' => ['required', 'integer', 'gt:0'],
@@ -33,6 +34,9 @@ class UpdatePortfolioRequest extends FormRequest
             'images' => ['sometimes', 'array'],
             'images.*' => ['required', 'image'],
             'brochure' => ['sometimes', 'nullable', 'mimes:pdf', 'extensions:pdf'],
+            'province_id' => ['required', Rule::exists('provinces', 'id')],
+            'town_id' => ['required', Rule::exists('towns', 'id')],
+            'district_id' => ['required', Rule::exists('districts', 'id')],
 
             'info' => ['required', 'array'],
             'info.*.tr' => ['sometimes', 'nullable'],
@@ -48,10 +52,10 @@ class UpdatePortfolioRequest extends FormRequest
 
     public function mapInfo(): array
     {
-        $filledInfo = array_filter($this->info, fn ($info) => Arr::get($info, 'tr'));
+        $filledInfo = array_filter($this->info, fn ($info) => !is_null(Arr::get($info, 'tr')));
 
         $onlyTurkishfilled = array_filter($this->info, function ($info) {
-            return Arr::get($info, 'tr') && (! Arr::get($info, 'en') && ! Arr::get($info, 'ru'));
+            return !is_null(Arr::get($info, 'tr')) && (is_null(Arr::get($info, 'en')) && is_null(Arr::get($info, 'ru')));
         });
 
         foreach ($onlyTurkishfilled as $index => $info) {
@@ -72,4 +76,9 @@ class UpdatePortfolioRequest extends FormRequest
 
         return array_filter($data);
     }
+
+        protected function failedValidation(Validator $validator)
+        {
+            dd($validator->errors()->all());
+        }
 }

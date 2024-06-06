@@ -36,6 +36,21 @@ class Portfolio extends Model
         return $this->belongsTo(Category::class)->with('ancestors');
     }
 
+    public function province()
+    {
+        return $this->belongsTo(Province::class);
+    }
+
+    public function town()
+    {
+        return $this->belongsTo(Town::class);
+    }
+
+    public function district()
+    {
+        return $this->belongsTo(District::class);
+    }
+
     public static function boot()
     {
         parent::boot();
