@@ -66,4 +66,11 @@ class Project extends Model
             });
         });
     }
+
+    public function getFullAddressAttribute(): string
+    {
+        $project = $this->load('province', 'town', 'district');
+
+        return $project->province->name . ' / ' . $project->town->name . ' / ' . $project->district->name;
+    }
 }
