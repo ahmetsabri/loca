@@ -60,5 +60,8 @@ class Portfolio extends Model
                 $image->delete();
             });
         });
+        static::creating(function (self $portfolio) {
+            $portfolio->user_id = auth()->id();
+        });
     }
 }
