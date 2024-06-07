@@ -68,7 +68,6 @@ Route::middleware('auth')->group(function () {
         Route::get('{project}/image/{image}/delete', [ProjectController::class, 'removeImage'])->name('project.image.delete');
     });
 
-
     Route::prefix('department')->group(function () {
         Route::get('/', [DepartmentController::class, 'index'])->name('department.index');
         Route::post('/', [DepartmentController::class, 'store'])->name('department.store');
@@ -76,7 +75,6 @@ Route::middleware('auth')->group(function () {
         Route::post('/{department}', [DepartmentController::class, 'update'])->name('department.update');
         Route::get('{department}/delete', [DepartmentController::class, 'destroy'])->name('department.delete');
     });
-
 
     Route::prefix('team')->group(function () {
         Route::get('/', [TeamController::class, 'index'])->name('team.index');

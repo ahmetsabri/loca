@@ -13,10 +13,17 @@ class Team extends Model
 
     protected $guarded = [];
 
-    public $translatable = ['name', 'description'];
+    protected $with = ['image', 'department'];
+
+    public $translatable = ['description'];
 
     public function department()
     {
         return $this->belongsTo(Department::class);
+    }
+
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
     }
 }

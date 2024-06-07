@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\JobApplication;
-use Illuminate\Http\Request;
 
 class JobApplicationController extends Controller
 {
@@ -17,6 +16,7 @@ class JobApplicationController extends Controller
     public function destroy(JobApplication $jobApplication)
     {
         $jobApplication->delete();
+
         return back()->with('success', 'success');
     }
 }

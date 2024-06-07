@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreTeamRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class StoreTeamRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,12 @@ class StoreTeamRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['required', 'string'],
+            'department_id' => ['required', Rule::exists('departments', 'id')],
+            'description' => ['required', 'array'],
+            'email' => ['required', 'email'],
+            'phone' => ['required', 'string'],
+            'image' => ['required', 'image'],
         ];
     }
 }

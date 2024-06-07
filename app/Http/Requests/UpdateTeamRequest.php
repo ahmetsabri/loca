@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateTeamRequest extends FormRequest
 {
@@ -11,18 +13,23 @@ class UpdateTeamRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
     public function rules(): array
     {
         return [
-            //
+            'name' => ['required', 'string'],
+            'department_id' => ['required', Rule::exists('departments', 'id')],
+            'description' => ['required', 'array'],
+            'email' => ['required', 'email'],
+            'phone' => ['required', 'string'],
+            'image' => ['sometimes', 'nullable', 'image'],
         ];
+    }
+
+    protected function failedValidation(Validator $validator)
+    {
+        dd($validator->errors()->all());
     }
 }
