@@ -55,10 +55,10 @@ class StorePortfolioRequest extends FormRequest
 
     public function mapInfo(): array
     {
-        $filledInfo = array_filter($this->info, fn ($info) =>!is_null(Arr::get($info, 'tr')));
+        $filledInfo = array_filter($this->info, fn ($info) => ! is_null(Arr::get($info, 'tr')));
 
         $onlyTurkishfilled = array_filter($this->info, function ($info) {
-            return !is_null(Arr::get($info, 'tr')) && (is_null(Arr::get($info, 'en')) && is_null(Arr::get($info, 'ru')));
+            return ! is_null(Arr::get($info, 'tr')) && (is_null(Arr::get($info, 'en')) && is_null(Arr::get($info, 'ru')));
         });
 
         foreach ($onlyTurkishfilled as $index => $info) {

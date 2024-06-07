@@ -2,11 +2,14 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\InfoController;
+use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -63,6 +66,28 @@ Route::middleware('auth')->group(function () {
         Route::post('/{project}/update', [ProjectController::class, 'update'])->name('project.update');
         Route::get('{project}/delete', [ProjectController::class, 'destroy'])->name('project.delete');
         Route::get('{project}/image/{image}/delete', [ProjectController::class, 'removeImage'])->name('project.image.delete');
+    });
+
+
+    Route::prefix('department')->group(function () {
+        Route::get('/', [DepartmentController::class, 'index'])->name('department.index');
+        Route::post('/', [DepartmentController::class, 'store'])->name('department.store');
+        Route::get('/{department}', [DepartmentController::class, 'show'])->name('department.show');
+        Route::post('/{department}', [DepartmentController::class, 'update'])->name('department.update');
+        Route::get('{department}/delete', [DepartmentController::class, 'destroy'])->name('department.delete');
+    });
+
+
+    Route::prefix('team')->group(function () {
+        Route::get('/', [TeamController::class, 'index'])->name('team.index');
+        Route::post('/', [TeamController::class, 'store'])->name('team.store');
+        Route::get('/{team}', [TeamController::class, 'show'])->name('team.show');
+        Route::post('/{team}', [TeamController::class, 'update'])->name('team.update');
+        Route::get('{team}/delete', [TeamController::class, 'destroy'])->name('team.delete');
+    });
+    Route::prefix('jop-application')->group(function () {
+        Route::get('/', [JobApplicationController::class, 'index'])->name('job_application.index');
+        Route::get('{jobApplication}/delete', [JobApplicationController::class, 'destroy'])->name('job_application.delete');
     });
 });
 Route::get('towns/{province}', [CountryController::class, 'towns'])->name('province.towns');

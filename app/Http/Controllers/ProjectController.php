@@ -50,8 +50,8 @@ class ProjectController extends Controller
         $this->attachTransportations($project, $transportations);
         $this->attachFlats($project, $flatsData);
         $this->attachImages($project, $data->images);
-        
-return back()->with('success', 'success');
+
+        return back()->with('success', 'success');
 
     }
 

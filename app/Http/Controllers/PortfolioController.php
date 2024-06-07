@@ -99,7 +99,7 @@ class PortfolioController extends Controller
         // try {
         $portfolioBasicData = $request->safe();
         if ($request->hasFile('brochure')) {
-            Storage::disk('public')->delete($portfolio->brochure_path??'');
+            Storage::disk('public')->delete($portfolio->brochure_path ?? '');
             $brochure = $request->file('brochure')->storePublicly('portfolio/brochures', ['disk' => 'public']);
             $portfolioBasicData = $portfolioBasicData->merge(['brochure_path' => $brochure]);
         }
@@ -115,7 +115,7 @@ class PortfolioController extends Controller
         $infos = $request->mapInfo();
 
         foreach ($infos as $id => $info) {
-            $portfolio->infos()->updateOrCreate(['info_id'=>$id], [
+            $portfolio->infos()->updateOrCreate(['info_id' => $id], [
                 'info_id' => $id,
                 'value' => $info,
             ]);

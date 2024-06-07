@@ -71,6 +71,6 @@ class Project extends Model
     {
         $project = $this->load('province', 'town', 'district');
 
-        return $project->province->name . ' / ' . $project->town->name . ' / ' . $project->district->name;
+        return $project->province->name.' / '.$project->town->name.' / '.$project->district->name;
     }
 }
