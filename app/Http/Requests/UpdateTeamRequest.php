@@ -21,8 +21,14 @@ class UpdateTeamRequest extends FormRequest
         return [
             'name' => ['required', 'string'],
             'department_id' => ['required', Rule::exists('departments', 'id')],
-            'description' => ['required', 'array'],
-            'email' => ['required', 'email'],
+            'bio' => ['required', 'array'],
+            'email' => ['required', 'email', Rule::unique('users', 'email')->ignore($this->user?->id)],
+            'password' => ['sometimes', 'nullable'],
+            'facebook_url' => ['sometimes'],
+            'instagram_url' => ['sometimes'],
+            'address' => ['sometimes'],
+            'experience' => ['sometimes'],
+            'languages' => ['sometimes'],
             'phone' => ['required', 'string'],
             'image' => ['sometimes', 'nullable', 'image'],
         ];

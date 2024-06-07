@@ -24,54 +24,54 @@
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                   required />
             </div>
-      <div>
-        <div>
-                    <label for="department"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white capitalize">{{ __('department') }}</label>
-                    <select id="department" name="department_id"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                        <option value="">{{ __('department') }}</option>
-                        @foreach($departments as $department)
-                        <option value="{{ $department->id }}">{{$department->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="images">image</label>
-            <input
-                class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                aria-describedby="images" id="images" type="file" name="image">
-            <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="name"></div>
-        </div>
-            <div>
-                <label for="team" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('phone') }}</label>
-                <input type="text" name="phone" id="team"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                  required />
-            </div>
-            <div>
-                <label for="team" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('email') }}</label>
-                <input type="email" name="email" id="team"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                     required />
-            </div>
-            <div>
-                <label for="team" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('description_tr') }}</label>
-                <input type="text" name="description[tr]" id="team"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                     required />
-            </div>
-            <div>
-<label for="team" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('description_ru')}}</label>
-                       <input type="text" name="description[ru]" id="team"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                     required />
-            </div>
-            <div>
-<label for="team" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('description_en')}}</label>                <input type="text" name="description[en]" id="team"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                    required />
-                <br />
-            </div>
+                    <div>
+                        <div>
+                                    <label for="department"
+                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white capitalize">{{ __('department') }}</label>
+                                    <select id="department" name="department_id"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                        <option value="">{{ __('department') }}</option>
+                                        @foreach($departments as $department)
+                                        <option value="{{ $department->id }}">{{$department->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="images">image</label>
+                            <input
+                                class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                aria-describedby="images" id="images" type="file" name="image">
+                            <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="name"></div>
+                        </div>
+                            <div>
+                                <label for="team" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('phone') }}</label>
+                                <input type="text" name="phone" id="team"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                required />
+                            </div>
+                            <div>
+                                <label for="team" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('email') }}</label>
+                                <input type="email" name="email" id="team"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                    required />
+                            </div>
+                            <div>
+                                <label for="team" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('description_tr') }}</label>
+                                <input type="text" name="description[tr]" id="team"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                    required />
+                            </div>
+                            <div>
+                <label for="team" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('description_ru')}}</label>
+                                    <input type="text" name="description[ru]" id="team"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                    required />
+                            </div>
+                            <div>
+                <label for="team" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('description_en')}}</label>                <input type="text" name="description[en]" id="team"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                    required />
+                                <br />
+                            </div>
             <button type="submit"
                 class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
         </form>

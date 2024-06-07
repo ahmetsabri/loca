@@ -19,21 +19,23 @@
         </thead>
         <tbody>
 
-            @foreach($teams as $team)
+            @foreach($users as $user)
                 <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 text-center">
 
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     <div class="flex justify-start items-center space-x-4">
-                            <img class="w-16 h-1w-16 rounded " src="{{ $team->image->full_url }}" alt="Small avatar">
+                        @if($user->image)
+                            <img class="w-16 h-1w-16 rounded " src="{{ $user->image?->full_url }}" alt="Small avatar">
+                        @endif
                         <p class="capitalize font-semibold text-base">
-                        {{$team->name}}
+                        {{$user->name}}
                         </p>
                         </div>
                 </td>
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     <div class="flex justify-start items-center space-x-4">
                         <p class="capitalize font-semibold text-base">
-                        {{$team->department->name}}
+                        {{$user?->department?->name ?? '-'}}
                         </p>
                         </div>
                 </td>
@@ -42,13 +44,12 @@
 
 
 
-<button type="button"  data-modal-target="edit-team-modal-{{$team->id}}" data-modal-toggle="edit-team-modal-{{$team->id}}" class="px-3 py-2 text-sm font-medium text-center text-white bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">{{__('edit')}}</button>
+<a href="{{ route('team.edit',$user) }}"  class="px-3 py-2 text-sm font-medium text-center text-white bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">{{__('edit')}}</a>
 
 
-<button @click="deleteteam(`{{route('team.delete',$team)}}`)" type="button" class="px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">{{__('delete')}}</button>
+<button @click="deleteTeam(`{{route('team.delete',$user)}}`)" type="button" class="px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">{{__('delete')}}</button>
                 </td>
             </tr>
-    @include('admin.teams.edit_team',['team'=>$team])
             @endforeach
         </tbody>
     </table>

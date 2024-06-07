@@ -2,52 +2,69 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreTeamRequest;
+use App\Http\Requests\StoreTeamMemberRequest;
 use App\Http\Requests\UpdateTeamRequest;
 use App\Models\Department;
-use App\Models\Team;
+use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 
 class TeamController extends Controller
 {
     public function index()
     {
-        $teams = Team::paginate();
+        $users = User::where('id', '<>', auth()->id())->paginate();
+
+        return view('admin.teams.index', compact('users'));
+    }
+
+    public function create()
+    {
         $departments = Department::all();
 
-        return view('admin.teams.index', compact('teams', 'departments'));
+        return view('admin.teams.create', compact('departments'));
     }
 
-    public function store(StoreTeamRequest $request)
+    public function edit(User $user)
+    {
+        $departments = Department::all();
+
+        return view('admin.teams.edit', compact('departments', 'user'));
+    }
+
+    public function store(StoreTeamMemberRequest $request)
     {
         $data = $request->safe();
-        $team = Team::create($data->except('image'));
+        $user = User::create($data->except('image'));
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->storePublicly('team/images', ['disk' => 'public']);
-            $team->image()->create(['path' => $path]);
+            $path = $request->file('image')->storePublicly('user/images', ['disk' => 'public']);
+            $user->image()->create(['path' => $path]);
         }
 
         return back()->with('success', 'success');
     }
 
-    public function update(UpdateTeamRequest $request, Team $team)
+    public function update(UpdateTeamRequest $request, User $user)
     {
-        $team->update($request->safe()->except('image'));
-
+        $data = $request->safe();
+        $user->fill($data->except('image', 'password'));
+        if ($data->filled('password')) {
+            $user->password = bcrypt($data->password);
+        }
+        $user->save();
         if ($request->hasFile('image')) {
             $path = $request->file('image')->storePublicly('team/images', ['disk' => 'public']);
-            if ($team->image) {
-                Storage::disk('public')->delete($team->image->path);
+            if ($user->image) {
+                Storage::disk('public')->delete($user->image->path);
             }
-            $team->image()->update(['path' => $path]);
+            $user->image()->update(['path' => $path]);
         }
 
         return back()->with('success', 'success');
     }
 
-    public function destroy(Team $team)
+    public function destroy(User $user)
     {
-        $team->delete();
+        $user->delete();
 
         return back()->with('success', 'success');
     }

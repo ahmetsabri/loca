@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class StoreTeamRequest extends FormRequest
+class StoreTeamMemberRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,18 +15,19 @@ class StoreTeamRequest extends FormRequest
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
     public function rules(): array
     {
         return [
             'name' => ['required', 'string'],
             'department_id' => ['required', Rule::exists('departments', 'id')],
-            'description' => ['required', 'array'],
-            'email' => ['required', 'email'],
+            'bio' => ['required', 'array'],
+            'email' => ['required', 'email', Rule::unique('users', 'email')->ignore($this->user()->id)],
+            'password' => ['required'],
+            'facebook_url' => ['sometimes'],
+            'instagram_url' => ['sometimes'],
+            'address' => ['sometimes'],
+            'experience' => ['sometimes'],
+            'languages' => ['sometimes'],
             'phone' => ['required', 'string'],
             'image' => ['required', 'image'],
         ];

@@ -78,10 +78,11 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('team')->group(function () {
         Route::get('/', [TeamController::class, 'index'])->name('team.index');
+        Route::get('/create', [TeamController::class, 'create'])->name('team.create');
         Route::post('/', [TeamController::class, 'store'])->name('team.store');
-        Route::get('/{team}', [TeamController::class, 'show'])->name('team.show');
-        Route::post('/{team}', [TeamController::class, 'update'])->name('team.update');
-        Route::get('{team}/delete', [TeamController::class, 'destroy'])->name('team.delete');
+        Route::get('/{user}', [TeamController::class, 'edit'])->name('team.edit');
+        Route::post('/{user}', [TeamController::class, 'update'])->name('team.update');
+        Route::get('{user}/delete', [TeamController::class, 'destroy'])->name('team.delete');
     });
     Route::prefix('jop-application')->group(function () {
         Route::get('/', [JobApplicationController::class, 'index'])->name('job_application.index');
