@@ -10,4 +10,9 @@ class Town extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function province()
+    {
+        return $this->belongsTo(Province::class);
+    }
 }

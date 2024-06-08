@@ -22,20 +22,20 @@ class CountrySeeder extends Seeder
         foreach ($data as $il) {
             $prov = Province::createOrFirst([
                 'country_id' => $country->id,
-                'name' => $il['name'],
+                'name' => ucfirst(mb_strtolower($il['name'])),
             ]);
 
             foreach ($il['counties'] as $county) {
                 $town = Town::createOrFirst([
                     'province_id' => $prov->id,
-                    'name' => $county['name'],
+                    'name' => ucfirst(mb_strtolower($county['name'])),
                 ]);
 
                 foreach ($county['districts'] as $mahalle) {
                     foreach ($mahalle['neighborhoods'] as $m) {
                         District::createOrFirst([
                             'town_id' => $town->id,
-                            'name' => $m['name'],
+                            'name' =>ucfirst(mb_strtolower($m['name'])),
                         ]);
                     }
                 }
