@@ -143,6 +143,7 @@
                 </a>
                 <div
                     class="menu-wrapper flex lg:absolute lg:left-0 lg:top-full lg:w-full lg:h-auto lg:max-h-[calc(100dvh-90px-44px)] sm:max-h-[calc(100dvh-80px-44px)] lg:group-[&.scroll-bottom]/header:max-h-[calc(100dvh-90px)] sm:group-[&.scroll-bottom]/header:max-h-[calc(100dvh-80px)] lg:bg-white lg:p-7.5 lg:overflow-x-hidden lg:overflow-y-auto lg:scrollbar lg:scrollbar-w-1 lg:scrollbar-h-1 lg:scrollbar-thumb-main-500 lg:scrollbar-track-main-500/10 lg:scrollbar-thumb-rounded-none lg:border-0 lg:border-t lg:border-solid lg:border-tertiary-950/10 lg:hidden lg:group-[&.menu-open]/header:block">
+                    @if(Route::currentRouteName()=='home')
                     <ul class="menu flex gap-8 2xl:gap-7 xl:gap-6 lg:flex-col">
                         <li class="group/li flex">
                             <a href="about.html"
@@ -157,7 +158,7 @@
                                 class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">Ekibimiz</a>
                         </li>
                         <li class="group/li flex">
-                            <a href="portfolio-grid.html"
+                            <a href="{{ route('portfolios') }}"
                                 class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">Porföylerimiz</a>
                         </li>
                         <li class="group/li flex">
@@ -181,6 +182,46 @@
                             </a>
                         </li>
                     </ul>
+                    @else
+                    <ul class="menu flex gap-8 2xl:gap-7 xl:gap-6 lg:flex-col">
+                        <li class="group/li flex">
+                            <a href="about.html"
+                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">Hakkımızda</a>
+                        </li>
+                        <li class="group/li flex">
+                            <a href="services.html"
+                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">Hizmetlerimiz</a>
+                        </li>
+                        <li class="group/li flex">
+                            <a href="team.html"
+                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">Ekibimiz</a>
+                        </li>
+                        <li class="group/li flex">
+                            <a href="{{ route('portfolios',['grid_type'=>'grid']) }}"
+                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">Porföylerimiz</a>
+                        </li>
+                        <li class="group/li flex">
+                            <a href="projects.html"
+                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">Projeler</a>
+                        </li>
+                        <li class="group/li flex">
+                            <a href="blog.html"
+                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">Blog</a>
+                        </li>
+                        <li class="group/li flex">
+                            <a href="contact.html"
+                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">İletişim</a>
+                        </li>
+                        <li class="group/li flex">
+                            <a href="loca-tv.html" class="flex items-center gap-2">
+                                <span
+                                    class="text text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">LOCA</span>
+                                <img class="w-6 h-auto object-contain object-center block pointer-events-none"
+                                    src="{{ asset('image/static/1.webp') }}" alt="" loading="lazy">
+                            </a>
+                        </li>
+                    </ul>
+                    @endif
                     <div class="split hidden lg:block w-full h-px my-7.5 bg-tertiary-950/10"></div>
                     <div class="content-wrapper hidden lg:grid gap-4.5">
                         <a href="javascript:void(0)"
@@ -251,76 +292,142 @@
                         class="button group/button relative duration-300 flex items-center h-7.5 bg-main-900 px-3 rounded-2 hover:bg-tertiary-950 lg:hidden">
                         <span class="text text-white font-semibold text-3.5">AL, SAT KİRALA!</span>
                     </a>
-                    <div class="language-wrapper relative group/wrapper lg:hidden">
-                        <div
-                            class="current cursor-pointer flex items-center justify-center gap-2 p-1 pr-2.5 xl:pr-2 h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 group-hover/wrapper:border-tertiary-950/30 min-lg:group-[&:not(.scroll-down)]/header:border-white/10 min-lg:group-[&:not(.scroll-down)]/header:group-hover/wrapper:border-white/25">
+
+                    @if(\Route::currentRouteName() == 'home')
+<div class="language-wrapper relative group/wrapper  lg:block">
+        <div class="current cursor-pointer flex items-center justify-center gap-2 py-1 h-7.5">
+            <div
+                class="image-wrapper bg-white/5 self-stretch flex items-center px-1 rounded-1 group-hover/wrapper:bg-white/10 duration-300">
+                <img class="w-3.5 h-auto block pointer-events-none" src="{{asset('image/static/4.webp')}}" alt="" loading="lazy">
+            </div>
+            <span class="text text-white text-3.5 font-medium">TUR</span>
+            <div
+                class="icon icon-chevron-bottom text-2 h-2 block leading-none duration-300 text-white/55 group-hover/wrapper:text-white group-hover/wrapper:rotate-180">
+            </div>
+        </div>
+        <div
+            class="options bg-white duration-300 grid gap-1 p-2 rounded-2 absolute left-1/2 -translate-x-1/2 w-max min-w-full top-[calc(100%+8px)] before:absolute before:bottom-full before:left-0 before:w-full before:h-2 opacity-0 pointer-events-none scale-95 origin-top group-hover/wrapper:opacity-100 group-hover/wrapper:pointer-events-auto group-hover/wrapper:scale-100">
+            <a href="javascript:void(0)"
+                class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none current">
+                <img src="{{asset('image/static/4.webp')}}" alt="" loading="lazy">
+                <span class="text text-3.5 font-medium text-tertiary-950">TUR</span>
+            </a>
+            <a href="javascript:void(0)"
+                class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
+                <img src="{{ asset('image/static/5.webp') }}" alt="" loading="lazy">
+                <span class="text text-3.5 font-medium text-tertiary-950">ENG</span>
+            </a>
+            <a href="javascript:void(0)"
+                class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
+                <img src="{{ asset('image/static/6.webp') }}" alt="" loading="lazy">
+                <span class="text text-3.5 font-medium text-tertiary-950">RUS</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="currency-wrapper relative group/wrapper lg:hidden">
+        <div
+            class="current cursor-pointer flex items-center justify-center gap-2 p-1 pr-2.5 xl:pr-2 h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 group-hover/wrapper:border-tertiary-950/30 min-lg:group-[&:not(.scroll-down)]/header:border-white/10 min-lg:group-[&:not(.scroll-down)]/header:group-hover/wrapper:border-white/25">
+            <div
+                class="icon-wrapper bg-tertiary-950/5 self-stretch flex items-center px-1 rounded-1 group-hover/wrapper:bg-tertiary-950/10 duration-300 min-lg:group-[&:not(.scroll-down)]/header:bg-white/5 min-lg:group-[&:not(.scroll-down)]/header:group-hover/wrapper:bg-white/10">
+                <div class="icon icon-turkish-lira text-3 h-3 block leading-none duration-300 text-[#2675FA]">
+                </div>
+            </div>
+            <span
+                class="text text-tertiary-950 text-3.5 font-medium duration-300 min-lg:group-[&:not(.scroll-down)]/header:text-white">TRY</span>
+            <div
+                class="icon icon-chevron-bottom text-2 h-2 block leading-none duration-300 text-tertiary-950/55 group-hover/wrapper:text-tertiary-950 group-hover/wrapper:rotate-180 xl:hidden min-lg:group-[&:not(.scroll-down)]/header:text-white/50">
+            </div>
+        </div>
+        <div
+            class="options bg-white duration-300 grid gap-1 p-2 rounded-2 absolute left-1/2 -translate-x-1/2 w-max min-w-full top-[calc(100%+8px)] before:absolute before:bottom-full before:left-0 before:w-full before:h-2 opacity-0 pointer-events-none scale-95 origin-top group-hover/wrapper:opacity-100 group-hover/wrapper:pointer-events-auto group-hover/wrapper:scale-100">
+            <a href="javascript:void(0)"
+                class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none current">
+                <div class="icon icon-turkish-lira text-3 h-3 block leading-none duration-300 text-[#2675FA]">
+                </div>
+                <span class="text text-3.5 font-medium text-tertiary-950">TRY</span>
+            </a>
+            <a href="javascript:void(0)"
+                class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
+                <div class="icon icon-euro text-3 h-3 block leading-none duration-300 text-[#2675FA]">
+                </div>
+                <span class="text text-3.5 font-medium text-tertiary-950">EUR</span>
+            </a>
+            <a href="javascript:void(0)"
+                class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
+                <div class="icon icon-dolar text-3 h-3 block leading-none duration-300 text-[#2675FA]">
+                </div>
+                <span class="text text-3.5 font-medium text-tertiary-950">USD</span>
+            </a>
+        </div>
+    </div>
+                    @else
+                        <div class="language-wrapper relative group/wrapper lg:hidden">
                             <div
-                                class="image-wrapper bg-tertiary-950/5 self-stretch flex items-center px-1 rounded-1 group-hover/wrapper:bg-tertiary-950/10 duration-300 min-lg:group-[&:not(.scroll-down)]/header:bg-white/5 min-lg:group-[&:not(.scroll-down)]/header:group-hover/wrapper:bg-white/10">
-                                <img class="w-3.5 h-auto block pointer-events-none"
-                                    src="{{ asset('image/static/4.webp') }}" alt="" loading="lazy"></div>
-                            <span
-                                class="text text-tertiary-950 text-3.5 font-medium duration-300 min-lg:group-[&:not(.scroll-down)]/header:text-white">TUR</span>
-                            <div
-                                class="icon icon-chevron-bottom text-2 h-2 block leading-none duration-300 text-tertiary-950/55 group-hover/wrapper:text-tertiary-950 group-hover/wrapper:rotate-180 xl:hidden min-lg:group-[&:not(.scroll-down)]/header:text-white/50">
-                            </div>
-                        </div>
-                        <div
-                            class="options bg-white duration-300 grid gap-1 p-2 rounded-2 absolute left-1/2 -translate-x-1/2 w-max min-w-full top-[calc(100%+8px)] before:absolute before:bottom-full before:left-0 before:w-full before:h-2 opacity-0 pointer-events-none scale-95 origin-top group-hover/wrapper:opacity-100 group-hover/wrapper:pointer-events-auto group-hover/wrapper:scale-100">
-                            <a href="javascript:void(0)"
-                                class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none current">
-                                <img src="{{ asset('image/static/4.webp') }}" alt="" loading="lazy">
-                                <span class="text text-3.5 font-medium text-tertiary-950">TUR</span>
-                            </a>
-                            <a href="javascript:void(0)"
-                                class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
-                                <img src="{{ asset('image/static/5.webp') }}" alt="" loading="lazy">
-                                <span class="text text-3.5 font-medium text-tertiary-950">ENG</span>
-                            </a>
-                            <a href="javascript:void(0)"
-                                class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
-                                <img src="{{ asset('image/static/6.webp') }}" alt="" loading="lazy">
-                                <span class="text text-3.5 font-medium text-tertiary-950">RUS</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="currency-wrapper relative group/wrapper lg:hidden">
-                        <div
-                            class="current cursor-pointer flex items-center justify-center gap-2 p-1 pr-2.5 xl:pr-2 h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 group-hover/wrapper:border-tertiary-950/30 min-lg:group-[&:not(.scroll-down)]/header:border-white/10 min-lg:group-[&:not(.scroll-down)]/header:group-hover/wrapper:border-white/25">
-                            <div
-                                class="icon-wrapper bg-tertiary-950/5 self-stretch flex items-center px-1 rounded-1 group-hover/wrapper:bg-tertiary-950/10 duration-300 min-lg:group-[&:not(.scroll-down)]/header:bg-white/5 min-lg:group-[&:not(.scroll-down)]/header:group-hover/wrapper:bg-white/10">
+                                class="current cursor-pointer flex items-center justify-center gap-2 p-1 pr-2.5 xl:pr-2 h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 group-hover/wrapper:border-tertiary-950/30 min-lg:group-[&:not(.scroll-down)]/header:border-black/10 min-lg:group-[&:not(.scroll-down)]/header:group-hover/wrapper:border-black/25">
                                 <div
-                                    class="icon icon-turkish-lira text-3 h-3 block leading-none duration-300 text-[#2675FA]">
+                                    class="image-wrapper bg-tertiary-950/5 self-stretch flex items-center px-1 rounded-1 group-hover/wrapper:bg-tertiary-950/10 duration-300 min-lg:group-[&:not(.scroll-down)]/header:bg-white/5 min-lg:group-[&:not(.scroll-down)]/header:group-hover/wrapper:bg-white/10">
+                                    <img class="w-3.5 h-auto block pointer-events-none" src="{{ asset('image/static/4.webp') }}" alt=""
+                                        loading="lazy">
                                 </div>
-                            </div>
-                            <span
-                                class="text text-tertiary-950 text-3.5 font-medium duration-300 min-lg:group-[&:not(.scroll-down)]/header:text-white">TRY</span>
-                            <div
-                                class="icon icon-chevron-bottom text-2 h-2 block leading-none duration-300 text-tertiary-950/55 group-hover/wrapper:text-tertiary-950 group-hover/wrapper:rotate-180 xl:hidden min-lg:group-[&:not(.scroll-down)]/header:text-white/50">
-                            </div>
-                        </div>
-                        <div
-                            class="options bg-white duration-300 grid gap-1 p-2 rounded-2 absolute left-1/2 -translate-x-1/2 w-max min-w-full top-[calc(100%+8px)] before:absolute before:bottom-full before:left-0 before:w-full before:h-2 opacity-0 pointer-events-none scale-95 origin-top group-hover/wrapper:opacity-100 group-hover/wrapper:pointer-events-auto group-hover/wrapper:scale-100">
-                            <a href="javascript:void(0)"
-                                class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none current">
+                                <span
+                                    class="text text-tertiary-950 text-3.5 font-medium duration-300 min-lg:group-[&:not(.scroll-down)]/header:text-black">TUR</span>
                                 <div
-                                    class="icon icon-turkish-lira text-3 h-3 block leading-none duration-300 text-[#2675FA]">
+                                    class="icon icon-chevron-bottom text-2 h-2 block leading-none duration-300 text-tertiary-950/55 group-hover/wrapper:text-tertiary-950 group-hover/wrapper:rotate-180 xl:hidden min-lg:group-[&:not(.scroll-down)]/header:text-white/50">
                                 </div>
-                                <span class="text text-3.5 font-medium text-tertiary-950">TRY</span>
-                            </a>
-                            <a href="javascript:void(0)"
-                                class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
-                                <div class="icon icon-euro text-3 h-3 block leading-none duration-300 text-[#2675FA]">
-                                </div>
-                                <span class="text text-3.5 font-medium text-tertiary-950">EUR</span>
-                            </a>
-                            <a href="javascript:void(0)"
-                                class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
-                                <div class="icon icon-dolar text-3 h-3 block leading-none duration-300 text-[#2675FA]">
-                                </div>
-                                <span class="text text-3.5 font-medium text-tertiary-950">USD</span>
-                            </a>
+                            </div>
+                            <div
+                                class="options bg-white duration-300 grid gap-1 p-2 rounded-2 absolute left-1/2 -translate-x-1/2 w-max min-w-full top-[calc(100%+8px)] before:absolute before:bottom-full before:left-0 before:w-full before:h-2 opacity-0 pointer-events-none scale-95 origin-top group-hover/wrapper:opacity-100 group-hover/wrapper:pointer-events-auto group-hover/wrapper:scale-100">
+                                <a href="javascript:void(0)"
+                                    class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none current">
+                                    <img src="{{ asset('image/static/4.webp') }}" alt="" loading="lazy">
+                                    <span class="text text-3.5 font-medium text-tertiary-950">TUR</span>
+                                </a>
+                                <a href="javascript:void(0)"
+                                    class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
+                                    <img src="{{ asset('image/static/5.webp') }}" alt="" loading="lazy">
+                                    <span class="text text-3.5 font-medium text-tertiary-950">ENG</span>
+                                </a>
+                                <a href="javascript:void(0)"
+                                    class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
+                                    <img src="{{ asset('image/static/6.webp') }}" alt="" loading="lazy">
+                                    <span class="text text-3.5 font-medium text-tertiary-950">RUS</span>
+                                </a>
+                            </div>
                         </div>
-                    </div>
+
+                        <div class="currency-wrapper relative group/wrapper lg:hidden">
+                            <div
+                                class="current cursor-pointer flex items-center justify-center gap-2 p-1 pr-2.5 xl:pr-2 h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 group-hover/wrapper:border-tertiary-950/30">
+                                <div
+                                    class="icon-wrapper bg-tertiary-950/5 self-stretch flex items-center px-1 rounded-1 group-hover/wrapper:bg-tertiary-950/10 duration-300">
+                                    <div class="icon icon-turkish-lira text-3 h-3 block leading-none duration-300 text-[#2675FA]"></div>
+                                </div>
+                                <span class="text text-tertiary-950 text-3.5 font-medium duration-300">TRY</span>
+                                <div
+                                    class="icon icon-chevron-bottom text-2 h-2 block leading-none duration-300 text-tertiary-950/55 group-hover/wrapper:text-tertiary-950 group-hover/wrapper:rotate-180 xl:hidden">
+                                </div>
+                            </div>
+                            <div
+                                class="options bg-white duration-300 grid gap-1 p-2 rounded-2 absolute left-1/2 -translate-x-1/2 w-max min-w-full top-[calc(100%+8px)] before:absolute before:bottom-full before:left-0 before:w-full before:h-2 opacity-0 pointer-events-none scale-95 origin-top group-hover/wrapper:opacity-100 group-hover/wrapper:pointer-events-auto group-hover/wrapper:scale-100">
+                                <a href="javascript:void(0)"
+                                    class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none current">
+                                    <div class="icon icon-turkish-lira text-3 h-3 block leading-none duration-300 text-[#2675FA]"></div>
+                                    <span class="text text-3.5 font-medium text-tertiary-950">TRY</span>
+                                </a>
+                                <a href="javascript:void(0)"
+                                    class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
+                                    <div class="icon icon-euro text-3 h-3 block leading-none duration-300 text-[#2675FA]"></div>
+                                    <span class="text text-3.5 font-medium text-tertiary-950">EUR</span>
+                                </a>
+                                <a href="javascript:void(0)"
+                                    class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
+                                    <div class="icon icon-dolar text-3 h-3 block leading-none duration-300 text-[#2675FA]"></div>
+                                    <span class="text text-3.5 font-medium text-tertiary-950">USD</span>
+                                </a>
+                            </div>
+                        </div>
+                    @endif
                     <div
                         class="mobile-menu-trigger bg-main-900 rounded-2 group/trigger cursor-pointer hidden h-10 aspect-square lg:flex items-center justify-center px-3 hover:bg-tertiary-950 duration-300">
                         <svg class="w-full fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 318.6 222.99">

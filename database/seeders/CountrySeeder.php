@@ -35,7 +35,7 @@ class CountrySeeder extends Seeder
                     foreach ($mahalle['neighborhoods'] as $m) {
                         District::createOrFirst([
                             'town_id' => $town->id,
-                            'name' =>ucfirst(mb_strtolower($m['name'])),
+                            'name' => ucfirst(mb_strtolower($m['name'])),
                         ]);
                     }
                 }

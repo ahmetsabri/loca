@@ -5,6 +5,7 @@ use App\Http\Controllers\CountryController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\PortfolioController as FrontendPortfolioController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\PortfolioController;
@@ -13,7 +14,8 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [HomeController::class,'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('portfolios', [FrontendPortfolioController::class, 'index'])->name('portfolios');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

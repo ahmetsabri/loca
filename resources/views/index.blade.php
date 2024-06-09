@@ -1,5 +1,3 @@
-<!-- resources/views/other-view.blade.php -->
-
 @extends('layouts.frontend')
 
 @section('title', 'RE/MAX LOCA')
