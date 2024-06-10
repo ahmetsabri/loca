@@ -651,7 +651,7 @@
                 </div>
          @endforeach
             </div>
-            <a href="portfolio-grid.html"
+            <a href="{{ route('portfolios',['grid_type'=>'grid']) }}"
                 class="button group/button flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 h-14 md:h-12 w-fit mx-auto px-14 2xl:px-12 xl:px-10 lg:px-8 sm:px-6 bg-secondary-700 hover:bg-secondary-600 text-white">
 
                 <div class="text whitespace-nowrap font-medium text-4 md:text-3.5">Tüm Portföylerimizi İncele

@@ -158,7 +158,7 @@
                                 class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">Ekibimiz</a>
                         </li>
                         <li class="group/li flex">
-                            <a href="{{ route('portfolios') }}"
+                            <a href="{{ route('portfolios',['grid_type'=>'grid']) }}"
                                 class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">Porföylerimiz</a>
                         </li>
                         <li class="group/li flex">
