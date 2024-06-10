@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\Frontend\FormController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\PortfolioController as FrontendPortfolioController;
 use App\Http\Controllers\InfoController;
@@ -11,11 +12,18 @@ use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\SubmittedFormController;
 use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('portfolios', [FrontendPortfolioController::class, 'index'])->name('portfolios');
+Route::view('contact', 'frontend.contact')->name('contact');
+Route::post('contact-form', [FormController::class, 'storeContactForm'])->name('form.contact');
+Route::post('project-form', [FormController::class, 'storeProjectForm'])->name('form.project');
+Route::post('portfolio-form', [FormController::class, 'storePortfolioForm'])->name('form.portfolio');
+Route::post('job-form', [FormController::class, 'storeJobForm'])->name('form.job');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -85,9 +93,15 @@ Route::middleware('auth')->group(function () {
         Route::post('/{user}', [TeamController::class, 'update'])->name('team.update');
         Route::get('{user}/delete', [TeamController::class, 'destroy'])->name('team.delete');
     });
-    Route::prefix('jop-application')->group(function () {
+    Route::prefix('job-application')->group(function () {
         Route::get('/', [JobApplicationController::class, 'index'])->name('job_application.index');
         Route::get('{jobApplication}/delete', [JobApplicationController::class, 'destroy'])->name('job_application.delete');
+    });
+
+
+    Route::prefix('forms')->group(function () {
+        Route::get('/', [SubmittedFormController::class, 'index'])->name('form.index');
+        Route::get('{form}', [SubmittedFormController::class, 'destroy'])->name('form.delete');
     });
 });
 Route::get('towns/{province}', [CountryController::class, 'towns'])->name('province.towns');

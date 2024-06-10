@@ -136,7 +136,7 @@
         </div>
         <div class="bottom-wrapper h-22 sm:h-20">
             <div class="wrapper max-w-1440 mx-auto w-full h-full px-7.5 flex justify-between">
-                <a href="index.html"
+                <a href="{{ route('home') }}"
                     class="logo-wrapper duration-300 block max-w-48 2xl:max-w-42 xl:max-w-36 lg:max-w-32 md:max-w-28 sm:max-w-24 mt-1 xl:mt-0 group-[&.scroll-down.scroll-up]/header:-translate-y-20/100 xl:flex xl:items-center">
                     <img class="w-full h-auto object-contain object-center block mt-0 mb-auto xl:my-0"
                         src="{{ asset('image/trademark/logo.webp') }}" alt="" loading="lazy">
@@ -170,7 +170,7 @@
                                 class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">Blog</a>
                         </li>
                         <li class="group/li flex">
-                            <a href="contact.html"
+                            <a href="{{ route('contact') }}"
                                 class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">İletişim</a>
                         </li>
                         <li class="group/li flex">
@@ -209,7 +209,7 @@
                                 class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">Blog</a>
                         </li>
                         <li class="group/li flex">
-                            <a href="contact.html"
+                            <a href="{{ route('contact') }}"
                                 class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">İletişim</a>
                         </li>
                         <li class="group/li flex">
@@ -460,7 +460,7 @@
                 <div
                     class="content-wrapper flex items-start justify-between py-15 lg:py-13 md:py-11 sm:py-9 gap-7.5 md:flex-col">
                     <div class="brand-wrapper max-w-40 grid gap-6 md:max-w-none md:w-full">
-                        <a href="index.html" class="w-full h-auto md:max-w-40 md:mx-auto"><img
+                        <a href="{{ route('home') }}" class="w-full h-auto md:max-w-40 md:mx-auto"><img
                                 class="w-full h-auto object-contain object-center block"
                                 src="{{ asset('image/static/4.webp') }}" alt="" loading="lazy"></a>
                         <a href="loca-tv.html"
@@ -498,7 +498,7 @@
                             <a href="blog.html"
                                 class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">Blog</span></a>
-                            <a href="contact.html"
+                            <a href="{{ route('contact') }}"
                                 class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">İletişim</span></a>
                         </div>
