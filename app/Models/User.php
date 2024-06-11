@@ -51,4 +51,9 @@ class User extends Authenticatable
     {
         $this->attributes['languages'] = json_encode(explode(',', $value));
     }
+
+    public function getWpUrlAttribute()
+    {
+        return 'https://api.whatsapp.com/send/?phone=' . $this->phone;
+    }
 }

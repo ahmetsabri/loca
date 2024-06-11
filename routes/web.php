@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('portfolios', [FrontendPortfolioController::class, 'index'])->name('portfolios');
+
+Route::get('portfolio/{portfolio}', [FrontendPortfolioController::class, 'show'])->name('frontend.portfolio.show');
+
 Route::view('contact', 'frontend.contact')->name('contact');
 Route::post('contact-form', [FormController::class, 'storeContactForm'])->name('form.contact');
 Route::post('project-form', [FormController::class, 'storeProjectForm'])->name('form.project');
@@ -26,7 +29,7 @@ Route::post('job-form', [FormController::class, 'storeJobForm'])->name('form.job
 
 Route::view('dashboard', 'dashboard')->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

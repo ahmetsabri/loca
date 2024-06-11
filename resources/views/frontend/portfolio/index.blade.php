@@ -4,7 +4,28 @@
 
 @section('content')
 <soho-technologies class="block">
-    <main class="main-field relative pt-[134px] sm:pt-[124px]">
+    <main class="main-field relative pt-[134px] sm:pt-[124px]" x-data="{
+                                towns:[],
+                                selectedTown:`{{request('filter.town')}}`,
+                                selectedTownName:'',
+                                init(){
+                                    if(`{{ request('filter.province') }}`){
+                                        this.loadTowns(`{{ route('province.towns',request('filter.province',1)) }}`)
+                                    }
+                                },
+                                loadTowns(url){
+
+                        const self = this
+
+                        axios.get(url).then((res)=>{
+
+                            self.towns = res.data.towns
+                            self.selectedTownName = res.data.towns.filter(town => town.id == self.selectedTown)[0]?.name
+                        }).catch((err)=>{
+                            console.log(err)
+                        })
+                }
+                            }">
         <section class="breadcrumb-field px-7.5 md:px-5">
             <div
                 class="inner rounded-6 md:rounded-3 relative overflow-hidden isolate translate-z-0 py-28 2xl:py-24 xl:py-20 lg:py-16 md:py-12">
@@ -67,7 +88,7 @@
                                     class="list hidden [&.active]:grid gap-1 overflow-y-auto overflow-x-hidden max-h-[196px] scrollbar scrollbar-w-1 scrollbar-track-rounded-full scrollbar-thumb-rounded-full scrollbar-track-[#8AA5D3]/24 scrollbar-thumb-[#8AA5D3]/65 active">
 
                                     @foreach($rootCategories as $category)
-                                    <button data-destination-level="s{{ $category->id }}"
+                                    <button type="button" data-destination-level="s{{ $category->id }}"
                                         class="text-tertiary-950 text-3.5 w-fit font-medium draw-underline [--line-color:#0D1523] block capitalize">
                                         {{ $category->name }}
                                     </button>
@@ -81,7 +102,7 @@
                                     class="list hidden [&.active]:grid gap-1 overflow-y-auto overflow-x-hidden max-h-[153px] scrollbar scrollbar-w-1 scrollbar-track-rounded-full scrollbar-thumb-rounded-full scrollbar-track-[#8AA5D3]/24 scrollbar-thumb-[#8AA5D3]/65">
                                     @foreach($category->children as $child)
 
-                                    <button data-destination-level="k{{ $child->id }}"
+                                    <button type="button" data-destination-level="k{{ $child->id }}"
                                         class="text-tertiary-950 text-3.5 w-fit font-medium draw-underline [--line-color:#0D1523] block">
                                         {{ $child->name }}
                                     </button>
@@ -93,7 +114,7 @@
 <div data-level="k{{ $child->id }}"
     class="list hidden [&.active]:grid gap-1 overflow-y-auto overflow-x-hidden max-h-[153px] scrollbar scrollbar-w-1 scrollbar-track-rounded-full scrollbar-thumb-rounded-full scrollbar-track-[#8AA5D3]/24 scrollbar-thumb-[#8AA5D3]/65">
     @foreach($child->children as $descandant)
-    <a href="javascript:void(0)"
+    <a href="{{ request()->fullUrlWithQuery(['filter[category]'=>$descandant->id]) }}"
         class="text-tertiary-950 text-3.5 w-fit font-medium draw-underline [--line-color:#0D1523] block">
         {{ $descandant->name }}
     </a>
@@ -106,27 +127,7 @@
 
                             </div>
 
-                            <div class="address-wrapper mt-6" x-data="{
-                                towns:[],
-                                selectedTown:`{{request('filter.town')}}`,
-                                init(){
-                                    if(`{{ request('filter.province') }}`){
-                                        this.loadTowns(`{{ route('province.towns',request('filter.province',1)) }}`)
-                                    }
-                                },
-                                loadTowns(url){
-
-                        const self = this
-
-                        axios.get(url).then((res)=>{
-                            console.log(res.data.towns)
-                            self.towns = res.data.towns
-
-                        }).catch((err)=>{
-                            console.log(err)
-                        })
-                }
-                            }">
+                            <div class="address-wrapper mt-6" >
                                 <div class="title text-3.5 font-semibold text-tertiary-950 mb-4 px-3">{{ __('address') }}</div>
                                 <div class="form-wrapper grid gap-2">
                                     <div class="form-el group/form relative w-full">
@@ -273,7 +274,7 @@
                                 <div class="form-el group/form w-full">
                                     <!-- Buraya `error` classı gelince ilgili style değişiyor -->
                                     <div class="custom-input relative flex items-center gap-2">
-                                        <input type="checkbox" name="include_description"
+                                        <input type="checkbox" name="include_description" @checked(request('include_description') == 'on')
                                             class="opacity-0 absolute left-0 top-0 w-full h-full peer z-2 cursor-pointer">
                                         <div
                                             class="box relative duration-300 w-4 aspect-square shrink-0 bg-white rounded-0.75 border border-solid border-[#8AA5D3]/30 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:w-65/100 before:aspect-square before:rounded-0.5 before:bg-main-700 before:duration-300 before:pointer-events-none before:opacity-0 peer-hover:border-main-700 peer-checked:border-main-700 peer-checked:before:opacity-100">
@@ -303,8 +304,9 @@
                 <div class="content-wrapper">
                     <div
                         class="heading-wrapper flex items-center justify-between sm:flex-col sm:gap-4 gap-7.5 px-2 mb-5">
-                        <div class="text font-medium text-tertiary-950 text-3.5 sm:text-center"><strong>“Pendik Satılık
-                                Arsa”</strong> aramanızda <strong>343</strong> ilan bulundu.</div>
+                        <div class="text font-medium text-tertiary-950 text-3.5 sm:text-center"><strong>
+                            "<span x-text="selectedTownName"></span> Satılık Arsa”
+                            </strong> aramanızda <strong>{{ $portfolios->total() }}</strong> ilan bulundu.</div>
                         <div class="tools-wrapper">
                             <div class="view-wrapper flex items-center gap-3">
                                 <div class="text text-3 font-medium text-[#6D6D6D]">Görünüm</div>
@@ -349,7 +351,7 @@
 
 
                                                 <div class="swiper-slide">
-                                                    <a href="portfolio-detail.html"
+                                                    <a href="{{ route('frontend.portfolio.show',$portfolio) }}"
                                                         class="image group block aspect-[36/25] overflow-hidden isolate translate-z-0"><img
                                                             class="full-cover group-hover:scale-105 duration-450 translate-z-0 pointer-events-none"
                                                             src="{{ $image->full_url }}" alt="" loading="lazy"></a>
@@ -383,7 +385,7 @@
 </span>
                                             </div>
                                         </div>
-                                        <a href="portfolio-detail.html"
+                                        <a href="{{ route('frontend.portfolio.show',$portfolio)}}"
                                             class="title text-4.5 leading-tight text-tertiary-950 hover:text-main-700 duration-300 font-semibold mb-4 xl:mb-5 md:mb-4 block capitalize">
 
                                         {{ $portfolio->title }}
@@ -444,7 +446,7 @@
 
                                     @foreach($portfolio->images as $image)
                                             <div class="swiper-slide">
-                                                <a href="portfolio-detail.html" class="image group block aspect-[36/25] overflow-hidden isolate translate-z-0"><img
+                                                <a href="{{ route('frontend.portfolio.show',$portfolio) }}" class="image group block aspect-[36/25] overflow-hidden isolate translate-z-0"><img
                                                         class="full-cover group-hover:scale-105 duration-450 translate-z-0 pointer-events-none"
                                                         src="{{ $image->full_url }}" alt="" loading="lazy"></a>
                                             </div>
@@ -478,7 +480,7 @@
                                                                 $portfolio->district->town->name }} , {{ $portfolio->district->name }}
                                                             </div>
                                 </div>
-                                <a href="portfolio-detail.html"
+                                <a href="{{ route('frontend.portfolio.show',$portfolio) }}"
                                     class="title text-4.5 leading-tight text-tertiary-950 hover:text-main-700 duration-300 font-semibold mb-4 xl:mb-5 md:mb-4 block capitalize">{{ $portfolio->title }}</a>
                             <div   div class="price text-[#2675FA] font-semibold text-5 lg:text-4.5 md:text-4">
                             {{ $portfolio->price_in_tl }} TL

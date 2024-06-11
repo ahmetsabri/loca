@@ -18,6 +18,10 @@ class Portfolio extends Model
 
     public $translatable = ['title', 'description'];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
     public function images()
     {
         return $this->morphMany(Image::class, 'imageable');
@@ -77,6 +81,11 @@ class Portfolio extends Model
         return $builder->where('town_id', $val);
     }
 
+    public function scopeCategory(Builder $builder, $val)
+    {
+        return $builder->where('category_id', $val);
+    }
+
     public function scopeMinPrice(Builder $builder, $val = 0)
     {
         $allowedPrices = ['tl', 'eur', 'usd'];
@@ -111,5 +120,17 @@ class Portfolio extends Model
        public function scopeSearch(Builder $builder, $val)
        {
            return $builder->where('title->tr', 'like', '%'. $val .'%');
+       }
+
+       public function getBrochureFullUrlAttribute(): ?string
+       {
+           return $this->brochure_path ? asset('storage/' . $this->brochure_path) : null;
+       }
+
+       public function getPriceAttribute()
+       {
+           // TODO:check selected price and show it
+
+           return $this->price_in_tl;
        }
 }

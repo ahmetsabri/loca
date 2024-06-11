@@ -23,6 +23,7 @@ class PortfolioController extends Controller
         )->allowedFilters([
             AllowedFilter::scope('province'),
             AllowedFilter::scope('town'),
+            AllowedFilter::scope('category'),
             AllowedFilter::scope('min_price'),
             AllowedFilter::scope('max_price'),
             AllowedFilter::scope('info'),
@@ -35,5 +36,11 @@ class PortfolioController extends Controller
         $filters = Info::has('portfolioValues')->where('filterable', true)->get();
 
         return view('frontend.portfolio.index', compact('portfolios', 'rootCategories', 'provinces', 'filters'));
+    }
+
+    public function show(Portfolio $portfolio)
+    {
+        $randomPortfolios = Portfolio::inRandomOrder()->with('images', 'category.rootAncestor', 'district.town.province')->limit(3)->where('id', '<>', $portfolio->id)->get();
+        return view('frontend.portfolio.show', compact('portfolio', 'randomPortfolios'));
     }
 }

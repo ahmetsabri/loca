@@ -580,7 +580,7 @@
                             <div class="swiper-wrapper !h-auto">
                                 @foreach($portfolio->images as $image)
                                         <div class="swiper-slide">
-                                            <a href="portfolio-detail.html"
+                                            <a href="{{ route('frontend.portfolio.show',$portfolio) }}"
                                                 class="image group block aspect-[36/25] overflow-hidden isolate translate-z-0"><img
                                                     class="full-cover group-hover:scale-105 duration-450 translate-z-0 pointer-events-none"
                                                     src="{{ $image->full_url }}" alt="" loading="lazy"></a>
@@ -611,7 +611,7 @@
                             <div class=" text-3.5 font-medium text-tertiary-950/40 capitalize">{{ $portfolio->district->town->province->name }}/{{ $portfolio->district->town->name }} , {{ $portfolio->district->name }}
                             </div>
                         </div>
-                        <a href="portfolio-detail.html"
+                        <a href="{{ route('frontend.portfolio.show',$portfolio) }}"
                             class="title text-4.5 leading-tight text-tertiary-950 hover:text-main-700 duration-300 font-semibold mb-4 xl:mb-5 md:mb-4 block capitalize">{{ $portfolio->title }}</a>
                         <div class="price text-[#2675FA] font-semibold text-5 lg:text-4.5 md:text-4">
                                 {{ $portfolio->price_in_tl }} TL

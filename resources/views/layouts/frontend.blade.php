@@ -463,7 +463,7 @@
                     <div class="brand-wrapper max-w-40 grid gap-6 md:max-w-none md:w-full">
                         <a href="{{ route('home') }}" class="w-full h-auto md:max-w-40 md:mx-auto"><img
                                 class="w-full h-auto object-contain object-center block"
-                                src="{{ asset('image/static/4.webp') }}" alt="" loading="lazy"></a>
+                                src="{{ asset('image/static/2.webp') }}" alt="" loading="lazy"></a>
                         <a href="loca-tv.html"
                             class="button group/button relative duration-300 flex items-center justify-center gap-3 h-14 bg-[#34425A] px-3 rounded-2 hover:bg-main-900 sm:w-ful">
                             <span class="text text-white font-medium text-6">LOCA</span>
