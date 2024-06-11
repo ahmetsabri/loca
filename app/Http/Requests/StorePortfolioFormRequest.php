@@ -16,11 +16,11 @@ class StorePortfolioFormRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string'],
-            'email' => ['required', 'string','email'],
+            'email' => ['required', 'string', 'email'],
             'phone' => ['required', 'string'],
             'message' => ['required', 'string'],
             'type' => ['required', 'string'],
-            'portfolio_id' => ['required','exists:portfolios,id']
+            'portfolio_id' => ['required', 'exists:portfolios,id'],
         ];
     }
 

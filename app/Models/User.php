@@ -54,6 +54,6 @@ class User extends Authenticatable
 
     public function getWpUrlAttribute()
     {
-        return 'https://api.whatsapp.com/send/?phone=' . $this->phone;
+        return 'https://api.whatsapp.com/send/?phone='.$this->phone;
     }
 }

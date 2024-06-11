@@ -41,6 +41,7 @@ class PortfolioController extends Controller
     public function show(Portfolio $portfolio)
     {
         $randomPortfolios = Portfolio::inRandomOrder()->with('images', 'category.rootAncestor', 'district.town.province')->limit(3)->where('id', '<>', $portfolio->id)->get();
+
         return view('frontend.portfolio.show', compact('portfolio', 'randomPortfolios'));
     }
 }

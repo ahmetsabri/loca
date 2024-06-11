@@ -22,6 +22,7 @@ class Portfolio extends Model
     {
         return $this->belongsTo(User::class);
     }
+
     public function images()
     {
         return $this->morphMany(Image::class, 'imageable');
@@ -107,6 +108,7 @@ class Portfolio extends Model
         if (collect($val)->flatten()->count() == 2) {
             return $builder;
         }
+
         return $builder->whereHas('infos', function ($query) use ($val) {
             foreach ($val as $index => $value) {
                 if ($index == 0) {
@@ -117,20 +119,20 @@ class Portfolio extends Model
         });
     }
 
-       public function scopeSearch(Builder $builder, $val)
-       {
-           return $builder->where('title->tr', 'like', '%'. $val .'%');
-       }
+    public function scopeSearch(Builder $builder, $val)
+    {
+        return $builder->where('title->tr', 'like', '%'.$val.'%');
+    }
 
-       public function getBrochureFullUrlAttribute(): ?string
-       {
-           return $this->brochure_path ? asset('storage/' . $this->brochure_path) : null;
-       }
+    public function getBrochureFullUrlAttribute(): ?string
+    {
+        return $this->brochure_path ? asset('storage/'.$this->brochure_path) : null;
+    }
 
-       public function getPriceAttribute()
-       {
-           // TODO:check selected price and show it
+    public function getPriceAttribute()
+    {
+        // TODO:check selected price and show it
 
-           return $this->price_in_tl;
-       }
+        return $this->price_in_tl;
+    }
 }
