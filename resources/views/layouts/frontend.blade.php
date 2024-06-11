@@ -9,6 +9,7 @@
     <script type="module" src="{{ asset('script/script.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('style/style.css') }}">
     <link rel="stylesheet" href="{{ asset('style/utils.css') }}">
+    @vite(['resources/js/app.js'])
 </head>
 
 <body

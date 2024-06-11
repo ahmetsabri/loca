@@ -9,6 +9,7 @@
         "laravel/breeze": "^2.0",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
+        "spatie/laravel-query-builder": "^6.0",
         "spatie/laravel-translatable": "^6.7",
         "staudenmeir/laravel-adjacency-list": "^1.0"
     },

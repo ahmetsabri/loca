@@ -18,13 +18,22 @@ class Info extends Model
 
     public function getUsedValuesAttribute()
     {
-        if (!$this->filterable) {
+        if (! $this->filterable) {
             return null;
         }
-        return DB::table(
+
+        $values = DB::table(
             'portfolio_infos'
         )
             ->selectRaw("DISTINCT(JSON_UNQUOTE(JSON_EXTRACT(`value`, '$.tr'))) as val")
+            ->where('info_id', $this->id)
             ->get();
+
+        return $values->isEmpty() ? null : $values;
+    }
+
+    public function portfolioValues()
+    {
+        return $this->hasMany(PortfolioInfo::class);
     }
 }

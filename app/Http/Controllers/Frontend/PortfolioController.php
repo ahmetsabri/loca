@@ -4,21 +4,36 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Info;
 use App\Models\Portfolio;
+use App\Models\Province;
+use Spatie\QueryBuilder\AllowedFilter;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class PortfolioController extends Controller
 {
     public function index()
     {
-        $portfolios = Portfolio::with(
+        // dd(request('filter.info'));
+        $portfolios = QueryBuilder::for(Portfolio::class)->with(
             'infos',
             'images',
             'category.rootAncestor',
             'district.town.province'
-        )->paginate();
+        )->allowedFilters([
+            AllowedFilter::scope('province'),
+            AllowedFilter::scope('town'),
+            AllowedFilter::scope('min_price'),
+            AllowedFilter::scope('max_price'),
+            AllowedFilter::scope('info'),
+            AllowedFilter::scope('search'),
+        ])->paginate();
 
         $rootCategories = Category::isRoot()->with('children.children')->get();
+        $provinces = Province::all();
 
-        return view('frontend.portfolio.index', compact('portfolios', 'rootCategories'));
+        $filters = Info::has('portfolioValues')->where('filterable', true)->get();
+
+        return view('frontend.portfolio.index', compact('portfolios', 'rootCategories', 'provinces', 'filters'));
     }
 }

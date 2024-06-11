@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Translatable\HasTranslations;
 
@@ -64,4 +66,50 @@ class Portfolio extends Model
             $portfolio->user_id = auth()->id();
         });
     }
+
+    public function scopeProvince(Builder $builder, $val)
+    {
+        return $builder->where('province_id', $val);
+    }
+
+    public function scopeTown(Builder $builder, $val)
+    {
+        return $builder->where('town_id', $val);
+    }
+
+    public function scopeMinPrice(Builder $builder, $val = 0)
+    {
+        $allowedPrices = ['tl', 'eur', 'usd'];
+        $col = in_array(request('filter.currency'), $allowedPrices) ? request('filter.currency') : 'tl';
+
+        return $builder->where("price_in_{$col}", '>=', $val);
+    }
+
+    public function scopeMaxPrice(Builder $builder, $val = 0)
+    {
+        $allowedPrices = ['tl', 'eur', 'usd'];
+        $col = in_array(request('filter.currency'), $allowedPrices) ? request('filter.currency') : 'tl';
+
+        return $builder->where("price_in_{$col}", '<=', $val);
+    }
+
+    public function scopeInfo(Builder $builder, ...$val)
+    {
+        if (collect($val)->flatten()->count() == 2) {
+            return $builder;
+        }
+        return $builder->whereHas('infos', function ($query) use ($val) {
+            foreach ($val as $index => $value) {
+                if ($index == 0) {
+                    $query->whereIn('value->tr', Arr::except($value, 'id'))->where('info_id', $value['id'] ?? null);
+                }
+                $query->orWhereIn('value->tr', Arr::except($value, 'id'))->where('info_id', $value['id'] ?? null);
+            }
+        });
+    }
+
+       public function scopeSearch(Builder $builder, $val)
+       {
+           return $builder->where('title->tr', 'like', '%'. $val .'%');
+       }
 }
