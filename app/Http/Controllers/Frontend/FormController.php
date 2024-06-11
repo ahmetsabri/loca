@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreContactFormRequest;
 use App\Http\Requests\StoreJobFormRequest;
 use App\Http\Requests\StorePortfolioFormRequest;
 use App\Http\Requests\StoreProjectFormRequest;
 use App\Models\Form;
-
-use App\Http\Controllers\Controller;
 
 class FormController extends Controller
 {
@@ -39,6 +38,7 @@ class FormController extends Controller
 
         return back()->with('success', 'success');
     }
+
     public function storeJobForm(StoreJobFormRequest $request)
     {
         $attachment = $request->file('attachment')->store('jobs/cv', ['disk' => 'public']);

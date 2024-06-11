@@ -17,7 +17,6 @@ class PortfolioController extends Controller
             'district.town.province'
         )->paginate();
 
-
         $rootCategories = Category::isRoot()->with('children.children')->get();
 
         return view('frontend.portfolio.index', compact('portfolios', 'rootCategories'));

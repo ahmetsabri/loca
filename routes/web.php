@@ -24,7 +24,6 @@ Route::post('project-form', [FormController::class, 'storeProjectForm'])->name('
 Route::post('portfolio-form', [FormController::class, 'storePortfolioForm'])->name('form.portfolio');
 Route::post('job-form', [FormController::class, 'storeJobForm'])->name('form.job');
 
-
 Route::view('dashboard', 'dashboard')->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -95,7 +94,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/', [JobApplicationController::class, 'index'])->name('job_application.index');
         Route::get('{jobApplication}/delete', [JobApplicationController::class, 'destroy'])->name('job_application.delete');
     });
-
 
     Route::prefix('forms')->group(function () {
         Route::get('/', [SubmittedFormController::class, 'index'])->name('form.index');

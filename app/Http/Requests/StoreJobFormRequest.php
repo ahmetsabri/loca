@@ -18,7 +18,7 @@ class StoreJobFormRequest extends FormRequest
             'name' => ['required', 'string'],
             'email' => ['required', 'string'],
             'phone' => ['required', 'string'],
-            'attachment' => ['required','file','mimes:pdf'],
+            'attachment' => ['required', 'file', 'mimes:pdf'],
             'type' => ['required', 'string'],
         ];
     }

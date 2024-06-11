@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use Spatie\Translatable\HasTranslations;
 
 class Info extends Model
@@ -14,4 +15,16 @@ class Info extends Model
     protected $guarded = [];
 
     public $translatable = ['name'];
+
+    public function getUsedValuesAttribute()
+    {
+        if (!$this->filterable) {
+            return null;
+        }
+        return DB::table(
+            'portfolio_infos'
+        )
+            ->selectRaw("DISTINCT(JSON_UNQUOTE(JSON_EXTRACT(`value`, '$.tr'))) as val")
+            ->get();
+    }
 }
