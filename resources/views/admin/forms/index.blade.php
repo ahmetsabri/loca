@@ -58,6 +58,9 @@ window.location.href=url
                     {{__('attachment')}}
                 </th>
                 <th scope="col" class="px-6 py-3 text-center">
+                    {{__('created_at')}}
+                </th>
+                <th scope="col" class="px-6 py-3 text-center">
                     {{__('actions')}}
                 </th>
 
@@ -96,6 +99,9 @@ window.location.href=url
                    -
                    @endif
                 </td>
+                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    {{$form->created_at->diffForHumans() ?? '-'}}
+                                </td>
                 <td scope="row" class=" px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     <button @click="deleteForm(`{{route('form.delete',$form)}}`)" type="button"
                         class="px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">{{__('delete')}}</button>

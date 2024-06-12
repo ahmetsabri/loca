@@ -11,7 +11,9 @@ class SubmittedFormController extends Controller
 {
     public function index(Request $request)
     {
-        $forms = Form::where('type', $request->query('type', FormTypeEnum::CONTACT->value))
+        $forms = Form::when($request->filled('type'), function ($query) use ($request) {
+            $query->where('type', $request->query('type', FormTypeEnum::CONTACT->value));
+        })
             ->with('project', 'portfolio')
             ->latest()
             ->paginate(30);
