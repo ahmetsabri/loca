@@ -1,0 +1,138 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Storage;
+use Spatie\Translatable\HasTranslations;
+
+class Portfolio extends Model
+{
+    use HasFactory;
+    use HasTranslations;
+
+    protected $guarded = [];
+
+    public $translatable = ['title', 'description'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+
+    public function infos()
+    {
+        return $this->hasMany(PortfolioInfo::class)->with('info');
+    }
+
+    public function features()
+    {
+        return $this->hasMany(PortfolioFeature::class)->with('feature');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class)->with('ancestors');
+    }
+
+    public function province()
+    {
+        return $this->belongsTo(Province::class);
+    }
+
+    public function town()
+    {
+        return $this->belongsTo(Town::class);
+    }
+
+    public function district()
+    {
+        return $this->belongsTo(District::class);
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+        static::deleting(function (self $portfolio) {
+            Storage::disk('public')->delete($portfolio->brochure_path);
+            $portfolio->images()->each(function ($image) {
+                $image->delete();
+            });
+        });
+        static::creating(function (self $portfolio) {
+            $portfolio->user_id = auth()->id();
+        });
+    }
+
+    public function scopeProvince(Builder $builder, $val)
+    {
+        return $builder->where('province_id', $val);
+    }
+
+    public function scopeTown(Builder $builder, $val)
+    {
+        return $builder->where('town_id', $val);
+    }
+
+    public function scopeCategory(Builder $builder, $val)
+    {
+        return $builder->where('category_id', $val);
+    }
+
+    public function scopeMinPrice(Builder $builder, $val = 0)
+    {
+        $allowedPrices = ['tl', 'eur', 'usd'];
+        $col = in_array(request('filter.currency'), $allowedPrices) ? request('filter.currency') : 'tl';
+
+        return $builder->where("price_in_{$col}", '>=', $val);
+    }
+
+    public function scopeMaxPrice(Builder $builder, $val = 0)
+    {
+        $allowedPrices = ['tl', 'eur', 'usd'];
+        $col = in_array(request('filter.currency'), $allowedPrices) ? request('filter.currency') : 'tl';
+
+        return $builder->where("price_in_{$col}", '<=', $val);
+    }
+
+    public function scopeInfo(Builder $builder, ...$val)
+    {
+        if (collect($val)->flatten()->count() == 2) {
+            return $builder;
+        }
+
+        return $builder->whereHas('infos', function ($query) use ($val) {
+            foreach ($val as $index => $value) {
+                if ($index == 0) {
+                    $query->whereIn('value->tr', Arr::except($value, 'id'))->where('info_id', $value['id'] ?? null);
+                }
+                $query->orWhereIn('value->tr', Arr::except($value, 'id'))->where('info_id', $value['id'] ?? null);
+            }
+        });
+    }
+
+    public function scopeSearch(Builder $builder, $val)
+    {
+        return $builder->where('title->tr', 'like', '%'.$val.'%');
+    }
+
+    public function getBrochureFullUrlAttribute(): ?string
+    {
+        return $this->brochure_path ? asset('storage/'.$this->brochure_path) : null;
+    }
+
+    public function getPriceAttribute()
+    {
+        // TODO:check selected price and show it
+
+        return $this->price_in_tl;
+    }
+}

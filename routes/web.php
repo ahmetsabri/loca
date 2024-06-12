@@ -1,20 +1,111 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CountryController;
+use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\Frontend\FormController;
+use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\PortfolioController as FrontendPortfolioController;
+use App\Http\Controllers\Frontend\ProjectController as FrontendProjectController;
+use App\Http\Controllers\InfoController;
+use App\Http\Controllers\JobApplicationController;
+use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\SubmittedFormController;
+use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('portfolios', [FrontendPortfolioController::class, 'index'])->name('portfolios');
+Route::get('portfolio/{portfolio}', [FrontendPortfolioController::class, 'show'])->name('frontend.portfolio.show');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('projects', [FrontendProjectController::class, 'index'])->name('projects');
+Route::get('project/{project}', [FrontendProjectController::class, 'show'])->name('frontend.project.show');
 
-Route::middleware('auth')->group(function () {
+Route::view('contact', 'frontend.contact')->name('contact');
+Route::post('contact-form', [FormController::class, 'storeContactForm'])->name('form.contact');
+Route::post('project-form', [FormController::class, 'storeProjectForm'])->name('form.project');
+Route::post('portfolio-form', [FormController::class, 'storePortfolioForm'])->name('form.portfolio');
+Route::post('job-form', [FormController::class, 'storeJobForm'])->name('form.job');
+
+Route::view('dashboard', 'dashboard')->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
 
+    Route::prefix('category')->group(function () {
+        Route::get('/', [CategoryController::class, 'index'])->name('category.index');
+        Route::post('/', [CategoryController::class, 'store'])->name('category.store');
+        Route::get('/{category}', [CategoryController::class, 'show'])->name('category.show');
+        Route::post('/{category}', [CategoryController::class, 'update'])->name('category.update');
+        Route::get('{category}/delete', [CategoryController::class, 'destroy'])->name('category.delete');
+    });
+
+    Route::prefix('info')->group(function () {
+        Route::get('/', [InfoController::class, 'index'])->name('info.index');
+        Route::post('/', [InfoController::class, 'store'])->name('info.store');
+        Route::get('/{info}', [InfoController::class, 'show'])->name('info.show');
+        Route::post('/{info}', [InfoController::class, 'update'])->name('info.update');
+        Route::get('{info}/delete', [InfoController::class, 'destroy'])->name('info.delete');
+    });
+    Route::prefix('feature')->group(function () {
+        Route::get('/', [FeatureController::class, 'index'])->name('feature.index');
+        Route::post('/', [FeatureController::class, 'store'])->name('feature.store');
+        Route::get('/{feature}', [FeatureController::class, 'show'])->name('feature.show');
+        Route::post('/{feature}', [FeatureController::class, 'update'])->name('feature.update');
+        Route::get('{feature}/delete', [FeatureController::class, 'destroy'])->name('feature.delete');
+    });
+    Route::prefix('portfolio')->group(function () {
+        Route::get('/', [PortfolioController::class, 'index'])->name('portfolio.index');
+        Route::get('create', [PortfolioController::class, 'create'])->name('portfolio.create');
+        Route::post('/', [PortfolioController::class, 'store'])->name('portfolio.store');
+        Route::get('/{portfolio}', [PortfolioController::class, 'show'])->name('portfolio.show');
+        Route::get('/{portfolio}/edit', [PortfolioController::class, 'edit'])->name('portfolio.edit');
+        Route::post('/{portfolio}/update', [PortfolioController::class, 'update'])->name('portfolio.update');
+        Route::get('{portfolio}/delete', [PortfolioController::class, 'destroy'])->name('portfolio.delete');
+        Route::get('{portfolio}/image/{image}/delete', [PortfolioController::class, 'removeImage'])->name('image.delete');
+    });
+    Route::prefix('project')->group(function () {
+        Route::get('/', [ProjectController::class, 'index'])->name('project.index');
+        Route::get('create', [ProjectController::class, 'create'])->name('project.create');
+        Route::post('/', [ProjectController::class, 'store'])->name('project.store');
+        Route::get('/{project}', [ProjectController::class, 'show'])->name('project.show');
+        Route::get('/{project}/edit', [ProjectController::class, 'edit'])->name('project.edit');
+        Route::post('/{project}/update', [ProjectController::class, 'update'])->name('project.update');
+        Route::get('{project}/delete', [ProjectController::class, 'destroy'])->name('project.delete');
+        Route::get('{project}/image/{image}/delete', [ProjectController::class, 'removeImage'])->name('project.image.delete');
+    });
+
+    Route::prefix('department')->group(function () {
+        Route::get('/', [DepartmentController::class, 'index'])->name('department.index');
+        Route::post('/', [DepartmentController::class, 'store'])->name('department.store');
+        Route::get('/{department}', [DepartmentController::class, 'show'])->name('department.show');
+        Route::post('/{department}', [DepartmentController::class, 'update'])->name('department.update');
+        Route::get('{department}/delete', [DepartmentController::class, 'destroy'])->name('department.delete');
+    });
+
+    Route::prefix('team')->group(function () {
+        Route::get('/', [TeamController::class, 'index'])->name('team.index');
+        Route::get('/create', [TeamController::class, 'create'])->name('team.create');
+        Route::post('/', [TeamController::class, 'store'])->name('team.store');
+        Route::get('/{user}', [TeamController::class, 'edit'])->name('team.edit');
+        Route::post('/{user}', [TeamController::class, 'update'])->name('team.update');
+        Route::get('{user}/delete', [TeamController::class, 'destroy'])->name('team.delete');
+    });
+    Route::prefix('job-application')->group(function () {
+        Route::get('/', [JobApplicationController::class, 'index'])->name('job_application.index');
+        Route::get('{jobApplication}/delete', [JobApplicationController::class, 'destroy'])->name('job_application.delete');
+    });
+
+    Route::prefix('forms')->group(function () {
+        Route::get('/', [SubmittedFormController::class, 'index'])->name('form.index');
+        Route::get('{form}', [SubmittedFormController::class, 'destroy'])->name('form.delete');
+    });
+});
+Route::get('towns/{province}', [CountryController::class, 'towns'])->name('province.towns');
+Route::get('districts/{town?}', [CountryController::class, 'districts'])->name('towns.districts');
 require __DIR__.'/auth.php';
