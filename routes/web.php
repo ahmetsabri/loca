@@ -7,6 +7,7 @@ use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\Frontend\FormController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\PortfolioController as FrontendPortfolioController;
+use App\Http\Controllers\Frontend\ProjectController as FrontendProjectController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\PortfolioController;
@@ -18,8 +19,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('portfolios', [FrontendPortfolioController::class, 'index'])->name('portfolios');
-
 Route::get('portfolio/{portfolio}', [FrontendPortfolioController::class, 'show'])->name('frontend.portfolio.show');
+
+Route::get('projects', [FrontendProjectController::class, 'index'])->name('projects');
+Route::get('project/{project}', [FrontendProjectController::class, 'show'])->name('frontend.project.show');
 
 Route::view('contact', 'frontend.contact')->name('contact');
 Route::post('contact-form', [FormController::class, 'storeContactForm'])->name('form.contact');

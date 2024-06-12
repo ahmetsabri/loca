@@ -163,7 +163,7 @@
                                 class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">Porföylerimiz</a>
                         </li>
                         <li class="group/li flex">
-                            <a href="projects.html"
+                            <a href="{{ route('projects') }}"
                                 class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">Projeler</a>
                         </li>
                         <li class="group/li flex">
@@ -202,7 +202,7 @@
                                 class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">Porföylerimiz</a>
                         </li>
                         <li class="group/li flex">
-                            <a href="projects.html"
+                            <a href="{{ route('projects') }}"
                                 class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">Projeler</a>
                         </li>
                         <li class="group/li flex">
@@ -490,7 +490,7 @@
                             <a href="portfolio-grid.html"
                                 class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">Porföylerimiz</span></a>
-                            <a href="projects.html"
+                            <a href="{{ route('projects') }}"
                                 class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">Projeler</span></a>
                             <a href="faq.html"
@@ -643,7 +643,7 @@
                 </div>
                 <div class="split w-full h-px bg-[#34425A]/75"></div>
                 <div class="copyright-wrapper py-7.5">
-                    <div class="text text-white text-3.5 font-medium sm:text-center">© 2024 Remax Loca</div>
+                    <div class="text text-white text-3.5 font-medium sm:text-center">© {{ date('Y') }} Remax Loca</div>
                 </div>
             </div>
         </footer>

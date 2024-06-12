@@ -14,7 +14,6 @@ class PortfolioController extends Controller
 {
     public function index()
     {
-        // dd(request('filter.info'));
         $portfolios = QueryBuilder::for(Portfolio::class)->with(
             'infos',
             'images',

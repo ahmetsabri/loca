@@ -33,7 +33,7 @@ class Project extends Model
 
     public function flats()
     {
-        return $this->hasMany(Flat::class);
+        return $this->hasMany(Flat::class)->with('features');
     }
 
     public function images()
@@ -73,4 +73,16 @@ class Project extends Model
 
         return $project->province->name.' / '.$project->town->name.' / '.$project->district->name;
     }
+
+        public function getPriceAttribute()
+        {
+            // TODO:check selected price and show it
+
+            return $this->price_in_tl;
+        }
+
+            public function getBrochureFullUrlAttribute(): ?string
+            {
+                return $this->brochure_path ? asset('storage/'.$this->brochure_path) : null;
+            }
 }
