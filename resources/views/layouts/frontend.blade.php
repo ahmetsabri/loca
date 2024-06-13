@@ -155,8 +155,8 @@
                                 class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">Hizmetlerimiz</a>
                         </li>
                         <li class="group/li flex">
-                            <a href="team.html"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">Ekibimiz</a>
+                            <a href="{{ route('frontend.team.index') }}"
+                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">{{ __('team') }}</a>
                         </li>
                         <li class="group/li flex">
                             <a href="{{ route('portfolios',['grid_type'=>'grid']) }}"
@@ -194,16 +194,16 @@
                                 class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">Hizmetlerimiz</a>
                         </li>
                         <li class="group/li flex">
-                            <a href="team.html"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">Ekibimiz</a>
+                            <a href="{{ route('frontend.team.index') }}"
+                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">{{ __('team') }}</a>
                         </li>
                         <li class="group/li flex">
                             <a href="{{ route('portfolios',['grid_type'=>'grid']) }}"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">Porföylerimiz</a>
+                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">{{ __('portfolios') }}</a>
                         </li>
                         <li class="group/li flex">
                             <a href="{{ route('projects') }}"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">Projeler</a>
+                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">{{ __('projects') }}</a>
                         </li>
                         <li class="group/li flex">
                             <a href="blog.html"
@@ -481,23 +481,23 @@
                             <a href="services.html"
                                 class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">Hizmetlerimiz</span></a>
-                            <a href="team.html"
+                            <a href="{{ route('frontend.team.index') }}"
                                 class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
-                                    class="draw-el">Ekibimiz</span></a>
+                                    class="draw-el">{{ __('team') }}</span></a>
                             <a href="career.html"
                                 class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">Kariyer</span></a>
                             <a href="portfolio-grid.html"
-                                class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
-                                    class="draw-el">Porföylerimiz</span></a>
+                                class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
+                                    class="draw-el">{{ __('portfolios') }}</span></a>
                             <a href="{{ route('projects') }}"
-                                class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
-                                    class="draw-el">Projeler</span></a>
+                                class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
+                                    class="draw-el">{{ __('projects') }}</span></a>
                             <a href="faq.html"
                                 class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">Sıkça Sorulan Sorular</span></a>
                             <a href="blog.html"
-                                class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
+                                class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">Blog</span></a>
                             <a href="{{ route('contact') }}"
                                 class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
@@ -762,199 +762,6 @@
                     talebi üzerine ilgili kişilerin erişimine sunulur.</p>
                 <p>Firma Adı<br>Adres: Mahalle Adı Sokak Adı. No: 1/A, 34444 İlçe Adı/İl Adı<br>Telefon: +90 216 555 55
                     55<br>E – Posta: mail@alanadi.com<br>Web Adresi: www.alanadi.com</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="popup-comment" class="hidden !bg-white !rounded-6 md:!rounded-3 !m-0 !p-0 !max-w-[620px] w-full">
-        <div class="inner w-full p-11 2xl:p-10 xl:p-8 lg:p-6">
-            <div class="heading flex items-center justify-between gap-7.5">
-                <div class="title text-4 font-medium text-[#2675FA]">Yorum Yapın/Değerlendirin</div>
-                <div
-                    class="custom-fancybox-close-button group cursor-pointer relative before:absolute before:w-7.5 before:aspect-square before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2">
-                    <div
-                        class="icon icon-cross text-3 h-3 block leading-none duration-300 text-tertiary-950 group-hover:rotate-90 group-hover:text-[#2675FA]">
-                    </div>
-                </div>
-            </div>
-            <div class="form-outer-wrapper mt-7.5">
-                <form action="">
-                    <div class="form-inner-wrapper grid grid-cols-2 sm:grid-cols-1 gap-5">
-                        <div class="form-el group/form w-full col-span-2 sm:col-span-1">
-                            <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                            <input type="text" placeholder="Adınız Soyadınız"
-                                class="w-full h-13 md:h-12 duration-300 rounded-3 px-5 bg-transparent placeholder:text-[#8AA5D3] text-tertiary-950 font-medium text-3.5 border border-solid border-[#E8F0FD] hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
-                            <div class="tooltip text-secondary-700 text-3 mt-2 hidden group-[&.error]/form:block">Lütfen
-                                ilgili alanı doldurunuz.</div>
-                        </div>
-                        <div class="form-el group/form w-full col-span-2 sm:col-span-1 px-2">
-                            <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                            <div class="custom-input relative flex items-center gap-2">
-                                <input type="checkbox"
-                                    class="opacity-0 absolute left-0 top-0 w-full h-full peer z-2 cursor-pointer">
-                                <div
-                                    class="box relative duration-300 w-4 aspect-square shrink-0 bg-bodyColor rounded-0.75 border border-solid border-[#8AA5D3]/30 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:w-65/100 before:aspect-square before:rounded-0.5 before:bg-main-700 before:duration-300 before:pointer-events-none before:opacity-0 peer-hover:border-main-700 peer-checked:border-main-700 peer-checked:before:opacity-100">
-                                </div>
-                                <div class="text text-[#6D6D6D] text-3.5 font-medium">Sayfada ismimi gizle</div>
-                            </div>
-                            <div class="tooltip text-secondary-700 text-3 mt-2 hidden group-[&.error]/form:block">Lütfen
-                                ilgili alanı doldurunuz.</div>
-                        </div>
-                        <div class="form-el group/form w-full">
-                            <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                            <input type="tel" placeholder="+90 (___) ___ __ __"
-                                class="w-full h-13 md:h-12 duration-300 rounded-3 px-5 bg-transparent placeholder:text-[#8AA5D3] text-tertiary-950 font-medium text-3.5 border border-solid border-[#E8F0FD] hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
-                            <div class="tooltip text-secondary-700 text-3 mt-2 hidden group-[&.error]/form:block">Lütfen
-                                ilgili alanı doldurunuz.</div>
-                        </div>
-                        <div class="form-el group/form w-full">
-                            <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                            <input type="email" placeholder="E-posta adresiniz"
-                                class="w-full h-13 md:h-12 duration-300 rounded-3 px-5 bg-transparent placeholder:text-[#8AA5D3] text-tertiary-950 font-medium text-3.5 border border-solid border-[#E8F0FD] hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
-                            <div class="tooltip text-secondary-700 text-3 mt-2 hidden group-[&.error]/form:block">Lütfen
-                                ilgili alanı doldurunuz.</div>
-                        </div>
-                        <div class="form-el group/form w-full col-span-2 sm:col-span-1">
-                            <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                            <textarea placeholder="Yorumunuz"
-                                class="w-full h-28 md:h-20 duration-300 rounded-3 p-5 bg-transparent placeholder:text-[#8AA5D3] text-tertiary-950 font-medium text-3.5 border border-solid border-[#E8F0FD] hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700"></textarea>
-                            <div class="tooltip text-secondary-700 text-3 mt-2 hidden group-[&.error]/form:block">Lütfen
-                                ilgili alanı doldurunuz.</div>
-                        </div>
-                        <div
-                            class="ratings col-span-2 sm:col-span-1 border border-solid border-[#E8F0FD] rounded-3 p-5">
-                            <div class="title text-[#224391] font-medium text-3.5 mb-5">Danışmanızı puanlayın</div>
-                            <div class="list">
-                                <div class="item">
-                                    <div
-                                        class="item flex items-center justify-between gap-7.5 sm:flex-col sm:items-start sm:gap-1.5">
-                                        <div class="title text-[#224391] text-3.5">Düzenli Bilgilendirme</div>
-                                        <div class="star-rating flex items-center gap-2">
-                                            <div
-                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                            </div>
-                                            <div
-                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                            </div>
-                                            <div
-                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                            </div>
-                                            <div
-                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                            </div>
-                                            <div
-                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                            </div>
-                                            <input type="hidden" value="5">
-                                        </div>
-                                    </div>
-                                    <div class="split h-px w-full bg-[#E8F0FD] my-2"></div>
-                                    <div
-                                        class="item flex items-center justify-between gap-7.5 sm:flex-col sm:items-start sm:gap-1.5">
-                                        <div class="title text-[#224391] text-3.5">Profesyonel Deneyim</div>
-                                        <div class="star-rating flex items-center gap-2">
-                                            <div
-                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                            </div>
-                                            <div
-                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                            </div>
-                                            <div
-                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                            </div>
-                                            <div
-                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                            </div>
-                                            <div
-                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                            </div>
-                                            <input type="hidden" value="5">
-                                        </div>
-                                    </div>
-                                    <div class="split h-px w-full bg-[#E8F0FD] my-2"></div>
-                                    <div
-                                        class="item flex items-center justify-between gap-7.5 sm:flex-col sm:items-start sm:gap-1.5">
-                                        <div class="title text-[#224391] text-3.5">Sektör Bilgisi</div>
-                                        <div class="star-rating flex items-center gap-2">
-                                            <div
-                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                            </div>
-                                            <div
-                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                            </div>
-                                            <div
-                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                            </div>
-                                            <div
-                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                            </div>
-                                            <div
-                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                            </div>
-                                            <input type="hidden" value="5">
-                                        </div>
-                                    </div>
-                                    <div class="split h-px w-full bg-[#E8F0FD] my-2"></div>
-                                    <div
-                                        class="item flex items-center justify-between gap-7.5 sm:flex-col sm:items-start sm:gap-1.5">
-                                        <div class="title text-[#224391] text-3.5">Güvenirlik</div>
-                                        <div class="star-rating flex items-center gap-2">
-                                            <div
-                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                            </div>
-                                            <div
-                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                            </div>
-                                            <div
-                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                            </div>
-                                            <div
-                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                            </div>
-                                            <div
-                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                            </div>
-                                            <input type="hidden" value="5">
-                                        </div>
-                                    </div>
-                                    <div class="split h-px w-full bg-[#E8F0FD] my-2"></div>
-                                    <div
-                                        class="item flex items-center justify-between gap-7.5 sm:flex-col sm:items-start sm:gap-1.5">
-                                        <div class="title text-[#224391] text-3.5">Diğer</div>
-                                        <div class="star-rating flex items-center gap-2">
-                                            <div
-                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                            </div>
-                                            <div
-                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                            </div>
-                                            <div
-                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                            </div>
-                                            <div
-                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                            </div>
-                                            <div
-                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                            </div>
-                                            <input type="hidden" value="5">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-el group/form w-full col-span-2 sm:col-span-1">
-                            <!-- Buraya `loading` classı gelince ilgili style değişiyor -->
-                            <button
-                                class="button group/button relative flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 after:absolute after:left-[calc(50%-13px)] xl:after:left-[calc(50%-12px)] md:after:left-[calc(50%-10px)] after:top-[calc(50%-13px)] xl:after:top-[calc(50%-12px)] md:after:top-[calc(50%-10px)] after:h-6.5 xl:after:h-6 md:after:h-5 after:aspect-square after:rounded-full after:border-0.5 after:border-solid after:border-white after:[clip-path:polygon(0%_0%,100%_0%,100%_50%,0%_50%)] after:opacity-0 after:duration-300 after:transition-opacity after:animate-spin group-[&.loading]/form:[&_.icon]:opacity-0 group-[&.loading]/form:[&_.text]:opacity-0 group-[&.loading]/form:after:opacity-100 group-[&.loading]/form:pointer-events-none h-13 md:h-12 w-fit mr-0 ml-auto px-8 sm:px-6 bg-secondary-700 hover:bg-secondary-600 text-white">
-
-                                <div
-                                    class="text whitespace-nowrap font-medium text-4 md:text-3.5 transition-opacity duration-300">
-                                    Gönder</div>
-                            </button>
-                        </div>
-                    </div>
-                </form>
             </div>
         </div>
     </section>

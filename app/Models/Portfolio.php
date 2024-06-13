@@ -84,7 +84,8 @@ class Portfolio extends Model
 
     public function scopeCategory(Builder $builder, $val)
     {
-        return $builder->where('category_id', $val);
+        $values = Category::find($val)->descendantsAndSelf->pluck('id') ?? [];
+        return $builder->whereIn('category_id', $values);
     }
 
     public function scopeMinPrice(Builder $builder, $val = 0)
@@ -124,6 +125,11 @@ class Portfolio extends Model
         return $builder->where('title->tr', 'like', '%'.$val.'%');
     }
 
+    public function scopeUserId(Builder $builder, $val)
+    {
+        return $builder->where('user_id', $val);
+    }
+
     public function getBrochureFullUrlAttribute(): ?string
     {
         return $this->brochure_path ? asset('storage/'.$this->brochure_path) : null;
@@ -134,5 +140,12 @@ class Portfolio extends Model
         // TODO:check selected price and show it
 
         return $this->price_in_tl;
+    }
+
+    public function getFullAddressAttribute(): string
+    {
+        $portfolio = $this->load('province', 'town', 'district');
+
+        return $portfolio->province->name.' / '.$portfolio->town->name.' / '.$portfolio->district->name;
     }
 }

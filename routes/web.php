@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\FeatureController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\Frontend\FormController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\PortfolioController as FrontendPortfolioController;
 use App\Http\Controllers\Frontend\ProjectController as FrontendProjectController;
+use App\Http\Controllers\Frontend\TeamController as FrontendTeamController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\PortfolioController;
@@ -23,12 +25,17 @@ Route::get('portfolio/{portfolio}', [FrontendPortfolioController::class, 'show']
 
 Route::get('projects', [FrontendProjectController::class, 'index'])->name('projects');
 Route::get('project/{project}', [FrontendProjectController::class, 'show'])->name('frontend.project.show');
+Route::get('teams', [FrontendTeamController::class, 'index'])->name('frontend.team.index');
+Route::get('team/{user}', [FrontendTeamController::class, 'show'])->name('frontend.user.show');
 
 Route::view('contact', 'frontend.contact')->name('contact');
 Route::post('contact-form', [FormController::class, 'storeContactForm'])->name('form.contact');
 Route::post('project-form', [FormController::class, 'storeProjectForm'])->name('form.project');
 Route::post('portfolio-form', [FormController::class, 'storePortfolioForm'])->name('form.portfolio');
 Route::post('job-form', [FormController::class, 'storeJobForm'])->name('form.job');
+
+Route::post('comment', [CommentController::class, 'store'])->name('comment.store');
+Route::get('comment/{user}', [CommentController::class, 'show'])->name('user.comments');
 
 Route::view('dashboard', 'dashboard')->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -104,6 +111,10 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::prefix('forms')->group(function () {
         Route::get('/', [SubmittedFormController::class, 'index'])->name('form.index');
         Route::get('{form}', [SubmittedFormController::class, 'destroy'])->name('form.delete');
+    });
+    Route::prefix('comments')->group(function () {
+        Route::post('{comment}/toggle', [CommentController::class, 'toggleStatus'])->name('comment.toggle');
+        Route::get('{comment}/delete', [CommentController::class, 'destroy'])->name('comment.delete');
     });
 });
 Route::get('towns/{province}', [CountryController::class, 'towns'])->name('province.towns');

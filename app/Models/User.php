@@ -13,7 +13,7 @@ class User extends Authenticatable
     use HasTranslations;
     use Notifiable;
 
-    public $translatable = ['bio'];
+    public $translatable = ['bio', 'title'];
 
     protected $guarded = [];
 
@@ -40,6 +40,11 @@ class User extends Authenticatable
     public function image()
     {
         return $this->morphOne(Image::class, 'imageable');
+    }
+
+    public function portfolios()
+    {
+        return $this->hasMany(Portfolio::class);
     }
 
     public function setExperienceAttribute($value)

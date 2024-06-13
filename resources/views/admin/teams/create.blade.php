@@ -20,18 +20,28 @@
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                         required />
                 </div>
+                @foreach(config('app.locales') as $locale)
+                        <div>
+                            <label for="team" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">{{
+                                __('title_'.$locale) }}</label>
+                            <input  type="text" name="title[{{ $locale }}]" id="team"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                required />
+                        </div>
+                        @endforeach
                 <div>
                     <label for="team" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('email') }}</label>
                     <input type="email" name="email" id="team"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                         required />
                 </div>
-                <div>
+                {{-- Gelecekte  kullanabiliriz --}}
+                {{-- <div>
                     <label for="team" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('password') }}</label>
                     <input type="password" name="password" id="team"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                         required />
-                </div>
+                </div> --}}
                 <div>
                     <label for="team" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('facebook') }}</label>
                     <input type="text" name="facebook_url" id="team"

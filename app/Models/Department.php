@@ -15,8 +15,8 @@ class Department extends Model
 
     public $translatable = ['name', 'description'];
 
-    public function teams()
+    public function users()
     {
-        return $this->hasMany(Team::class);
+        return $this->hasMany(User::class);
     }
 }

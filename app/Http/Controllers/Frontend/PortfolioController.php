@@ -26,6 +26,7 @@ class PortfolioController extends Controller
             AllowedFilter::scope('min_price'),
             AllowedFilter::scope('max_price'),
             AllowedFilter::scope('info'),
+            AllowedFilter::scope('user_id'),
             AllowedFilter::scope('search'),
         ])->paginate();
 

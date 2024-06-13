@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Enums\FormTypeEnum;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreJobFormRequest extends FormRequest
@@ -26,7 +27,12 @@ class StoreJobFormRequest extends FormRequest
     public function prepareForValidation()
     {
         $this->merge([
-            'type' => FormTypeEnum::PORTFOLIO->value,
+            'type' => FormTypeEnum::JOB->value,
         ]);
+    }
+
+    protected function failedValidation(Validator $validator)
+    {
+        dd($validator->errors()->all());
     }
 }
