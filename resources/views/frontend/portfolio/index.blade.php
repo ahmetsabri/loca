@@ -13,12 +13,13 @@
                                         this.loadTowns(`{{ route('province.towns',request('filter.province',1)) }}`)
                                     }
                                 },
-                                loadTowns(url){
-
+                                sortBy(url){
+                                    window.location.href=url
+                                },
+                       loadTowns(url){
                         const self = this
 
                         axios.get(url).then((res)=>{
-
                             self.towns = res.data.towns
                             self.selectedTownName = res.data.towns.filter(town => town.id == self.selectedTown)[0]?.name
                         }).catch((err)=>{
@@ -326,9 +327,12 @@
                                     <select
                                         class="peer duration-300 w-full block h-10 bg-white border border-solid border-[#8AA5D3]/15 rounded-2 px-5 text-3.5 font-semibold text-[#6D6D6D] hover:border-[#8AA5D3]/50 focus:border-[#8AA5D3]/50">
                                         <option value="" selected disabled>Sıralama</option>
-                                        <option value="Opsiyon1">Opsiyon1</option>
-                                        <option value="Opsiyon2">Opsiyon2</option>
-                                        <option value="Opsiyon3">Opsiyon3</option>
+                                        <option @selected(request('sort') == 'price_in_tl' ) @click="sortBy(`{{ request()->fullUrlWithQuery(['sort'=>'price_in_tl']) }}`)">
+                                            {{ __('low_price_first') }}</option>
+                                        <option @selected(request('sort') == '-price_in_tl' ) @click="sortBy(`{{ request()->fullUrlWithQuery(['sort'=>'-price_in_tl']) }}`)">
+                                            {{ __('high_price_first') }}</option>
+                                        <option @selected(request('sort') == 'created_at' ) @click="sortBy(`{{ request()->fullUrlWithQuery(['sort'=>'created_at']) }}`)">
+                                            {{ __('created_at') }}</option>
                                     </select>
                                     <div
                                         class="icon icon-chevron-bottom text-2 h-2 block leading-none duration-300 text-[#6D6D6D] pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 peer-focus:rotate-180">

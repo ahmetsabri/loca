@@ -43,6 +43,12 @@
                             <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="name"></div>
                         </div>
                             <div>
+                                <label for="ttype" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white capitalize">{{ __('ttype_no') }}</label>
+                                <input type="text" name="ttype_no" id="ttype"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                required />
+                            </div>
+                            <div>
                                 <label for="team" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('phone') }}</label>
                                 <input type="text" name="phone" id="team"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"

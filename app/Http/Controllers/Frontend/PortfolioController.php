@@ -28,6 +28,9 @@ class PortfolioController extends Controller
             AllowedFilter::scope('info'),
             AllowedFilter::scope('user_id'),
             AllowedFilter::scope('search'),
+        ])->allowedSorts([
+            'price_in_tl',
+            'created_at'
         ])->paginate();
 
         $rootCategories = Category::isRoot()->with('children.children')->get();

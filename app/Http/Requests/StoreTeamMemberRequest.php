@@ -23,6 +23,7 @@ class StoreTeamMemberRequest extends FormRequest
             'department_id' => ['required', Rule::exists('departments', 'id')],
             'bio' => ['required', 'array'],
             'title' => ['required', 'array'],
+            'ttype_no' => ['required'],
             'email' => ['required', 'email', Rule::unique('users', 'email')->ignore($this->user()->id)],
             'password' => ['required'],
             'facebook_url' => ['sometimes'],

@@ -31,7 +31,7 @@ class TeamController extends Controller
             AllowedFilter::scope('category'),
             AllowedFilter::scope('parent_category', 'category'),
 
-            ])->where('user_id', $user->id)->paginate();
+        ])->where('user_id', $user->id)->paginate();
 
         return view('frontend.team.show', compact('user', 'cateogries', 'portfolios'));
     }

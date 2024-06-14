@@ -19,7 +19,7 @@ class PortfolioController extends Controller
 {
     public function index()
     {
-        $portfolios = Portfolio::with('category.ancestorsAndSelf')->paginate();
+        $portfolios = Portfolio::with('category.ancestorsAndSelf')->latest()->paginate();
 
         return view('admin.portfolios.index', compact('portfolios'));
     }
@@ -85,14 +85,16 @@ class PortfolioController extends Controller
 
     public function edit(Portfolio $portfolio)
     {
-        $categories = Category::with('ancestors')->isLeaf()->hasParent()->get();
+        $categories = Category::with('ancestorsAndSelf')->isLeaf()->hasParent()->get();
         $infos = Info::all();
         $features = Feature::all();
         $portfolio = $portfolio->load('infos', 'features', 'province', 'town', 'district');
 
         $provinces = Province::all();
 
-        return view('admin.portfolios.update', compact('portfolio', 'categories', 'infos', 'features', 'provinces'));
+        $users = User::all();
+
+        return view('admin.portfolios.update', compact('portfolio', 'categories', 'infos', 'features', 'provinces', 'users'));
     }
 
     public function update(UpdatePortfolioRequest $request, Portfolio $portfolio)
