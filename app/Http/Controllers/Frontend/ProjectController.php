@@ -13,13 +13,13 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = QueryBuilder::for(Project::class)
-->allowedFilters([
-            AllowedFilter::scope('province'),
-            AllowedFilter::scope('town'),
-            AllowedFilter::scope('min_price'),
-            AllowedFilter::scope('max_price'),
-            AllowedFilter::scope('search'),
-        ])->paginate(9);
+            ->allowedFilters([
+                AllowedFilter::scope('province'),
+                AllowedFilter::scope('town'),
+                AllowedFilter::scope('min_price'),
+                AllowedFilter::scope('max_price'),
+                AllowedFilter::scope('search'),
+            ])->paginate(9);
         $provinces = Province::all();
 
         return view('frontend.project.index', compact('projects', 'provinces'));

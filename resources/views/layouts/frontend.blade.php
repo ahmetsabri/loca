@@ -70,15 +70,26 @@
                 </div>
                 <div class="language-wrapper relative group/wrapper hidden lg:block">
                     <div class="current cursor-pointer flex items-center justify-center gap-2 py-1 h-7.5">
+
                         <div
                             class="image-wrapper bg-white/5 self-stretch flex items-center px-1 rounded-1 group-hover/wrapper:bg-white/10 duration-300">
                             <img class="w-3.5 h-auto block pointer-events-none" src="{{ asset('image/static/4.webp') }}"
-                                alt="" loading="lazy"></div>
-                        <span class="text text-white text-3.5 font-medium">TUR</span>
+                                alt="" loading="lazy">
+                            </div>
+                        <span class="text text-white text-3.5 font-medium">
+                            @if(app()->getLocale() == 'en')
+                            ENG
+                            @elseif(app()->getLocale() == 'tr')
+                            TUR
+                            @else
+                            RUS
+                            @endif
+                        </span>
                         <div
                             class="icon icon-chevron-bottom text-2 h-2 block leading-none duration-300 text-white/55 group-hover/wrapper:text-white group-hover/wrapper:rotate-180">
                         </div>
                     </div>
+
                     <div
                         class="options bg-white duration-300 grid gap-1 p-2 rounded-2 absolute left-1/2 -translate-x-1/2 w-max min-w-full top-[calc(100%+8px)] before:absolute before:bottom-full before:left-0 before:w-full before:h-2 opacity-0 pointer-events-none scale-95 origin-top group-hover/wrapper:opacity-100 group-hover/wrapper:pointer-events-auto group-hover/wrapper:scale-100">
                         <a href="javascript:void(0)"
@@ -301,7 +312,15 @@
                 class="image-wrapper bg-white/5 self-stretch flex items-center px-1 rounded-1 group-hover/wrapper:bg-white/10 duration-300">
                 <img class="w-3.5 h-auto block pointer-events-none" src="{{asset('image/static/4.webp')}}" alt="" loading="lazy">
             </div>
-            <span class="text text-white text-3.5 font-medium">TUR</span>
+            <span class="text text-white text-3.5 font-medium">
+            @if(app()->getLocale() == 'en')
+            ENG
+            @elseif(app()->getLocale() == 'tr')
+            TUR
+            @else
+            RUS
+            @endif
+            </span>
             <div
                 class="icon icon-chevron-bottom text-2 h-2 block leading-none duration-300 text-white/55 group-hover/wrapper:text-white group-hover/wrapper:rotate-180">
             </div>
@@ -372,24 +391,26 @@
                                         loading="lazy">
                                 </div>
                                 <span
-                                    class="text text-tertiary-950 text-3.5 font-medium duration-300 min-lg:group-[&:not(.scroll-down)]/header:text-black">TUR</span>
+                                    class="text text-tertiary-950 text-3.5 font-medium duration-300 min-lg:group-[&:not(.scroll-down)]/header:text-black">
+
+                                </span>
                                 <div
                                     class="icon icon-chevron-bottom text-2 h-2 block leading-none duration-300 text-tertiary-950/55 group-hover/wrapper:text-tertiary-950 group-hover/wrapper:rotate-180 xl:hidden min-lg:group-[&:not(.scroll-down)]/header:text-white/50">
                                 </div>
                             </div>
                             <div
                                 class="options bg-white duration-300 grid gap-1 p-2 rounded-2 absolute left-1/2 -translate-x-1/2 w-max min-w-full top-[calc(100%+8px)] before:absolute before:bottom-full before:left-0 before:w-full before:h-2 opacity-0 pointer-events-none scale-95 origin-top group-hover/wrapper:opacity-100 group-hover/wrapper:pointer-events-auto group-hover/wrapper:scale-100">
-                                <a href="javascript:void(0)"
+                                <a href="{{ route('locale','tr') }}"
                                     class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none current">
                                     <img src="{{ asset('image/static/4.webp') }}" alt="" loading="lazy">
                                     <span class="text text-3.5 font-medium text-tertiary-950">TUR</span>
                                 </a>
-                                <a href="javascript:void(0)"
+                                <a href="{{ route('locale','en') }}"
                                     class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
                                     <img src="{{ asset('image/static/5.webp') }}" alt="" loading="lazy">
                                     <span class="text text-3.5 font-medium text-tertiary-950">ENG</span>
                                 </a>
-                                <a href="javascript:void(0)"
+                                <a href="{{ route('locale','ru') }}"
                                     class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
                                     <img src="{{ asset('image/static/6.webp') }}" alt="" loading="lazy">
                                     <span class="text text-3.5 font-medium text-tertiary-950">RUS</span>

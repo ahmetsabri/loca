@@ -12,6 +12,7 @@ use App\Http\Controllers\Frontend\ProjectController as FrontendProjectController
 use App\Http\Controllers\Frontend\TeamController as FrontendTeamController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\JobApplicationController;
+use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
@@ -38,10 +39,11 @@ Route::post('buy-sell-form', [FormController::class, 'storeBuySellForm'])->name(
 
 Route::post('comment', [CommentController::class, 'store'])->name('comment.store');
 Route::get('comment/{user}', [CommentController::class, 'show'])->name('user.comments');
+Route::get('locale/{locale}', LocaleController::class)->name('locale');
 
 Route::view('dashboard', 'dashboard')->middleware(['auth', 'verified'])->name('dashboard');
 Route::view('career', 'frontend.career')->name('career');
-Route::view('buy-sell', 'frontend.buy_sell', ['provinces'=>Province::all()])->name('buy_sell');
+Route::view('buy-sell', 'frontend.buy_sell', ['provinces' => Province::all()])->name('buy_sell');
 
 Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

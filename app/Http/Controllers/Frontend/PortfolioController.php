@@ -30,7 +30,7 @@ class PortfolioController extends Controller
             AllowedFilter::scope('search'),
         ])->allowedSorts([
             'price_in_tl',
-            'created_at'
+            'created_at',
         ])->paginate();
 
         $rootCategories = Category::isRoot()->with('children.children')->get();

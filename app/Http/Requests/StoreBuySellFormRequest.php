@@ -36,15 +36,15 @@ class StoreBuySellFormRequest extends FormRequest
         ];
     }
 
-        public function prepareForValidation()
-        {
-            $this->merge([
-                'type' => FormTypeEnum::BUY_SELL->value,
-            ]);
-        }
+    public function prepareForValidation()
+    {
+        $this->merge([
+            'type' => FormTypeEnum::BUY_SELL->value,
+        ]);
+    }
 
-           protected function failedValidation(Validator $validator)
-           {
-               dd($validator->errors()->all());
-           }
+    protected function failedValidation(Validator $validator)
+    {
+        dd($validator->errors()->all());
+    }
 }

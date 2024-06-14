@@ -87,13 +87,13 @@ class Project extends Model
         return $this->brochure_path ? asset('storage/'.$this->brochure_path) : null;
     }
 
-        public function scopeMinPrice(Builder $builder, $val = 0)
-        {
-            $allowedPrices = ['tl', 'eur', 'usd'];
-            $col = in_array(request('filter.currency'), $allowedPrices) ? request('filter.currency') : 'tl';
+    public function scopeMinPrice(Builder $builder, $val = 0)
+    {
+        $allowedPrices = ['tl', 'eur', 'usd'];
+        $col = in_array(request('filter.currency'), $allowedPrices) ? request('filter.currency') : 'tl';
 
-            return $builder->where("price_in_{$col}", '>=', $val);
-        }
+        return $builder->where("price_in_{$col}", '>=', $val);
+    }
 
     public function scopeMaxPrice(Builder $builder, $val = 0)
     {
@@ -103,15 +103,15 @@ class Project extends Model
         return $builder->where("price_in_{$col}", '<=', $val);
     }
 
-        public function scopeSearch(Builder $builder, $val)
-        {
-            return $builder->where('title->tr', 'like', '%'.$val.'%');
-        }
+    public function scopeSearch(Builder $builder, $val)
+    {
+        return $builder->where('title->tr', 'like', '%'.$val.'%');
+    }
 
-            public function scopeProvince(Builder $builder, $val)
-            {
-                return $builder->where('province_id', $val);
-            }
+    public function scopeProvince(Builder $builder, $val)
+    {
+        return $builder->where('province_id', $val);
+    }
 
     public function scopeTown(Builder $builder, $val)
     {

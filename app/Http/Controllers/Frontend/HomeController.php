@@ -14,6 +14,7 @@ class HomeController extends Controller
         $portfolios = Portfolio::with('infos', 'images', 'category.rootAncestor', 'district.town.province')->latest()->limit(6)->get();
         $rootCategories = Category::isRoot()->with('children.children')->get();
         $provinces = Province::all();
+
         return view('index', compact('portfolios', 'rootCategories', 'provinces'));
     }
 }
