@@ -10,6 +10,7 @@ use App\Models\Image;
 use App\Models\Info;
 use App\Models\Portfolio;
 use App\Models\Province;
+use App\Models\User;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -25,13 +26,14 @@ class PortfolioController extends Controller
 
     public function create()
     {
-        $categories = Category::with('ancestors')->isLeaf()->hasParent()->get();
+        $categories = Category::with('ancestorsAndSelf')->isLeaf()->hasParent()->get();
         $infos = Info::all();
         $features = Feature::all();
 
         $provinces = Province::all();
+        $users = User::all();
 
-        return view('admin.portfolios.create', compact('categories', 'infos', 'features', 'provinces'));
+        return view('admin.portfolios.create', compact('categories', 'infos', 'features', 'provinces', 'users'));
     }
 
     public function store(StorePortfolioRequest $request)

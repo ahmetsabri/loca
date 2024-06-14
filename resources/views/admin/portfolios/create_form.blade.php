@@ -33,6 +33,33 @@
                 </div>
 
                 <div class="w-full">
+                    <label for="net" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        net</label>
+                    <input type="number" name="net" id="net"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        placeholder="100" required>
+                </div>
+                <div class="w-full">
+                    <label for="gross" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        brüt
+                    </label>
+                    <input type="number" name="gross" id="net"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        placeholder="200" required>
+                </div>
+                <div>
+                                    <label for="province"
+                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white capitalize">kullancı</label>
+                                    <select id="user" name="user_id"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                        <option value="">kullancı</option>
+                                        @foreach($users as $user)
+                                        <option value="{{ $user->id }}">{{
+                                            $user->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                <div class="w-full">
                     <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">TL
                         Price</label>
                     <input type="number" name="price_in_tl" id="price"
