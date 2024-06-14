@@ -17,6 +17,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SubmittedFormController;
 use App\Http\Controllers\TeamController;
+use App\Models\Province;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -33,11 +34,14 @@ Route::post('contact-form', [FormController::class, 'storeContactForm'])->name('
 Route::post('project-form', [FormController::class, 'storeProjectForm'])->name('form.project');
 Route::post('portfolio-form', [FormController::class, 'storePortfolioForm'])->name('form.portfolio');
 Route::post('job-form', [FormController::class, 'storeJobForm'])->name('form.job');
+Route::post('buy-sell-form', [FormController::class, 'storeBuySellForm'])->name('form.buy_sell');
 
 Route::post('comment', [CommentController::class, 'store'])->name('comment.store');
 Route::get('comment/{user}', [CommentController::class, 'show'])->name('user.comments');
 
 Route::view('dashboard', 'dashboard')->middleware(['auth', 'verified'])->name('dashboard');
+Route::view('career', 'frontend.career')->name('career');
+Route::view('buy-sell', 'frontend.buy_sell', ['provinces'=>Province::all()])->name('buy_sell');
 
 Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

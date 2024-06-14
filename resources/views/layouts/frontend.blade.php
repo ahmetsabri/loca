@@ -246,9 +246,9 @@
                             <div class="text font-medium"><span class="draw-el">info@remaxloca.com</span></div>
                         </a>
                         <div class="split hidden lg:block w-full h-px bg-tertiary-950/10"></div>
-                        <a href="buy-sell-rent.html"
+                        <a href="{{ route('buy_sell') }}"
                             class="button group/button relative duration-300 flex items-center justify-center h-7.5 bg-main-900 px-3 rounded-2 hover:bg-tertiary-950">
-                            <span class="text text-white font-semibold text-3.5">AL, SAT KİRALA!</span>
+                            <span class="text text-white font-semibold text-3.5">{{ __('buy_sell') }}</span>
                         </a>
                         <div class="split hidden lg:block w-full h-px bg-tertiary-950/10"></div>
                         <div class="social-wrapper flex items-center justify-center gap-4.5">
@@ -289,9 +289,9 @@
                             class="icon icon-liked text-4 h-4 block leading-none duration-300 text-[#DC1C2E]  group-[&:not(.scroll-down):not(.menu-open)]/header:text-white absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover/button:opacity-100">
                         </div>
                     </a>
-                    <a href="buy-sell-rent.html"
+                    <a href="{{ route('buy_sell') }}"
                         class="button group/button relative duration-300 flex items-center h-7.5 bg-main-900 px-3 rounded-2 hover:bg-tertiary-950 lg:hidden">
-                        <span class="text text-white font-semibold text-3.5">AL, SAT KİRALA!</span>
+                        <span class="text text-white font-semibold text-3.5">{{ __('buy_sell') }}</span>
                     </a>
 
                     @if(\Route::currentRouteName() == 'home')

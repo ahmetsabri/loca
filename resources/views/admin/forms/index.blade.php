@@ -83,13 +83,14 @@ window.location.href=url
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     {{$form->email}}
                 </td>
+
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     {{$form->project?->title ?? '-'}}
                 </td>
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     {{$form->portfolio?->title ?? '-'}}
                 </td>
-                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-wrap dark:text-white">
                     {{$form->message ?? '-'}}
                 </td>
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">

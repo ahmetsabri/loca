@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreBuySellFormRequest;
 use App\Http\Requests\StoreContactFormRequest;
 use App\Http\Requests\StoreJobFormRequest;
 use App\Http\Requests\StorePortfolioFormRequest;
@@ -43,6 +44,13 @@ class FormController extends Controller
     {
         $attachment = $request->file('attachment')->store('jobs/cv', ['disk' => 'public']);
         Form::create($request->safe()->merge(compact('attachment'))->toArray());
+
+        return back()->with('success', 'success');
+    }
+
+    public function storeBuySellForm(StoreBuySellFormRequest $request)
+    {
+        Form::create($request->validated());
 
         return back()->with('success', 'success');
     }

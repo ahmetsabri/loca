@@ -8,4 +8,5 @@ enum FormTypeEnum: string
     case PROJECT = 'PROJECT';
     case PORTFOLIO = 'PORTFOLIO';
     case JOB = 'JOB';
+    case BUY_SELL = 'BUY_SELL';
 }
