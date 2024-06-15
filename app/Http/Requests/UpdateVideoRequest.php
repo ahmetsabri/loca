@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateVideoRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class UpdateVideoRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,13 @@ class UpdateVideoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'video_category_id' => ['required', Rule::exists('video_categories', 'id')],
+            'url'  => ['required','url'],
+            'title' => ['required', 'array'],
+            'title.tr' => ['required'],
+            'title.ru' => ['required'],
+            'title.en' => ['required'],
+
         ];
     }
 }

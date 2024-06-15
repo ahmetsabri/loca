@@ -186,7 +186,7 @@
                                 class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">İletişim</a>
                         </li>
                         <li class="group/li flex">
-                            <a href="loca-tv.html" class="flex items-center gap-2">
+                            <a href="{{ route('videos') }}" class="flex items-center gap-2">
                                 <span
                                     class="text text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">LOCA</span>
                                 <img class="w-6 h-auto object-contain object-center block pointer-events-none"
@@ -225,7 +225,7 @@
                                 class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">İletişim</a>
                         </li>
                         <li class="group/li flex">
-                            <a href="loca-tv.html" class="flex items-center gap-2">
+                            <a href="{{ route('videos') }}" class="flex items-center gap-2">
                                 <span
                                     class="text text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">LOCA</span>
                                 <img class="w-6 h-auto object-contain object-center block pointer-events-none"
@@ -485,7 +485,7 @@
                         <a href="{{ route('home') }}" class="w-full h-auto md:max-w-40 md:mx-auto"><img
                                 class="w-full h-auto object-contain object-center block"
                                 src="{{ asset('image/static/2.webp') }}" alt="" loading="lazy"></a>
-                        <a href="loca-tv.html"
+                        <a href="{{ route('videos') }}"
                             class="button group/button relative duration-300 flex items-center justify-center gap-3 h-14 bg-[#34425A] px-3 rounded-2 hover:bg-main-900 sm:w-ful">
                             <span class="text text-white font-medium text-6">LOCA</span>
                             <img class="w-7.5 h-auto object-contain object-center block pointer-events-none"

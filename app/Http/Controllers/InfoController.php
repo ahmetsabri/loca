@@ -30,7 +30,6 @@ class InfoController extends Controller
 
     public function destroy(Info $info)
     {
-        //TODO: DELETE ITS VALUES ALSO
         $info->delete();
 
         return back()->with('success', 'success');

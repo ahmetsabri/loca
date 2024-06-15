@@ -10,6 +10,7 @@ class Video extends Model
 {
     use HasFactory;
     use HasTranslations;
+    protected $guarded = [];
 
     public $translatable = ['title'];
 }

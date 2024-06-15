@@ -779,7 +779,7 @@
             </div>
             <div
                 class="tags flex items-center justify-center flex-wrap gap-x-10 2xl:gap-x-9 xl:gap-x-8 lg:gap-x-6 md:gap-x-4 gap-y-3 md:gap-y-2 mt-13 2xl:mt-11 xl:mt-9 lg:mt-7">
-                <a href="loca-tv.html" class="flex items-center gap-3 md:gap-2 group">
+                <a href="{{ route('videos') }}" class="flex items-center gap-3 md:gap-2 group">
                     <div
                         class="icon icon-check text-3.5 h-3.5 md:text-3 md:h-3 block leading-none duration-300 text-secondary-700">
                     </div>
@@ -787,7 +787,7 @@
                         class="text text-4.5 xl:text-4 md:text-3.5 font-medium text-tertiary-950 duration-300 group-hover:text-secondary-700">
                         LOCA KONUT</div>
                 </a>
-                <a href="loca-tv.html" class="flex items-center gap-3 md:gap-2 group">
+                <a href="{{ route('videos') }}" class="flex items-center gap-3 md:gap-2 group">
                     <div
                         class="icon icon-check text-3.5 h-3.5 md:text-3 md:h-3 block leading-none duration-300 text-secondary-700">
                     </div>
@@ -795,7 +795,7 @@
                         class="text text-4.5 xl:text-4 md:text-3.5 font-medium text-tertiary-950 duration-300 group-hover:text-secondary-700">
                         LOCA TİCARİ</div>
                 </a>
-                <a href="loca-tv.html" class="flex items-center gap-3 md:gap-2 group">
+                <a href="{{ route('videos') }}" class="flex items-center gap-3 md:gap-2 group">
                     <div
                         class="icon icon-check text-3.5 h-3.5 md:text-3 md:h-3 block leading-none duration-300 text-secondary-700">
                     </div>
@@ -803,7 +803,7 @@
                         class="text text-4.5 xl:text-4 md:text-3.5 font-medium text-tertiary-950 duration-300 group-hover:text-secondary-700">
                         LOCA REFERANS</div>
                 </a>
-                <a href="loca-tv.html" class="flex items-center gap-3 md:gap-2 group">
+                <a href="{{ route('videos') }}" class="flex items-center gap-3 md:gap-2 group">
                     <div
                         class="icon icon-check text-3.5 h-3.5 md:text-3 md:h-3 block leading-none duration-300 text-secondary-700">
                     </div>
@@ -811,7 +811,7 @@
                         class="text text-4.5 xl:text-4 md:text-3.5 font-medium text-tertiary-950 duration-300 group-hover:text-secondary-700">
                         LOCA VLOG</div>
                 </a>
-                <a href="loca-tv.html" class="flex items-center gap-3 md:gap-2 group">
+                <a href="{{ route('videos') }}" class="flex items-center gap-3 md:gap-2 group">
                     <div
                         class="icon icon-check text-3.5 h-3.5 md:text-3 md:h-3 block leading-none duration-300 text-secondary-700">
                     </div>
@@ -959,7 +959,7 @@
             </div>
         </div>
         <div class="wrapper max-w-1440 mx-auto w-full px-7.5">
-            <a href="loca-tv.html"
+            <a href="{{ route('videos') }}"
                 class="button group/button flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 h-14 md:h-12 w-fit mx-auto px-14 2xl:px-12 xl:px-10 lg:px-8 sm:px-6 bg-secondary-700 hover:bg-secondary-600 text-white">
 
                 <div class="text whitespace-nowrap font-medium text-4 md:text-3.5">Tüm Videoları Göster</div>

@@ -10,6 +10,7 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\PortfolioController as FrontendPortfolioController;
 use App\Http\Controllers\Frontend\ProjectController as FrontendProjectController;
 use App\Http\Controllers\Frontend\TeamController as FrontendTeamController;
+use App\Http\Controllers\Frontend\VideoController as FrontendVideoController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\LocaleController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SubmittedFormController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\VideoCategoryController;
+use App\Http\Controllers\VideoController;
 use App\Models\Province;
 use Illuminate\Support\Facades\Route;
 
@@ -45,7 +47,7 @@ Route::get('locale/{locale}', LocaleController::class)->name('locale');
 Route::view('dashboard', 'dashboard')->middleware(['auth', 'verified'])->name('dashboard');
 Route::view('career', 'frontend.career')->name('career');
 Route::view('buy-sell', 'frontend.buy_sell', ['provinces' => Province::all()])->name('buy_sell');
-
+Route::get('videos', [FrontendVideoController::class, 'index'])->name('videos');
 Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -129,8 +131,15 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::get('/', [VideoCategoryController::class,'index'])->name('index');
         Route::post('/{videoCategory}', [VideoCategoryController::class,'update'])->name('update');
         Route::get('/{videoCategory}/delete', [VideoCategoryController::class,'destroy'])->name('delete');
+    });
 
-        // Route::prefix('')
+
+    Route::prefix('video')->group(function () {
+        Route::get('/', [VideoController::class, 'index'])->name('video.index');
+        Route::post('/', [VideoController::class, 'store'])->name('video.store');
+        // Route::get('{video}', [VideoController::class, 'show'])->name('video.show');
+        Route::post('{video}', [VideoController::class, 'update'])->name('video.update');
+        Route::get('{video}/delete', [VideoController::class, 'destroy'])->name('video.delete');
     });
 });
 Route::get('towns/{province}', [CountryController::class, 'towns'])->name('province.towns');
