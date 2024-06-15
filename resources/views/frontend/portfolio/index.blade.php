@@ -471,7 +471,7 @@
                                     </div>
                                    <div
                                         class="tag absolute left-4 top-4 bg-tertiary-950/50 rounded-2 px-2 py-1.5 text-white text-3 font-medium leading-none z-5 capitalize">
-                                        {{ $portfolio->category->rootAncestor->name }}
+                                        {{ $portfolio->category?->rootAncestor?->name }}
                                     </div>
                                 </div>
                             </div>
