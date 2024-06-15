@@ -18,6 +18,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SubmittedFormController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\VideoCategoryController;
 use App\Models\Province;
 use Illuminate\Support\Facades\Route;
 
@@ -121,6 +122,15 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::prefix('comments')->group(function () {
         Route::post('{comment}/toggle', [CommentController::class, 'toggleStatus'])->name('comment.toggle');
         Route::get('{comment}/delete', [CommentController::class, 'destroy'])->name('comment.delete');
+    });
+
+    Route::prefix('video-category')->name('video_category.')->group(function () {
+        Route::post('/', [VideoCategoryController::class,'store'])->name('store');
+        Route::get('/', [VideoCategoryController::class,'index'])->name('index');
+        Route::post('/{videoCategory}', [VideoCategoryController::class,'update'])->name('update');
+        Route::get('/{videoCategory}/delete', [VideoCategoryController::class,'destroy'])->name('delete');
+
+        // Route::prefix('')
     });
 });
 Route::get('towns/{province}', [CountryController::class, 'towns'])->name('province.towns');
