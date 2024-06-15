@@ -127,12 +127,11 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     });
 
     Route::prefix('video-category')->name('video_category.')->group(function () {
-        Route::post('/', [VideoCategoryController::class,'store'])->name('store');
-        Route::get('/', [VideoCategoryController::class,'index'])->name('index');
-        Route::post('/{videoCategory}', [VideoCategoryController::class,'update'])->name('update');
-        Route::get('/{videoCategory}/delete', [VideoCategoryController::class,'destroy'])->name('delete');
+        Route::post('/', [VideoCategoryController::class, 'store'])->name('store');
+        Route::get('/', [VideoCategoryController::class, 'index'])->name('index');
+        Route::post('/{videoCategory}', [VideoCategoryController::class, 'update'])->name('update');
+        Route::get('/{videoCategory}/delete', [VideoCategoryController::class, 'destroy'])->name('delete');
     });
-
 
     Route::prefix('video')->group(function () {
         Route::get('/', [VideoController::class, 'index'])->name('video.index');

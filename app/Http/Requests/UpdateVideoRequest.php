@@ -24,7 +24,7 @@ class UpdateVideoRequest extends FormRequest
     {
         return [
             'video_category_id' => ['required', Rule::exists('video_categories', 'id')],
-            'url'  => ['required','url'],
+            'url' => ['required', 'url'],
             'title' => ['required', 'array'],
             'title.tr' => ['required'],
             'title.ru' => ['required'],

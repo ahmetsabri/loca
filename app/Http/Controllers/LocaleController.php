@@ -8,6 +8,7 @@ class LocaleController extends Controller
     {
         session(['locale' => $locale]);
         app()->setLocale($locale);
+
         return back();
     }
 }

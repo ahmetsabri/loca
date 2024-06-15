@@ -12,6 +12,7 @@ class VideoCategory extends Model
     use HasTranslations;
 
     protected $guarded = [];
+
     public $translatable = ['name'];
 
     public function videos()

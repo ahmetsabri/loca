@@ -14,11 +14,10 @@ class StoreVideoCategoryRequest extends FormRequest
         return true;
     }
 
-
     public function rules(): array
     {
         return [
-                        'name' => ['required', 'array'],
+            'name' => ['required', 'array'],
             'name.tr' => ['required'],
             'name.ru' => ['required'],
             'name.en' => ['required'],

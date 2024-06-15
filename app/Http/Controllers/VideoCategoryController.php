@@ -18,9 +18,9 @@ class VideoCategoryController extends Controller
     public function store(StoreVideoCategoryRequest $request)
     {
         $videoCategory = VideoCategory::create($request->validated());
+
         return back()->with('success', 'success');
     }
-
 
     /**
      * Update the specified resource in storage.
@@ -39,6 +39,7 @@ class VideoCategoryController extends Controller
     {
         $videoCategory->videos()->delete();
         $videoCategory->delete();
+
         return back()->with('success', 'success');
     }
 }
