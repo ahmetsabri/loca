@@ -11,7 +11,9 @@
                 <div class="wrapper max-w-1440 mx-auto w-full px-7.5">
                     <div class="text-editor !gap-2 md:text-center">
                         <!-- .text-editor içerisindeki style attribute değerleri frontendi tasarıma benzetmek adına eklenmiştir, backend aşamasında silinerek panel editöründen tanımlanmalıdır. -->
-                        <h2 style="color:#224391;"><strong>Bize <span style="color:#DB0620">Ulaşın</span></strong></h2>
+                        <h2 style="color:#224391;"><strong>
+                            {{ __('general.contact_us') }}
+                           </h2>
                     </div>
                 </div>
             </div>
@@ -45,8 +47,9 @@
                                             <div
                                                 class="icon icon-map-1 text-3 h-3 block leading-none duration-300 text-[#2675FA]">
                                             </div>
-                                            <div class="text text-white font-semibold text-3.5 tracking-wider">HARİTADA
-                                                GÖR</div>
+                                            <div class="text text-white font-semibold text-3.5 tracking-wider">
+                                                {{ __('general.directions') }}
+                                            </div>
                                         </a>
                                     </div>
                                 </div>
@@ -71,7 +74,7 @@
                                         class="icon icon-headset-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
                                     </div>
                                     <div class="text-wrapper">
-                                        <div class="title text-3 text-white">Müşteri Hizmetleri</div>
+                                        <div class="title text-3 text-white capitalize">{{ __('general.customer_services') }}</div>
                                         <div class="text text-white text-4 font-medium"><span class="draw-el">+90 (324)
                                                 325 30 30</span></div>
                                     </div>
@@ -82,7 +85,7 @@
                                         class="icon icon-cellphone-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
                                     </div>
                                     <div class="text-wrapper">
-                                        <div class="title text-3 text-white">Mobil Danışma 1</div>
+                                        <div class="title text-3 text-white capitalize">{{ __('general.phone') }} 1</div>
                                         <div class="text text-white text-4 font-medium"><span class="draw-el">+90 (532)
                                                 427 59 36</span></div>
                                     </div>
@@ -93,7 +96,7 @@
                                         class="icon icon-cellphone-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
                                     </div>
                                     <div class="text-wrapper">
-                                        <div class="title text-3 text-white">Mobil Danışma 2</div>
+                                        <div class="title text-3 text-white capitalize">{{ __('general.phone') }} 2</div>
                                         <div class="text text-white text-4 font-medium"><span class="draw-el">+90 (533)
                                                 140 36 29</span></div>
                                     </div>
@@ -126,8 +129,10 @@
                                             <div
                                                 class="icon icon-map-1 text-3 h-3 block leading-none duration-300 text-[#2675FA]">
                                             </div>
-                                            <div class="text text-white font-semibold text-3.5 tracking-wider">HARİTADA
-                                                GÖR</div>
+                                            <div class="text text-white font-semibold text-3.5 tracking-wider">
+
+                                             {{ __('general.directions') }}
+                                            </div>
                                         </a>
                                     </div>
                                 </div>
@@ -152,8 +157,10 @@
                                         class="icon icon-headset-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
                                     </div>
                                     <div class="text-wrapper">
-                                        <div class="title text-3 text-white">Müşteri Hizmetleri</div>
-                                        <div class="text text-white text-4 font-medium"><span class="draw-el">+90 (324)
+                                        <div class="title text-3 text-white capitalize">
+                                            {{ __('general.customer_services') }}
+                                        </div>
+                                        <div class="text text-white text-4   font-medium"><span class="draw-el">+90 (324)
                                                 325 30 30</span></div>
                                     </div>
                                 </a>
@@ -163,7 +170,7 @@
                                         class="icon icon-cellphone-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
                                     </div>
                                     <div class="text-wrapper">
-                                        <div class="title text-3 text-white">Mobil Danışma 1</div>
+                                        <div class="title text-3 text-white capitalize">{{ __('general.phone') }} 1</div>
                                         <div class="text text-white text-4 font-medium"><span class="draw-el">+90 (532)
                                                 427 59 36</span></div>
                                     </div>
@@ -174,7 +181,7 @@
                                         class="icon icon-cellphone-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
                                     </div>
                                     <div class="text-wrapper">
-                                        <div class="title text-3 text-white">Mobil Danışma 2</div>
+                                        <div class="title text-3 text-white capitalize">{{ __('general.phone') }} 2</div>
                                         <div class="text text-white text-4 font-medium"><span class="draw-el">+90 (533)
                                                 140 36 29</span></div>
                                     </div>
@@ -186,14 +193,15 @@
                 <div
                     class="form-wrapper bg-white rounded-6 md:!rounded-3 !rounded-tl-0 !rounded-bl-0 py-11 2xl:py-9 xl:py-7 px-16 2xl:px-12 xl:px-10 md:px-7.5 flex items-center">
                     <div class="inner max-w-[425px] md:max-w-none w-full mx-auto">
-                        <div class="title text-5 xl:text-4.5 lg:text-4 font-semibold text-tertiary-950 mb-5">Bize Yazın
+                        <div class="title text-5 xl:text-4.5 lg:text-4 font-semibold text-tertiary-950 mb-5">
+                            {{ __('general.contact_us') }}
                         </div>
                         <form action="{{ route('form.contact') }}" method="post">
                             @csrf
                             <div class="form-wrapper grid gap-3">
                                 <div class="form-el relative group/form w-full">
                                     <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                    <input required name="name" type="text" placeholder="Adınız Soyadınız"
+                                    <input required name="name" type="text" placeholder="{{ __('general.name') }}"
                                         class="w-full h-14 md:h-12 duration-300 rounded-4 md:rounded-3 px-7 md:px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
 
                             @error('name')
@@ -206,7 +214,7 @@
                                 </div>
                                 <div class="form-el relative group/form w-full">
                                     <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                    <input required name="email" type="email" placeholder="E-posta"
+                                    <input required name="email" type="email" placeholder="{{ __('general.email') }}"
                                         class="w-full h-14 md:h-12 duration-300 rounded-4 md:rounded-3 px-7 md:px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
 @error('email')
 
@@ -218,7 +226,7 @@
                                 </div>
                                 <div class="form-el relative group/form w-full">
                                     <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                    <input required name="phone" type="tel" placeholder="Telefon Numaranız"
+                                    <input required name="phone" type="tel"  placeholder="{{ __('general.phone') }}"
                                         class="w-full h-14 md:h-12 duration-300 rounded-4 md:rounded-3 px-7 md:px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
                                     @error('phone')
 
@@ -231,7 +239,7 @@
                                 </div>
                                 <div class="form-el group/form w-full">
                                     <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                    <textarea required name="message" placeholder="Mesajınız"
+                                    <textarea required name="message" placeholder="{{ __('general.message') }}"
                                         class="w-full h-28 md:h-20 duration-300 rounded-4 md:rounded-3 p-7 md:p-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700"></textarea>
                                   @error('message')
 

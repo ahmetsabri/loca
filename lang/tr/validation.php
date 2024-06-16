@@ -190,6 +190,15 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'email' => 'e-posta',
+        'title' => 'başlık',
+        'name' => 'ad',
+        'category' => 'kategori',
+        'price_in_tl' => 'tl fiyatı',
+        'price_in_usd' => 'dolar fiyatı',
+        'price_in_eur' => 'euro fiyatı',
+
+    ],
 
 ];

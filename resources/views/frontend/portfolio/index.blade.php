@@ -37,7 +37,8 @@
                     class="wrapper max-w-1440 mx-auto w-full px-7.5 relative z-2 grid gap-6 xl:gap-5 lg:gap-4 sm:gap-3">
                     <h1
                         class="title text-center font-semibold text-white text-11 2xl:text-10 xl:text-8 lg:text-7 md:text-6 sm:text-5.5 tracking-[0.15em] lg:tracking-widest sm:tracking-wider leading-tight">
-                        PORTFÖYLERİMİZ</h1>
+                        {{ __('general.portfolios') }}
+                    </h1>
                     <div
                         class="tags flex items-center justify-center flex-wrap gap-x-10 2xl:gap-x-9 xl:gap-x-8 lg:gap-x-6 md:gap-x-4 sm:gap-x-2 gap-y-2 md:gap-y-1.5 sm:gap-y-0.5">
                         <div
@@ -150,7 +151,7 @@
                                         <select name="filter[province]"
                                             class="peer w-full h-11 duration-300 rounded-2.5 px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-[#8AA5D3]/15 hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700 invalid:!text-[#6D6D6D]"
                                             >
-                                            <option value="" disabled selected>{{ __('province') }}</option>
+                                            <option value="" disabled selected>{{ __('general.province') }}</option>
 
                                             @foreach($provinces as $province)
                                             <option @selected($province->id == request('filter.province') ) @click="loadTowns(`{{ route('province.towns',$province) }}`)" value="{{ $province->id }}">{{
@@ -170,7 +171,10 @@
                                         <select name="filter[town]"
                                             class="peer w-full h-11 duration-300 rounded-2.5 px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-[#8AA5D3]/15 hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700 invalid:!text-[#6D6D6D]"
                                             >
-                                            <option value="" disabled selected>İlçe</option>
+                                            <option value="" disabled selected>
+
+                                                {{ __('general.town') }}
+                                            </option>
                                         <template x-for="town in towns">
                                     <option :selected="selectedTown == town.id" x-text="town.name" :value="town.id"></option>
                                 </template>
@@ -185,7 +189,8 @@
                                 </div>
                                     </div>
                                     <div class="price-wrapper mt-6">
-                                        <div class="title text-3.5 font-semibold text-tertiary-950 mb-4 px-3 capitalize">{{ __('price') }}</div>
+                                        <div class="title text-3.5 font-semibold text-tertiary-950 mb-4 px-3 capitalize">{{ __('general.price') }}
+                                        </div>
                                         <div
                                             class="custom-radio-group flex items-center gap-2 mb-2 xs:justify-center border border-solid border-[#8AA5D3]/15 rounded-2">
                                             <div class="custom-radio relative w-full">
@@ -296,7 +301,8 @@
                                 class="button group/button relative flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 after:absolute after:left-[calc(50%-13px)] xl:after:left-[calc(50%-12px)] md:after:left-[calc(50%-10px)] after:top-[calc(50%-13px)] xl:after:top-[calc(50%-12px)] md:after:top-[calc(50%-10px)] after:h-6.5 xl:after:h-6 md:after:h-5 after:aspect-square after:rounded-full after:border-0.5 after:border-solid after:border-white after:[clip-path:polygon(0%_0%,100%_0%,100%_50%,0%_50%)] after:opacity-0 after:duration-300 after:transition-opacity after:animate-spin group-[&.loading]/form:[&_.icon]:opacity-0 group-[&.loading]/form:[&_.text]:opacity-0 group-[&.loading]/form:after:opacity-100 group-[&.loading]/form:pointer-events-none h-16 xl:h-14 md:h-12 w-full px-8 sm:px-6 bg-secondary-700 hover:bg-secondary-600 text-white">
                                 <div
                                     class="text whitespace-nowrap font-medium text-4 md:text-3.5 transition-opacity duration-300">
-                                    Arama Yap</div>
+                                    {{ __('general.search') }}
+                                </div>
                                     </button>
 
                         </div>
@@ -350,10 +356,7 @@
                                         <div
                                             class="portfolio-images-carousel w-full relative swiper !h-auto shadow-s3 rounded-6 md:rounded-3 overflow-hidden isolate">
                                             <div class="swiper-wrapper !h-auto">
-
                                                 @foreach($portfolio->images as $image)
-
-
                                                 <div class="swiper-slide">
                                                     <a href="{{ route('frontend.portfolio.show',$portfolio) }}"
                                                         class="image group block aspect-[36/25] overflow-hidden isolate translate-z-0"><img
@@ -376,7 +379,7 @@
                                             </div>
                                             <div
                                                 class="tag absolute left-4 top-4 bg-tertiary-950/50 rounded-2 px-2 py-1.5 text-white text-3 font-medium leading-none z-5 capitalize">
-{{ $portfolio->category->rootAncestor->name }}
+{{ $portfolio->category?->rootAncestor?->name }}
                                             </div>
                                         </div>
                                     </div>
@@ -481,13 +484,14 @@
                                         class="icon icon-location-1 text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
                                     </div>
                                   <div class=" text-3.5 font-medium text-tertiary-950/40 capitalize">{{ $portfolio->district->town->province->name }}/{{
-                                                                $portfolio->district->town->name }} , {{ $portfolio->district->name }}
+                                                                $portfolio->district->town->name }} ,
+                                                                {{ $portfolio->district->name }}
                                                             </div>
                                 </div>
                                 <a href="{{ route('frontend.portfolio.show',$portfolio) }}"
                                     class="title text-4.5 leading-tight text-tertiary-950 hover:text-main-700 duration-300 font-semibold mb-4 xl:mb-5 md:mb-4 block capitalize">{{ $portfolio->title }}</a>
                             <div   div class="price text-[#2675FA] font-semibold text-5 lg:text-4.5 md:text-4">
-                            {{ $portfolio->price_in_tl }} TL
+                            {{ $portfolio->price_in_tl }}
                         </div>
                                     <div class="info flex items-center justify-between gap-7.5 mt-5 md:mt-4">
                                     <div

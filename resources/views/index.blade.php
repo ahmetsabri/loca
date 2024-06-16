@@ -114,7 +114,7 @@
                             class="inner bg-white self-stretch overflow-hidden isolate w-full rounded-6 md:rounded-3 py-7.5 lg:p-6 px-10 relative after:absolute after:left-0 after:top-0 after:w-full after:h-full after:bg-gradient-to-t after:from-white grayscale duration-300 after:duration-300 hover:after:opacity-0 hover:grayscale-0 after:pointer-events-none">
                             <div class="heading-wrapper">
                                 <div class="title text-4 text-[#2675FA] duration-300 font-semibold mb-2">
-                                    {{ __('categories') }}</div>
+                                    {{ __('general.categories') }}</div>
                                 <div class="location-wrapper hidden [&.active]:block">
                                     <div class="location-list flex items-center gap-2 flex-wrap"></div>
                                     <div class="split w-full h-px bg-[#E8F0FD] mb-5 mt-5"></div>
@@ -251,7 +251,7 @@
                                                 class="custom-input h-22 bg-white rounded-6 md:rounded-3 px-10 2xl:px-9 xl:px-8 lg:px-7 md:px-6 flex flex-col justify-center border border-solid border-transparent duration-300 group-[&.error]/form:border-secondary-700">
                                                 <label for="q1"
                                                     class="block text-3.5 font-semibold text-tertiary-950 mb-1">
-                                                    {{ __('search') }}
+                                                    {{ __('general.search') }}
                                                 </label>
                                                 <input name="filter[search]" id="q1" type="text" placeholder="Örn: 3+1 Satılık veya İlan No"
                                                     class="text-4 placeholder:text-[#B0B0B0] font-medium text-tertiary-950 w-full">
@@ -282,7 +282,7 @@
                                                 class="custom-input h-22 xs:h-auto xs:py-5 bg-white rounded-6 md:rounded-3 px-10 2xl:px-9 xl:px-8 lg:px-7 md:px-6 flex items-center justify-between gap-2 border border-solid border-transparent duration-300 group-[&.error]/form:border-secondary-700 xs:grid xs:grid-cols-2">
                                                 <div class="inner-group flex flex-col w-fit xs:w-full">
                                                     <label for="q2"
-                                                        class="block text-3.5 font-semibold text-tertiary-950 mb-1 xs:text-center">Fiyat</label>
+                                                        class="block text-3.5 font-semibold text-tertiary-950 mb-1 xs:text-center">{{ __('general.price') }}</label>
                                                     <input name="filter[min_price]" id="q2" type="text" placeholder="Min"
                                                         class="text-4 placeholder:text-[#B0B0B0] font-medium text-tertiary-950 w-10 xs:w-full xs:text-center">
                                                 </div>
@@ -290,7 +290,7 @@
                                                 </div>
                                                 <div class="inner-group flex flex-col w-fit xs:w-full">
                                                     <label for="q3"
-                                                        class="block text-3.5 font-semibold text-tertiary-950 mb-1 xs:text-center">Fiyat</label>
+                                                        class="block text-3.5 font-semibold text-tertiary-950 mb-1 xs:text-center">{{ __('general.price') }}</label>
                                                     <input  name="filter[max_price]" id="q3" type="text" placeholder="Max"
                                                         class="text-4 placeholder:text-[#B0B0B0] font-medium text-tertiary-950 w-10 xs:w-full xs:text-center">
                                                 </div>
@@ -337,7 +337,7 @@
                                                     <select
                                                     name="filter[province]"
                                                         class="peer w-full h-full text-4 sm:text-3.5 font-semibold text-tertiary-950">
-                                                        <option value="" selected disabled>{{ __('province') }}</option>
+                                                        <option value="" selected disabled>{{ __('general.province') }}</option>
                                                         @foreach($provinces as $province)
 <option @selected($province->id == request('filter.province') ) @click="loadTowns(`{{ route('province.towns',$province)
                                                 }}`)" value="{{ $province->id }}">{{
@@ -360,7 +360,7 @@
                                                     class="custom-select relative h-22 sm:h-16 bg-white rounded-6 md:rounded-3 px-10 2xl:px-9 xl:px-8 lg:px-7 md:px-6 flex flex-col justify-center border border-solid border-transparent duration-300 group-[&.error]/form:border-secondary-700">
                                                     <select name="filter[town]"
                                                         class="peer w-full h-full text-4 sm:text-3.5 font-semibold text-tertiary-950">
-                                                        <option value="" selected disabled>{{ __('town') }}</option>
+                                                        <option value="" selected disabled>{{ __('general.town') }}</option>
 <template x-for="town in towns">
     <option :selected="selectedTown == town.id" x-text="town.name" :value="town.id"></option>
 </template>
@@ -382,7 +382,7 @@
                                                 class="button group/button relative flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 after:absolute after:left-[calc(50%-13px)] xl:after:left-[calc(50%-12px)] md:after:left-[calc(50%-10px)] after:top-[calc(50%-13px)] xl:after:top-[calc(50%-12px)] md:after:top-[calc(50%-10px)] after:h-6.5 xl:after:h-6 md:after:h-5 after:aspect-square after:rounded-full after:border-0.5 after:border-solid after:border-white after:[clip-path:polygon(0%_0%,100%_0%,100%_50%,0%_50%)] after:opacity-0 after:duration-300 after:transition-opacity after:animate-spin group-[&.loading]/form:[&_.icon]:opacity-0 group-[&.loading]/form:[&_.text]:opacity-0 group-[&.loading]/form:after:opacity-100 group-[&.loading]/form:pointer-events-none bg-[#144495] hover:bg-main-700 h-22 md:h-16 w-full text-white font-semibold text-4">
                                                 <div
                                                     class="text whitespace-nowrap font-medium text-4 md:text-3.5 transition-opacity duration-300">
-                                                    Portföy Ara</div>
+                                                    {{ __('general.search') }}</div>
                                             </button>
                                         </div>
                                         <input type="hidden" name="map" :value="map"/>
@@ -394,7 +394,7 @@
                                                 class="button group/button relative flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 after:absolute after:left-[calc(50%-13px)] xl:after:left-[calc(50%-12px)] md:after:left-[calc(50%-10px)] after:top-[calc(50%-13px)] xl:after:top-[calc(50%-12px)] md:after:top-[calc(50%-10px)] after:h-6.5 xl:after:h-6 md:after:h-5 after:aspect-square after:rounded-full after:border-0.5 after:border-solid after:border-white after:[clip-path:polygon(0%_0%,100%_0%,100%_50%,0%_50%)] after:opacity-0 after:duration-300 after:transition-opacity after:animate-spin group-[&.loading]/form:[&_.icon]:opacity-0 group-[&.loading]/form:[&_.text]:opacity-0 group-[&.loading]/form:after:opacity-100 group-[&.loading]/form:pointer-events-none bg-secondary-700 hover:bg-secondary-600 h-22 md:h-16 w-full text-white font-semibold text-4">
                                                 <div
                                                     class="text whitespace-nowrap font-medium text-4 md:text-3.5 transition-opacity duration-300">
-                                                    Haritada Göster</div>
+                                                    {{ __('general.show_map') }}</div>
                                             </button>
                                         </div>
                                     </div>
@@ -438,19 +438,19 @@
             <div class="text-wrapper relative z-7">
                 <div class="text-editor text-editor-main max-w-[565px] sm:max-w-none">
                     <!-- .text-editor içerisindeki style attribute değerleri frontendi tasarıma benzetmek adına eklenmiştir, backend aşamasında silinerek panel editöründen tanımlanmalıdır. -->
-                    <h3><strong>Portföy <br>Kategorilerimiz</strong></h3>
-                    <h6 style="color:#6D6D6D">Buradaki tüm portföyleri sizler için kategorize ettik.
-                        <br>İhtiyacınıza en uygun portföyü seçip , tüm detayları ile inceleyebilirsiniz.
+                    <h3><strong>{{ __('general.portfolio') }} <br>{{ __('general.categories') }}</strong></h3>
+                    <h6 style="color:#6D6D6D">{{ __('general.classified_category_1') }}
+                        <br> {{ __('general.classified_category_2') }}
                     </h6>
 
-                    <h6 style="color:#6D6D6D">Seçmiş olduğunuz portföylerin ilgili danışmanlarına ve
-                        <br>ofisimize kolayca ulaşabilirsiniz.
+                    <h6 style="color:#6D6D6D">
+                        {{ __('general.classified_category_3') }}
                     </h6>
                 </div>
                 <a href="{{ route('portfolios') }}"
                     class="button group/button flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 h-16 xl:h-14 md:h-12 w-fit px-8 sm:px-6 bg-main-900 hover:bg-main-950 mt-7.5 text-white">
 
-                    <div class="text whitespace-nowrap font-medium text-4 md:text-3.5">{{ __('portfolios') }}</div>
+                    <div class="text whitespace-nowrap font-medium text-4 md:text-3.5">{{ __('general.portfolios') }}</div>
                     <div class="icon icon-chevron-right text-2.5 h-2.5 block leading-none"></div>
                 </a>
             </div>
@@ -470,8 +470,9 @@
                                     <div
                                         class="title text-tertiary-950 text-5.5 2xl:text-5 xl:text-4.5 lg:text-4 font-semibold duration-300 group-hover:text-main-700 mb-2">
                                         Arsa</div>
-                                    <p class="expo text-4 xl:text-3.5 font-medium text-[#6D6D6D]">Buradaki tüm
-                                        portföyleri sizler için kategorize ettik. İhtiyacınıza en uygun portföy.
+                                    <p class="expo text-4 xl:text-3.5 font-medium text-[#6D6D6D]">
+
+                                        {{ __('general.we_categorize') }}
                                     </p>
                                 </div>
                             </a>
@@ -488,8 +489,8 @@
                                     <div
                                         class="title text-tertiary-950 text-5.5 2xl:text-5 xl:text-4.5 lg:text-4 font-semibold duration-300 group-hover:text-main-700 mb-2">
                                         Konut</div>
-                                    <p class="expo text-4 xl:text-3.5 font-medium text-[#6D6D6D]">Buradaki tüm
-                                        portföyleri sizler için kategorize ettik. İhtiyacınıza en uygun portföy.
+                                    <p class="expo text-4 xl:text-3.5 font-medium text-[#6D6D6D]">
+                                        {{ __('general.we_categorize') }}
                                     </p>
                                 </div>
                             </a>
@@ -506,8 +507,8 @@
                                     <div
                                         class="title text-tertiary-950 text-5.5 2xl:text-5 xl:text-4.5 lg:text-4 font-semibold duration-300 group-hover:text-main-700 mb-2">
                                         Turistik Tesis</div>
-                                    <p class="expo text-4 xl:text-3.5 font-medium text-[#6D6D6D]">Buradaki tüm
-                                        portföyleri sizler için kategorize ettik. İhtiyacınıza en uygun portföy.
+                                    <p class="expo text-4 xl:text-3.5 font-medium text-[#6D6D6D]">
+                                        {{ __('general.we_categorize') }}
                                     </p>
                                 </div>
                             </a>
@@ -579,9 +580,9 @@
         <div class="wrapper max-w-1440 mx-auto w-full px-7.5">
             <div class="text-editor text-editor-main">
                 <!-- .text-editor içerisindeki style attribute değerleri frontendi tasarıma benzetmek adına eklenmiştir, backend aşamasında silinerek panel editöründen tanımlanmalıdır. -->
-                <h3 style="text-align:center;"><strong>En Yeni Porföyler</strong></h3>
-                <p style="text-align:center;">Hayalinizdeki portföyler aşağıda sizleri bekliyor.
-                    <br>İhtiyacınıza en uygun portföyleri beğenip kendi listenizi oluşturabilirsiniz.
+                <h3 style="text-align:center;"><strong>{{ __('general.newest_portfolios') }}</strong></h3>
+                <p style="text-align:center;">{{ __('general.newset_1') }}
+                    <br>{{ __('general.newset_2') }}
                 </p>
             </div>
             <div
@@ -619,7 +620,7 @@
                             </div>
                             <div
                                 class="tag absolute left-4 top-4 bg-tertiary-950/50 rounded-2 px-2 py-1.5 text-white text-3 font-medium leading-none z-5 capitalize">
-                            {{ $portfolio->category->rootAncestor->name }}
+                            {{ $portfolio->category?->rootAncestor?->name }}
                             </div>
                         </div>
                     </div>
@@ -673,7 +674,8 @@
             <a href="{{ route('portfolios',['grid_type'=>'grid']) }}"
                 class="button group/button flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 h-14 md:h-12 w-fit mx-auto px-14 2xl:px-12 xl:px-10 lg:px-8 sm:px-6 bg-secondary-700 hover:bg-secondary-600 text-white">
 
-                <div class="text whitespace-nowrap font-medium text-4 md:text-3.5">Tüm Portföylerimizi İncele
+                <div class="text whitespace-nowrap font-medium text-4 md:text-3.5">
+                    {{ __('general.show_all') }}
                 </div>
 
             </a>
@@ -692,7 +694,7 @@
                     <div
                         class="icon icon-headset-3 text-12 h-12 xl:text-10 xl:h-10 lg:text-8 lg:h-8 md:text-6 md:h-6 block leading-none duration-300 text-[#2675FA] mb-5 xl:mb-4 md:mb-3">
                     </div>
-                    <div class="title text-4 xl:text-3.5 font-medium text-[#6D6D6D]">Müşteri Hizmetleri</div>
+                    <div class="title text-4 xl:text-3.5 font-medium text-[#6D6D6D]">{{ __('general.customer_services') }}</div>
                     <a href="javascript:void(0)"
                         class="font-semibold text-[#144495] text-6.5 2xl:text-6 xl:text-5 md:text-4.5 draw-underline [--line-color:#144495]">+90
                         532 427 59 36</a>
@@ -701,9 +703,9 @@
             <div class="text-wrapper">
                 <div class="text-editor text-editor-main">
                     <!-- .text-editor içerisindeki style attribute değerleri frontendi tasarıma benzetmek adına eklenmiştir, backend aşamasında silinerek panel editöründen tanımlanmalıdır. -->
-                    <h3>Sayılarla <strong>LOCA</strong></h3>
-                    <p>Geçtiğimiz ayda, Loca istatistiklerimiz belli ama sizlerle geçirdiğimiz zaman bu
-                        <br>sayılardan çok daha değerli
+                    <h3> <strong>{{ __('general.by_number') }}</strong></h3>
+                    <p>
+                       {{ __('general.by_number_details') }}
                     </p>
                 </div>
                 <div class="split w-full h-px bg-black/7 my-14 2xl:my-12 xl:my-10 lg:my-8 md:my-6"></div>
@@ -715,7 +717,9 @@
                             +1,687</div>
                         <div
                             class="title text-4 xl:text-3.5 sm:text-3 font-medium text-[#6D6D6D] leading-tight text-center">
-                            Müşteri Bizi Aradı</div>
+                           {{ __('general.contacted_customers') }}
+
+                        </div>
                     </div>
                     <div class="item grid gap-1.5">
                         <div
@@ -723,7 +727,8 @@
                             +548</div>
                         <div
                             class="title text-4 xl:text-3.5 sm:text-3 font-medium text-[#6D6D6D] leading-tight text-center">
-                            Müşterimizi Ofislerimizde Ağırladık</div>
+                        {{ __('general.hosted_customers') }}
+                        </div>
                     </div>
                     <div class="item grid gap-1.5">
                         <div
@@ -731,7 +736,8 @@
                             42</div>
                         <div
                             class="title text-4 xl:text-3.5 sm:text-3 font-medium text-[#6D6D6D] leading-tight text-center">
-                            Adet Dijital Sözleşme İmzalandı</div>
+                            {{ __('general.digital_contracts') }}
+                        </div>
                     </div>
                     <div class="item grid gap-1.5">
                         <div
@@ -739,7 +745,8 @@
                             2,670m2</div>
                         <div
                             class="title text-4 xl:text-3.5 sm:text-3 font-medium text-[#6D6D6D] leading-tight text-center">
-                            Mülkün İşlemi Yapıldı</div>
+                            {{ __('general.properties') }}
+                        </div>
                     </div>
                     <div class="item grid gap-1.5">
                         <div
@@ -747,7 +754,8 @@
                             +655</div>
                         <div
                             class="title text-4 xl:text-3.5 sm:text-3 font-medium text-[#6D6D6D] leading-tight text-center">
-                            Müşterimize Yer Gösterildi</div>
+                            {{ __('general.shown_places') }}
+                        </div>
                     </div>
                     <div class="item grid gap-1.5">
                         <div
@@ -755,7 +763,8 @@
                             +846</div>
                         <div
                             class="title text-4 xl:text-3.5 sm:text-3 font-medium text-[#6D6D6D] leading-tight text-center">
-                            Kahve İçildi</div>
+                            {{ __('general.drunk_coffee') }}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -772,61 +781,38 @@
             </h3>
             <div class="text-editor text-editor-main mt-3">
                 <!-- .text-editor içerisindeki style attribute değerleri frontendi tasarıma benzetmek adına eklenmiştir, backend aşamasında silinerek panel editöründen tanımlanmalıdır. -->
-                <p style="text-align:center;color:#0D1523">İşimizin her aşamasında sizlerle olmayı seviyoruz.
+                <p style="text-align:center;color:#0D1523">
+                    {{ __('general.loca_tv_1') }}
                 </p>
-                <p style="text-align:center;">Loca Tv nin farklı kanallarıyla bizleri daha yakından tanıyabilir,
-                    portföyleri gezebilir ve hatta <br>bize konuk olup, memnuniyetinizi paylaşabilirsiniz.</p>
+                <p style="text-align:center;">
+                    {{ __('general.loca_tv_2') }}
+                </p>
             </div>
             <div
                 class="tags flex items-center justify-center flex-wrap gap-x-10 2xl:gap-x-9 xl:gap-x-8 lg:gap-x-6 md:gap-x-4 gap-y-3 md:gap-y-2 mt-13 2xl:mt-11 xl:mt-9 lg:mt-7">
-                <a href="{{ route('videos') }}" class="flex items-center gap-3 md:gap-2 group">
-                    <div
-                        class="icon icon-check text-3.5 h-3.5 md:text-3 md:h-3 block leading-none duration-300 text-secondary-700">
-                    </div>
-                    <div
-                        class="text text-4.5 xl:text-4 md:text-3.5 font-medium text-tertiary-950 duration-300 group-hover:text-secondary-700">
-                        LOCA KONUT</div>
-                </a>
-                <a href="{{ route('videos') }}" class="flex items-center gap-3 md:gap-2 group">
-                    <div
-                        class="icon icon-check text-3.5 h-3.5 md:text-3 md:h-3 block leading-none duration-300 text-secondary-700">
-                    </div>
-                    <div
-                        class="text text-4.5 xl:text-4 md:text-3.5 font-medium text-tertiary-950 duration-300 group-hover:text-secondary-700">
-                        LOCA TİCARİ</div>
-                </a>
-                <a href="{{ route('videos') }}" class="flex items-center gap-3 md:gap-2 group">
-                    <div
-                        class="icon icon-check text-3.5 h-3.5 md:text-3 md:h-3 block leading-none duration-300 text-secondary-700">
-                    </div>
-                    <div
-                        class="text text-4.5 xl:text-4 md:text-3.5 font-medium text-tertiary-950 duration-300 group-hover:text-secondary-700">
-                        LOCA REFERANS</div>
-                </a>
-                <a href="{{ route('videos') }}" class="flex items-center gap-3 md:gap-2 group">
-                    <div
-                        class="icon icon-check text-3.5 h-3.5 md:text-3 md:h-3 block leading-none duration-300 text-secondary-700">
-                    </div>
-                    <div
-                        class="text text-4.5 xl:text-4 md:text-3.5 font-medium text-tertiary-950 duration-300 group-hover:text-secondary-700">
-                        LOCA VLOG</div>
-                </a>
-                <a href="{{ route('videos') }}" class="flex items-center gap-3 md:gap-2 group">
-                    <div
-                        class="icon icon-check text-3.5 h-3.5 md:text-3 md:h-3 block leading-none duration-300 text-secondary-700">
-                    </div>
-                    <div
-                        class="text text-4.5 xl:text-4 md:text-3.5 font-medium text-tertiary-950 duration-300 group-hover:text-secondary-700">
-                        LOCA SHORTS</div>
-                </a>
+
+                @foreach($videoCategories as $videoCategory)
+                    <a href="{{ route('videos') }}" class="flex items-center gap-3 md:gap-2 group">
+                        <div class="icon icon-check text-3.5 h-3.5 md:text-3 md:h-3 block leading-none duration-300 text-secondary-700">
+                        </div>
+                        <div
+                            class="text text-4.5 xl:text-4 md:text-3.5 font-medium text-tertiary-950 duration-300 group-hover:text-secondary-700">
+                            {{ $videoCategory->name }}
+                        </div>
+                    </a>
+
+                @endforeach
+
+
             </div>
         </div>
         <div class="carousel-wrapper relative my-20 2xl:my-16 xl:my-12 lg:my-8 sm:px-5">
             <div
                 class="video-carousel swiper !h-auto w-full [mask-image:linear-gradient(90deg,transparent_5%,black_25%,black_75%,transparent_95%)] sm:[mask-image:unset]">
                 <div class="swiper-wrapper !h-auto">
+                    @foreach($videos as $video)
                     <div class="swiper-slide group/slide">
-                        <a href="https://www.youtube.com/watch?v=MLpWrANjFbI"
+                        <a href="{{ $video->url }}"
                             class="item block group duration-450 scale-90 group-[&.swiper-slide-active]/slide:scale-100"
                             data-fancybox>
                             <div class="image-wrapper relative aspect-[7/4] xs:aspect-[5/4]">
@@ -844,101 +830,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="swiper-slide group/slide">
-                        <a href="https://www.youtube.com/watch?v=MLpWrANjFbI"
-                            class="item block group duration-450 scale-90 group-[&.swiper-slide-active]/slide:scale-100"
-                            data-fancybox>
-                            <div class="image-wrapper relative aspect-[7/4] xs:aspect-[5/4]">
-                                <div
-                                    class="image w-full h-full rounded-5 md:rounded-3 overflow-hidden isolate translate-z-0 bg-tertiary-950">
-                                    <img class="full-cover opacity-85 duration-450 group-hover:opacity-100 group-hover:scale-105"
-                                        src="{{ asset('image/other/3.webp') }}" alt="" loading="lazy">
-                                </div>
-                                <div
-                                    class="icon-wrapper w-13 xl:w-11 md:w-9 rounded-full aspect-square bg-secondary-600 flex items-center justify-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 duration-450 group-hover:delay-150 group-hover:scale-125">
-                                    <div
-                                        class="icon icon-play text-4 h-4 xl:text-3.5 xl:h-3.5 md:text-3 md:h-3 block leading-none duration-300 text-white">
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide group/slide">
-                        <a href="https://www.youtube.com/watch?v=MLpWrANjFbI"
-                            class="item block group duration-450 scale-90 group-[&.swiper-slide-active]/slide:scale-100"
-                            data-fancybox>
-                            <div class="image-wrapper relative aspect-[7/4] xs:aspect-[5/4]">
-                                <div
-                                    class="image w-full h-full rounded-5 md:rounded-3 overflow-hidden isolate translate-z-0 bg-tertiary-950">
-                                    <img class="full-cover opacity-85 duration-450 group-hover:opacity-100 group-hover:scale-105"
-                                        src="{{ asset('image/other/3.webp') }}" alt="" loading="lazy">
-                                </div>
-                                <div
-                                    class="icon-wrapper w-13 xl:w-11 md:w-9 rounded-full aspect-square bg-secondary-600 flex items-center justify-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 duration-450 group-hover:delay-150 group-hover:scale-125">
-                                    <div
-                                        class="icon icon-play text-4 h-4 xl:text-3.5 xl:h-3.5 md:text-3 md:h-3 block leading-none duration-300 text-white">
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide group/slide">
-                        <a href="https://www.youtube.com/watch?v=MLpWrANjFbI"
-                            class="item block group duration-450 scale-90 group-[&.swiper-slide-active]/slide:scale-100"
-                            data-fancybox>
-                            <div class="image-wrapper relative aspect-[7/4] xs:aspect-[5/4]">
-                                <div
-                                    class="image w-full h-full rounded-5 md:rounded-3 overflow-hidden isolate translate-z-0 bg-tertiary-950">
-                                    <img class="full-cover opacity-85 duration-450 group-hover:opacity-100 group-hover:scale-105"
-                                        src="{{ asset('image/other/3.webp') }}" alt="" loading="lazy">
-                                </div>
-                                <div
-                                    class="icon-wrapper w-13 xl:w-11 md:w-9 rounded-full aspect-square bg-secondary-600 flex items-center justify-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 duration-450 group-hover:delay-150 group-hover:scale-125">
-                                    <div
-                                        class="icon icon-play text-4 h-4 xl:text-3.5 xl:h-3.5 md:text-3 md:h-3 block leading-none duration-300 text-white">
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide group/slide">
-                        <a href="https://www.youtube.com/watch?v=MLpWrANjFbI"
-                            class="item block group duration-450 scale-90 group-[&.swiper-slide-active]/slide:scale-100"
-                            data-fancybox>
-                            <div class="image-wrapper relative aspect-[7/4] xs:aspect-[5/4]">
-                                <div
-                                    class="image w-full h-full rounded-5 md:rounded-3 overflow-hidden isolate translate-z-0 bg-tertiary-950">
-                                    <img class="full-cover opacity-85 duration-450 group-hover:opacity-100 group-hover:scale-105"
-                                        src="{{ asset('image/other/3.webp') }}" alt="" loading="lazy">
-                                </div>
-                                <div
-                                    class="icon-wrapper w-13 xl:w-11 md:w-9 rounded-full aspect-square bg-secondary-600 flex items-center justify-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 duration-450 group-hover:delay-150 group-hover:scale-125">
-                                    <div
-                                        class="icon icon-play text-4 h-4 xl:text-3.5 xl:h-3.5 md:text-3 md:h-3 block leading-none duration-300 text-white">
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide group/slide">
-                        <a href="https://www.youtube.com/watch?v=MLpWrANjFbI"
-                            class="item block group duration-450 scale-90 group-[&.swiper-slide-active]/slide:scale-100"
-                            data-fancybox>
-                            <div class="image-wrapper relative aspect-[7/4] xs:aspect-[5/4]">
-                                <div
-                                    class="image w-full h-full rounded-5 md:rounded-3 overflow-hidden isolate translate-z-0 bg-tertiary-950">
-                                    <img class="full-cover opacity-85 duration-450 group-hover:opacity-100 group-hover:scale-105"
-                                        src="{{ asset('image/other/3.webp') }}" alt="" loading="lazy">
-                                </div>
-                                <div
-                                    class="icon-wrapper w-13 xl:w-11 md:w-9 rounded-full aspect-square bg-secondary-600 flex items-center justify-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 duration-450 group-hover:delay-150 group-hover:scale-125">
-                                    <div
-                                        class="icon icon-play text-4 h-4 xl:text-3.5 xl:h-3.5 md:text-3 md:h-3 block leading-none duration-300 text-white">
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div class="navigation-wrapper pointer-events-none z-6 absolute left-0 top-0 w-full h-full">
@@ -962,7 +854,10 @@
             <a href="{{ route('videos') }}"
                 class="button group/button flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 h-14 md:h-12 w-fit mx-auto px-14 2xl:px-12 xl:px-10 lg:px-8 sm:px-6 bg-secondary-700 hover:bg-secondary-600 text-white">
 
-                <div class="text whitespace-nowrap font-medium text-4 md:text-3.5">Tüm Videoları Göster</div>
+                <div class="text whitespace-nowrap font-medium text-4 md:text-3.5">
+
+                    {{ __('general.show_all') }}
+                </div>
 
             </a>
         </div>

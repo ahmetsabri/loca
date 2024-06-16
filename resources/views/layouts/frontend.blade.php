@@ -92,17 +92,17 @@
 
                     <div
                         class="options bg-white duration-300 grid gap-1 p-2 rounded-2 absolute left-1/2 -translate-x-1/2 w-max min-w-full top-[calc(100%+8px)] before:absolute before:bottom-full before:left-0 before:w-full before:h-2 opacity-0 pointer-events-none scale-95 origin-top group-hover/wrapper:opacity-100 group-hover/wrapper:pointer-events-auto group-hover/wrapper:scale-100">
-                        <a href="javascript:void(0)"
+                        <a href="{{ route('locale','tr') }}"
                             class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none current">
                             <img src="{{ asset('image/static/4.webp') }}" alt="" loading="lazy">
                             <span class="text text-3.5 font-medium text-tertiary-950">TUR</span>
                         </a>
-                        <a href="javascript:void(0)"
+                        <a href="{{ route('locale','en') }}"
                             class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
                             <img src="{{ asset('image/static/5.webp') }}" alt="" loading="lazy">
                             <span class="text text-3.5 font-medium text-tertiary-950">ENG</span>
                         </a>
-                        <a href="javascript:void(0)"
+                        <a href="{{ route('locale','rus') }}"
                             class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
                             <img src="{{ asset('image/static/6.webp') }}" alt="" loading="lazy">
                             <span class="text text-3.5 font-medium text-tertiary-950">RUS</span>
@@ -159,31 +159,41 @@
                     <ul class="menu flex gap-8 2xl:gap-7 xl:gap-6 lg:flex-col">
                         <li class="group/li flex">
                             <a href="about.html"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">Hakkımızda</a>
+                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">
+                            {{ __('general.services') }}
+                            </a>
                         </li>
                         <li class="group/li flex">
                             <a href="services.html"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">Hizmetlerimiz</a>
+                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">{{ __('general.about') }}</a>
                         </li>
                         <li class="group/li flex">
                             <a href="{{ route('frontend.team.index') }}"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">{{ __('team') }}</a>
+                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">{{ __('general.team') }}</a>
                         </li>
                         <li class="group/li flex">
                             <a href="{{ route('portfolios',['grid_type'=>'grid']) }}"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">Porföylerimiz</a>
+                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">
+                            {{ __('general.portfolios') }}
+                            </a>
                         </li>
                         <li class="group/li flex">
                             <a href="{{ route('projects') }}"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">Projeler</a>
+                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">
+                            {{ __('general.projects') }}
+                            </a>
                         </li>
                         <li class="group/li flex">
                             <a href="blog.html"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">Blog</a>
+                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">
+                            {{ __('general.blog') }}
+                            </a>
                         </li>
                         <li class="group/li flex">
                             <a href="{{ route('contact') }}"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">İletişim</a>
+                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">
+                            {{ __('general.contact') }}
+                            </a>
                         </li>
                         <li class="group/li flex">
                             <a href="{{ route('videos') }}" class="flex items-center gap-2">
@@ -198,31 +208,40 @@
                     <ul class="menu flex gap-8 2xl:gap-7 xl:gap-6 lg:flex-col">
                         <li class="group/li flex">
                             <a href="about.html"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">Hakkımızda</a>
+                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">
+                                   {{ __('general.about') }}
+</a>
                         </li>
                         <li class="group/li flex">
                             <a href="services.html"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">Hizmetlerimiz</a>
+                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">
+                                    {{ __('general.services') }}
+</a>
                         </li>
                         <li class="group/li flex">
                             <a href="{{ route('frontend.team.index') }}"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">{{ __('team') }}</a>
+                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">{{ __('general.team') }}</a>
                         </li>
                         <li class="group/li flex">
                             <a href="{{ route('portfolios',['grid_type'=>'grid']) }}"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">{{ __('portfolios') }}</a>
+                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">{{ __('general.portfolios') }}</a>
                         </li>
                         <li class="group/li flex">
                             <a href="{{ route('projects') }}"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">{{ __('projects') }}</a>
+                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">{{ __('general.projects') }}</a>
                         </li>
                         <li class="group/li flex">
                             <a href="blog.html"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">Blog</a>
+                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">
+                            {{ __('general.blog') }}
+
+                            </a>
                         </li>
                         <li class="group/li flex">
                             <a href="{{ route('contact') }}"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">İletişim</a>
+                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">
+                            {{ __('general.contact') }}
+                            </a>
                         </li>
                         <li class="group/li flex">
                             <a href="{{ route('videos') }}" class="flex items-center gap-2">
@@ -259,7 +278,7 @@
                         <div class="split hidden lg:block w-full h-px bg-tertiary-950/10"></div>
                         <a href="{{ route('buy_sell') }}"
                             class="button group/button relative duration-300 flex items-center justify-center h-7.5 bg-main-900 px-3 rounded-2 hover:bg-tertiary-950">
-                            <span class="text text-white font-semibold text-3.5">{{ __('buy_sell') }}</span>
+                            <span class="text text-white font-semibold text-3.5">{{ __('general.buy_sell') }}</span>
                         </a>
                         <div class="split hidden lg:block w-full h-px bg-tertiary-950/10"></div>
                         <div class="social-wrapper flex items-center justify-center gap-4.5">
@@ -302,7 +321,7 @@
                     </a>
                     <a href="{{ route('buy_sell') }}"
                         class="button group/button relative duration-300 flex items-center h-7.5 bg-main-900 px-3 rounded-2 hover:bg-tertiary-950 lg:hidden">
-                        <span class="text text-white font-semibold text-3.5">{{ __('buy_sell') }}</span>
+                        <span class="text text-white font-semibold text-3.5">{{ __('general.buy_sell') }}</span>
                     </a>
 
                     @if(\Route::currentRouteName() == 'home')
@@ -310,7 +329,7 @@
         <div class="current cursor-pointer flex items-center justify-center gap-2 py-1 h-7.5">
             <div
                 class="image-wrapper bg-white/5 self-stretch flex items-center px-1 rounded-1 group-hover/wrapper:bg-white/10 duration-300">
-                <img class="w-3.5 h-auto block pointer-events-none" src="{{asset('image/static/4.webp')}}" alt="" loading="lazy">
+                <img class="w-3.5 h-auto block pointer-events-none" src="{{asset('image/static/'.app()->getLocale().'.webp')}}" alt="" loading="lazy">
             </div>
             <span class="text text-white text-3.5 font-medium">
             @if(app()->getLocale() == 'en')
@@ -327,20 +346,20 @@
         </div>
         <div
             class="options bg-white duration-300 grid gap-1 p-2 rounded-2 absolute left-1/2 -translate-x-1/2 w-max min-w-full top-[calc(100%+8px)] before:absolute before:bottom-full before:left-0 before:w-full before:h-2 opacity-0 pointer-events-none scale-95 origin-top group-hover/wrapper:opacity-100 group-hover/wrapper:pointer-events-auto group-hover/wrapper:scale-100">
-            <a href="javascript:void(0)"
-                class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none current">
+            <a href="{{ route('locale','tr') }}"
+                class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none @if(app()->getLocale()=='tr') current @endif">
                 <img src="{{asset('image/static/4.webp')}}" alt="" loading="lazy">
                 <span class="text text-3.5 font-medium text-tertiary-950">TUR</span>
             </a>
-            <a href="javascript:void(0)"
+            <a href="{{ route('locale','en') }}"
                 class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
                 <img src="{{ asset('image/static/5.webp') }}" alt="" loading="lazy">
-                <span class="text text-3.5 font-medium text-tertiary-950">ENG</span>
+                <span class="text text-3.5 font-medium text-tertiary-950 @if(app()->getLocale()=='en') current @endif">ENG</span>
             </a>
-            <a href="javascript:void(0)"
+            <a href="{{ route('locale','ru') }}"
                 class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
                 <img src="{{ asset('image/static/6.webp') }}" alt="" loading="lazy">
-                <span class="text text-3.5 font-medium text-tertiary-950">RUS</span>
+                <span class="text text-3.5 font-medium text-tertiary-950 @if(app()->getLocale()=='en') current @endif">RUS</span>
             </a>
         </div>
     </div>
@@ -387,12 +406,19 @@
                                 class="current cursor-pointer flex items-center justify-center gap-2 p-1 pr-2.5 xl:pr-2 h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 group-hover/wrapper:border-tertiary-950/30 min-lg:group-[&:not(.scroll-down)]/header:border-black/10 min-lg:group-[&:not(.scroll-down)]/header:group-hover/wrapper:border-black/25">
                                 <div
                                     class="image-wrapper bg-tertiary-950/5 self-stretch flex items-center px-1 rounded-1 group-hover/wrapper:bg-tertiary-950/10 duration-300 min-lg:group-[&:not(.scroll-down)]/header:bg-white/5 min-lg:group-[&:not(.scroll-down)]/header:group-hover/wrapper:bg-white/10">
-                                    <img class="w-3.5 h-auto block pointer-events-none" src="{{ asset('image/static/4.webp') }}" alt=""
+                                    <img class="w-3.5 h-auto block pointer-events-none" src="{{ asset('image/static/'.app()->getLocale().'.webp') }}" alt=""
                                         loading="lazy">
                                 </div>
                                 <span
                                     class="text text-tertiary-950 text-3.5 font-medium duration-300 min-lg:group-[&:not(.scroll-down)]/header:text-black">
 
+                                    @if(app()->getLocale() == 'en')
+                                    ENG
+                                    @elseif(app()->getLocale() == 'tr')
+                                    TUR
+                                    @else
+                                    RUS
+                                    @endif
                                 </span>
                                 <div
                                     class="icon icon-chevron-bottom text-2 h-2 block leading-none duration-300 text-tertiary-950/55 group-hover/wrapper:text-tertiary-950 group-hover/wrapper:rotate-180 xl:hidden min-lg:group-[&:not(.scroll-down)]/header:text-white/50">
@@ -401,19 +427,19 @@
                             <div
                                 class="options bg-white duration-300 grid gap-1 p-2 rounded-2 absolute left-1/2 -translate-x-1/2 w-max min-w-full top-[calc(100%+8px)] before:absolute before:bottom-full before:left-0 before:w-full before:h-2 opacity-0 pointer-events-none scale-95 origin-top group-hover/wrapper:opacity-100 group-hover/wrapper:pointer-events-auto group-hover/wrapper:scale-100">
                                 <a href="{{ route('locale','tr') }}"
-                                    class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none current">
+                                    class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none @if(app()->getLocale()=='tr') current @endif">
                                     <img src="{{ asset('image/static/4.webp') }}" alt="" loading="lazy">
                                     <span class="text text-3.5 font-medium text-tertiary-950">TUR</span>
                                 </a>
                                 <a href="{{ route('locale','en') }}"
                                     class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
                                     <img src="{{ asset('image/static/5.webp') }}" alt="" loading="lazy">
-                                    <span class="text text-3.5 font-medium text-tertiary-950">ENG</span>
+                                    <span class="text text-3.5 font-medium text-tertiary-950 @if(app()->getLocale()=='en') current @endif">ENG</span>
                                 </a>
                                 <a href="{{ route('locale','ru') }}"
                                     class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
                                     <img src="{{ asset('image/static/6.webp') }}" alt="" loading="lazy">
-                                    <span class="text text-3.5 font-medium text-tertiary-950">RUS</span>
+                                    <span class="text text-3.5 font-medium text-tertiary-950 @if(app()->getLocale()=='ru') current @endif">RUS</span>
                                 </a>
                             </div>
                         </div>
@@ -498,31 +524,38 @@
                         <div class="list mt-5 grid gap-1">
                             <a href="about.html"
                                 class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
-                                    class="draw-el">Hakkımızda</span></a>
+                                    class="draw-el">                            {{ __('general.about') }}
+</span></a>
                             <a href="services.html"
                                 class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
-                                    class="draw-el">Hizmetlerimiz</span></a>
+                                    class="draw-el">                            {{ __('general.contact') }}
+</span></a>
                             <a href="{{ route('frontend.team.index') }}"
                                 class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
-                                    class="draw-el">{{ __('team') }}</span></a>
+                                    class="draw-el">{{ __('general.team') }}</span></a>
                             <a href="career.html"
                                 class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">Kariyer</span></a>
                             <a href="portfolio-grid.html"
                                 class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
-                                    class="draw-el">{{ __('portfolios') }}</span></a>
+                                    class="draw-el">{{ __('general.portfolios') }}</span></a>
                             <a href="{{ route('projects') }}"
                                 class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
-                                    class="draw-el">{{ __('projects') }}</span></a>
+                                    class="draw-el">{{ __('general.projects') }}</span></a>
                             <a href="faq.html"
                                 class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">Sıkça Sorulan Sorular</span></a>
                             <a href="blog.html"
                                 class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
-                                    class="draw-el">Blog</span></a>
+                                    class="draw-el">
+                            {{ __('general.blog') }}
+
+                                </span></a>
                             <a href="{{ route('contact') }}"
                                 class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
-                                    class="draw-el">İletişim</span></a>
+                                    class="draw-el">
+                            {{ __('general.contact') }}
+                                </span></a>
                         </div>
                         <div class="list mt-5 grid gap-1">
                             <a href="template.html"
@@ -568,7 +601,7 @@
                                     <div
                                         class="icon icon-map-1 text-3 h-3 block leading-none duration-300 text-[#2675FA]">
                                     </div>
-                                    <div class="text text-white font-semibold text-3.5 tracking-wider">YOL TARİFİ</div>
+                                    <div class="text text-white font-semibold text-3.5 tracking-wider">{{ __('general.directions') }}</div>
                                 </a>
                             </div>
                         </div>
@@ -588,7 +621,7 @@
                                     <div
                                         class="icon icon-map-1 text-3 h-3 block leading-none duration-300 text-[#2675FA]">
                                     </div>
-                                    <div class="text text-white font-semibold text-3.5 tracking-wider">YOL TARİFİ</div>
+<div class="text text-white font-semibold text-3.5 tracking-wider">{{ __('general.directions') }}</div>
                                 </a>
                             </div>
                         </div>
@@ -599,7 +632,10 @@
                             <div
                                 class="icon icon-paperplane text-6 h-6 block leading-none duration-300 text-secondary-700">
                             </div>
-                            <div class="text font-semibold text-5 text-white tracking-wide">E-bülten’e Kaydol</div>
+                            <div class="text font-semibold text-5 text-white tracking-wide">
+
+                                {{ __('general.new_letter_signup') }}
+                            </div>
                         </div>
                         <form action="" class="w-full">
                             <div class="form-wrapper w-full grid gap-4">
@@ -632,7 +668,7 @@
                         </form>
 
                         <div class="social-outer-wrapper px-5.5 mt-15 2xl:mt-13 xl:mt-11 lg:mt-9">
-                            <div class="title text-3.5 font-medium text-white mb-3">Bizi Takip Edin</div>
+                            <div class="title text-3.5 font-medium text-white mb-3">{{ __('general.follow_us') }}</div>
                             <div class="social-wrapper flex items-center gap-4.5">
                                 <a href="javascript:void(0)"
                                     class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
@@ -701,7 +737,8 @@
                 <p>Çerezler, ziyaret ettiğiniz internet siteleri tarafından tarayıcılar aracılığıyla cihazınıza veya ağ
                     sunucusuna depolanan küçük metin dosyalarıdır. Sitede tercih ettiğiniz dil ve diğer ayarları içeren
                     bu küçük metin dosyaları, siteye bir sonraki ziyaretinizde tercihlerinizin hatırlanmasına ve
-                    sitedeki deneyiminizi iyileştirmek için hizmetlerimizde geliştirmeler yapmamıza yardımcı olur.
+                    sitedeki deneyiminizi iyileştirmek için                             {{ __('general.') }}
+de geliştirmeler yapmamıza yardımcı olur.
                     Böylece bir sonraki ziyaretinizde daha iyi ve kişiselleştirilmiş bir kullanım deneyimi
                     yaşayabilirsiniz.</p>
                 <p>İnternet Sitemizde çerez kullanılmasının başlıca amaçları aşağıda sıralanmaktadır:</p>

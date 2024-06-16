@@ -16,7 +16,8 @@
                     class="wrapper max-w-1440 mx-auto w-full px-7.5 relative z-2 grid gap-6 xl:gap-5 lg:gap-4 sm:gap-3">
                     <h1
                         class="title text-center font-semibold text-white text-11 2xl:text-10 xl:text-8 lg:text-7 md:text-6 sm:text-5.5 tracking-[0.15em] lg:tracking-widest sm:tracking-wider leading-tight">
-                        EKİBİMİZ</h1>
+                        {{ __('general.team') }}
+                    </h1>
                     <div
                         class="tags flex items-center justify-center flex-wrap gap-x-10 2xl:gap-x-9 xl:gap-x-8 lg:gap-x-6 md:gap-x-4 sm:gap-x-2 gap-y-2 md:gap-y-1.5 sm:gap-y-0.5">
                         <div
@@ -47,11 +48,10 @@
                     <div class="text-wrapper">
                         <div class="text-editor text-editor-main">
                             <!-- .text-editor içerisindeki style attribute değerleri frontendi tasarıma benzetmek adına eklenmiştir, backend aşamasında silinerek panel editöründen tanımlanmalıdır. -->
-                            <h3><strong>Remax Loca Danışmanlarımız</strong></h3>
-                            <h6 style="color:#6D6D6D;font-weight:500;">Ofisimizde sürekli eğitimlerle desteklenen, kendi
-                                bölgelerinde uzmanlaşarak etik kurallara saygılı ve müşteri memnuniyeti odaklı çalışma
-                                prensiplerini ilke edinmiş danışman ve ofis kadromuz ile sizlere en kaliteli ve hızlı
-                                hizmeti sunuyoruz.</h6>
+                            <h3><strong class="capitalize">{{ __('general.consultants') }}</strong></h3>
+                            <h6 style="color:#6D6D6D;font-weight:500;">
+                                {{ __('general.team_description') }}
+                            </h6>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                                 <div
                                 class="image aspect-[73/97] w-full rounded-5 md:rounded-3 overflow-hidden isolate translate-z-0">
                                 @foreach($departments as $department)
-                                                                @foreach($department->users as $user)
+                                @foreach($department->users as $user)
                                 <img data-name="{{ $user->id }}"
                                     class="absolute left-0 top-0 full-cover duration-300 opacity-0 scale-105 [&.active]:opacity-100 [&.active]:scale-100"
                                     src="{{ $user->image->full_url }}" alt="" loading="lazy">
@@ -78,8 +78,6 @@
                                 <div
                                     class="inner flex items-center w-fit mx-auto max-w-full p-1 overflow-y-hidden overflow-x-auto isolate before:absolute before:left-1/2 before:top-1/2 before:w-full before:h-15 lg:before:h-12 before:bg-[#E8F0FD] before:-translate-y-1/2 before:-translate-x-1/2 before:rounded-full scrollbar-none">
                                     @foreach($departments as $mainDepartment)
-
-
                                     <button
                                         class="item group relative rounded-full h-13 lg:h-10 px-6 lg:px-4 flex items-center justify-center duration-300 [&.active]:bg-white [&.active]:shadow-s2 my-4 @if($loop->first) active @endif">
                                         <div
@@ -95,8 +93,6 @@
                         <div class="tab-content">
                             @foreach($departments as $department)
                             <div class="item hidden [&.active]:block @if($loop->first) active @endif">
-
-
                                 <div
                                     class="title text-6.5 2xl:text-5.5 xl:text-5 lg:text-4.5 sm:text-4 font-semibold tracking-[-0.03em] text-[#2675FA] capitalize">
                                     {{ $department->name }}
@@ -149,9 +145,10 @@
                         class="content-wrapper relative z-2 px-30 2xl:px-24 xl:px-20 lg:px-16 md:px-10 sm:px-7.5 py-12 lg:py-10 md:py-8">
                         <div class="text-editor">
                             <!-- .text-editor içerisindeki style attribute değerleri frontendi tasarıma benzetmek adına eklenmiştir, backend aşamasında silinerek panel editöründen tanımlanmalıdır. -->
-                            <h4 style="font-weight:600;color:#DB0620">#BenLOCAdayımSen Nerdesin?</h4>
-                            <h6 style="font-weight:500;color:#0D1523">Büyümeye ve gelişmeye devam ediyoruz, bizimle
-                                çalışmak için <strong>formu doldurmayı unutma :)</strong></h6>
+                            <h4 style="font-weight:600;color:#DB0620">#{{ __('general.iam_in_loca') }}?</h4>
+                            <h6 style="font-weight:500;color:#0D1523">
+                                {{ __('general.work_with_us') }}
+                                </h6>
                         </div>
                         <div class="form-outer-wrapper pt-12 2xl:pt-10 xl:pt-8 lg:pt-6">
                             <form action="{{ route('form.job') }}" method="POST" enctype="multipart/form-data">
@@ -159,7 +156,7 @@
                                 <div class="form-wrapper grid grid-cols-2 sm:grid-cols-1 gap-3">
                                     <div class="form-el relative group/form w-full col-span-2 sm:col-span-1">
                                         <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                        <input name="name" required type="text" placeholder="Adınız Soyadınız"
+                                        <input name="name" required type="text" placeholder="{{ __('general.name') }}"
                                             class="w-full h-14 md:h-12 duration-300 rounded-4 md:rounded-3 px-7 md:px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
 
                                         <div
@@ -168,7 +165,7 @@
                                     </div>
                                     <div class="form-el relative group/form w-full">
                                         <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                        <input name="phone" required type="tel" placeholder="Telefon No"
+                                        <input name="phone" required type="tel"placeholder="{{ __('general.phone') }}"
                                             class="w-full h-14 md:h-12 duration-300 rounded-4 md:rounded-3 px-7 md:px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
 
                                         <div
@@ -177,7 +174,7 @@
                                     </div>
                                     <div class="form-el relative group/form w-full">
                                         <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                        <input name="email" required type="email" placeholder="E-posta Adresiniz"
+                                        <input name="email" required type="email" placeholder="{{ __('general.email') }}"
                                             class="w-full h-14 md:h-12 duration-300 rounded-4 md:rounded-3 px-7 md:px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
 
                                         <div
@@ -192,7 +189,7 @@
                                             <div
                                                 class="box flex items-center justify-center gap-2 duration-300 h-20 md:h-18 px-7 md:px-5 rounded-4 md:rounded-3 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-dashed border-[#8AA5D3]/30 peer-hover:border-main-700 peer-focus:border-main-700 group-[&.error]/form:border-secondary-700">
                                                 <div class="text text-3.5 font-medium text-tertiary-950"><span
-                                                        class="line-clamp-1">CV Yükle</span></div>
+                                                        class="line-clamp-1">{{ __('general.upload_cv') }}</span></div>
                                                 <div
                                                     class="icon icon-upload text-4 h-4 block leading-none duration-300 text-[#2675FA]">
                                                 </div>
@@ -228,8 +225,9 @@
                                             class="button group/button relative flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 after:absolute after:left-[calc(50%-13px)] xl:after:left-[calc(50%-12px)] md:after:left-[calc(50%-10px)] after:top-[calc(50%-13px)] xl:after:top-[calc(50%-12px)] md:after:top-[calc(50%-10px)] after:h-6.5 xl:after:h-6 md:after:h-5 after:aspect-square after:rounded-full after:border-0.5 after:border-solid after:border-white after:[clip-path:polygon(0%_0%,100%_0%,100%_50%,0%_50%)] after:opacity-0 after:duration-300 after:transition-opacity after:animate-spin group-[&.loading]/form:[&_.icon]:opacity-0 group-[&.loading]/form:[&_.text]:opacity-0 group-[&.loading]/form:after:opacity-100 group-[&.loading]/form:pointer-events-none h-16 xl:h-14 md:h-12 w-full px-8 sm:px-6 bg-secondary-700 hover:bg-secondary-600 text-white">
 
                                             <div
-                                                class="text whitespace-nowrap font-medium text-4 md:text-3.5 transition-opacity duration-300">
-                                                Formu Gönder</div>
+                                                class="text whitespace-nowrap font-medium text-4 md:text-3.5 transition-opacity duration-300 capitalize">
+                                                {{ __('general.submit') }}
+                                            </div>
                                         </button>
                                     </div>
                                 </div>

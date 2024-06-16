@@ -27,8 +27,9 @@
                     <div
                         class="wrapper max-w-1440 mx-auto w-full px-7.5 relative z-2 grid gap-6 xl:gap-5 lg:gap-4 sm:gap-3">
                         <h1
-                            class="title text-center font-semibold text-white text-11 2xl:text-10 xl:text-8 lg:text-7 md:text-6 sm:text-5.5 tracking-[0.15em] lg:tracking-widest sm:tracking-wider leading-tight">
-                            PROJELERİMİZ</h1>
+                            class="title text-center capitalize font-semibold text-white text-11 2xl:text-10 xl:text-8 lg:text-7 md:text-6 sm:text-5.5 tracking-[0.15em] lg:tracking-widest sm:tracking-wider leading-tight">
+                            {{ __('general.projects') }}
+                        </h1>
                         <div
                             class="tags flex items-center justify-center flex-wrap gap-x-10 2xl:gap-x-9 xl:gap-x-8 lg:gap-x-6 md:gap-x-4 sm:gap-x-2 gap-y-2 md:gap-y-1.5 sm:gap-y-0.5">
                             <div
@@ -59,8 +60,9 @@
                                         <div
                                             class="custom-input h-22 bg-white rounded-6 md:rounded-3 px-10 2xl:px-9 xl:px-8 lg:px-7 md:px-6 flex flex-col justify-center border border-solid border-transparent duration-300 group-[&.error]/form:border-secondary-700">
                                             <label for="q1"
-                                                class="block text-3.5 font-semibold text-tertiary-950 mb-1">Arama kelimesi
-                                                girin</label>
+                                                class="block text-3.5 font-semibold text-tertiary-950 mb-1">
+                            {{ __('general.search') }}
+                                            </label>
                                             <input name="filter[search]" id="q1" type="text" placeholder="Örn: 3+1 Satılık veya İlan No"
                                                 class="text-4 placeholder:text-[#B0B0B0] font-medium text-tertiary-950 w-full">
                                         </div>
@@ -89,14 +91,20 @@
                                             class="custom-input h-22 xs:h-auto xs:py-5 bg-white rounded-6 md:rounded-3 px-10 2xl:px-9 xl:px-8 lg:px-7 md:px-6 flex items-center justify-between gap-2 border border-solid border-transparent duration-300 group-[&.error]/form:border-secondary-700 xs:grid xs:grid-cols-2">
                                             <div class="inner-group flex flex-col w-fit xs:w-full">
                                                 <label for="q2"
-                                                    class="block text-3.5 font-semibold text-tertiary-950 mb-1 xs:text-center">Fiyat</label>
+                                                    class="block text-3.5 font-semibold text-tertiary-950 mb-1 xs:text-center">
+                            {{ __('general.price') }}
+
+                                                </label>
                                                 <input name="filter[min_price]" id="q2" type="text" placeholder="Min"
                                                     class="text-4 placeholder:text-[#B0B0B0] font-medium text-tertiary-950 w-10 xs:w-full xs:text-center">
                                             </div>
                                             <div class="split h-11 w-px bg-[#D1D1D1]/50 shrink-0 xs:hidden"></div>
                                             <div class="inner-group flex flex-col w-fit xs:w-full">
                                                 <label for="q3"
-                                                    class="block text-3.5 font-semibold text-tertiary-950 mb-1 xs:text-center">Fiyat</label>
+                                                    class="block text-3.5 font-semibold text-tertiary-950 mb-1 xs:text-center">
+                            {{ __('general.price') }}
+
+                                                </label>
                                                 <input name="filter[max_price]" id="q3" type="text" placeholder="Max"
                                                     class="text-4 placeholder:text-[#B0B0B0] font-medium text-tertiary-950 w-10 xs:w-full xs:text-center">
                                             </div>
@@ -141,7 +149,7 @@
                                             <div
                                                 class="custom-select relative h-22 sm:h-16 bg-white rounded-6 md:rounded-3 px-10 2xl:px-9 xl:px-8 lg:px-7 md:px-6 flex flex-col justify-center border border-solid border-transparent duration-300 group-[&.error]/form:border-secondary-700">
                                             <select name="filter[province]" class="peer w-full h-full text-4 sm:text-3.5 font-semibold text-tertiary-950">
-                                                            <option value="" selected disabled>{{ __('province') }}</option>
+                                                            <option value="" selected disabled>{{ __('general.province') }}</option>
                                                             @foreach($provinces as $province)
                                                             <option @selected($province->id == request('filter.province') ) @click="loadTowns(`{{
                                                                 route('province.towns',$province)
@@ -165,7 +173,7 @@
                                                 class="custom-select relative h-22 sm:h-16 bg-white rounded-6 md:rounded-3 px-10 2xl:px-9 xl:px-8 lg:px-7 md:px-6 flex flex-col justify-center border border-solid border-transparent duration-300 group-[&.error]/form:border-secondary-700">
                                                       <select name="filter[town]"
                                                         class="peer w-full h-full text-4 sm:text-3.5 font-semibold text-tertiary-950">
-                                                        <option value="" selected disabled>{{ __('town') }}</option>
+                                                        <option value="" selected disabled>{{ __('general.town') }}</option>
 <template x-for="town in towns">
     <option :selected="selectedTown == town.id" x-text="town.name" :value="town.id"></option>
 </template>
@@ -187,7 +195,7 @@
                                             class="button group/button relative flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 after:absolute after:left-[calc(50%-13px)] xl:after:left-[calc(50%-12px)] md:after:left-[calc(50%-10px)] after:top-[calc(50%-13px)] xl:after:top-[calc(50%-12px)] md:after:top-[calc(50%-10px)] after:h-6.5 xl:after:h-6 md:after:h-5 after:aspect-square after:rounded-full after:border-0.5 after:border-solid after:border-white after:[clip-path:polygon(0%_0%,100%_0%,100%_50%,0%_50%)] after:opacity-0 after:duration-300 after:transition-opacity after:animate-spin group-[&.loading]/form:[&_.icon]:opacity-0 group-[&.loading]/form:[&_.text]:opacity-0 group-[&.loading]/form:after:opacity-100 group-[&.loading]/form:pointer-events-none bg-[#144495] hover:bg-main-700 h-22 md:h-16 w-full text-white font-semibold text-4">
                                             <div
                                                 class="text whitespace-nowrap font-medium text-4 md:text-3.5 transition-opacity duration-300">
-                                                {{ __('search') }}</div>
+                                                {{ __('general.search') }}</div>
                                         </button>
                                     </div>
                                     <div class="form-el group/form">
@@ -197,7 +205,7 @@
                                             class="button group/button relative flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 after:absolute after:left-[calc(50%-13px)] xl:after:left-[calc(50%-12px)] md:after:left-[calc(50%-10px)] after:top-[calc(50%-13px)] xl:after:top-[calc(50%-12px)] md:after:top-[calc(50%-10px)] after:h-6.5 xl:after:h-6 md:after:h-5 after:aspect-square after:rounded-full after:border-0.5 after:border-solid after:border-white after:[clip-path:polygon(0%_0%,100%_0%,100%_50%,0%_50%)] after:opacity-0 after:duration-300 after:transition-opacity after:animate-spin group-[&.loading]/form:[&_.icon]:opacity-0 group-[&.loading]/form:[&_.text]:opacity-0 group-[&.loading]/form:after:opacity-100 group-[&.loading]/form:pointer-events-none bg-secondary-700 hover:bg-secondary-600 h-22 md:h-16 w-full text-white font-semibold text-4">
                                             <div
                                                 class="text whitespace-nowrap font-medium text-4 md:text-3.5 transition-opacity duration-300">
-                                                {{ __('search_map') }}</div>
+                                                {{ __('general.show_map') }}</div>
                                         </button>
                                     </div>
                                 </div>
@@ -212,7 +220,9 @@
                     <div class="heading-wrapper flex items-center justify-between gap-7.5 px-7.5 lg:px-5 sm:px-3 mb-7">
                         <div class="text-editor text-editor-main">
                             <!-- .text-editor içerisindeki style attribute değerleri frontendi tasarıma benzetmek adına eklenmiştir, backend aşamasında silinerek panel editöründen tanımlanmalıdır. -->
-                            <h3><strong>Projeler</strong></h3>
+                            <h3><strong>
+                            {{ __('general.projects') }}
+                            </strong></h3>
                         </div>
                         <div class="info text-5 2xl:text-4.5 xl:text-4 lg:text-3.5 text-[#888888] fon">{{ __('total') }}: {{ $projects->total() }}</div>
                     </div>
@@ -266,7 +276,7 @@
                                         <div
                                             class="value font-semibold text-6 2xl:text-5.5 xl:text-5 lg:text-4.5 md:text-4">
                                             {{ $project->price }} TL</div>
-                                        <div class="joint text-4 xl:text-3.5 font-medium">‘{{ __('starting_price') }}</div>
+                                        <div class="joint text-4 xl:text-3.5 font-medium">‘{{ __('general.starting_price') }}</div>
                                     </div>
                                     <button
                                         class="button shrink-0 add-favorite group/button relative duration-300 bg-[#EFF5FF] flex items-center justify-center h-10 aspect-square rounded-full hover:border-tertiary-950/30">
@@ -282,7 +292,7 @@
                                     class="button group/button flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 h-16 xl:h-14 md:h-12 w-full px-6 bg-[#F0F2F7] hover:bg-main-100 mt-7.5 xl:mt-6 md:mt-5 text-[#2675FA]">
 
                                     <div class="text whitespace-nowrap font-medium text-4 md:text-3.5">
-                                        {{ __('details') }}
+                                        {{ __('general.details') }}
                                     </div>
 
                                 </a>
