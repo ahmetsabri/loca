@@ -124,14 +124,14 @@
                                 class="item group relative rounded-4 h-13 lg:h-10 px-6 lg:px-4 flex items-center justify-center duration-300 [&.active]:bg-white [&.active]:shadow-s2 my-4 md:mt-9 @if(!request('filter')) active @endif">
                                 <div
                                     class="text text-[#6D6D6D] text-4 lg:text-3.5 font-medium whitespace-nowrap duration-300 group-hover:text-tertiary-950 group-[&.active]:text-tertiary-950">
-                                    {{ __('bio') }}
+                                    {{ __('general.bio') }}
                                 </div>
                             </button>
                             <button data-id="tab2"
                                 class="item group relative rounded-4 h-13 lg:h-10 px-6 lg:px-4 flex items-center justify-center duration-300 [&.active]:bg-white [&.active]:shadow-s2 my-4 md:mt-9 @if(request('filter')) active @endif">
                                 <div
                                     class="text text-[#6D6D6D] text-4 lg:text-3.5 font-medium whitespace-nowrap duration-300 group-hover:text-tertiary-950 group-[&.active]:text-tertiary-950">
-                                {{ __('portfolios') }}
+                                {{ __('general.portfolios') }}
                                 </div>
                             </button>
                             <button data-id="tab3"
@@ -140,7 +140,7 @@
                                 <div
 
                                     class="text text-[#6D6D6D] text-4 lg:text-3.5 font-medium whitespace-nowrap duration-300 group-hover:text-tertiary-950 group-[&.active]:text-tertiary-950">
-                                {{ __('comments') }}
+                                {{ __('general.comments') }}
                                 </div>
                             </button>
                         </div>
@@ -149,14 +149,14 @@
                                 class="flex items-center gap-2 text-[#224391] duration-300 hover:text-[#2675FA]"
                                 data-fancybox>
                                 <div class="icon icon-comment text-4 h-4 block leading-none"></div>
-                                <div class="text text-3.5 font-medium">{{ __('add_comment') }}s</div>
+                                <div class="text text-3.5 font-medium">{{ __('general.add_comments') }}s</div>
                             </a>
                             <a href="#popup-share-team"
                                 class="flex items-center gap-2 text-[#224391] duration-300 hover:text-[#2675FA]"
                                 data-fancybox>
                                 <div class="icon icon-share text-4 h-4 block leading-none"></div>
                                 <div class="text text-3.5 font-medium">
-                                    {{ __('share') }}
+                                    {{ __('general.share') }}
                                 </div>
                             </a>
                         </div>
@@ -178,7 +178,7 @@
                                     <input type="hidden" name="user_id" value="{{ $user->id }}"/>
                                     <div class="form-inner-wrapper grid grid-cols-2 sm:grid-cols-1 gap-5">
                                         <div class="form-el group/form w-full col-span-2 sm:col-span-1">
-                                            <input name="name" type="text" placeholder="Adınız Soyadınız"
+                                            <input name="name" type="text" placeholder="{{ __('general.name') }}"
                                                 class="w-full h-13 md:h-12 duration-300 rounded-3 px-5 bg-transparent placeholder:text-[#8AA5D3] text-tertiary-950 font-medium text-3.5 border border-solid border-[#E8F0FD] hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
                                             <div class="tooltip text-secondary-700 text-3 mt-2 hidden group-[&.error]/form:block">Lütfen
                                                 ilgili alanı doldurunuz.</div>
@@ -191,7 +191,7 @@
                                                 <div
                                                     class="box relative duration-300 w-4 aspect-square shrink-0 bg-bodyColor rounded-0.75 border border-solid border-[#8AA5D3]/30 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:w-65/100 before:aspect-square before:rounded-0.5 before:bg-main-700 before:duration-300 before:pointer-events-none before:opacity-0 peer-hover:border-main-700 peer-checked:border-main-700 peer-checked:before:opacity-100">
                                                 </div>
-                                                <div class="text text-[#6D6D6D] text-3.5 font-medium">{{ __('hide_name') }}</div>
+                                                <div class="text text-[#6D6D6D] text-3.5 font-medium">{{ __('general.hide_name') }}</div>
                                             </div>
                                             <div class="tooltip text-secondary-700 text-3 mt-2 hidden group-[&.error]/form:block">Lütfen
                                                 ilgili alanı doldurunuz.</div>
@@ -205,139 +205,19 @@
                                         </div>
                                         <div class="form-el group/form w-full">
                                             <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                            <input name="email" type="email" placeholder="E-posta adresiniz"
+                                            <input name="email" type="email" placeholder="{{ __('general.email') }}"
                                                 class="w-full h-13 md:h-12 duration-300 rounded-3 px-5 bg-transparent placeholder:text-[#8AA5D3] text-tertiary-950 font-medium text-3.5 border border-solid border-[#E8F0FD] hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
                                             <div class="tooltip text-secondary-700 text-3 mt-2 hidden group-[&.error]/form:block">Lütfen
                                                 ilgili alanı doldurunuz.</div>
                                         </div>
                                         <div class="form-el group/form w-full col-span-2 sm:col-span-1">
                                             <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                            <textarea name="comment" placeholder="Yorumunuz"
+                                            <textarea name="comment" placeholder="{{ __('general.comments') }}"
                                                 class="w-full h-28 md:h-20 duration-300 rounded-3 p-5 bg-transparent placeholder:text-[#8AA5D3] text-tertiary-950 font-medium text-3.5 border border-solid border-[#E8F0FD] hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700"></textarea>
                                             <div class="tooltip text-secondary-700 text-3 mt-2 hidden group-[&.error]/form:block">Lütfen
                                                 ilgili alanı doldurunuz.</div>
                                         </div>
-                                        <div class="ratings col-span-2 sm:col-span-1 border border-solid border-[#E8F0FD] rounded-3 p-5">
-                                            <div class="title text-[#224391] font-medium text-3.5 mb-5">Danışmanızı puanlayın</div>
-                                            <div class="list">
-                                                <div class="item">
-                                                    <div
-                                                        class="item flex items-center justify-between gap-7.5 sm:flex-col sm:items-start sm:gap-1.5">
-                                                        <div class="title text-[#224391] text-3.5">Düzenli Bilgilendirme</div>
-                                                        <div  class="star-rating flex items-center gap-2">
-                                                            <div
-                                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                                            </div>
-                                                            <div
-                                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                                            </div>
-                                                            <div
-                                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                                            </div>
-                                                            <div
-                                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                                            </div>
-                                                            <div
-                                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                                            </div>
-                                                            <input type="hidden" value="5">
-                                                        </div>
-                                                    </div>
-                                                    <div class="split h-px w-full bg-[#E8F0FD] my-2"></div>
-                                                    <div
-                                                        class="item flex items-center justify-between gap-7.5 sm:flex-col sm:items-start sm:gap-1.5">
-                                                        <div class="title text-[#224391] text-3.5">Profesyonel Deneyim</div>
-                                                        <div class="star-rating flex items-center gap-2">
-                                                            <div
-                                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                                            </div>
-                                                            <div
-                                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                                            </div>
-                                                            <div
-                                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                                            </div>
-                                                            <div
-                                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                                            </div>
-                                                            <div
-                                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                                            </div>
-                                                            <input type="hidden" value="5">
-                                                        </div>
-                                                    </div>
-                                                    <div class="split h-px w-full bg-[#E8F0FD] my-2"></div>
-                                                    <div
-                                                        class="item flex items-center justify-between gap-7.5 sm:flex-col sm:items-start sm:gap-1.5">
-                                                        <div class="title text-[#224391] text-3.5">Sektör Bilgisi</div>
-                                                        <div class="star-rating flex items-center gap-2">
-                                                            <div
-                                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                                            </div>
-                                                            <div
-                                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                                            </div>
-                                                            <div
-                                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                                            </div>
-                                                            <div
-                                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                                            </div>
-                                                            <div
-                                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                                            </div>
-                                                            <input type="hidden" value="5">
-                                                        </div>
-                                                    </div>
-                                                    <div class="split h-px w-full bg-[#E8F0FD] my-2"></div>
-                                                    <div
-                                                        class="item flex items-center justify-between gap-7.5 sm:flex-col sm:items-start sm:gap-1.5">
-                                                        <div class="title text-[#224391] text-3.5">Güvenirlik</div>
-                                                        <div class="star-rating flex items-center gap-2">
-                                                            <div
-                                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                                            </div>
-                                                            <div
-                                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                                            </div>
-                                                            <div
-                                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                                            </div>
-                                                            <div
-                                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                                            </div>
-                                                            <div
-                                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                                            </div>
-                                                            <input type="hidden" value="5">
-                                                        </div>
-                                                    </div>
-                                                    <div class="split h-px w-full bg-[#E8F0FD] my-2"></div>
-                                                    <div
-                                                        class="item flex items-center justify-between gap-7.5 sm:flex-col sm:items-start sm:gap-1.5">
-                                                        <div class="title text-[#224391] text-3.5">Diğer</div>
-                                                        <div class="star-rating flex items-center gap-2">
-                                                            <div
-                                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                                            </div>
-                                                            <div
-                                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                                            </div>
-                                                            <div
-                                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                                            </div>
-                                                            <div
-                                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                                            </div>
-                                                            <div
-                                                                class="icon icon-star text-4 h-4 block leading-none duration-300 text-[#2675FA] cursor-pointer [&:has(+.active)+.icon~.icon]:text-[#224391] [&:is(.active)~.icon]:text-[#224391]">
-                                                            </div>
-                                                            <input type="hidden" value="5">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                         <div class="form-el group/form w-full col-span-2 sm:col-span-1">
                                             <!-- Buraya `loading` classı gelince ilgili style değişiyor -->
                                             <button
@@ -345,7 +225,8 @@
 
                                                 <div
                                                     class="text whitespace-nowrap font-medium text-4 md:text-3.5 transition-opacity duration-300">
-                                                    Gönder</div>
+                                                    {{ __('general.submit') }}
+                                                </div>
                                             </button>
                                         </div>
                                     </div>
@@ -369,7 +250,7 @@
 
                             <div class="info">
                                 <div class="title capitalize text-4 font-semibold text-[#224391] mb-7 xl:mb-6 lg:mb-5 md:mb-4">
-                                    {{ __('experience') }}
+                                    {{ __('general.experience') }}
                                 </div>
                                 <div class="list flex items-center flex-wrap gap-4 lg:gap-3 md:gap-2">
                                     @if($user->languages)
@@ -386,7 +267,7 @@
                             <div class="split h-px w-full my-8 xl:my-7 lg:my-6 md:my-4 bg-[#E8F0FD]"></div>
 
                             <div class="info">
-                                <div class="title text-4 font-semibold text-[#224391] mb-3">{{ __('languages') }}</div>
+                                <div class="title text-4 font-semibold text-[#224391] mb-3">{{ __('general.languages') }}</div>
                                 <div class="text-editor text-editor-main">
                                     @if($user->languages)
                                     <p style="color:#0D1523" class="capitalize">{{ implode(',',$user->languages) }}</p>
@@ -402,7 +283,7 @@
                                     <select
                                         class="peer w-full h-16 xl:h-14 md:h-12 duration-300 rounded-4 md:rounded-3 px-7 md:px-5 bg-transparent placeholder:text-[#224391] text-tertiary-950 font-medium text-4 xl:text-3.5 border border-solid border-[#E8F0FD] hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700 invalid:!text-[#224391]"
                                         required>
-                                        <option value="" disabled selected>{{ __('type') }}</option>
+                                        <option value="" disabled selected>{{ __('general.type') }}</option>
                                     @foreach($cateogries as $category)
                                     <option @click="quickFilter(`{{ route('frontend.user.show',[$user,'filter[parent_category]'=>$category->id])}}`)" value="{{ $category->id }}" @selected($category->id == request('filter.parent_category')) >{{ $category->name }}</option>
                                     @endforeach
@@ -500,7 +381,7 @@
                                             <div
                                                 class="value font-semibold text-6 2xl:text-5.5 xl:text-5 lg:text-4.5 md:text-4">
                                                 {{ $portfolio->price }} </div>
-                                            <div class="joint text-4 xl:text-3.5 font-medium">{{ __('starting_price') }}
+                                            <div class="joint text-4 xl:text-3.5 font-medium">{{ __('general.general.starting_price') }}
                                             </div>
                                         </div>
                                     </div>
@@ -513,7 +394,7 @@
                                 class="button group/button flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 h-16 xl:h-14 md:h-12 w-fit mx-auto px-30 2xl:px-24 xl:px-16 lg:px-12 md:px-8 sm:px-6 bg-secondary-700 hover:bg-secondary-600 mt-7.5 text-white">
 
                                 <div class="text whitespace-nowrap font-medium text-4 md:text-3.5" >
-                                    {{ __('show_more') }}
+                                    {{ __('general.show_more') }}
                                     </div>
 
                             </a>
@@ -525,23 +406,7 @@
 
                                 <div class="comment bg-[#F0F2F7] rounded-5 md:rounded-3 px-8 lg:px-6 py-6">
                                     <div class="name text-4 font-semibold text-[#224391] capitalize" x-text="comment.formatted_name"></div>
-                                    <div class="stars flex items-center gap-1.5 mt-2">
-                                        <div
-                                            class="icon icon-star text-3 h-3 block leading-none duration-300 text-[#2675FA]">
-                                        </div>
-                                        <div
-                                            class="icon icon-star text-3 h-3 block leading-none duration-300 text-[#2675FA]">
-                                        </div>
-                                        <div
-                                            class="icon icon-star text-3 h-3 block leading-none duration-300 text-[#2675FA]">
-                                        </div>
-                                        <div
-                                            class="icon icon-star text-3 h-3 block leading-none duration-300 text-[#2675FA]">
-                                        </div>
-                                        <div
-                                            class="icon icon-star text-3 h-3 block leading-none duration-300 text-[#224391]/50">
-                                        </div>
-                                    </div>
+
                                     <div class="text-editor mt-3 capitalize">
                                         <p x-text="comment.comment"></p>
                                     </div>
@@ -554,7 +419,7 @@
                                 class="button group/button flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 h-16 xl:h-14 md:h-12 w-fit mx-auto px-30 2xl:px-24 xl:px-16 lg:px-12 md:px-8 sm:px-6 bg-[#2675FA] hover:bg-main-500 mt-7.5 text-white">
 
                                 <div class="text whitespace-nowrap font-medium text-4 md:text-3.5" >
-                                    {{ __('show_more') }}
+                                    {{ __('general.show_more') }}
 </div>
 
                             </button>

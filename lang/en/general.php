@@ -58,7 +58,14 @@ return [
     'submit' => 'submit',
     'contact_us' => 'contact us',
     'starting_price' => 'starting price',
-    'details' => 'details'
-
+    'details' => 'details',
+        'type' => 'type',
+    'comments' => 'comments',
+    'bio' => 'biography',
+    'experience' => 'experience',
+    'languages' => 'languages',
+    'add_comments' => 'add comment',
+    'share' => 'share',
+    'hide_name' => 'hide name'
 
 ];

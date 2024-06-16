@@ -58,5 +58,13 @@ return [
     'submit' => 'gönder',
     'contact_us' => 'bize ulaşın',
     'starting_price' => 'başlangıç fiyatı',
-    'details' => 'detaylar'
+    'details' => 'detaylar',
+    'type' => 'tip',
+    'comments' => 'yorumlar',
+    'bio' => 'biyografi',
+    'add_comments' => 'yorum ekle',
+    'share' => 'paylaş',
+    'hide_name' => 'adı gizle'
+
+
 ];
