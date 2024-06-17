@@ -192,7 +192,9 @@ return [
 
     'attributes' => [
         'email' => 'e-posta',
-        'title' => 'başlık',
+        'title.tr' => 'başlık türkçe ',
+        'title.en' => 'başlık ingilizce ',
+        'title.ru' => 'başlık rusça ',
         'name' => 'ad',
         'category' => 'kategori',
         'price_in_tl' => 'tl fiyatı',

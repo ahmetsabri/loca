@@ -21,6 +21,7 @@ use App\Http\Controllers\SubmittedFormController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\VideoCategoryController;
 use App\Http\Controllers\VideoController;
+use App\Http\Middleware\LocaleMiddleware;
 use App\Models\Province;
 use Illuminate\Support\Facades\Route;
 
@@ -48,7 +49,7 @@ Route::view('dashboard', 'dashboard')->middleware(['auth', 'verified'])->name('d
 Route::view('career', 'frontend.career')->name('career');
 Route::view('buy-sell', 'frontend.buy_sell', ['provinces' => Province::all()])->name('buy_sell');
 Route::get('videos', [FrontendVideoController::class, 'index'])->name('videos');
-Route::middleware('auth')->prefix('admin')->group(function () {
+Route::middleware('auth')->prefix('admin')->withoutMiddleware(LocaleMiddleware::class)->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

@@ -1,6 +1,6 @@
 <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
 <h1 class="text-3xl font-bold capitalize text-indigo-600">
-    {{__('info')}}
+   bilgileri
 </h1>
 @foreach($infos as $info)
 <h4 class="font-bold mt-5 text-indigo-700 text-2xl">{{$info->name}}</h4>

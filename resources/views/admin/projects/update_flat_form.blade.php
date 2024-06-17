@@ -63,7 +63,8 @@
 </template>
 <div class="w-full mt-10">
     <button @click="flatFeatures++" type="button"
-        class="px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800">{{
-        __('add_new_feature') }}</button>
+        class="px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800">
+        yeni özellik ekle
+    </button>
     </div>
 </section>

@@ -18,11 +18,29 @@
     {
         isSubCategory:false,
         subCategory:null,
+        errors:[],
+        name:{
+        tr:'',
+        ru:'',
+        en:'',
+            },
         deleteCategory(url){
         if(!confirm('Are you sure')){
             return
         }
         window.location.href=url
+    },
+    create(){
+        const self = this;
+        const url = `{{ route('category.store') }}`
+        axios.post(url,{name:this.name}).then(res=>{
+            if(res.status == 200){
+                window.location.reload();
+            }
+        }).catch(err=>{
+            self.errors = err.response.data.message
+            console.log(self.errors)
+        })
     }
     }
 ">

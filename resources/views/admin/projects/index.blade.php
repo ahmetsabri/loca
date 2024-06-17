@@ -8,9 +8,9 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 w-full">
             <a href="{{ route('project.create') }}"
-                class=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                class=" text-white capitalize bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 type="button">
-                {{__('new_project')}}
+                yeni proje
             </a>
         </div>
     </div>
@@ -30,13 +30,13 @@
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3 text-center">
-                            {{__('title')}}
+                            başlık
                         </th>
                         <th scope="col" class="px-6 py-3 text-center">
-                            {{__('address')}}
+                            adres
                         </th>
                         <th scope="col" class="px-6 py-3 text-center">
-                            {{__('actions')}}
+                            işlemler
                         </th>
 
                     </tr>
@@ -60,11 +60,11 @@
                             <a href="{{ route('project.edit',$project) }}"
                                 dal-target="edit-category-modal-{{$project->id}}"
                                 data-modal-toggle="edit-category-modal-{{$project->id}}"
-                                class="px-3 py-2 text-sm font-medium text-center text-white bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">{{__('edit')}}</a>
+                                class="px-3 py-2 text-sm font-medium text-center text-white bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">düzenle</a>
 
 
                             <button @click="deleteProject(`{{route('project.delete',$project)}}`)" type="button"
-                                class="px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">{{__('delete')}}</button>
+                                class="px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">sil</button>
                         </td>
                     </tr>
 

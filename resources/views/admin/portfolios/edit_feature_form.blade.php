@@ -1,8 +1,7 @@
 <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
 <h4 class="capitalize font-bold text-3xl text-blue-700">
 
-{{__('features')}}
-
+Özellikler
 </h4>
 
 @foreach($features as $feature)
@@ -52,8 +51,9 @@
 </template>
     <div class="w-full mt-10">
         <button @click="numOfFeatures++" type="button"
-            class="px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800">{{
-            __('add_new_feature') }}</button>
+            class="px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800">
+        yeni özellik ekle
+        </button>
     </div>
         @if(!$loop->last)
         <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">

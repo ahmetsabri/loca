@@ -64,7 +64,17 @@ return [
     'bio' => 'biyografi',
     'add_comments' => 'yorum ekle',
     'share' => 'paylaş',
-    'hide_name' => 'adı gizle'
-
-
+    'hide_name' => 'adı gizle',
+    'title_tr' => 'başlık türkçe',
+    'title_ru' => 'başlık rusça',
+    'title_en' => 'başlık ingilizce',
+    'description_tr' => 'Açıklama türkçe',
+    'description_en' => 'Açıklama ingilizce',
+    'description_ru' => 'Açıklama rusça',
+'payment_plan_tr' => 'ödeme planı tr',
+'payment_plan_en' => 'ödeme planı en',
+'payment_plan_ru' => 'ödeme planı ru',
+'extra_payment_tr' => 'ekstra ödeme tr',
+'extra_payment_ru' => 'ekstra ödeme ru',
+'extra_payment_en' => 'ekstra ödeme en',
 ];

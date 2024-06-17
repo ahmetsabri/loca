@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('update_portfolio') }}
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight capitalize">
+            portföyü güncelle
         </h2>
     </x-slot>
     <div class="p-12" x-data="{

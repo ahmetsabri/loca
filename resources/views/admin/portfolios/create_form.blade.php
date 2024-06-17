@@ -1,35 +1,50 @@
-<section class="bg-white dark:bg-gray-900">
+<section class="bg-white dark:bg-gray-900 py-10 mx-auto">
+    @if($errors->all())
+    <div class="flex justify-center">
+        <a href="#"
+            class="block  max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+    <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+        @foreach($errors->all() as $error)
+        <li class="text-red-700">
+            {{ $error }}
+        </li>
+        @endforeach
+
+    </ul>
+        </a>
+    </div>
+    @endif
     <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
-        <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">
-            {{__('new_portfolio')}}
+        <h2 class="mb-3 text-2xl  font-bold text-indigo-700 dark:text-white capitalize text-center ">
+            yeni portföy
         </h2>
         <form action="{{route('portfolio.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                 <div class="sm:col-span-2">
                     <label for="title_tr" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        {{__('title_tr')}}
+                        başlık türkçe
                     </label>
                     <input type="text" name="title[tr]" id="title_tr"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="title in" required>
+                         required>
                     <br>
                     <label for="title_tr" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        {{__('title_ru')}}
+                        başlık rusça
                     </label>
 
                     <input type="text" name="title[ru]" id="title_ru"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="title in" required>
+                         required>
                     <br>
 
                     <label for="title_en" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        {{__('title_en')}}
+                       başlık ingilizce
                     </label>
 
                     <input type="text" name="title[en]" id="title_en"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="title in" required>
+                         required>
                 </div>
 
                 <div class="w-full">
@@ -49,10 +64,10 @@
                 </div>
                 <div>
                                     <label for="user"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white capitalize">kullancı</label>
+                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white capitalize">danışman</label>
                                     <select id="user" name="user_id"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                        <option value="">kullancı</option>
+                                        <option value="">danışman</option>
                                         @foreach($users as $user)
                                         <option value="{{ $user->id }}">{{
                                             $user->name }}</option>
@@ -60,32 +75,39 @@
                                     </select>
                                 </div>
                 <div class="w-full">
-                    <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">TL
-                        Price</label>
+                    <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    Fiyat TL
+                    </label>
                     <input type="number" name="price_in_tl" id="price"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                         placeholder="₺2999" required>
                 </div>
                 <div class="w-full">
-                    <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">USD
-                        Price</label>
+                    <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        Fiyat ABD
+
+                    </label>
                     <input type="number" name="price_in_usd" id="price_in_usd"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                         placeholder="$2999" required="">
                 </div>
                 <div class="w-full">
-                    <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">EUR
-                        Price</label>
+                    <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+
+                    Fiyat EUR
+                    </label>
                     <input type="number" name="price_in_eur" id="price_in_eur"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                         placeholder="€2999" required="">
                 </div>
                 <div>
                     <label for="province"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white capitalize">province</label>
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white capitalize">İl</label>
                     <select id="province" name="province_id"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                        <option value="">{{ __('select_province') }}</option>
+                        <option value="">
+                            İl
+                        </option>
                         @foreach($provinces as $province)
                         <option @click="loadTowns(`{{ route('province.towns',$province) }}`)" value="{{ $province->id }}">{{
                             $province->name }}</option>
@@ -93,10 +115,12 @@
                     </select>
                 </div>
                 <div>
-                    <label for="town" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white capitalize">town</label>
+                    <label for="town" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white capitalize">İlçe</label>
                     <select id="town" name="town_id"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                        <option>{{ __('select_town') }}</option>
+                        <option>
+                            İlçe
+                        </option>
                         <template x-for="town in towns">
                             <option @click="loadDistricts(town.id)" x-text="town.name" :value="town.id"></option>
                         </template>
@@ -104,10 +128,10 @@
                 </div>
                 <div>
                     <label for="district"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white capitalize">district</label>
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white capitalize">Mahalle</label>
                     <select id="district" name="district_id"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                        <option>{{ __('select_district') }}</option>
+                        <option>Mahalle</option>
                         <template x-for="district in districts">
                             <option x-text="district.name" :value="district.id"></option>
                         </template>
@@ -115,7 +139,7 @@
                 </div>
                 <div>
                     <label for="category"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kategori</label>
                     <select id="category" name="category_id"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                         @foreach($categories as $category)
@@ -139,10 +163,10 @@
                 </div>
                 <div>
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        for="user_avatar">{{__('promotion_url')}}</label>
+                        for="user_avatar">tanıtım linki</label>
                     <input
                         class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                        id="user_avatar" type="url" name="promotion_url" placeholder="{{__('promotion_url')}}">
+                        id="user_avatar" type="url" name="promotion_url" placeholder="tanıtım linki">
                     <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help"></div>
                 </div>
                 <div>
@@ -155,7 +179,7 @@
                 </div>
                 <div>
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        for="images">images</label>
+                        for="images">resimler</label>
                     <input
                         class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                         aria-describedby="images" id="images" type="file" name="images[]" multiple>
@@ -163,7 +187,7 @@
                 </div>
                 <div>
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        for="user_avatar">brochure</label>
+                        for="user_avatar">broşür</label>
                     <input
                         class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                         aria-describedby="brochure_help" id="brochure" type="file" name="brochure">
@@ -172,7 +196,7 @@
 
                 <div class="sm:col-span-2">
                     <label for="description_tr" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        {{__('description_tr')}}
+                       Açıklama türkçesi
                     </label>
                     <textarea name="description[tr]" id="description_tr" rows="4"
                         class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
@@ -180,7 +204,7 @@
                 </div>
                 <div class="sm:col-span-2">
                     <label for="description_tr" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        {{__('description_ru')}}
+                        açıklama rusça
                     </label>
                     <textarea name="description[ru]" id="description_ru" rows="4"
                         class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
@@ -188,7 +212,7 @@
                 </div>
                 <div class="sm:col-span-2">
                     <label for="description_en" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        {{__('description_en')}}
+                       açıklama ingilizce
                     </label>
                     <textarea name="description[en]" id="description_en" rows="4"
                         class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
@@ -201,7 +225,7 @@
 
             <button type="submit"
                 class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
-                save
+                kaydet
             </button>
         </form>
     </div>

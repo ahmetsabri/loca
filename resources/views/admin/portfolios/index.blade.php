@@ -1,23 +1,23 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight capitalize">
-            {{ __('portfolios') }}
+            portföyler
         </h2>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 w-full">
             <a href="{{ route('portfolio.create') }}"
-                    class=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    class=" text-white capitalize bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     type="button">
-                    {{__('new_portfolio')}}
+                    yeni portföy
                 </a>
         </div>
     </div>
     <div class="m-5">
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg" x-data="{
     deletePortfolio(url){
-        if(!confirm('are you sure')){
+        if(!confirm('emin misiniz?')){
             return
         }
 
@@ -29,13 +29,13 @@
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3 text-center">
-                    {{__('name')}}
+                    başlık
                 </th>
                 <th scope="col" class="px-6 py-3 text-center">
-                    {{__('category')}}
+        kategori
                 </th>
                 <th scope="col" class="px-6 py-3 text-center">
-                    {{__('actions')}}
+                    işlemler
                 </th>
 
             </tr>
@@ -65,11 +65,11 @@
 
                     dal-target="edit-category-modal-{{$portfolio->id}}"
                         data-modal-toggle="edit-category-modal-{{$portfolio->id}}"
-                        class="px-3 py-2 text-sm font-medium text-center text-white bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">{{__('edit')}}</a>
+                        class="px-3 py-2 text-sm font-medium text-center text-white bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">düzenle</a>
 
 
                     <button @click="deletePortfolio(`{{route('portfolio.delete',$portfolio)}}`)" type="button"
-                        class="px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">{{__('delete')}}</button>
+                        class="px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">sil</button>
                 </td>
             </tr>
 

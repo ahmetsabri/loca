@@ -19,7 +19,6 @@ class LocaleMiddleware
             $locale = session()->get('locale');
             app()->setLocale($locale);
         }
-
         return $next($request);
     }
 }

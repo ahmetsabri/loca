@@ -84,9 +84,4 @@ class StorePortfolioRequest extends FormRequest
 
         return array_filter($data);
     }
-
-    protected function failedValidation(Validator $validator)
-    {
-        dd($validator->errors()->all());
-    }
 }

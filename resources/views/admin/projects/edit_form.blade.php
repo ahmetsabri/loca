@@ -1,15 +1,27 @@
 <section class="bg-white dark:bg-gray-900">
+    @if($errors->all())
+        <div class="flex justify-center py-1">
+            <a href="#"
+                class="block  max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+                    @foreach($errors->all() as $error)
+                    <li class="text-red-700">
+                        {{ $error }}
+                    </li>
+                    @endforeach
+
+                </ul>
+            </a>
+        </div>
+        @endif
     <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
-        <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">
-            {{__('new_project')}}
-        </h2>
         <form action="{{route('project.update',$project)}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                 <div class="sm:col-span-2">
                 @foreach(config('app.locales') as $locale)
                 <label for="title_tr" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        {{__("title_$locale")}}
+                        {{__("general.title_$locale")}}
                     </label>
                     <input type="text" name="title[{{ $locale }}]" id="title_tr"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
@@ -18,7 +30,7 @@
                 @endforeach
                 </div>
                 <div>
-                            <label for="province" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white capitalize">province</label>
+                            <label for="province" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white capitalize">İl</label>
                             <select required id="province" name="province_id"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                                <option disabled>{{ __('select_province') }}</option>
@@ -28,7 +40,7 @@
                             </select>
                         </div>
                         <div>
-                            <label for="town" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white capitalize">town</label>
+                            <label for="town" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white capitalize">İlçe</label>
                             <select required id="town" name="town_id"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                   <option disabled>{{ __('select_town') }}</option>
@@ -38,7 +50,7 @@
                             </select>
                         </div>
                         <div>
-                            <label for="district" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white capitalize">district</label>
+                            <label for="district" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white capitalize">Mahalle</label>
                             <select required id="district" name="district_id"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
               <option disabled>{{ __('select_district') }}</option>
@@ -48,22 +60,19 @@
                             </select>
                         </div>
                 <div class="w-full">
-                    <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">TL
-                        Price</label>
+                    <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fiyat TL</label>
                     <input type="number" name="price_in_tl" id="price"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                         placeholder="₺2999" required value="{{ $project->price_in_tl }}">
                 </div>
                 <div class="w-full">
-                    <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">USD
-                        Price</label>
+                    <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fiyat ABD</label>
                     <input type="number" name="price_in_usd" id="price_in_usd"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                         placeholder="$2999" required value="{{ $project->price_in_usd }}">
                 </div>
                 <div class="w-full">
-                    <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">EUR
-                        Price</label>
+                    <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fiyat EUR</label>
                     <input type="number" name="price_in_eur" id="price_in_eur"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                         placeholder="€2999" required value="{{ $project->price_in_eur }}">
@@ -71,7 +80,7 @@
 
                 <div>
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        for="user_avatar">{{__('promotion_url')}}</label>
+                        for="user_avatar">tanıtım linki</label>
                     <input
                         class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                         id="user_avatar" type="url" name="promotion_url" placeholder="{{__('promotion_url')}}" value="{{ $project->promotion_url }}">
@@ -79,10 +88,10 @@
                 </div>
                 <div>
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        for="date">{{__('delivery_date')}}</label>
+                        for="date">teslim tarihi</label>
                     <input type="date"
                         class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                        id="date" name="delivery_date" placeholder="{{__('delivery_date')}}" value="{{ $project->delivery_date }}">
+                        id="date" name="delivery_date" placeholder="teslim tarihi" value="{{ $project->delivery_date }}">
                     <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help"></div>
                 </div>
                 <div>
@@ -95,7 +104,7 @@
                 </div>
                 <div>
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        for="images">images</label>
+                        for="images">resimler</label>
                     <input
                         class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                         aria-describedby="images" id="images" type="file" name="images[]" multiple>
@@ -104,7 +113,7 @@
 
                 <div>
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        for="user_avatar">brochure</label>
+                        for="user_avatar">broşür</label>
                     <input
                         class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                         aria-describedby="brochure_help" id="brochure" type="file" name="brochure">
@@ -125,17 +134,18 @@
 @foreach(config('app.locales') as $locale)
   <div class="sm:col-span-2">
                     <label for="description_{{ $locale }}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        {{__('description_'.$locale)}}
+                        {{__('general.description_'.$locale)}}
+
                     </label>
                     <textarea name="description[{{ $locale }}]" id="description_tr" rows="4"
                         class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="{{__('description_'.$locale)}}">{{ $project->getTranslation('description',$locale) }}</textarea>
+                        placeholder="{{__('general.description_'.$locale)}}">{{ $project->getTranslation('description',$locale) }}</textarea>
                 </div>
 
     @endforeach
 
             </div>
-<h4 class="text-xl font-bold mt-10 w-full">{{ __('features') }}</h4>
+<h4 class="text-xl font-bold mt-10 w-full">Özellikler</h4>
 @foreach($project->features as $index=>$feature)
 
 <div class="flex justify-evenly">
@@ -171,11 +181,10 @@
 
 <div class="w-full mt-10">
     <button @click="numOfFeatures++" type="button"
-        class="px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800">{{
-        __('add_new_feature') }}</button>
+        class="px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800">yeni özellik ekle</button>
 </div>
 <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
-<h4 class="text-xl font-bold mt-10 w-full">{{ __('site_features') }}</h4>
+<h4 class="text-xl font-bold mt-10 w-full">Site Özellikleri</h4>
 @foreach($project->siteFeatures as $index=>$siteFeature)
 
 <div class="flex justify-evenly">
@@ -213,11 +222,10 @@
             </template>
             <div class="w-full mt-10">
                 <button @click="siteFeatures++" type="button"
-                    class="px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800">{{
-                    __('add_new_feature') }}</button>
+                    class="px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800">yeni özellik ekle</button>
             </div>
 <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
-<h4 class="text-xl font-bold mt-10 w-full">{{ __('transportations') }}</h4>
+<h4 class="text-xl font-bold mt-10 w-full">Ulaşım</h4>
 @foreach($project->transportations as $index=>$transportaion)
 <div class="flex justify-evenly">
             <input value="{{$transportaion->getTranslation('name','tr') }}" placeholder="tr" type="text" name="transportaion[{{ $index }}][tr]"
@@ -258,13 +266,13 @@
                 </template>
                 <div class="w-full mt-10">
                     <button @click="numOfTransportation++" type="button"
-                        class="px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800">{{ __('add_new_transportaion') }}</button>
+                        class="px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800">yeni ulaşım ekle</button>
                 </div>
 <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
                 @foreach(config('app.locales') as $locale)
                 <div class="sm:col-span-2 my-5">
                     <label for="payment_plan_{{ $locale }}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        {{__('payment_plan_'.$locale)}}
+                        {{__('general.payment_plan_'.$locale)}}
                     </label>
                     <textarea name="payment_plan[{{ $locale }}]" id="payment_plan_tr" rows="4"
                         class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
@@ -277,11 +285,11 @@
 
                 <div class="sm:col-span-2 my-7">
                     <label for="extra_payment_{{ $locale }}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        {{__('extra_payment_'.$locale)}}
+                        {{__('general.extra_payment_'.$locale)}}
                     </label>
                     <textarea name="extra_payment[{{ $locale }}]" id="extra_payment_tr" rows="4"
                         class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="{{__('extra_payment_'.$locale)}}">{{ $project->getTranslation('extra_payment',$locale) }}</textarea>
+                        placeholder="{{__('general.extra_payment_'.$locale)}}">{{ $project->getTranslation('extra_payment',$locale) }}</textarea>
                 </div>
                 @endforeach
 <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
@@ -292,15 +300,15 @@
         <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white capitalize">{{ __('flat') }} #{{ $flatIndex+1 }} </h2>
         <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
             <div class="w-full">
-                <label for="rooms" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('rooms')
-                    }}</label>
+                <label for="rooms" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+oda sayısı
+                </label>
                 <input type="text"value="{{ $flat->rooms }}" name="flats[{{ $flatIndex }}][rooms]" id="brand"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="1 + 1" required="">
             </div>
             <div class="w-full">
-                <label for="bathroom_count" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{
-                    __('bathroom_count') }}</label>
+                <label for="bathroom_count" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">banyo sayısı</label>
                 <input type="text" value="{{ $flat->bathroom_count }}" name="flats[{{ $flatIndex }}][bathroom_count]" id="bathrooms_count"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="2" required="">
@@ -313,8 +321,7 @@
                     placeholder="300" required="">
             </div>
             <div class="w-full">
-                <label for="gross" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('gross')
-                    }}</label>
+                <label for="gross" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">brüt</label>
                 <input type="number" value="{{ $flat->gross }}" name="flats[{{ $flatIndex }}][gross]" id="gross"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="100" required="">
@@ -324,8 +331,7 @@
             <div class="sm:col-span-2">
                 @if($loop->first)
                 <label for="flat_description"
-                    class="block mb-2 text-2xl font-semibold capitalize text-gray-900 dark:text-white">{{
-                    __('description') }}</label>
+                    class="block mb-2 text-2xl font-semibold capitalize text-gray-900 dark:text-white">Açıklama</label>
                 @endif
                 <textarea required name="flats[{{ $flatIndex }}][description][{{ $locale }}]" rows="4"
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
@@ -334,7 +340,7 @@
             @endforeach
         </div>
         <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
-        <h4 class="text-xl font-bold mt-10 w-full">{{ __('features') }}</h4>
+        <h4 class="text-xl font-bold mt-10 w-full">Özellikler</h4>
         @foreach($flat->features as $index=>$feature)
         <div class="flex justify-evenly">
                 <input placeholder="tr" type="text" value="{{ $feature->getTranslation('value','tr') }}" name="flats[{{ $flatIndex }}][features][{{ $index }}][tr]"
@@ -369,8 +375,7 @@
         </template>
         <div class="w-full mt-10">
             <button @click="flatFeatures++" type="button"
-                class="px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800">{{
-                __('add_new_feature') }}</button>
+                class="px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800">yeni özellik ekle</button>
         </div>
 </section>
 @endforeach
@@ -379,12 +384,11 @@
 </template>
 <div class="w-full mt-10">
         <button @click="numOfFlats++" type="button"
-            class="px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800">{{
-            __('add_new_flat') }}</button>
+            class="px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800">daire ekle</button>
     </div>
 <button type="submit"
                 class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
-                save
+                kaydet
             </button>
         </form>
     </div>

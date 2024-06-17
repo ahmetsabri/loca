@@ -78,9 +78,4 @@ class UpdateProjectRequest extends FormRequest
             'flats.*.features.*.en' => ['sometimes', 'nullable'],
         ];
     }
-
-    protected function failedValidation(Validator $validator)
-    {
-        dd($validator->errors()->all());
-    }
 }
