@@ -143,7 +143,7 @@
                             <div class="split h-px w-full bg-black/11 my-10 xl:my-8 lg:my-6"></div>
                             <div class="item grid grid-cols-2/10 lg:grid-cols-1 gap-6">
                                 <div class="title text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950">
-                                    {{ __('project_features') }}
+                                    {{ __('general.project_features') }}
                                 </div>
                                 <div class="detail">
                                     <div class="custom-list grid grid-cols-2 gap-6 xl:gap-5 lg:gap-4 md:gap-3">
@@ -163,7 +163,7 @@
                             <div class="split h-px w-full bg-black/11 my-10 xl:my-8 lg:my-6"></div>
                             <div class="item grid grid-cols-2/10 lg:grid-cols-1 gap-6">
                                 <div class="title text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950">
-                                    {{ __('transportations') }}
+                                    {{ __('general.transportations') }}
                                 </div>
                                 <div class="detail">
                                     <div class="custom-list grid gap-6 xl:gap-5 lg:gap-4 md:gap-3">
@@ -202,7 +202,7 @@
 
                             <div class="tab-general-wrapper mt-30 2xl:mt-24 xl:mt-18 lg:mt-12 md:mt-8">
                                 <div class="title text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950 mb-6 capitalize">
-                                    {{ __('flat_features') }}
+                                    {{ __('general.flat_features') }}
                                 </div>
                                 <div class="tab-triggers flex items-center">
                                     @foreach($project->flats as $mainFlat)
@@ -218,7 +218,7 @@
                                         <div class="el">
                                             <div
                                                 class="title text-4 xl:text-4 md:text-3.5 font-semibold text-tertiary-950 mb-5">
-                                                {{ __('description') }}
+                                                {{ __('general.description') }}
                                             </div>
                                             <div class="info flex items-center gap-7">
                                                 <div class="item flex items-center gap-5">
@@ -227,12 +227,12 @@
                                                     </div>
                                                     <div class="text-wrapper flex items-center gap-4">
                                                         <div class="text">
-                                                            <div class="title text-3 text-tertiary-950 capitalize">{{ __('gross') }}</div>
+                                                            <div class="title text-3 text-tertiary-950 capitalize">{{ __('general.gross') }}</div>
                                                             <div class="value text-4 font-medium text-[#1D1D1B]">{{ $flat->gross }} m²
                                                             </div>
                                                         </div>
                                                         <div class="text">
-                                                            <div class="title text-3 text-tertiary-950 capitalize">{{ __('net') }}</div>
+                                                            <div class="title text-3 text-tertiary-950 capitalize">{{ __('general.net') }}</div>
                                                             <div class="value text-4 font-medium text-[#1D1D1B]">{{ $flat->net }} m²
                                                             </div>
                                                         </div>
@@ -245,7 +245,7 @@
                                                     </div>
                                                     <div class="text-wrapper flex items-center gap-4">
                                                         <div class="text">
-                                                            <div class="title text-3 text-tertiary-950">{{ __('bathroom_count') }}</div>
+                                                            <div class="title text-3 text-tertiary-950">{{ __('general.bathroom_count') }}</div>
                                                             <div class="value text-4 font-medium text-[#1D1D1B]">
                                                                 {{ $flat->bathroom_count }}
                                                             </div>
@@ -264,7 +264,7 @@
                                         <div class="item grid grid-cols-2/10 lg:grid-cols-1 gap-6">
                                             <div
                                                 class="title text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950 capitalize">
-                                                {{ __('features') }}
+                                                {{ __('general.features') }}
                                             </div>
                                             <div class="detail">
                                                 <div class="custom-list grid grid-cols-3 xs:grid-cols-2 gap-3">
@@ -286,7 +286,7 @@
                                         <div class="item grid grid-cols-2/10 lg:grid-cols-1 gap-6">
                                             <div
                                                 class="title text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950 capitalize">
-                                                {{ __('site_features') }}
+                                                {{ __('general.site_features') }}
                                             </div>
                                             <div class="detail">
                                                 <div class="custom-list grid grid-cols-3 xs:grid-cols-2 gap-3">
@@ -308,7 +308,7 @@
                                         <div class="item grid grid-cols-2/10 lg:grid-cols-1 gap-6">
                                             <div
                                                 class="title capitalize text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950">
-                                               {{__('payment_plan')}}
+                                               {{__('general.payment_plan')}}
                                             </div>
                                             <div class="detail">
                                                 <div class="text-editor text-editor-main">
@@ -321,7 +321,7 @@
                                         <div class="item grid grid-cols-2/10 lg:grid-cols-1 gap-6">
                                             <div
                                                 class="title capitalize text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950">
-                                            {{__('extra_payment')}}
+                                            {{__('general.extra_payment')}}
                                             </div>
                                             <div class="detail">
                                                 <div class="text-editor text-editor-main">
@@ -334,12 +334,13 @@
                                         <div class="item grid grid-cols-2/10 lg:grid-cols-1 gap-6">
                                             <div
                                                 class="title text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950">
-                                                Konum</div>
+                                            {{ __('general.general.location') }}
+                                            </div>
                                             <div class="detail">
-                                                <iframe class="w-full h-auto block aspect-[31/11] xs:aspect-[5/4]"
-                                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12788.078410122907!2d34.50637532370789!3d36.7461005561991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15278a65a01e5581%3A0xd4f493615f9c80a4!2sMerkez%2C%2033330%20Mezitli%2FMersin!5e0!3m2!1str!2str!4v1712215061442!5m2!1str!2str"
-                                                    style="border:0;" allowfullscreen="" loading="lazy"
-                                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                              <iframe class="w-full h-auto block aspect-[177/73] xs:aspect-[5/4]"
+                                                    src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDw9HPxhdYmLJsF_xVXmEs_f2QwfaEoGho&center={{ $project?->lat_lon[0] ?? ''  }},{{ $project?->lat_lon[1] ?? '' }}&zoom=14"
+                                                    style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="locationIframe">
+                                                </iframe>
                                             </div>
                                         </div>
                                     </div>
@@ -352,7 +353,7 @@
                             <div class="sticky-el sticky top-0 duration-300">
                                 <div class="inner bg-white rounded-4 md:rounded-3 p-7.5 sm:p-6">
                                     <div class="date text-center text-tertiary-950 font-medium text-4 lg:text-3.5 mb-3">
-                                       {{__('delivery_date')}}: {{ $project->delivery_date }}</div>
+                                       {{__('general.delivery_date')}}: {{ $project->delivery_date }}</div>
                                     <div class="price text-center text-[#2675FA] leading-tight">
                                         <div x-text="price"
                                             class="value flex items-center justify-center font-semibold text-9 2xl:text-8 xl:text-7 lg:text-6 [&_span]:text-4 lg:[&_span]:text-3.5 [&_span]:font-medium">
@@ -497,19 +498,17 @@
                     <div class="related-carousel swiper !h-auto">
                         <div class="swiper-wrapper !h-auto">
                             @foreach($projects as $randomProject)
-
-
                             <div class="swiper-slide">
                                 <div
                                     class="project p-2.5 bg-white rounded-6 md:rounded-3 border border-solid border-transparent hover:border-[#8AA5D3]/35 duration-300">
-                                    <a href="{{ route('frontend.project.show',$project) }}"
+                                    <a href="{{ route('frontend.project.show',$randomProject) }}"
                                         class="image group shadow-s3 block aspect-[17/12] rounded-6 md:rounded-3 overflow-hidden isolate translate-z-0"><img
                                             class="full-cover group-hover:scale-105 duration-450 translate-z-0"
-                                            src="{{ $project->images->first()->full_url }}" alt="" loading="lazy"></a>
+                                            src="{{ $randomProject->images->first()->full_url }}" alt="" loading="lazy"></a>
                                     <div class="content-wrapper p-5 lg:p-4 mt-2.5">
                                         <a href="project-detail.html"
                                             class="title text-6 2xl:text-5.5 xl:text-5 lg:text-4.5 leading-tight text-tertiary-950 hover:text-main-700 duration-300 font-semibold mb-6 xl:mb-5 md:mb-4 block">
-                                            {{ $project->title }}
+                                            {{ $randomProject->title }}
                                         </a>
                                         <div class="tags flex flex-wrap items-center gap-4 lg:gap-y-3 sm:gap-y-2">
                                             <div class="item flex items-center gap-2">
@@ -520,7 +519,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="text text-3.5 font-medium text-tertiary-950/40">
-                                                    {{ $project->full_address }}
+                                                    {{ $randomProject->full_address }}
                                                 </div>
                                             </div>
 

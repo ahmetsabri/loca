@@ -163,9 +163,10 @@
                                 </div>
                                 <div class="detail">
                                     <iframe class="w-full h-auto block aspect-[177/73] xs:aspect-[5/4]"
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12788.078410122907!2d34.50637532370789!3d36.7461005561991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15278a65a01e5581%3A0xd4f493615f9c80a4!2sMerkez%2C%2033330%20Mezitli%2FMersin!5e0!3m2!1str!2str!4v1712215061442!5m2!1str!2str"
+                                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDw9HPxhdYmLJsF_xVXmEs_f2QwfaEoGho&center={{ $portfolio?->lat_lon[0] ?? ''  }},{{ $portfolio?->lat_lon[1] ?? '' }}&zoom=14"
                                         style="border:0;" allowfullscreen="" loading="lazy"
-                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                        referrerpolicy="no-referrer-when-downgrade" id="locationIframe">
+                                    </iframe>
                                 </div>
                             </div>
                             <div class="split h-px w-full bg-black/11 my-10 xl:my-8 lg:my-6"></div>
@@ -397,7 +398,7 @@
                                     </div>
                                     <div
                                         class="tag absolute left-4 top-4 bg-tertiary-950/50 rounded-2 px-2 py-1.5 text-white text-3 font-medium leading-none z-5 capitalize">
-                                        {{ $portfolio->category->rootAncestor->name }}
+                                        {{ $portfolio->category?->rootAncestor?->name }}
                                     </div>
                                 </div>
                             </div>

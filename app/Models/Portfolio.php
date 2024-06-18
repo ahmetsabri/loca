@@ -146,4 +146,15 @@ class Portfolio extends Model
 
         return $portfolio->province->name.' / '.$portfolio->town->name.' / '.$portfolio->district->name;
     }
+
+    public function getLatLonAttribute()
+    {
+        $location = $this->location;
+        if (! $location) {
+            return;
+        }
+        $location =  str_replace(['(', ')'], '', $location);
+
+        return explode(',', $location);
+    }
 }

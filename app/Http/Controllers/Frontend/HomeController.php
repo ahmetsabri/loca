@@ -18,6 +18,7 @@ class HomeController extends Controller
         $provinces = Province::all();
         $videos = Video::limit(5)->get();
         $videoCategories = VideoCategory::all();
+
         return view('index', compact('videos', 'videoCategories', 'portfolios', 'rootCategories', 'provinces'));
     }
 }

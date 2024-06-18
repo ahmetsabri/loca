@@ -117,4 +117,15 @@ class Project extends Model
     {
         return $builder->where('town_id', $val);
     }
+
+       public function getLatLonAttribute()
+       {
+           $location = $this->location;
+           if (! $location) {
+               return;
+           }
+           $location =  str_replace(['(', ')'], '', $location);
+
+           return explode(',', $location);
+       }
 }

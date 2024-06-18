@@ -19,7 +19,7 @@ class ProjectController extends Controller
                 AllowedFilter::scope('min_price'),
                 AllowedFilter::scope('max_price'),
                 AllowedFilter::scope('search'),
-            ])->paginate(9);
+            ])->with('images', 'flats')->paginate(9);
         $provinces = Province::all();
 
         return view('frontend.project.index', compact('projects', 'provinces'));
@@ -27,7 +27,7 @@ class ProjectController extends Controller
 
     public function show(Project $project)
     {
-        $projects = Project::inRandomOrder()->limit(3)->get();
+        $projects = Project::inRandomOrder()->with('images', 'flats')->limit(3)->get();
 
         return view('frontend.project.show', compact('project', 'projects'));
     }

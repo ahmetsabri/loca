@@ -52,7 +52,6 @@ class ProjectController extends Controller
         $this->attachImages($project, $data->images);
 
         return back()->with('success', 'success');
-
     }
 
     public function update(UpdateProjectRequest $request, Project $project)
@@ -91,7 +90,7 @@ class ProjectController extends Controller
 
     private function extractProjectData($data)
     {
-        return $data->except('flats', 'transportaion', 'features', 'images', 'location', 'brochure', 'site_feature');
+        return $data->except('flats', 'transportaion', 'features', 'images', 'brochure', 'site_feature');
     }
 
     private function extractFlatsData($data)

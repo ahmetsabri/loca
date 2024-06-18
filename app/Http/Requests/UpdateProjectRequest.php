@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -47,6 +46,8 @@ class UpdateProjectRequest extends FormRequest
             'town_id' => ['required', Rule::exists('towns', 'id')],
             'district_id' => ['required', Rule::exists('districts', 'id')],
             'delivery_date' => ['required', 'date'],
+            'location' => ['required', 'string'],
+
             'site_feature' => ['required', 'array'],
             'payment_plan' => ['required', 'array'],
             'payment_plan.tr' => ['required', 'string'],

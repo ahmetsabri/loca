@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -74,7 +73,7 @@ class StoreProjectRequest extends FormRequest
             'flats.*.description.ru' => ['required', 'required'],
             'flats.*.description.en' => ['required', 'required'],
             'flats.*.features' => ['required', 'array'],
-            'flats.*.features.*.tr' => ['required', 'nullable'],
+            'flats.*.features.*.tr' => ['sometimes', 'nullable'],
             'flats.*.features.*.ru' => ['sometimes', 'nullable'],
             'flats.*.features.*.en' => ['sometimes', 'nullable'],
         ];
