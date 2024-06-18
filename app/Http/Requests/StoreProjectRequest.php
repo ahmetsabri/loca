@@ -35,7 +35,7 @@ class StoreProjectRequest extends FormRequest
             'price_in_eur' => ['required', 'integer', 'gt:0'],
             'price_in_usd' => ['required', 'integer', 'gt:0'],
             'promotion_url' => ['sometimes', 'nullable', 'url'],
-            'location' => ['sometimes', 'nullable'],
+            'location' => ['required'],
             'images' => ['required', 'array'],
             'images.*' => ['required', 'image'],
             'brochure' => ['sometimes', 'mimes:pdf', 'extensions:pdf'],

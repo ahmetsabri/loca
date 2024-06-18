@@ -81,7 +81,7 @@ class Portfolio extends Model
 
     public function scopeCategory(Builder $builder, $val)
     {
-        $values = Category::find($val)->descendantsAndSelf->pluck('id') ?? [];
+        $values = Category::find($val)?->descendantsAndSelf?->pluck('id') ?? [];
 
         return $builder->whereIn('category_id', $values);
     }
@@ -153,7 +153,7 @@ class Portfolio extends Model
         if (! $location) {
             return;
         }
-        $location =  str_replace(['(', ')'], '', $location);
+        $location = str_replace(['(', ')'], '', $location);
 
         return explode(',', $location);
     }

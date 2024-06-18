@@ -24,6 +24,7 @@
                     <div class="background-wrapper absolute left-0 top-0 w-full h-full bg-tertiary-950">
                         <img class="full-cover opacity-15" src="assets/image/photo/3.webp" alt="" loading="lazy">
                     </div>
+
                     <div
                         class="wrapper max-w-1440 mx-auto w-full px-7.5 relative z-2 grid gap-6 xl:gap-5 lg:gap-4 sm:gap-3">
                         <h1
@@ -226,6 +227,11 @@
                         </div>
                         <div class="info text-5 2xl:text-4.5 xl:text-4 lg:text-3.5 text-[#888888] fon">{{ __('total') }}: {{ $projects->total() }}</div>
                     </div>
+                    @if(request('map') == 1)
+                    <div style="margin-bottom: 50px">
+                                            @include('admin.portfolios.map_cluster',['locations'=>$locations])
+                                        </div>
+                                        @endif
                     <div
                         class="list grid grid-cols-3 lg:grid-cols-2 sm:grid-cols-1 gap-x-8 xl:gap-x-7 md:gap-x-6 gap-y-12 xl:gap-y-10 md:gap-y-8 sm:gap-y-6">
                       @foreach($projects as $project)

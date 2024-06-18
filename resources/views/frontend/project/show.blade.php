@@ -558,7 +558,7 @@
                                                 </div>
                                             </button>
                                         </div>
-                                        <a href="{{ route('frontend.project.show',$project) }}"
+                                        <a href="{{ route('frontend.project.show',$randomProject) }}"
                                             class="button group/button flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 h-16 xl:h-14 md:h-12 w-full px-6 bg-[#F0F2F7] hover:bg-main-100 mt-7.5 xl:mt-6 md:mt-5 text-[#2675FA]">
 
                                             <div class="text whitespace-nowrap font-medium text-4 md:text-3.5">Detaylı

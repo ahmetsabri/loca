@@ -35,7 +35,7 @@ class StorePortfolioRequest extends FormRequest
             'price_in_usd' => ['required', 'integer', 'gt:0'],
             'category_id' => ['required', Rule::exists('categories', 'id')->withoutTrashed()],
             'promotion_url' => ['sometimes', 'nullable', 'url'],
-            'location' => ['sometimes', 'nullable'],
+            'location' => ['required'],
             'images' => ['required', 'array'],
             'images.*' => ['required', 'image'],
             'brochure' => ['sometimes', 'mimes:pdf', 'extensions:pdf'],

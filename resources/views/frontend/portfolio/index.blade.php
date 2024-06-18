@@ -57,6 +57,7 @@
             </div>
         </section>
         <section class="content-field py-15 2xl:py-14 xl:py-13 lg:py-12 md:py-11 sm:py-10">
+
             <div
                 class="wrapper max-w-1440 mx-auto w-full px-7.5 md:px-5 grid grid-cols-[minmax(0,215px)_minmax(0,auto)] gap-7 md:grid-cols-1">
                 <div class="sidebar-wrapper">
@@ -309,11 +310,14 @@
                     </form>
                 </div>
                 <div class="content-wrapper">
+
                     <div
                         class="heading-wrapper flex items-center justify-between sm:flex-col sm:gap-4 gap-7.5 px-2 mb-5">
                         <div class="text font-medium text-tertiary-950 text-3.5 sm:text-center"><strong>
                             "<span x-text="selectedTownName"></span> Satılık Arsa”
                             </strong> aramanızda <strong>{{ $portfolios->total() }}</strong> ilan bulundu.</div>
+
+
                         <div class="tools-wrapper">
                             <div class="view-wrapper flex items-center gap-3">
                                 <div class="text text-3 font-medium text-[#6D6D6D]">Görünüm</div>
@@ -347,6 +351,11 @@
                             </div>
                         </div>
                     </div>
+                    @if(request('map') == 1)
+                    <div style="margin-bottom: 50px">
+                        @include('admin.portfolios.map_cluster',['locations'=>$locations])
+                    </div>
+                    @endif
                     @if(request()->query('grid_type') == 'list')
                     <div class="list-wrapper grid grid-cols-1 gap-6">
                         @foreach($portfolios as $portfolio)
