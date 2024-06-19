@@ -13,6 +13,7 @@ class DepartmentController extends Controller
     {
         $departments = Department::all();
         $types = array_column(DepartmentType::cases(), 'value');
+
         return view('admin.departments.index', compact('departments', 'types'));
     }
 

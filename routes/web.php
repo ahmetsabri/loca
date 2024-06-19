@@ -17,6 +17,7 @@ use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SubmittedFormController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\VideoCategoryController;
@@ -113,6 +114,16 @@ Route::middleware('auth')->prefix('admin')->withoutMiddleware(LocaleMiddleware::
         Route::post('/{user}', [TeamController::class, 'update'])->name('team.update');
         Route::get('{user}/delete', [TeamController::class, 'destroy'])->name('team.delete');
     });
+
+    Route::prefix('service')->group(function () {
+        Route::get('/', [ServiceController::class, 'index'])->name('service.index');
+        Route::get('/create', [ServiceController::class, 'create'])->name('service.create');
+        Route::post('/', [ServiceController::class, 'store'])->name('service.store');
+        Route::get('/{service}', [ServiceController::class, 'edit'])->name('service.edit');
+        Route::post('/{service}', [ServiceController::class, 'update'])->name('service.update');
+        Route::get('{service}/delete', [ServiceController::class, 'destroy'])->name('service.delete');
+    });
+
     Route::prefix('job-application')->group(function () {
         Route::get('/', [JobApplicationController::class, 'index'])->name('job_application.index');
         Route::get('{jobApplication}/delete', [JobApplicationController::class, 'destroy'])->name('job_application.delete');

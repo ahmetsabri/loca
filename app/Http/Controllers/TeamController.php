@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\DepartmentType;
 use App\Http\Requests\StoreTeamMemberRequest;
 use App\Http\Requests\UpdateTeamRequest;
 use App\Models\Department;
@@ -19,7 +20,7 @@ class TeamController extends Controller
 
     public function create()
     {
-        $departments = Department::all();
+        $departments = Department::where('type', DepartmentType::TEAM->value)->get();
 
         return view('admin.teams.create', compact('departments'));
     }
