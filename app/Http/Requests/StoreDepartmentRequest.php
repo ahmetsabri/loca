@@ -23,6 +23,7 @@ class StoreDepartmentRequest extends FormRequest
     {
         return [
             'name' => ['required', 'array'],
+            'type' => ['required','string'],
         ];
     }
 }

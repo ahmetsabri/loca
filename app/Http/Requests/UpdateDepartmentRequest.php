@@ -23,6 +23,7 @@ class UpdateDepartmentRequest extends FormRequest
     {
         return [
             'name' => ['required', 'array'],
+            'type' => ['required'],
         ];
     }
 }

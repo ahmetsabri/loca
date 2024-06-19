@@ -3,10 +3,13 @@
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3 text-center">
-                     {{__('name')}}
+                     ad
                 </th>
                 <th scope="col" class="px-6 py-3 text-center">
-                     {{__('actions')}}
+                     tip
+                </th>
+                <th scope="col" class="px-6 py-3 text-center">
+                    işlemler
                 </th>
 
             </tr>
@@ -20,15 +23,18 @@
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     {{$department->name}}
                 </td>
+                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {{$department->type}}
+                </td>
                 <td scope="row" class=" px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
 
 
 
 
-<button type="button"  data-modal-target="edit-department-modal-{{$department->id}}" data-modal-toggle="edit-department-modal-{{$department->id}}" class="px-3 py-2 text-sm font-medium text-center text-white bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">{{__('edit')}}</button>
+<button type="button"  data-modal-target="edit-department-modal-{{$department->id}}" data-modal-toggle="edit-department-modal-{{$department->id}}" class="px-3 py-2 text-sm font-medium text-center text-white bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">düzenle </button>
 
 
-<button @click="deleteDepartment(`{{route('department.delete',$department)}}`)" type="button" class="px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">{{__('delete')}}</button>
+<button @click="deleteDepartment(`{{route('department.delete',$department)}}`)" type="button" class="px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">sil</button>
                 </td>
             </tr>
     @include('admin.departments.edit_department',['name'=>$department->getTranslations('name'),'id'=>$department->id])

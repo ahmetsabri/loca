@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\DepartmentType;
 use App\Http\Requests\StoreDepartmentRequest;
 use App\Http\Requests\UpdateDepartmentRequest;
 use App\Models\Department;
@@ -11,8 +12,8 @@ class DepartmentController extends Controller
     public function index()
     {
         $departments = Department::all();
-
-        return view('admin.departments.index', compact('departments'));
+        $types = array_column(DepartmentType::cases(), 'value');
+        return view('admin.departments.index', compact('departments', 'types'));
     }
 
     public function create()

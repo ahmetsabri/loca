@@ -3,6 +3,7 @@
 return [
     'about' => 'hakkımızda',
     'services' => 'hizmetlerimiz',
+    'service' => 'hizmetlerimiz',
     'team' => 'ekibimiz',
     'portfolios' => 'portföyler',
     'projects' => 'projeler',
