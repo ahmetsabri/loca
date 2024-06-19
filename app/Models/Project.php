@@ -77,9 +77,10 @@ class Project extends Model
 
     public function getPriceAttribute()
     {
-        // TODO:check selected price and show it
+        $currency = session('currency', 'tl');
+        $col = 'price_in_'.$currency;
 
-        return $this->price_in_tl;
+        return $this->{$col}.' '.strtoupper($currency);
     }
 
     public function getBrochureFullUrlAttribute(): ?string

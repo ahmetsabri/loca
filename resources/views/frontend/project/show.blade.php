@@ -163,7 +163,7 @@
                             <div class="split h-px w-full bg-black/11 my-10 xl:my-8 lg:my-6"></div>
                             <div class="item grid grid-cols-2/10 lg:grid-cols-1 gap-6">
                                 <div class="title text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950">
-                                    {{ __('general.transportations') }}
+                                    {{ __('general.transportation') }}
                                 </div>
                                 <div class="detail">
                                     <div class="custom-list grid gap-6 xl:gap-5 lg:gap-4 md:gap-3">
@@ -334,7 +334,7 @@
                                         <div class="item grid grid-cols-2/10 lg:grid-cols-1 gap-6">
                                             <div
                                                 class="title text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950">
-                                            {{ __('general.general.location') }}
+                                            {{ __('general.location') }}
                                             </div>
                                             <div class="detail">
                                               <iframe class="w-full h-auto block aspect-[177/73] xs:aspect-[5/4]"
@@ -357,8 +357,8 @@
                                     <div class="price text-center text-[#2675FA] leading-tight">
                                         <div x-text="price"
                                             class="value flex items-center justify-center font-semibold text-9 2xl:text-8 xl:text-7 lg:text-6 [&_span]:text-4 lg:[&_span]:text-3.5 [&_span]:font-medium">
-                                              <span>‘den</span></div>
-                                        <div class="joint text-4 lg:text-3.5 font-medium">başlayan fiyatlarla</div>
+                                              </div>
+                                        <div class="joint text-4 lg:text-3.5 font-medium">{{ __('general.starting_price') }}</div>
                                     </div>
                                     <div class="custom-radio-group flex items-center justify-center gap-3 xl:gap-2 mt-5">
                                         <div class="custom-radio relative">
@@ -395,9 +395,9 @@
                                     <div class="heading-wrapper mt-6 mb-8">
                                         <h2
                                             class="title text-center text-tertiary-950 font-semibold text-6 2xl:text-5.5 xl:text-5 lg:text-4.5">
-                                            Sizi Arayalım</h2>
-                                        <p class="expo text-center text-[#888888] text-3.5 font-medium">Formu doldurun,
-                                            uzman danışmanlarımız sizi arasın!</p>
+                                            {{ __('general.contact_me') }}
+                                        </h2>
+                                        <p class="expo text-center text-[#888888] text-3.5 font-medium">{{ __('general.fill_form') }}</p>
                                     </div>
 
                                     <form action="{{ route('form.project') }}" method="POST">
@@ -405,7 +405,7 @@
                                         <div class="form-wrapper grid gap-3">
                                             <input type="hidden" name="project_id" value="{{ $project->id }}">
                                             <div class="form-el relative group/form w-full">
-                                                <input name="name" type="text" placeholder="Adınız Soyadınız"
+                                                <input name="name" type="text" placeholder="{{ __('general.name') }}"
                                                     class="w-full h-14 md:h-12 duration-300 rounded-4 md:rounded-3 pl-13 md:pl-10 pr-7 md:pr-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
                                                 <div
                                                     class="icon icon-person text-3 h-3 md:text-2.5 md:h-2.5 block leading-none duration-300 absolute left-7 md:left-5 top-5.5 md:top-5 text-black/25 pointer-events-none">
@@ -416,7 +416,7 @@
                                             </div>
                                             <div class="form-el relative group/form w-full">
                                                 <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                                <input name="phone" type="tel" placeholder="Telefon Numaranız"
+                                                <input name="phone" type="tel" placeholder="{{ __('general.phone') }}"
                                                     class="w-full h-14 md:h-12 duration-300 rounded-4 md:rounded-3 pl-13 md:pl-10 pr-7 md:pr-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
                                                 <div
                                                     class="icon icon-phone text-3 h-3 md:text-2.5 md:h-2.5 block leading-none duration-300 absolute left-7 md:left-5 top-5.5 md:top-5 text-black/25 pointer-events-none">
@@ -454,7 +454,7 @@
 
                                                         <div
                                                             class="text whitespace-nowrap font-medium text-4 md:text-3.5 transition-opacity duration-300">
-                                                            Sizi Arayalım</div>
+                                                            {{ __('general.submit') }}</div>
                                                     </button>
                                                 </div>
                                             </div>
@@ -463,21 +463,21 @@
 
                                     <div class="phone-numbers mt-12 2xl:mt-11 xl:mt-10 lg:mt-8 md:mt-6">
                                         <div class="item flex items-center justify-between gap-7.5 px-3 sm:px-2">
-                                            <div class="title text-4 md:text-3.5 font-medium text-[#888888]">Mobil No</div>
+                                            <div class="title text-4 md:text-3.5 font-medium text-[#888888]">{{ __('general.phone') }}</div>
                                             <a href="javascript:void(0)"
                                                 class="draw-underline [--line-color:#0D1523] text-tertiary-950 text-4 md:text-3.5 font-medium">+90
                                                 542 899 33 19</a>
                                         </div>
                                         <div class="split h-px w-full bg-black/8 my-4 xl:my-3.5 lg:my-3 md:my-2.5"></div>
                                         <div class="item flex items-center justify-between gap-7.5 px-3 sm:px-2">
-                                            <div class="title text-4 md:text-3.5 font-medium text-[#888888]">Ofis No</div>
+                                            <div class="title text-4 md:text-3.5 font-medium text-[#888888]">{{ __('general.office') }}</div>
                                             <a href="javascript:void(0)"
                                                 class="draw-underline [--line-color:#0D1523] text-tertiary-950 text-4 md:text-3.5 font-medium">+90
                                                 (324) 325 30 30</a>
                                         </div>
                                         <div class="split h-px w-full bg-black/8 my-4 xl:my-3.5 lg:my-3 md:my-2.5"></div>
                                         <div class="item flex items-center justify-between gap-7.5 px-3 sm:px-2">
-                                            <div class="title text-4 md:text-3.5 font-medium text-[#888888]">Dil</div>
+                                            <div class="title text-4 md:text-3.5 font-medium text-[#888888]">{{ __('general.languages') }}</div>
                                             <div class="text-tertiary-950 text-4 md:text-3.5 font-medium">Türkçe, İngilizce
                                             </div>
                                         </div>
@@ -493,7 +493,7 @@
                 <div class="wrapper max-w-1440 mx-auto w-full px-7.5">
                     <div class="text-editor text-editor-main mb-12 2xl:mb-10 xl:mb-8 md:mb-6">
                         <!-- .text-editor içerisindeki style attribute değerleri frontendi tasarıma benzetmek adına eklenmiştir, backend aşamasında silinerek panel editöründen tanımlanmalıdır. -->
-                        <h3 style="text-align:center;"><strong>İlginizi Çekebilir</strong></h3>
+                        <h3 style="text-align:center;text-transform: capitalize"><strong>{{ __('general.more') }}</strong></h3>
                     </div>
                     <div class="related-carousel swiper !h-auto">
                         <div class="swiper-wrapper !h-auto">
@@ -545,7 +545,7 @@
                                                 <div
                                                     class="value font-semibold text-6 2xl:text-5.5 xl:text-5 lg:text-4.5 md:text-4">
                                                     {{ $project->price }} TL</div>
-                                                <div class="joint text-4 xl:text-3.5 font-medium">‘den başlayan fiyatlarla
+                                                <div class="joint text-4 xl:text-3.5 font-medium">{{ __('general.starting_price') }}
                                                 </div>
                                             </div>
                                             <button
@@ -561,8 +561,7 @@
                                         <a href="{{ route('frontend.project.show',$randomProject) }}"
                                             class="button group/button flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 h-16 xl:h-14 md:h-12 w-full px-6 bg-[#F0F2F7] hover:bg-main-100 mt-7.5 xl:mt-6 md:mt-5 text-[#2675FA]">
 
-                                            <div class="text whitespace-nowrap font-medium text-4 md:text-3.5">Detaylı
-                                                İncele</div>
+                                            <div class="text whitespace-nowrap font-medium text-4 md:text-3.5">{{ __('general.details') }}</div>
 
                                         </a>
                                     </div>

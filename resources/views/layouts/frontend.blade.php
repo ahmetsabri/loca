@@ -114,29 +114,34 @@
                         <div
                             class="icon-wrapper bg-white/5 self-stretch flex items-center px-1 rounded-1 group-hover/wrapper:bg-white/10 duration-300">
                             <div
-                                class="icon icon-turkish-lira text-3 h-3 block leading-none duration-300 text-[#2675FA]">
+                                class="icon @if(session('currency') == 'usd') icon-dolar @elseif(session('currency') == 'eur') icon-euro @else icon-turkish-lira @endif text-3 h-3 block leading-none duration-300 text-[#2675FA]">
                             </div>
                         </div>
-                        <span class="text text-white text-3.5 font-medium">TRY</span>
+                        {{-- PHONEEE --}}
+                        <span class="text text-white text-3.5 font-medium">
+
+                            @if(session('currency') == 'usd') USD
+                            @elseif(session('currency') == 'eur') EUR @else TRY @endif
+                        </span>
                         <div
                             class="icon icon-chevron-bottom text-2 h-2 block leading-none duration-300 text-white/55 group-hover/wrapper:text-white group-hover/wrapper:rotate-180">
                         </div>
                     </div>
                     <div
                         class="options bg-white duration-300 grid gap-1 p-2 rounded-2 absolute left-1/2 -translate-x-1/2 w-max min-w-full top-[calc(100%+8px)] before:absolute before:bottom-full before:left-0 before:w-full before:h-2 opacity-0 pointer-events-none scale-95 origin-top group-hover/wrapper:opacity-100 group-hover/wrapper:pointer-events-auto group-hover/wrapper:scale-100">
-                        <a href="javascript:void(0)"
+                        <a href="{{ route('currency','tl') }}"
                             class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none current">
                             <div
                                 class="icon icon-turkish-lira text-3 h-3 block leading-none duration-300 text-[#2675FA]">
                             </div>
                             <span class="text text-3.5 font-medium text-tertiary-950">TRY</span>
                         </a>
-                        <a href="javascript:void(0)"
+                        <a href="{{ route('currency','eur') }}"
                             class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
                             <div class="icon icon-euro text-3 h-3 block leading-none duration-300 text-[#2675FA]"></div>
                             <span class="text text-3.5 font-medium text-tertiary-950">EUR</span>
                         </a>
-                        <a href="javascript:void(0)"
+                        <a href="{{ route('currency','usd') }}"
                             class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
                             <div class="icon icon-dolar text-3 h-3 block leading-none duration-300 text-[#2675FA]">
                             </div>
@@ -364,35 +369,41 @@
         </div>
     </div>
 
+    {{-- MAIN --}}
     <div class="currency-wrapper relative group/wrapper lg:hidden">
+
         <div
             class="current cursor-pointer flex items-center justify-center gap-2 p-1 pr-2.5 xl:pr-2 h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 group-hover/wrapper:border-tertiary-950/30 min-lg:group-[&:not(.scroll-down)]/header:border-white/10 min-lg:group-[&:not(.scroll-down)]/header:group-hover/wrapper:border-white/25">
             <div
                 class="icon-wrapper bg-tertiary-950/5 self-stretch flex items-center px-1 rounded-1 group-hover/wrapper:bg-tertiary-950/10 duration-300 min-lg:group-[&:not(.scroll-down)]/header:bg-white/5 min-lg:group-[&:not(.scroll-down)]/header:group-hover/wrapper:bg-white/10">
-                <div class="icon icon-turkish-lira text-3 h-3 block leading-none duration-300 text-[#2675FA]">
+                <div class="icon @if(session('currency') == 'usd') icon-dolar @elseif(session('currency') == 'eur') icon-euro @else icon-turkish-lira @endif text-3 h-3 block leading-none duration-300 text-[#2675FA]">
                 </div>
             </div>
             <span
-                class="text text-tertiary-950 text-3.5 font-medium duration-300 min-lg:group-[&:not(.scroll-down)]/header:text-white">TRY</span>
+                class="text text-tertiary-950 text-3.5 font-medium duration-300 min-lg:group-[&:not(.scroll-down)]/header:text-white">
+            @if(session('currency') == 'usd') USD
+            @elseif(session('currency') == 'eur') EUR @else TRY
+            @endif
+            </span>
             <div
                 class="icon icon-chevron-bottom text-2 h-2 block leading-none duration-300 text-tertiary-950/55 group-hover/wrapper:text-tertiary-950 group-hover/wrapper:rotate-180 xl:hidden min-lg:group-[&:not(.scroll-down)]/header:text-white/50">
             </div>
         </div>
         <div
             class="options bg-white duration-300 grid gap-1 p-2 rounded-2 absolute left-1/2 -translate-x-1/2 w-max min-w-full top-[calc(100%+8px)] before:absolute before:bottom-full before:left-0 before:w-full before:h-2 opacity-0 pointer-events-none scale-95 origin-top group-hover/wrapper:opacity-100 group-hover/wrapper:pointer-events-auto group-hover/wrapper:scale-100">
-            <a href="javascript:void(0)"
-                class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none current">
+      <a href="{{ route('currency','tl') }}"
+                class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
                 <div class="icon icon-turkish-lira text-3 h-3 block leading-none duration-300 text-[#2675FA]">
                 </div>
                 <span class="text text-3.5 font-medium text-tertiary-950">TRY</span>
             </a>
-            <a href="javascript:void(0)"
+            <a href="{{ route('currency','eur') }}"
                 class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
                 <div class="icon icon-euro text-3 h-3 block leading-none duration-300 text-[#2675FA]">
                 </div>
                 <span class="text text-3.5 font-medium text-tertiary-950">EUR</span>
             </a>
-            <a href="javascript:void(0)"
+            <a href="{{ route('currency','usd') }}"
                 class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
                 <div class="icon icon-dolar text-3 h-3 block leading-none duration-300 text-[#2675FA]">
                 </div>
@@ -449,26 +460,31 @@
                                 class="current cursor-pointer flex items-center justify-center gap-2 p-1 pr-2.5 xl:pr-2 h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 group-hover/wrapper:border-tertiary-950/30">
                                 <div
                                     class="icon-wrapper bg-tertiary-950/5 self-stretch flex items-center px-1 rounded-1 group-hover/wrapper:bg-tertiary-950/10 duration-300">
-                                    <div class="icon icon-turkish-lira text-3 h-3 block leading-none duration-300 text-[#2675FA]"></div>
+                                    <div class="icon @if(session('currency') == 'usd') icon-dolar @elseif(session('currency') == 'eur') icon-euro @else icon-turkish-lira @endif text-3 h-3 block leading-none duration-300 text-[#2675FA]"></div>
                                 </div>
-                                <span class="text text-tertiary-950 text-3.5 font-medium duration-300">TRY</span>
+                                {{-- selected currency --}}
+                                <span class="text text-tertiary-950 text-3.5 font-medium duration-300">
+
+                                    @if(session('currency') == 'usd') USD @elseif(session('currency') == 'eur') EUR @else TRY
+                                    @endif
+                                </span>
                                 <div
                                     class="icon icon-chevron-bottom text-2 h-2 block leading-none duration-300 text-tertiary-950/55 group-hover/wrapper:text-tertiary-950 group-hover/wrapper:rotate-180 xl:hidden">
                                 </div>
                             </div>
                             <div
                                 class="options bg-white duration-300 grid gap-1 p-2 rounded-2 absolute left-1/2 -translate-x-1/2 w-max min-w-full top-[calc(100%+8px)] before:absolute before:bottom-full before:left-0 before:w-full before:h-2 opacity-0 pointer-events-none scale-95 origin-top group-hover/wrapper:opacity-100 group-hover/wrapper:pointer-events-auto group-hover/wrapper:scale-100">
-                                <a href="javascript:void(0)"
-                                    class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none current">
-                                    <div class="icon icon-turkish-lira text-3 h-3 block leading-none duration-300 text-[#2675FA]"></div>
-                                    <span class="text text-3.5 font-medium text-tertiary-950">TRY</span>
-                                </a>
-                                <a href="javascript:void(0)"
+                            <a href="{{ route('currency','tl') }}"
+                                class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
+                                <div class="icon icon-turkish-lira text-3 h-3 block leading-none duration-300 text-[#2675FA]"></div>
+                                <span class="text text-3.5 font-medium text-tertiary-950">TRY</span>
+                            </a>
+                                <a href="{{ route('currency','eur') }}"
                                     class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
                                     <div class="icon icon-euro text-3 h-3 block leading-none duration-300 text-[#2675FA]"></div>
                                     <span class="text text-3.5 font-medium text-tertiary-950">EUR</span>
                                 </a>
-                                <a href="javascript:void(0)"
+                                <a href="{{ route('currency','usd') }}"
                                     class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
                                     <div class="icon icon-dolar text-3 h-3 block leading-none duration-300 text-[#2675FA]"></div>
                                     <span class="text text-3.5 font-medium text-tertiary-950">USD</span>

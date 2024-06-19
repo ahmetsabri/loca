@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ChangeCurrencyController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\DepartmentController;
@@ -45,6 +46,7 @@ Route::post('buy-sell-form', [FormController::class, 'storeBuySellForm'])->name(
 Route::post('comment', [CommentController::class, 'store'])->name('comment.store');
 Route::get('comment/{user}', [CommentController::class, 'show'])->name('user.comments');
 Route::get('locale/{locale}', LocaleController::class)->name('locale');
+Route::get('currency/{currency}', ChangeCurrencyController::class)->name('currency');
 
 Route::view('dashboard', 'dashboard')->middleware(['auth', 'verified'])->name('dashboard');
 Route::view('career', 'frontend.career')->name('career');

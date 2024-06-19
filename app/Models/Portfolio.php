@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Number;
 use Spatie\Translatable\HasTranslations;
 
 class Portfolio extends Model
@@ -135,9 +136,10 @@ class Portfolio extends Model
 
     public function getPriceAttribute()
     {
-        // TODO:check selected price and show it
+        $currency = session('currency', 'tl');
+        $col = 'price_in_'.$currency;
 
-        return $this->price_in_tl;
+        return Number::format($this->{$col}, locale:session('locale', 'tr')).' '.strtoupper($currency);
     }
 
     public function getFullAddressAttribute(): string

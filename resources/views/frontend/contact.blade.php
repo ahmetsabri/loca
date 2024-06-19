@@ -275,7 +275,7 @@
 
                                         <div
                                             class="text whitespace-nowrap font-medium text-4 md:text-3.5 transition-opacity duration-300">
-                                            Formu Gönder</div>
+                                            {{__('general.submit')}}</div>
                                     </button>
                                 </div>
                             </div>

@@ -281,7 +281,7 @@
                                         class="price text-tertiary-950 flex flex-wrap items-center sm:flex-col gap-1 sm:items-start sm:gap-0">
                                         <div
                                             class="value font-semibold text-6 2xl:text-5.5 xl:text-5 lg:text-4.5 md:text-4">
-                                            {{ $project->price }} TL</div>
+                                            {{ $project->price }} </div>
                                         <div class="joint text-4 xl:text-3.5 font-medium">‘{{ __('general.starting_price') }}</div>
                                     </div>
                                     <button

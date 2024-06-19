@@ -275,7 +275,7 @@
 
                                                         <div
                                                             class="text whitespace-nowrap font-medium text-4 md:text-3.5 transition-opacity duration-300">
-                                                            Formu Gönder</div>
+                                                            {{__('general.submit')}}</div>
                                                     </button>
                                                 </div>
                                             </div>
@@ -287,7 +287,7 @@
                         <div class="sidebar-wrapper">
                             <div class="sticky-el sticky top-0 duration-300">
                                 <div class="inner bg-[#8AA5D3]/15 rounded-4 md:rounded-3 p-7.5 sm:p-6">
-                                    <div class="price text-5 font-semibold text-[#224391] px-1.5 mb-4">{{ $portfolio->price }} TL</div>
+                                    <div class="price text-5 font-semibold text-[#224391] px-1.5 mb-4">{{ $portfolio->price }}</div>
                                     <div class="list">
                                         <div class="row flex items-center justify-between gap-7.5 px-1.5 leading-tight">
                                             <div class="title text-3.5 font-medium text-tertiary-950">{{ __('ad_id') }}</div>
@@ -309,20 +309,9 @@
                                             <div class="title text-3.5 font-medium text-tertiary-950">{{ __('price') }} (₺)</div>
                                             <div class="value text-3.5 font-semibold text-tertiary-950 text-right">
                                                 {{ $portfolio->price }}
-                                                TL</div>
+                                                </div>
                                         </div>
-                                        <div class="split w-full h-px bg-[#8AA5D3]/30 my-2"></div>
-                                        <div class="row flex items-center justify-between gap-7.5 px-1.5 leading-tight">
-                                            <div class="title text-3.5 font-medium text-tertiary-950">Emlak Tipi</div>
-                                            <div class="value text-3.5 font-semibold text-tertiary-950 text-right">Daire m2
-                                            </div>
-                                        </div>
-                                        <div class="split w-full h-px bg-[#8AA5D3]/30 my-2"></div>
-                                        <div class="row flex items-center justify-between gap-7.5 px-1.5 leading-tight">
-                                            <div class="title text-3.5 font-medium text-tertiary-950">Türü</div>
-                                            <div class="value text-3.5 font-semibold text-tertiary-950 text-right">Konut
-                                            </div>
-                                        </div>
+
                                         <div class="split w-full h-px bg-[#8AA5D3]/30 my-2"></div>
                                         <div class="row flex items-center justify-between gap-7.5 px-1.5 leading-tight">
                                             <div class="title text-3.5 font-medium text-tertiary-950">m2 ({{ __('gross') }})</div>
@@ -361,7 +350,7 @@
             <section class="portfolio-field py-20 2xl:py-16 xl:py-12 lg:py-8">
                 <div class="wrapper max-w-1440 mx-auto w-full px-7.5">
                     <div class="text-editor text-editor-main">
-<h3 style="text-align:center;"><strong>İlginizi Çekebilir</strong></h3>
+<h3 style="text-align:center;"><strong>{{ __('general.more') }}</strong></h3>
                     </div>
                     <div
                         class="list my-18 2x:my-15 xl:my-12 lg:my-9 md:my-7.5 grid grid-cols-3 lg:grid-cols-2 sm:grid-cols-1 gap-x-9 xl:gap-x-8 lg:gap-x-7 gap-y-6">
@@ -415,7 +404,7 @@
                                     class="title text-4.5 leading-tight text-tertiary-950 hover:text-main-700 duration-300 font-semibold mb-4 xl:mb-5 md:mb-4 block capitalize">{{
                                     $portfolio->title }}</a>
                                 <div class="price text-[#2675FA] font-semibold text-5 lg:text-4.5 md:text-4">
-                                    {{ $portfolio->price_in_tl }} TL
+                                    {{ $portfolio->price }}
                                 </div>
                                 <div class="info flex items-center justify-between gap-7.5 mt-5 md:mt-4">
                                     <div
@@ -455,7 +444,8 @@
                     <a href="{{ route('portfolios',['grid_type'=>'grid']) }}"
                         class="button group/button flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 h-14 md:h-12 w-fit mx-auto px-14 2xl:px-12 xl:px-10 lg:px-8 sm:px-6 bg-secondary-700 hover:bg-secondary-600 text-white">
 
-                        <div class="text whitespace-nowrap font-medium text-4 md:text-3.5">Tüm Portföylerimizi İncele
+                        <div class="text whitespace-nowrap font-medium text-4 md:text-3.5">
+                            {{ __('general.show_all') }}
                         </div>
 
                     </a>
