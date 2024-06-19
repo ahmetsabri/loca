@@ -430,7 +430,7 @@
         </section>
 
     </main>
-
+@include('frontend.team.share',['user'=>$user])
 
 </soho-technologies>
 @endsection

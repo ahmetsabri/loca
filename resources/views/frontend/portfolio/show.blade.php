@@ -454,6 +454,6 @@
 
         </main>
 
-
+@include('frontend.portfolio.share',['portfolio'=>$portfolio])
     </soho-technologies>
 @endsection

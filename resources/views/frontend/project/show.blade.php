@@ -578,6 +578,6 @@
 
         </main>
 
-
+@include('frontend.project.share',['project'=>$project])
     </soho-technologies>
 @endsection
