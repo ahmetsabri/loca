@@ -15,7 +15,7 @@
     <div class="m-5" x-data="
     {
         deleteTeam(url){
-        if(!confirm('Are you sure')){
+        if(!confirm('emin misiniz')){
             return
         }
         window.location.href=url

@@ -27,7 +27,7 @@
         isSubCategory:false,
         subCategory:null,
         deleteCategory(url){
-        if(!confirm('Are you sure')){
+        if(!confirm('emin misiniz')){
             return
         }
         window.location.href=url

@@ -17,7 +17,7 @@
     <div class="m-5">
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg" x-data="{
     deleteProject(url){
-        if(!confirm('are you sure')){
+        if(!confirm('emin misiniz')){
             return
         }
 
