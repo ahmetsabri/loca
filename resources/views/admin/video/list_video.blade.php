@@ -3,10 +3,10 @@
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3 text-center">
-                     {{__('name')}}
+                     başlık
                 </th>
                 <th scope="col" class="px-6 py-3 text-center">
-                     {{__('actions')}}
+                     işlemler
                 </th>
 
             </tr>
@@ -29,7 +29,7 @@
 <button type="button"  data-modal-target="edit-video-modal-{{$video->id}}" data-modal-toggle="edit-video-modal-{{$video->id}}" class="px-3 py-2 text-sm font-medium text-center text-white bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">{{__('edit')}}</button>
 
 
-<button @click="deleteVideo(`{{route('video.delete',$video)}}`)" type="button" class="px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">{{__('delete')}}</button>
+<button @click="deleteVideo(`{{route('video.delete',$video)}}`)" type="button" class="px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">{{__('sil')}}</button>
                 </td>
             </tr>
     @include('admin.video.edit_video',['title'=>$video->getTranslations('title'),'id'=>$video->id])

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight capitalize">
-            {{ __('forms') }}
+            {{ __('formlar') }}
         </h2>
     </x-slot>
 
@@ -22,12 +22,12 @@ window.location.href=url
     }
 ">
 <div class=" w-1/12 my-10" >
-    <label for="types" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white capitalize">{{ __('type') }}</label>
+    <label for="types" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white capitalize">{{ __('general.type') }}</label>
     <select id="types"
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
         @foreach($types as $type )
         <option value="{{ $type }}" @click="changeType(`{{ request()->fullUrlWithQuery(['type'=>$type]) }}`)" @selected(request()->query('type') == $type )>
-                {{ __($type) }}
+                {{ __('general.'.strtolower($type)) }}
         </option>
         @endforeach
     </select>
@@ -37,31 +37,31 @@ window.location.href=url
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3 text-center">
-                    {{__('name')}}
+                    {{__('general.name')}}
                 </th>
                 <th scope="col" class="px-6 py-3 text-center">
-                    {{__('phone')}}
+                    {{__('general.phone')}}
                 </th>
                 <th scope="col" class="px-6 py-3 text-center">
-                    {{__('email')}}
+                    {{__('general.email')}}
                 </th>
                 <th scope="col" class="px-6 py-3 text-center">
-                    {{__('project')}}
+                    proje
                 </th>
                 <th scope="col" class="px-6 py-3 text-center">
-                    {{__('portfolio')}}
+                    {{__('general.portfolio')}}
                 </th>
                 <th scope="col" class="px-6 py-3 text-center">
-                    {{__('message')}}
+                    {{__('general.message')}}
                 </th>
                 <th scope="col" class="px-6 py-3 text-center">
-                    {{__('attachment')}}
+                    dosya
                 </th>
                 <th scope="col" class="px-6 py-3 text-center">
-                    {{__('created_at')}}
+                    tarihi
                 </th>
                 <th scope="col" class="px-6 py-3 text-center">
-                    {{__('actions')}}
+                    sil
                 </th>
 
             </tr>

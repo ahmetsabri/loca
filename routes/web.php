@@ -55,7 +55,6 @@ Route::get('videos', [FrontendVideoController::class, 'index'])->name('videos');
 Route::middleware('auth')->prefix('admin')->withoutMiddleware(LocaleMiddleware::class)->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::prefix('category')->group(function () {
         Route::get('/', [CategoryController::class, 'index'])->name('category.index');
@@ -150,7 +149,6 @@ Route::middleware('auth')->prefix('admin')->withoutMiddleware(LocaleMiddleware::
     Route::prefix('video')->group(function () {
         Route::get('/', [VideoController::class, 'index'])->name('video.index');
         Route::post('/', [VideoController::class, 'store'])->name('video.store');
-        // Route::get('{video}', [VideoController::class, 'show'])->name('video.show');
         Route::post('{video}', [VideoController::class, 'update'])->name('video.update');
         Route::get('{video}/delete', [VideoController::class, 'destroy'])->name('video.delete');
     });

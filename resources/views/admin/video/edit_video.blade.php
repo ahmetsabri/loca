@@ -29,19 +29,19 @@
                         </select>
                     </div>
                     <div>
-                        <label for="categories" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">TR</label>
+                        <label for="categories" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Link</label>
                         <input type="text" value="{{$video->url}}" name="url" id="categories" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="enter categories" required />
                     </div>
                     <div>
-                        <label for="categories" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">TR</label>
+                        <label for="categories" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Başlık TR</label>
                         <input type="text" value="{{Arr::get($title,'tr')}}" name="title[tr]" id="categories" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="enter categories" required />
                     </div>
                     <div>
-                        <label for="categories" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">RU</label>
+                        <label for="categories" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Başlık RU</label>
                         <input type="text"value="{{Arr::get($title,'ru')}}" name="title[ru]" id="categories" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="enter categories" required />
                     </div>
                     <div>
-                        <label for="categories" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">EN</label>
+                        <label for="categories" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Başlık EN</label>
                         <input type="text" value="{{Arr::get($title,'en')}}" name="title[en]" id="categories" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="enter categories" required />
                         <br/>
                     </div>

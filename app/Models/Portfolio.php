@@ -139,7 +139,7 @@ class Portfolio extends Model
         $currency = session('currency', 'tl');
         $col = 'price_in_'.$currency;
 
-        return Number::format($this->{$col}, locale:session('locale', 'tr')).' '.strtoupper($currency);
+        return Number::format($this->{$col}, locale: session('locale', 'tr')).' '.strtoupper($currency);
     }
 
     public function getFullAddressAttribute(): string

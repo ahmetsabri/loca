@@ -7,6 +7,7 @@ return [
     'team' => 'ekibimiz',
     'portfolios' => 'portföyler',
     'projects' => 'projeler',
+    'project' => 'proje',
     'blog' => 'blog',
     'contact' => 'iletisim',
     'search' => 'arama',
@@ -95,4 +96,6 @@ return [
     'fill_form' => 'Formu doldurun, uzman danışmanlarımız sizi arasın!',
     'office' => 'ofis',
     'contact_me' => 'benimle iletişime geçin',
+    'fcontact' => 'iletişim',
+    'job' => 'iş başvuru',
 ];
