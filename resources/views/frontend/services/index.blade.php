@@ -53,7 +53,7 @@
 
 
                             <button data-id="{{ $service->id }}"
-                                class="item group relative rounded-full h-13 lg:h-10 px-8 lg:px-4 flex items-center justify-center duration-300 [&.active]:bg-white [&.active]:shadow-s2 my-4">
+                                class="item group relative rounded-full h-13 lg:h-10 px-8 lg:px-4 flex items-center justify-center duration-300 [&.active]:bg-white [&.active]:shadow-s2 my-4 @if($loop->first)active @endif">
                                 <div
                                     class="number text-3.5 font-semibold text-[#2675FA] absolute left-5 top-2 duration-300 opacity-0 group-[&.active]:opacity-100 lg:hidden">
                                 {{ $index+1 }}
@@ -71,7 +71,7 @@
                     @foreach( $services as $service )
 
 
-                    <div data-id="{{ $service->id }}" class="item hidden [&.active]:block">
+                    <div data-id="{{ $service->id }}" class="item hidden [&.active]:block @if($loop->first)active @endif">
                         <div
                             class="content-wrapper grid grid-cols-5/7 sm:grid-cols-1 items-center gap-28 2xl:gap-24 xl:gap-20 lg:gap-16 md:gap-10 sm:gap-8 mb-32 2xl:mb-28 xl:mb-20 lg:mb-14 md:mb-8">
                             <div class="image-wrapper grid gap-2 sm:grid-cols-2">
@@ -112,7 +112,7 @@
                             </div>
                         </div>
 
-                        @if(($firstSubService = $service->subServices->first()) && $service->subServices->count()>1)
+                        @if(($firstSubService = $service->subServices->first()) && $service->subServices->count()>=1)
                         <div
                             class="content-wrapper grid grid-cols-5/7 sm:grid-cols-1 items-center gap-28 2xl:gap-24 xl:gap-20 lg:gap-16 md:gap-10 sm:gap-8 mb-32 2xl:mb-28 xl:mb-20 lg:mb-14 md:mb-8">
                             <div class="text-wrapper sm:order-2">
@@ -120,7 +120,6 @@
                                     class="custom-display text-5 xl:text-4.5 lg:text-4 md:text-3.5 text-[#2675FA] font-semibold tracking-[0.07em] mb-4">
                                     {{ $firstSubService->name }}</div>
                                 <div class="text-editor text-editor-main mb-12 2xl:mb-10 xl:mb-9 lg:mb-8 md:mb-6 sm:mb-5">
-                                    <!-- .text-editor içerisindeki style attribute değerleri frontendi tasarıma benzetmek adına eklenmiştir, backend aşamasında silinerek panel editöründen tanımlanmalıdır. -->
                                     <h3><strong>{{ $firstSubService->description }}</strong>
                                     </h3>
                                 </div>
