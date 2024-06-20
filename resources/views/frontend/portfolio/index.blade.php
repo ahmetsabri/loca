@@ -388,7 +388,7 @@
                                             </div>
                                             <div
                                                 class="tag absolute left-4 top-4 bg-tertiary-950/50 rounded-2 px-2 py-1.5 text-white text-3 font-medium leading-none z-5 capitalize">
-{{ $portfolio->category?->rootAncestor?->name }}
+{{ $portfolio->main_category }}
                                             </div>
                                         </div>
                                     </div>
@@ -428,7 +428,7 @@
                                                             class="icon icon-square-meter-1 text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
                                                         </div>
                                                     </div>
-                                                    <div class="text text-3.5 font-medium text-tertiary-950/40">352 m²</div>
+                                                    <div class="text text-3.5 font-medium text-tertiary-950/40">{{ $portfolio->net }} m²</div>
                                                 </div>
                                             </div>
                                             <button
@@ -483,7 +483,7 @@
                                     </div>
                                    <div
                                         class="tag absolute left-4 top-4 bg-tertiary-950/50 rounded-2 px-2 py-1.5 text-white text-3 font-medium leading-none z-5 capitalize">
-                                        {{ $portfolio->category?->rootAncestor?->name }}
+                                        {{ $portfolio->main_category }}
                                     </div>
                                 </div>
                             </div>
@@ -521,7 +521,7 @@
                                                     class="icon icon-square-meter-1 text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
                                                 </div>
                                             </div>
-                                            <div class="text text-3.5 font-medium text-tertiary-950/40">352 m²</div>
+                                            <div class="text text-3.5 font-medium text-tertiary-950/40">{{ $portfolio->net }} m²</div>
                                         </div>
                                     </div>
                                     <button

@@ -158,4 +158,10 @@ class Portfolio extends Model
 
         return explode(',', $location);
     }
+
+    public function getMainCategoryAttribute()
+    {
+        $category = $this->load('category.rootAncestor')->category;
+        return $category->rootAncestor?->name ?? $category->name;
+    }
 }
