@@ -52,6 +52,7 @@ return [
     'we_categorize' => 'We have categorized all the portfolios here for you. The most suitable portfolio for your needs.',
     'consultants' => 'Our Remax Loca Consultants',
     'team_description' => 'We offer you the highest quality and fast service with our consultants and office staff who are supported by continuous training in our office, specialize in their regions, respect ethical rules and have adopted customer satisfaction-oriented working principles as a principle.',
+    'career' => 'career',
     'iam_in_loca' => 'I am in Loca where are you ?',
     'work_with_us' => 'We continue to grow and develop, in order to work with us',
     'upload_cv' => 'upload cv',

@@ -82,8 +82,7 @@ class Portfolio extends Model
 
     public function scopeCategory(Builder $builder, $val)
     {
-        $values = Category::find($val)?->descendantsAndSelf?->pluck('id') ?? [];
-
+        $values = Category::find($val)?->bloodline?->pluck('id') ?? [$val];
         return $builder->whereIn('category_id', $values);
     }
 

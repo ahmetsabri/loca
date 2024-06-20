@@ -124,24 +124,38 @@
                                 class="list hidden [&.active]:grid gap-1 overflow-y-auto overflow-x-hidden max-h-[196px] scrollbar scrollbar-w-1 scrollbar-track-rounded-full scrollbar-thumb-rounded-full scrollbar-track-[#8AA5D3]/24 scrollbar-thumb-[#8AA5D3]/65 active">
 
                                     @foreach($rootCategories as $category)
-                                        <button data-destination-level="s{{ $category->id }}"
-                                            class="text-tertiary-950 text-3.5 w-fit font-medium draw-underline [--line-color:#0D1523] block capitalize">
-                                        {{ $category->name }}
-                                    </button>
 
+
+                                    @if($category->children->isEmpty())
+                            <a href="{{ route('portfolios',['filter[category]'=>$category->id]) }}"
+                                class="text-tertiary-950 capitalize text-3.5 w-fit font-medium draw-underline [--line-color:#0D1523] block">
+                                {{ $category->name }}
+                            </a>
+                            @else
+                            <button data-destination-level="s{{ $category->id }}"
+                                class="text-tertiary-950 capitalize text-3.5 w-fit font-medium draw-underline [--line-color:#0D1523] block">
+                                {{ $category->name }}
+                            </button>
+                            @endif
                                     @endforeach
 
                             </div>
                           @foreach($rootCategories as $category)
 
                           <div data-level="s{{ $category->id }}"
-                            class="list hidden [&.active]:grid gap-1 overflow-y-auto overflow-x-hidden max-h-[153px] scrollbar scrollbar-w-1 scrollbar-track-rounded-full scrollbar-thumb-rounded-full scrollbar-track-[#8AA5D3]/24 scrollbar-thumb-[#8AA5D3]/65">
+                            class="list hidden capitalize [&.active]:grid gap-1 overflow-y-auto overflow-x-hidden max-h-[153px] scrollbar scrollbar-w-1 scrollbar-track-rounded-full scrollbar-thumb-rounded-full scrollbar-track-[#8AA5D3]/24 scrollbar-thumb-[#8AA5D3]/65">
                             @foreach($category->children as $child)
-
+                            @if($child->children->isEmpty())
+<a href="{{ route('portfolios',['filter[category]'=>$child->id]) }}" data-destination-level="k{{ $child->id }}"
+    class="text-tertiary-950 text-3.5 w-fit capitalize font-medium draw-underline [--line-color:#0D1523] block">
+    {{ $child->name }}
+</a>
+@else
                         <button data-destination-level="k{{ $child->id }}"
-                                class="text-tertiary-950 text-3.5 w-fit font-medium draw-underline [--line-color:#0D1523] block">
+                                class="text-tertiary-950 capitalize text-3.5 w-fit font-medium draw-underline [--line-color:#0D1523] block">
                             {{ $child->name }}
                         </button>
+                        @endif
                             @endforeach
                         </div>
                           @endforeach
@@ -150,14 +164,22 @@
 
 @foreach($rootCategories as $category)
 @foreach($category->children as $child)
-<div data-level="k{{ $child->id }}"
+<div data-level="p{{ $child->id }}"
             class="list hidden [&.active]:grid gap-1 overflow-y-auto overflow-x-hidden max-h-[153px] scrollbar scrollbar-w-1 scrollbar-track-rounded-full scrollbar-thumb-rounded-full scrollbar-track-[#8AA5D3]/24 scrollbar-thumb-[#8AA5D3]/65">
            @foreach($child->children as $descandant)
-    <a href="javascript:void(0)"
-        class="text-tertiary-950 text-3.5 w-fit font-medium draw-underline [--line-color:#0D1523] block">
-        {{ $descandant->name }}
-    </a>
 
+           @if($descandant->children->isEmpty())
+                        <a href="{{ route('portfolios',['filter[category]'=>$descandant->id]) }}" data-destination-level="p{{ $child->id }}"
+                            class="text-tertiary-950 text-3.5 w-fit capitalize font-medium draw-underline [--line-color:#0D1523] block">
+                            {{ $descandant->name }}
+                        </a>
+                        @else
+                        <button data-destination-level="p{{ $descandant->id }}"
+                            class="text-tertiary-950 capitalize text-3.5 w-fit font-medium draw-underline [--line-color:#0D1523] block">
+                            {{ $descandant->name }}
+                        </button>
+
+@endif
            @endforeach
         </div>
 @endforeach

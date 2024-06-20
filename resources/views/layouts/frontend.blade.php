@@ -169,7 +169,7 @@
                             </a>
                         </li>
                         <li class="group/li flex">
-                            <a href="services.html"
+                            <a href="{{ route('frontend.services') }}"
                                 class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">{{ __('general.about') }}</a>
                         </li>
                         <li class="group/li flex">
@@ -218,7 +218,7 @@
 </a>
                         </li>
                         <li class="group/li flex">
-                            <a href="services.html"
+                            <a href="{{ route('frontend.services') }}"
                                 class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">
                                     {{ __('general.services') }}
 </a>
@@ -542,14 +542,14 @@
                                 class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">                            {{ __('general.about') }}
 </span></a>
-                            <a href="services.html"
+                            <a href="{{ route('frontend.services') }}"
                                 class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">                            {{ __('general.contact') }}
 </span></a>
                             <a href="{{ route('frontend.team.index') }}"
                                 class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">{{ __('general.team') }}</span></a>
-                            <a href="career.html"
+                            <a href="{{ route('career') }}"
                                 class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">Kariyer</span></a>
                             <a href="portfolio-grid.html"

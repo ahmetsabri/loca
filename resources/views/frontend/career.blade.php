@@ -14,7 +14,8 @@
             <div class="wrapper max-w-1440 mx-auto w-full px-7.5 relative z-2 grid gap-6 xl:gap-5 lg:gap-4 sm:gap-3">
                 <h1
                     class="title text-center font-semibold text-white text-11 2xl:text-10 xl:text-8 lg:text-7 md:text-6 sm:text-5.5 tracking-[0.15em] lg:tracking-widest sm:tracking-wider leading-tight">
-                    KARİYER</h1>
+                    {{ __('general.career') }}
+                </h1>
                 <div
                     class="tags flex items-center justify-center flex-wrap gap-x-10 2xl:gap-x-9 xl:gap-x-8 lg:gap-x-6 md:gap-x-4 sm:gap-x-2 gap-y-2 md:gap-y-1.5 sm:gap-y-0.5">
                     <div
@@ -44,9 +45,10 @@
                     class="content-wrapper relative z-2 px-30 2xl:px-24 xl:px-20 lg:px-16 md:px-10 sm:px-7.5 py-12 lg:py-10 md:py-8">
                     <div class="text-editor">
                         <!-- .text-editor içerisindeki style attribute değerleri frontendi tasarıma benzetmek adına eklenmiştir, backend aşamasında silinerek panel editöründen tanımlanmalıdır. -->
-                        <h4 style="font-weight:600;color:#DB0620">#BenLOCAdayımSen Nerdesin?</h4>
-                        <h6 style="font-weight:500;color:#0D1523">Büyümeye ve gelişmeye devam ediyoruz, bizimle çalışmak
-                            için <strong>formu doldurmayı unutma :)</strong></h6>
+                        <h4 style="font-weight:600;color:#DB0620">#{{ __('general.iam_in_loca') }}</h4>
+                        <h6 style="font-weight:500;color:#0D1523">
+                            {{ __('general.work_with_us') }}
+                        </h6>
                     </div>
                     <div class="form-outer-wrapper pt-12 2xl:pt-10 xl:pt-8 lg:pt-6">
 <form action="{{ route('form.job') }}" method="POST" enctype="multipart/form-data">
@@ -54,7 +56,7 @@
                                                             <div class="form-wrapper grid grid-cols-2 sm:grid-cols-1 gap-3">
                                 <div class="form-el relative group/form w-full col-span-2 sm:col-span-1">
                                     <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                    <input  required name="name" type="text" placeholder="Adınız Soyadınız"
+                                    <input  required name="name" type="text" placeholder="{{ __('general.name') }}"
                                         class="w-full h-14 md:h-12 duration-300 rounded-4 md:rounded-3 px-7 md:px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
 
                                     <div
@@ -63,7 +65,7 @@
                                 </div>
                                 <div class="form-el relative group/form w-full">
                                     <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                    <input  required name="email" type="email" placeholder="E-posta"
+                                    <input  required name="email" type="email" placeholder="{{ __('general.email') }}"
                                         class="w-full h-14 md:h-12 duration-300 rounded-4 md:rounded-3 px-7 md:px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
 
                                     <div
@@ -72,7 +74,7 @@
                                 </div>
                                 <div class="form-el relative group/form w-full">
                                     <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                    <input  required name="phone" type="tel" placeholder="Telefon No"
+                                    <input  required name="phone" type="tel" placeholder="{{ __('general.phone') }}"
                                         class="w-full h-14 md:h-12 duration-300 rounded-4 md:rounded-3 px-7 md:px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
 
                                     <div
@@ -87,7 +89,7 @@
                                         <div
                                             class="box flex items-center justify-center gap-2 duration-300 h-20 md:h-18 px-7 md:px-5 rounded-4 md:rounded-3 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-dashed border-[#8AA5D3]/30 peer-hover:border-main-700 peer-focus:border-main-700 group-[&.error]/form:border-secondary-700">
                                             <div class="text text-3.5 font-medium text-tertiary-950"><span
-                                                    class="line-clamp-1">CV Yükle</span></div>
+                                                    class="line-clamp-1">{{ __('general.upload_cv') }}</span></div>
                                             <div
                                                 class="icon icon-upload text-4 h-4 block leading-none duration-300 text-[#2675FA]">
                                             </div>

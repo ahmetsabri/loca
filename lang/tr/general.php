@@ -51,6 +51,8 @@ return [
     'we_categorize' => 'Buradaki tüm portföyleri sizler için kategorize ettik. İhtiyacınıza en uygun portföy.',
     'consultants' => 'Remax Loca Danışmanlarımız',
     'team_description' => 'Ofisimizde sürekli eğitimlerle desteklenen, kendi bölgelerinde uzmanlaşarak etik kurallara saygılı ve müşteri memnuniyeti odaklı çalışma prensiplerini ilke edinmiş danışman ve ofis kadromuz ile sizlere en kaliteli ve hızlı hizmeti sunuyoruz.',
+        'career' => 'kariyer',
+
     'iam_in_loca' => 'Ben Loca\'dayım, sen neredesin?',
     'work_with_us' => 'Büyümeye ve gelişmeye devam ediyoruz, bizimle çalışmak için',
     'email' => 'e-posta',

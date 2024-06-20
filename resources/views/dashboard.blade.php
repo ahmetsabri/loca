@@ -62,7 +62,7 @@
                 <div>
                         <a href="{{ route('service.index') }}"
                             class="px-5 py-2.5 text-base font-medium text-white bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 rounded-lg text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">
-                            servisler
+                            hizmetler
                         </a>
                     </div>
                 <div>
