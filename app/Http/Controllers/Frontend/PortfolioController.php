@@ -35,7 +35,7 @@ class PortfolioController extends Controller
 
         $rootCategories = Category::isRoot()->with('children.children')->get();
         $provinces = Province::all();
-
+        $selectedCategory = Category::find(request('filter.category'))?->load('rootAncestor');
         $filters = Info::has('portfolioValues')->where('filterable', true)->get();
         $locations = Portfolio::limit(200)->get()->map(fn ($por) => [
             'lat' => (float) $por->lat_lon[0],
@@ -45,7 +45,14 @@ class PortfolioController extends Controller
             'url' => route('frontend.portfolio.show', $por),
         ]);
 
-        return view('frontend.portfolio.index', compact('portfolios', 'rootCategories', 'provinces', 'filters', 'locations'));
+        return view('frontend.portfolio.index', compact(
+            'portfolios',
+            'rootCategories',
+            'provinces',
+            'filters',
+            'locations',
+            'selectedCategory'
+        ));
     }
 
     public function show(Portfolio $portfolio)

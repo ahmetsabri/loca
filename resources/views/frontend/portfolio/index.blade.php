@@ -79,43 +79,67 @@
                         <div class="sidebar-general-list bg-white rounded-5 md:rounded-3 px-4 py-7">
                             <div class="category-wrapper px-3">
                                 <div class="heading-wrapper">
-                                    <div class="title text-4 text-[#2675FA] duration-300 font-semibold mb-2">
-                                        {{ __('categories') }}
-                                    </div>
+                                    <a href="{{ route('portfolios') }}" class="title text-4 text-[#2675FA] duration-300 font-semibold mb-2">
+                                        {{ __('general.categories') }}
+                                    </a>
                                     <div class="location-wrapper hidden [&.active]:block">
                                         <div class="location-list flex items-center gap-2 flex-wrap"></div>
                                         <div class="split w-full h-px bg-[#E8F0FD] mb-5 mt-5"></div>
                                     </div>
                                 </div>
-                                <div data-level="y0"
-                                    class="list hidden [&.active]:grid gap-1 overflow-y-auto overflow-x-hidden max-h-[196px] scrollbar scrollbar-w-1 scrollbar-track-rounded-full scrollbar-thumb-rounded-full scrollbar-track-[#8AA5D3]/24 scrollbar-thumb-[#8AA5D3]/65 active">
+
 
                                     @foreach($rootCategories as $category)
+                                    <div data-level="y0"
+                                        class="list hidden [&.active]:grid gap-1 overflow-y-auto overflow-x-hidden max-h-[196px] scrollbar scrollbar-w-1 scrollbar-track-rounded-full scrollbar-thumb-rounded-full scrollbar-track-[#8AA5D3]/24 scrollbar-thumb-[#8AA5D3]/65
+                                        @if(!request('filter.category'))
+                                        active
+                                        @else
+                                        @if(in_array(request('filter.category'),$category->children->pluck('id')->toArray()))
+                                                active
+                                        @endif
+                                        @endif
+                                        ">
+                                    @if($category->children->isNotEmpty())
                                     <button type="button" data-destination-level="s{{ $category->id }}"
-                                        class="text-tertiary-950 text-3.5 w-fit font-medium draw-underline [--line-color:#0D1523] block capitalize">
+                                        class="text-tertiary-950 @if(in_array(request('filter.category'),$category->children->pluck('id')->toArray())) active block  @endif text-3.5 w-fit font-medium draw-underline [--line-color:#0D1523]  capitalize">
                                         {{ $category->name }}
                                     </button>
-
-                                    @endforeach
+                                    @else
+                                    <a href="{{ route('portfolios',['filter[category]'=>$category->id]) }}"
+                                            class="text-tertiary-950 capitalize text-3.5 w-fit font-medium draw-underline [--line-color:#0D1523] block">
+                                            {{ $category->name }}
+                                        </a>
+                                    @endif
 
                                 </div>
+                                    @endforeach
+
                                 @foreach($rootCategories as $category)
 
                                 <div data-level="s{{ $category->id }}"
-                                    class="list hidden [&.active]:grid gap-1 overflow-y-auto overflow-x-hidden max-h-[153px] scrollbar scrollbar-w-1 scrollbar-track-rounded-full scrollbar-thumb-rounded-full scrollbar-track-[#8AA5D3]/24 scrollbar-thumb-[#8AA5D3]/65">
+                                    class="list hidden   @if(in_array(request('filter.category'),$category->children->pluck('id')->toArray())) active  @endif [&.active]:grid gap-1 overflow-y-auto overflow-x-hidden max-h-[153px] scrollbar scrollbar-w-1 scrollbar-track-rounded-full scrollbar-thumb-rounded-full scrollbar-track-[#8AA5D3]/24 scrollbar-thumb-[#8AA5D3]/65">
                                     @foreach($category->children as $child)
 
-                                    <button type="button" data-destination-level="k{{ $child->id }}"
-                                        class="text-tertiary-950 text-3.5 w-fit font-medium draw-underline [--line-color:#0D1523] block">
-                                        {{ $child->name }}
-                                    </button>
+                                    @if($child->children->isNotEmpty())
+<button type="button" data-destination-level="k{{ $child->id }}"
+    class="text-tertiary-950 text-3.5 w-fit font-medium draw-underline active [--line-color:#0D1523] block">
+    {{ $child->name }}
+</button>
+                                    @else
+<a href="{{ route('portfolios',['filter[category]'=>$child->id]) }}"
+        class="text-tertiary-950 capitalize text-3.5 w-fit font-medium draw-underline [--line-color:#0D1523] block">
+        {{ $child->name }}
+    </a>
+                                    @endif
+
                                     @endforeach
                                 </div>
                                 @endforeach
 @foreach($rootCategories as $category)
 @foreach($category->children as $child)
 <div data-level="k{{ $child->id }}"
-    class="list hidden [&.active]:grid gap-1 overflow-y-auto overflow-x-hidden max-h-[153px] scrollbar scrollbar-w-1 scrollbar-track-rounded-full scrollbar-thumb-rounded-full scrollbar-track-[#8AA5D3]/24 scrollbar-thumb-[#8AA5D3]/65">
+    class="list hidden @if($child->id == request('filter.category')) active @endif [&.active]:grid gap-1 overflow-y-auto overflow-x-hidden max-h-[153px] scrollbar scrollbar-w-1 scrollbar-track-rounded-full scrollbar-thumb-rounded-full scrollbar-track-[#8AA5D3]/24 scrollbar-thumb-[#8AA5D3]/65">
     @foreach($child->children as $descandant)
     <a href="{{ request()->fullUrlWithQuery(['filter[category]'=>$descandant->id]) }}"
         class="text-tertiary-950 text-3.5 w-fit font-medium draw-underline [--line-color:#0D1523] block">
@@ -313,9 +337,9 @@
 
                     <div
                         class="heading-wrapper flex items-center justify-between sm:flex-col sm:gap-4 gap-7.5 px-2 mb-5">
-                        <div class="text font-medium text-tertiary-950 text-3.5 sm:text-center"><strong>
-                            "<span x-text="selectedTownName"></span> Satılık Arsa”
-                            </strong> aramanızda <strong>{{ $portfolios->total() }}</strong> ilan bulundu.</div>
+                        <div class="text font-medium text-tertiary-950 text-3.5 sm:text-center capitalize"><strong>
+                            <span x-text="selectedTownName"></span> {{ $selectedCategory?->name }} {{ $selectedCategory?->rootAncestor->name }}
+                            </strong>  <strong>{{ $portfolios->total() }}</strong> {{ __('general.ad_found') }}</div>
 
 
                         <div class="tools-wrapper">
@@ -336,13 +360,13 @@
                                 <div class="order-select relative w-[145px] sm:w-[130px]">
                                     <select
                                         class="peer duration-300 w-full block h-10 bg-white border border-solid border-[#8AA5D3]/15 rounded-2 px-5 text-3.5 font-semibold text-[#6D6D6D] hover:border-[#8AA5D3]/50 focus:border-[#8AA5D3]/50">
-                                        <option value="" selected disabled>Sıralama</option>
+                                        <option value="" selected disabled>{{ __('general.sort') }}</option>
                                         <option @selected(request('sort') == 'price_in_tl' ) @click="sortBy(`{{ request()->fullUrlWithQuery(['sort'=>'price_in_tl']) }}`)">
-                                            {{ __('low_price_first') }}</option>
+                                            {{ __('general.low_price_first') }}</option>
                                         <option @selected(request('sort') == '-price_in_tl' ) @click="sortBy(`{{ request()->fullUrlWithQuery(['sort'=>'-price_in_tl']) }}`)">
-                                            {{ __('high_price_first') }}</option>
+                                            {{ __('general.high_price_first') }}</option>
                                         <option @selected(request('sort') == 'created_at' ) @click="sortBy(`{{ request()->fullUrlWithQuery(['sort'=>'created_at']) }}`)">
-                                            {{ __('created_at') }}</option>
+                                            {{ __('generall.created_at') }}</option>
                                     </select>
                                     <div
                                         class="icon icon-chevron-bottom text-2 h-2 block leading-none duration-300 text-[#6D6D6D] pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 peer-focus:rotate-180">

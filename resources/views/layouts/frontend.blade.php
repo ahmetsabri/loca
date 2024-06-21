@@ -163,40 +163,40 @@
                     @if(Route::currentRouteName()=='home')
                     <ul class="menu flex gap-8 2xl:gap-7 xl:gap-6 lg:flex-col">
                         <li class="group/li flex">
-                            <a href="about.html"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">
+                            <a href="{{ route('frontend.services') }}"
+                                class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">
                             {{ __('general.services') }}
                             </a>
                         </li>
                         <li class="group/li flex">
-                            <a href="{{ route('frontend.services') }}"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">{{ __('general.about') }}</a>
+                            <a href="about.html"
+                                class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">{{ __('general.about') }}</a>
                         </li>
                         <li class="group/li flex">
                             <a href="{{ route('frontend.team.index') }}"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">{{ __('general.team') }}</a>
+                                class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">{{ __('general.team') }}</a>
                         </li>
                         <li class="group/li flex">
                             <a href="{{ route('portfolios',['grid_type'=>'grid']) }}"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">
+                                class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">
                             {{ __('general.portfolios') }}
                             </a>
                         </li>
                         <li class="group/li flex">
                             <a href="{{ route('projects') }}"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">
+                                class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">
                             {{ __('general.projects') }}
                             </a>
                         </li>
                         <li class="group/li flex">
                             <a href="blog.html"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">
+                                class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">
                             {{ __('general.blog') }}
                             </a>
                         </li>
                         <li class="group/li flex">
                             <a href="{{ route('contact') }}"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">
+                                class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">
                             {{ __('general.contact') }}
                             </a>
                         </li>
@@ -213,38 +213,38 @@
                     <ul class="menu flex gap-8 2xl:gap-7 xl:gap-6 lg:flex-col">
                         <li class="group/li flex">
                             <a href="about.html"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">
+                                class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">
                                    {{ __('general.about') }}
 </a>
                         </li>
                         <li class="group/li flex">
                             <a href="{{ route('frontend.services') }}"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">
+                                class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">
                                     {{ __('general.services') }}
 </a>
                         </li>
                         <li class="group/li flex">
                             <a href="{{ route('frontend.team.index') }}"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">{{ __('general.team') }}</a>
+                                class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">{{ __('general.team') }}</a>
                         </li>
                         <li class="group/li flex">
                             <a href="{{ route('portfolios',['grid_type'=>'grid']) }}"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">{{ __('general.portfolios') }}</a>
+                                class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">{{ __('general.portfolios') }}</a>
                         </li>
                         <li class="group/li flex">
                             <a href="{{ route('projects') }}"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">{{ __('general.projects') }}</a>
+                                class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">{{ __('general.projects') }}</a>
                         </li>
                         <li class="group/li flex">
                             <a href="blog.html"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">
+                                class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">
                             {{ __('general.blog') }}
 
                             </a>
                         </li>
                         <li class="group/li flex">
                             <a href="{{ route('contact') }}"
-                                class="flex items-center text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">
+                                class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">
                             {{ __('general.contact') }}
                             </a>
                         </li>
@@ -539,49 +539,49 @@
                         <div class="title text-white font-medium text-4.5 tracking-wider">HIZLI MENÜ</div>
                         <div class="list mt-5 grid gap-1">
                             <a href="about.html"
-                                class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
+                                class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">                            {{ __('general.about') }}
 </span></a>
                             <a href="{{ route('frontend.services') }}"
-                                class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
+                                class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">                            {{ __('general.contact') }}
 </span></a>
                             <a href="{{ route('frontend.team.index') }}"
-                                class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
+                                class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">{{ __('general.team') }}</span></a>
                             <a href="{{ route('career') }}"
-                                class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
-                                    class="draw-el">Kariyer</span></a>
-                            <a href="portfolio-grid.html"
                                 class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
+                                    class="draw-el">{{ __('general.career') }}</span></a>
+                            <a href="portfolio-grid.html"
+                                class="draw-child-underline capitalize capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">{{ __('general.portfolios') }}</span></a>
                             <a href="{{ route('projects') }}"
-                                class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
+                                class="draw-child-underline capitalize capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">{{ __('general.projects') }}</span></a>
                             <a href="faq.html"
-                                class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
+                                class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">Sıkça Sorulan Sorular</span></a>
                             <a href="blog.html"
-                                class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
+                                class="draw-child-underline capitalize capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">
                             {{ __('general.blog') }}
 
                                 </span></a>
                             <a href="{{ route('contact') }}"
-                                class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
+                                class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">
                             {{ __('general.contact') }}
                                 </span></a>
                         </div>
                         <div class="list mt-5 grid gap-1">
                             <a href="template.html"
-                                class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-semibold text-3 block"><span
+                                class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-semibold text-3 block"><span
                                     class="draw-el">Aydınlatma Metni</span></a>
                             <a href="template.html"
-                                class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-semibold text-3 block"><span
+                                class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-semibold text-3 block"><span
                                     class="draw-el">Çerez Politikası</span></a>
                             <a href="404.html"
-                                class="draw-child-underline text-[#8AA5D3] [--line-color:#8AA5D3] font-semibold text-3 block"><span
+                                class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-semibold text-3 block"><span
                                     class="draw-el">404</span></a>
                         </div>
                     </div>

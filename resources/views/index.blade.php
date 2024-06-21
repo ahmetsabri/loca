@@ -52,7 +52,7 @@
                             <div class="inner max-w-[575px] md:max-w-none">
                                 <div
                                     class="title leading-none text-14 2xl:text-12 xl:text-10 lg:text-8 font-semibold text-white md:text-center ">
-                                    Kendinize En Uygun Arsayı Bulun!</div>
+                                    {{ __('general.find_land') }}</div>
                                 <div
                                     class="tags flex items-center md:justify-center flex-wrap gap-x-10 2xl:gap-x-9 xl:gap-x-8 lg:gap-x-6 md:gap-x-4 sm:gap-x-2 gap-y-2 md:gap-y-1.5 sm:gap-y-0.5 mt-7.5 2xl:mt-6 xl:mt-5 lg:mt-4 md:mt-3">
                                     <div
@@ -71,7 +71,7 @@
                             <div class="inner max-w-[575px] md:max-w-none">
                                 <div
                                     class="title leading-none text-14 2xl:text-12 xl:text-10 lg:text-8 font-semibold text-white md:text-center ">
-                                    Kendinize En Uygun Arsayı Bulun!</div>
+                                    {{ __('general.find_land') }}</div>
                                 <div
                                     class="tags flex items-center md:justify-center flex-wrap gap-x-10 2xl:gap-x-9 xl:gap-x-8 lg:gap-x-6 md:gap-x-4 sm:gap-x-2 gap-y-2 md:gap-y-1.5 sm:gap-y-0.5 mt-7.5 2xl:mt-6 xl:mt-5 lg:mt-4 md:mt-3">
                                     <div
@@ -90,7 +90,7 @@
                             <div class="inner max-w-[575px] md:max-w-none">
                                 <div
                                     class="title leading-none text-14 2xl:text-12 xl:text-10 lg:text-8 font-semibold text-white md:text-center ">
-                                    Kendinize En Uygun Arsayı Bulun!</div>
+                                    {{ __('general.find_land') }}</div>
                                 <div
                                     class="tags flex items-center md:justify-center flex-wrap gap-x-10 2xl:gap-x-9 xl:gap-x-8 lg:gap-x-6 md:gap-x-4 sm:gap-x-2 gap-y-2 md:gap-y-1.5 sm:gap-y-0.5 mt-7.5 2xl:mt-6 xl:mt-5 lg:mt-4 md:mt-3">
                                     <div
@@ -547,8 +547,8 @@
                                     <div
                                         class="title text-tertiary-950 text-5.5 2xl:text-5 xl:text-4.5 lg:text-4 font-semibold duration-300 group-hover:text-main-700 mb-2">
                                         Arsa</div>
-                                    <p class="expo text-4 xl:text-3.5 font-medium text-[#6D6D6D]">Buradaki tüm
-                                        portföyleri sizler için kategorize ettik. İhtiyacınıza en uygun portföy.
+                                    <p class="expo text-4 xl:text-3.5 font-medium text-[#6D6D6D]">
+                                        {{ __('general.we_categorize') }}
                                     </p>
                                 </div>
                             </a>
@@ -565,8 +565,8 @@
                                     <div
                                         class="title text-tertiary-950 text-5.5 2xl:text-5 xl:text-4.5 lg:text-4 font-semibold duration-300 group-hover:text-main-700 mb-2">
                                         Konut</div>
-                                    <p class="expo text-4 xl:text-3.5 font-medium text-[#6D6D6D]">Buradaki tüm
-                                        portföyleri sizler için kategorize ettik. İhtiyacınıza en uygun portföy.
+                                    <p class="expo text-4 xl:text-3.5 font-medium text-[#6D6D6D]">
+                                        {{ __('general.we_categorize') }}
                                     </p>
                                 </div>
                             </a>
@@ -583,8 +583,8 @@
                                     <div
                                         class="title text-tertiary-950 text-5.5 2xl:text-5 xl:text-4.5 lg:text-4 font-semibold duration-300 group-hover:text-main-700 mb-2">
                                         Turistik Tesis</div>
-                                    <p class="expo text-4 xl:text-3.5 font-medium text-[#6D6D6D]">Buradaki tüm
-                                        portföyleri sizler için kategorize ettik. İhtiyacınıza en uygun portföy.
+                                    <p class="expo text-4 xl:text-3.5 font-medium text-[#6D6D6D]">
+                                        {{ __('general.we_categorize') }}
                                     </p>
                                 </div>
                             </a>

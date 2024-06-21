@@ -16,7 +16,7 @@ return [
     'name' => 'name',
     'message' => 'message',
     'show_map' => 'show map',
-    'buy_sell' => 'buy sell',
+    'buy_sell' => 'buy sell, rent',
     'price' => 'price',
     'min' => 'min',
     'max' => 'max',
@@ -85,5 +85,17 @@ return [
     'fill_form' => 'Fill out the form, our expert advisors will call you!',
     'office' => 'office',
     'contact_me' => 'contact me',
+    'find_land' => 'Find yourself a land that suits you best!',
+    'for_rent' => 'for rent',
+    'for_sale' => 'for sale',
+    'arsa' => 'land',
+    'konut' => 'house',
+    'other' => 'other',
+    'buy_sell_headline' => 'LET US HELP YOU WITH THE PURCHASE, SALE AND RENTAL OF REAL ESTATE.',
 
+'sort' => 'Sort',
+    'created_at' => 'Publication Date',
+    'low_price_first' => 'Low Price First',
+    'high_price_first' => 'High Price First',
+    'ad_found' => 'ad founds'
 ];
