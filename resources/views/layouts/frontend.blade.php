@@ -169,7 +169,7 @@
                             </a>
                         </li>
                         <li class="group/li flex">
-                            <a href="about.html"
+                            <a href="{{ route('frontend.about') }}"
                                 class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">{{ __('general.about') }}</a>
                         </li>
                         <li class="group/li flex">
@@ -212,7 +212,7 @@
                     @else
                     <ul class="menu flex gap-8 2xl:gap-7 xl:gap-6 lg:flex-col">
                         <li class="group/li flex">
-                            <a href="about.html"
+                            <a href="{{ route('frontend.about') }}"
                                 class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">
                                    {{ __('general.about') }}
 </a>
@@ -538,7 +538,7 @@
                     <div class="menu-wrapper max-w-36 md:max-w-none md:w-full">
                         <div class="title text-white font-medium text-4.5 tracking-wider">HIZLI MENÜ</div>
                         <div class="list mt-5 grid gap-1">
-                            <a href="about.html"
+                            <a href="{{ route('frontend.about') }}"
                                 class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">                            {{ __('general.about') }}
 </span></a>

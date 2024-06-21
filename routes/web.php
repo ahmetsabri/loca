@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ChangeCurrencyController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\Frontend\AboutController as FrontendAboutController;
 use App\Http\Controllers\Frontend\FormController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\PortfolioController as FrontendPortfolioController;
@@ -54,6 +56,7 @@ Route::view('career', 'frontend.career')->name('career');
 Route::view('buy-sell', 'frontend.buy_sell', ['provinces' => Province::all()])->name('buy_sell');
 Route::get('videos', [FrontendVideoController::class, 'index'])->name('videos');
 Route::get('services', [FrontendServiceController::class, 'index'])->name('frontend.services');
+Route::get('about', FrontendAboutController::class)->name('frontend.about');
 Route::middleware('auth')->prefix('admin')->withoutMiddleware(LocaleMiddleware::class)->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -153,6 +156,12 @@ Route::middleware('auth')->prefix('admin')->withoutMiddleware(LocaleMiddleware::
         Route::post('/', [VideoController::class, 'store'])->name('video.store');
         Route::post('{video}', [VideoController::class, 'update'])->name('video.update');
         Route::get('{video}/delete', [VideoController::class, 'destroy'])->name('video.delete');
+    });
+    Route::prefix('about')->group(function () {
+        Route::get('/', [AboutController::class, 'index'])->name('about.index');
+        Route::post('/', [AboutController::class, 'store'])->name('about.store');
+        Route::post('{about}', [AboutController::class, 'update'])->name('about.update');
+        Route::get('{about}/delete', [AboutController::class, 'destroy'])->name('about.delete');
     });
 });
 Route::get('towns/{province}', [CountryController::class, 'towns'])->name('province.towns');
