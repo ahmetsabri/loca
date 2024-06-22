@@ -11,6 +11,7 @@ class AboutController extends Controller
     public function __invoke(Request $request)
     {
         $about = About::first();
+
         return view('frontend.about', compact('about'));
     }
 }

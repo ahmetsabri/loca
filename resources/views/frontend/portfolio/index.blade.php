@@ -79,7 +79,7 @@
                         <div class="sidebar-general-list bg-white rounded-5 md:rounded-3 px-4 py-7">
                             <div class="category-wrapper px-3">
                                 <div class="heading-wrapper">
-                                    <a href="{{ route('portfolios') }}" class="title text-4 text-[#2675FA] duration-300 font-semibold mb-2">
+                                    <a href="{{ route('portfolios') }}" class="title capitalize text-4 text-[#2675FA] duration-300 font-semibold mb-2">
                                         {{ __('general.categories') }}
                                     </a>
                                     <div class="location-wrapper hidden [&.active]:block">
@@ -155,7 +155,7 @@
                             </div>
 
                             <div class="address-wrapper mt-6" >
-                                <div class="title text-3.5 font-semibold text-tertiary-950 mb-4 px-3">{{ __('address') }}</div>
+                                <div class="title text-3.5 font-semibold text-tertiary-950 mb-4 px-3 capitalize">{{ __('general.address') }}</div>
                                 <div class="form-wrapper grid gap-2">
                                     <div class="form-el group/form relative w-full">
                                         <!-- Buraya `error` classı gelince ilgili style değişiyor -->
@@ -338,7 +338,7 @@
                     <div
                         class="heading-wrapper flex items-center justify-between sm:flex-col sm:gap-4 gap-7.5 px-2 mb-5">
                         <div class="text font-medium text-tertiary-950 text-3.5 sm:text-center capitalize"><strong>
-                            <span x-text="selectedTownName"></span> {{ $selectedCategory?->name }} {{ $selectedCategory?->rootAncestor->name }}
+                            <span x-text="selectedTownName"></span> {{ $selectedCategory?->name }} {{ $selectedCategory?->rootAncestor?->name }}
                             </strong>  <strong>{{ $portfolios->total() }}</strong> {{ __('general.ad_found') }}</div>
 
 
@@ -366,7 +366,7 @@
                                         <option @selected(request('sort') == '-price_in_tl' ) @click="sortBy(`{{ request()->fullUrlWithQuery(['sort'=>'-price_in_tl']) }}`)">
                                             {{ __('general.high_price_first') }}</option>
                                         <option @selected(request('sort') == 'created_at' ) @click="sortBy(`{{ request()->fullUrlWithQuery(['sort'=>'created_at']) }}`)">
-                                            {{ __('generall.created_at') }}</option>
+                                            {{ __('general.created_at') }}</option>
                                     </select>
                                     <div
                                         class="icon icon-chevron-bottom text-2 h-2 block leading-none duration-300 text-[#6D6D6D] pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 peer-focus:rotate-180">
@@ -436,6 +436,7 @@
                                         </div>
                                         <div class="info flex items-center justify-between gap-7.5 mt-5 md:mt-4">
                                             <div class="tags flex flex-wrap items-center gap-8 2xl:gap-7 xl:gap-6 lg:gap-5 md:gap-4 sm:gap-3">
+                                                @if($portfolio->rooms_count)
                                                 <div class="item flex items-center gap-2">
                                                     <div
                                                         class="icon-wrapper w-7.5 aspect-square shrink-0 bg-[#EDF3FE] flex items-center justify-center rounded-full">
@@ -443,7 +444,8 @@
                                                             class="icon icon-bedroom text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
                                                         </div>
                                                     </div>
-                                                    <div class="text text-3.5 font-medium text-tertiary-950/40">3+1</div>
+                                                    <div class="text text-3.5 font-medium text-tertiary-950/40">{{ $portfolio->rooms_count }}</div>
+                                                    @endif
                                                 </div>
                                                 <div class="item flex items-center gap-2">
                                                     <div
@@ -529,6 +531,7 @@
                                     <div class="info flex items-center justify-between gap-7.5 mt-5 md:mt-4">
                                     <div
                                         class="tags flex flex-wrap items-center gap-8 2xl:gap-7 xl:gap-6 lg:gap-5 md:gap-4 sm:gap-3">
+                                      @if($portfolio->rooms_count)
                                         <div class="item flex items-center gap-2">
                                             <div
                                                 class="icon-wrapper w-7.5 aspect-square shrink-0 bg-[#EDF3FE] flex items-center justify-center rounded-full">
@@ -536,8 +539,9 @@
                                                     class="icon icon-bedroom text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
                                                 </div>
                                             </div>
-                                            <div class="text text-3.5 font-medium text-tertiary-950/40">3+1</div>
+                                            <div class="text text-3.5 font-medium text-tertiary-950/40">{{ $portfolio->rooms_count }}</div>
                                         </div>
+                                        @endif
                                         <div class="item flex items-center gap-2">
                                             <div
                                                 class="icon-wrapper w-7.5 aspect-square shrink-0 bg-[#EDF3FE] flex items-center justify-center rounded-full">

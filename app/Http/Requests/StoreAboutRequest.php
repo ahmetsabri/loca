@@ -22,11 +22,11 @@ class StoreAboutRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title_1' => ['required','array'],
-            'title_2' => ['required','array'],
-            'description_1' => ['required','array'],
-            'description_2' => ['required','array'],
-            'quote' => ['required','array'],
+            'title_1' => ['required', 'array'],
+            'title_2' => ['required', 'array'],
+            'description_1' => ['required', 'array'],
+            'description_2' => ['required', 'array'],
+            'quote' => ['required', 'array'],
         ];
     }
 }

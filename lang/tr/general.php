@@ -51,7 +51,7 @@ return [
     'we_categorize' => 'Buradaki tüm portföyleri sizler için kategorize ettik. İhtiyacınıza en uygun portföy.',
     'consultants' => 'Remax Loca Danışmanlarımız',
     'team_description' => 'Ofisimizde sürekli eğitimlerle desteklenen, kendi bölgelerinde uzmanlaşarak etik kurallara saygılı ve müşteri memnuniyeti odaklı çalışma prensiplerini ilke edinmiş danışman ve ofis kadromuz ile sizlere en kaliteli ve hızlı hizmeti sunuyoruz.',
-        'career' => 'kariyer',
+    'career' => 'kariyer',
 
     'iam_in_loca' => 'Ben Loca\'dayım, sen neredesin?',
     'work_with_us' => 'Büyümeye ve gelişmeye devam ediyoruz, bizimle çalışmak için',
@@ -100,10 +100,10 @@ return [
     'contact_me' => 'benimle iletişime geçin',
     'fcontact' => 'iletişim',
     'job' => 'iş başvuru',
-    'find_land' =>'Kendinize size en uygun arsayı bulun!',
+    'find_land' => 'Kendinize size en uygun arsayı bulun!',
     'for_rent' => 'kiralık',
     'for_sale' => 'satılık',
-        'arsa' => 'arsa',
+    'arsa' => 'arsa',
     'konut' => 'konut',
     'other' => 'başka',
     'buy_sell_headline' => 'GAYRİMENKUL ALIM, SATIM VE KİRALAMALARINIZDA SİZE YARDIMCI OLALIM.',
@@ -112,5 +112,6 @@ return [
     'low_price_first' => 'önce düşük fiyat',
     'high_price_first' => 'önce yüksek fiyat',
     'ad_found' => 'ilan bulundu',
-
+    'ad_no' => 'ilan no',
+    'address' => 'adres'
 ];

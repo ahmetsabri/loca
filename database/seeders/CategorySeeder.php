@@ -31,6 +31,21 @@ class CategorySeeder extends Seeder
             ],
             [
                 'name' => [
+                    'tr' => 'bina',
+                    'en' => 'building',
+                    'ru' => 'здание',
+                ],
+                'sub_categories' => [
+                    ['name' => [
+                        'tr' => 'kiralık',
+                        'en' => 'for rent',
+                        'ru' => 'сдается в аренду',
+                    ],
+                    ],
+                ],
+            ],
+            [
+                'name' => [
                     'tr' => 'konut',
                     'en' => 'house',
                     'ru' => 'жилье',
@@ -81,7 +96,7 @@ class CategorySeeder extends Seeder
 
         foreach ($mainCategories as $mainCategory) {
             $mainData = Arr::except($mainCategory, 'sub_categories');
-            $category = Category::create($mainData);
+            $category = Category::create($mainData + ['created_by_system'=>true]);
             Category::create(['parent_id' => $category->id] + Arr::only($mainCategory, 'sub_categories')['sub_categories'][0]);
         }
     }

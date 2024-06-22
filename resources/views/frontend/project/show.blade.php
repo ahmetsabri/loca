@@ -338,7 +338,7 @@
                                             </div>
                                             <div class="detail">
                                               <iframe class="w-full h-auto block aspect-[177/73] xs:aspect-[5/4]"
-                                                    src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDw9HPxhdYmLJsF_xVXmEs_f2QwfaEoGho&center={{ $project?->lat_lon[0] ?? ''  }},{{ $project?->lat_lon[1] ?? '' }}&zoom=14"
+                                                    src="{{ $project->embed_map_link }}"
                                                     style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="locationIframe">
                                                 </iframe>
                                             </div>

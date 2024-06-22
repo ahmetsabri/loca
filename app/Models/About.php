@@ -13,5 +13,5 @@ class About extends Model
 
     protected $guarded = [];
 
-    public $translatable = ['title_1', 'description_1', 'title_2', 'description_2','quote'];
+    public $translatable = ['title_1', 'description_1', 'title_2', 'description_2', 'quote'];
 }

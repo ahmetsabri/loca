@@ -93,9 +93,11 @@ return [
     'other' => 'other',
     'buy_sell_headline' => 'LET US HELP YOU WITH THE PURCHASE, SALE AND RENTAL OF REAL ESTATE.',
 
-'sort' => 'Sort',
+    'sort' => 'Sort',
     'created_at' => 'Publication Date',
     'low_price_first' => 'Low Price First',
     'high_price_first' => 'High Price First',
-    'ad_found' => 'ad founds'
+    'ad_found' => 'ad founds',
+    'ad_no' => 'ad no',
+    'address'=> 'address',
 ];

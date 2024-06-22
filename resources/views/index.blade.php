@@ -190,57 +190,22 @@
                     <div class="self-filter-wrapper md:order-1">
                         <div
                             class="category-select flex items-center gap-7.5 xl:gap-6 md:gap-5 bg-white rounded-6 md:rounded-3 !rounded-bl-0 !rounded-br-0 px-10 xl:px-9 lg:px-8 md:px-7 py-6 lg:py-5 md:py-4 w-fit mx-auto sm:hidden">
-                            <div class="custom-radio relative flex items-center gap-2 cursor-pointer">
-                                <input type="radio" @click="category=1"
+                        @foreach($searchableCategories as $searchableCategory)
+                        <div class="custom-radio relative flex items-center gap-2 cursor-pointer">
+                                <input @checked($loop->first) type="radio" @click="category=`{{ $searchableCategory->id }}`"
                                     class="peer absolute left-0 top-0 w-full h-full z-3 cursor-pointer opacity-0" name="s5">
                                 <div
-                                    class="icon icon-house text-6 h-6 xl:text-5 xl:h-5 md:text-4.5 md:h-4.5 block leading-none duration-300 text-black/30 peer-hover:text-secondary-700 peer-checked:text-secondary-700">
+                                    class="icon icon-{{ $searchableCategory->getTranslation('name','en') }} text-6 h-6 xl:text-5 xl:h-5 md:text-4.5 md:h-4.5 block leading-none duration-300 text-black/30 peer-hover:text-secondary-700 peer-checked:text-secondary-700">
                                 </div>
                                 <div
-                                    class="text text-4.5 xl:text-4 md:text-3.5 font-semibold text-black/47 duration-300 peer-hover:text-secondary-700 peer-checked:text-secondary-700">
-                                    Konut</div>
-                            </div>
-                            <div class="custom-radio relative flex items-center gap-2 cursor-pointer">
-                                <input type="radio" @click="category=2"
-                                    class="peer absolute left-0 top-0 w-full h-full z-3 cursor-pointer opacity-0" name="s5">
-                                <div
-                                    class="icon icon-workplace text-6 h-6 xl:text-5 xl:h-5 md:text-4.5 md:h-4.5 block leading-none duration-300 text-black/30 peer-hover:text-secondary-700 peer-checked:text-secondary-700">
+                                    class="text text-4.5 xl:text-4 md:text-3.5 font-semibold text-black/47 duration-300 peer-hover:text-secondary-700 peer-checked:text-secondary-700 capitalize">
+                                    {{  $searchableCategory->name }}
                                 </div>
-                                <div
-                                    class="text text-4.5 xl:text-4 md:text-3.5 font-semibold text-black/47 duration-300 peer-hover:text-secondary-700 peer-checked:text-secondary-700">
-                                    İş Yeri</div>
                             </div>
-                            <div class="custom-radio relative flex items-center gap-2 cursor-pointer">
-                                <input type="radio" @click="category=3"
-                                    class="peer absolute left-0 top-0 w-full h-full z-3 cursor-pointer opacity-0" name="s5"
-                                    checked>
-                                <div
-                                    class="icon icon-land text-6 h-6 xl:text-5 xl:h-5 md:text-4.5 md:h-4.5 block leading-none duration-300 text-black/30 peer-hover:text-secondary-700 peer-checked:text-secondary-700">
-                                </div>
-                                <div
-                                    class="text text-4.5 xl:text-4 md:text-3.5 font-semibold text-black/47 duration-300 peer-hover:text-secondary-700 peer-checked:text-secondary-700">
-                                    Arsa</div>
-                            </div>
-                            <div class="custom-radio relative flex items-center gap-2 cursor-pointer">
-                                <input type="radio" @click="category=4"
-                                    class="peer absolute left-0 top-0 w-full h-full z-3 cursor-pointer opacity-0" name="s5">
-                                <div
-                                    class="icon icon-building text-6 h-6 xl:text-5 xl:h-5 md:text-4.5 md:h-4.5 block leading-none duration-300 text-black/30 peer-hover:text-secondary-700 peer-checked:text-secondary-700">
-                                </div>
-                                <div
-                                    class="text text-4.5 xl:text-4 md:text-3.5 font-semibold text-black/47 duration-300 peer-hover:text-secondary-700 peer-checked:text-secondary-700">
-                                    Bina</div>
-                            </div>
-                            <div class="custom-radio relative flex items-center gap-2 cursor-pointer">
-                                <input type="radio" @click="category=5"
-                                    class="peer absolute left-0 top-0 w-full h-full z-3 cursor-pointer opacity-0" name="s5">
-                                <div
-                                    class="icon icon-timesharing text-6 h-6 xl:text-5 xl:h-5 md:text-4.5 md:h-4.5 block leading-none duration-300 text-black/30 peer-hover:text-secondary-700 peer-checked:text-secondary-700">
-                                </div>
-                                <div
-                                    class="text text-4.5 xl:text-4 md:text-3.5 font-semibold text-black/47 duration-300 peer-hover:text-secondary-700 peer-checked:text-secondary-700">
-                                    Devre Mülk</div>
-                            </div>
+
+                        @endforeach
+
+
                         </div>
                         <!-- Bu yukarıdaki radionun mobil için olan versiyonu -->
                         <div

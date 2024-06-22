@@ -68,7 +68,7 @@
                         <div class="inner-wrapper">
                             <div class="image-outer-wrapper relative grid gap-3 mb-18 2xl:mb-15 xl:mb-12 lg:mb-10 md:mb-8">
                                 <div class="image-inner-wrapper flex relative">
-                                    <a href="{{ asset('image/photo/18.webp') }}"
+                                    <a href="{{ $portfolio->images->first()->full_url}}"
                                         class="image block aspect-[15/8] xs:aspect-[5/4] overflow-hidden isolate rounded-6 md:rounded-3 translate-z-0 group"
                                         data-fancybox="gallery"><img
                                             class="full-cover translate-z-0 group-hover:scale-105 duration-450"
@@ -140,30 +140,33 @@
                             <div class="item">
                                 <div
                                     class="heading-wrapper mb-6 flex items-center justify-between gap-7.5 sm:flex-col sm:items-start sm:gap-3">
-                                    <div class="title text-4.5 xl:text-4 md:text-3.5 font-semibold text-[#2675FA]">Harita
-                                        Konumu</div>
+                                    <div class="title text-4.5 xl:text-4 md:text-3.5 font-semibold text-[#2675FA] capitalize">
+
+                                        {{ __('general.location') }}
+                                    </div>
                                     <div class="button-wrapper flex items-center gap-3">
-                                        <a href="javascript:void(0)"
+                                        <a href="{{ $portfolio->map_link}}"
                                             class="button group/button relative duration-300 w-fit flex items-center gap-2 h-7.5 border border-solid border-[#2675FA] px-3 rounded-2 hover:border-tertiary-950">
                                             <div
                                                 class="icon icon-map-1 text-3 h-3 block leading-none duration-300 text-[#2675FA]">
                                             </div>
-                                            <div class="text text-[#2675FA] font-semibold text-3.5 tracking-wider">YOL
-                                                TARİFİ</div>
+                                            <div class="text text-[#2675FA] font-semibold text-3.5 tracking-wider">
+                                                    {{ __('general.directions') }}
+                                                </div>
                                         </a>
-                                        <a href="javascript:void(0)"
+                                        {{-- <a href="javascript:void(0)"
                                             class="button group/button relative duration-300 w-fit flex items-center gap-2 h-7.5 border border-solid border-[#2675FA] px-3 rounded-2 hover:border-tertiary-950">
                                             <div
                                                 class="icon icon-fullscreen text-3 h-3 block leading-none duration-300 text-[#2675FA]">
                                             </div>
                                             <div class="text text-[#2675FA] font-semibold text-3.5 tracking-wider">HARİTAYI
                                                 BÜYÜT</div>
-                                        </a>
+                                        </a> --}}
                                     </div>
                                 </div>
                                 <div class="detail">
                                     <iframe class="w-full h-auto block aspect-[177/73] xs:aspect-[5/4]"
-                                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDw9HPxhdYmLJsF_xVXmEs_f2QwfaEoGho&center={{ $portfolio?->lat_lon[0] ?? ''  }},{{ $portfolio?->lat_lon[1] ?? '' }}&zoom=14"
+                                        src="{{ $portfolio->embed_map_link }}"
                                         style="border:0;" allowfullscreen="" loading="lazy"
                                         referrerpolicy="no-referrer-when-downgrade" id="locationIframe">
                                     </iframe>
@@ -186,7 +189,7 @@
                                     </div>
                                     <div
                                         class="id text-4 xl:text-3.5 text-center text-[#6D6D6D] font-medium mt-4 md:mt-3 sm:mt-2">
-                                        <strong>TTYB NO:</strong> 330022</div>
+                                        <strong>TTYB NO:</strong> {{ $portfolio->user->ttype_no }}</div>
                                     <div class="button-wrapper flex items-center justify-center mt-4 md:mt-3 sm:mt-2 gap-2">
                                         <a href="{{ $portfolio->user->wp_url }}"
                                             class="button group/button flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 h-11 w-fit px-5 !gap-2 !rounded-3 bg-[#65CF70] hover:bg-[#5cbf66] text-white !font-medium">
@@ -211,7 +214,7 @@
                                         <div class="form-wrapper grid gap-3">
                                             <div class="form-el relative group/form w-full">
                                                 <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                                <input name="name" type="text" placeholder="Adınız Soyadınız"
+                                                <input name="name" type="text" placeholder="{{ __('general.name') }}"
                                                     class="w-full h-14 md:h-12 duration-300 rounded-4 md:rounded-3 px-7 md:px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
 
                                                 <div
@@ -220,7 +223,7 @@
                                             </div>
                                             <div class="form-el relative group/form w-full">
                                                 <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                                <input required name="email" type="email" placeholder="E-posta Adresiniz"
+                                                <input required name="email" type="email" placeholder="{{ __('general.email') }}"
                                                     class="w-full h-14 md:h-12 duration-300 rounded-4 md:rounded-3 px-7 md:px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
 
                                                 <div
@@ -230,7 +233,7 @@
                                             <div class="form-el relative group/form w-full">
                                                 <input hidden name="portfolio_id" value="{{ $portfolio->id }}" />
                                                 <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                                <input required name="phone" type="tel" placeholder="Telefon No"
+                                                <input required name="phone" type="tel" placeholder="{{ __('general.phone') }}"
                                                     class="w-full h-14 md:h-12 duration-300 rounded-4 md:rounded-3 px-7 md:px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
 
                                                 <div
@@ -240,7 +243,7 @@
                                             <div
                                                 class="form-el group/form w-full [&amp;_textarea]:!h-40 md:[&amp;_textarea]:!h-30">
 
-                                                <textarea required name="message" placeholder="Mesajınız"
+                                                <textarea required name="message" placeholder="{{ __('general.message') }}"
                                                     class="w-full h-28 md:h-20 duration-300 rounded-4 md:rounded-3 p-7 md:p-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700"></textarea>
                                                 <div
                                                     class="tooltip text-secondary-700 text-3 mt-2 hidden group-[&.error]/form:block">
@@ -290,7 +293,7 @@
                                     <div class="price text-5 font-semibold text-[#224391] px-1.5 mb-4">{{ $portfolio->price }}</div>
                                     <div class="list">
                                         <div class="row flex items-center justify-between gap-7.5 px-1.5 leading-tight">
-                                            <div class="title text-3.5 font-medium text-tertiary-950">{{ __('ad_id') }}</div>
+                                            <div class="title text-3.5 font-medium text-tertiary-950">{{ __('general.ad_no') }}</div>
                                             <div class="value text-3.5 font-semibold text-tertiary-950 text-right">
                                                 {{ $portfolio->id }}
                                             </div>
@@ -298,7 +301,7 @@
 
                                         <div class="split w-full h-px bg-[#8AA5D3]/30 my-2"></div>
                                         <div class="row flex items-center justify-between gap-7.5 px-1.5 leading-tight">
-                                            <div class="title text-3.5 font-medium text-tertiary-950">İl / İlçe</div>
+                                            <div class="title text-3.5 font-medium text-tertiary-950">{{ __('general.province') }} / {{ __('general.town') }}</div>
                                             <div class="value text-3.5 font-semibold text-tertiary-950 text-right">
                                                 {{ $portfolio->district->town->province->name }}/{{ $portfolio->district->town->name }} , {{ $portfolio->district->name
                                                 }}
@@ -306,7 +309,7 @@
                                         </div>
                                         <div class="split w-full h-px bg-[#8AA5D3]/30 my-2"></div>
                                         <div class="row flex items-center justify-between gap-7.5 px-1.5 leading-tight">
-                                            <div class="title text-3.5 font-medium text-tertiary-950">{{ __('price') }} (₺)</div>
+                                            <div class="title text-3.5 font-medium text-tertiary-950">{{ __('general.price') }} </div>
                                             <div class="value text-3.5 font-semibold text-tertiary-950 text-right">
                                                 {{ $portfolio->price }}
                                                 </div>
@@ -314,14 +317,14 @@
 
                                         <div class="split w-full h-px bg-[#8AA5D3]/30 my-2"></div>
                                         <div class="row flex items-center justify-between gap-7.5 px-1.5 leading-tight">
-                                            <div class="title text-3.5 font-medium text-tertiary-950">m2 ({{ __('gross') }})</div>
+                                            <div class="title text-3.5 font-medium text-tertiary-950">m2 ({{ __('general.gross') }})</div>
                                             <div class="value text-3.5 font-semibold text-tertiary-950 text-right">
                                                 {{ $portfolio->gross }}
                                             </div>
                                         </div>
                                         <div class="split w-full h-px bg-[#8AA5D3]/30 my-2"></div>
                                         <div class="row flex items-center justify-between gap-7.5 px-1.5 leading-tight">
-                                            <div class="title text-3.5 font-medium text-tertiary-950">m2 ({{ __('net') }})</div>
+                                            <div class="title text-3.5 font-medium text-tertiary-950">m2 ({{ __('general.net') }})</div>
                                             <div class="value text-3.5 font-semibold text-tertiary-950 text-right">
                                                 {{ $portfolio->net }}
                                             </div>

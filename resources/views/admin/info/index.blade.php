@@ -16,6 +16,7 @@
     </div>
     <div class="m-5" x-data="
     {
+        filterable:0,
         deleteInfo(url){
         if(!confirm('emin misiniz')){
             return

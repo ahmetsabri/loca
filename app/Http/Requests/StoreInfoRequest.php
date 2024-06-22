@@ -26,6 +26,16 @@ class StoreInfoRequest extends FormRequest
             'name.tr' => ['required'],
             'name.ru' => ['required'],
             'name.en' => ['required'],
+            'filterable' => ['sometimes', 'nullable'],
         ];
+    }
+
+    public function prepareForValidation()
+    {
+        if (! $this->has('filterable')) {
+            $this->merge([
+                'filterable' => 0,
+            ]);
+        }
     }
 }

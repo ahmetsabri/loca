@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAboutRequest;
 use App\Models\About;
-use Illuminate\Http\Request;
 
 class AboutController extends Controller
 {
     public function index()
     {
         $about = About::first();
+
         return view('admin.about.create', compact('about'));
     }
 

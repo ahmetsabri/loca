@@ -83,6 +83,7 @@ class Portfolio extends Model
     public function scopeCategory(Builder $builder, $val)
     {
         $values = Category::find($val)?->bloodline?->pluck('id') ?? [$val];
+
         return $builder->whereIn('category_id', $values);
     }
 
@@ -142,6 +143,7 @@ class Portfolio extends Model
         if ($locale == 'ru') {
             $locale = 'tr';
         }
+
         return Number::format($this->{$col}, locale: $locale).' '.strtoupper($currency);
     }
 
@@ -166,6 +168,23 @@ class Portfolio extends Model
     public function getMainCategoryAttribute()
     {
         $category = $this->load('category.rootAncestor')->category;
+
         return $category->rootAncestor?->name ?? $category->name;
+    }
+
+    public function getEmbedMapLinkAttribute()
+    {
+        return sprintf(config('keys.embed_map_link'), config('services.google_maps.key'), trim($this?->lat_lon[0] ?? ''), trim($this?->lat_lon[1] ?? ''));
+    }
+
+    public function getMapLinkAttribute()
+    {
+        return sprintf(config('keys.show_direction_link'), trim($this?->lat_lon[0] ?? ''), trim($this?->lat_lon[1] ?? ''));
+    }
+
+    public function getRoomsCountAttribute()
+    {
+        $roomsCount = $this->load(['infos'=>fn ($q) =>$q->where('info_id', 2)])->infos?->first()?->value;
+        return $roomsCount;
     }
 }

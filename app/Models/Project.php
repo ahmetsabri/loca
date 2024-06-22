@@ -129,4 +129,14 @@ class Project extends Model
 
         return explode(',', $location);
     }
+
+    public function getEmbedMapLinkAttribute()
+    {
+        return sprintf(config('keys.embed_map_link'), config('services.google_maps.key'), trim($this?->lat_lon[0] ?? ''), trim($this?->lat_lon[1] ?? ''));
+    }
+
+    public function getMapLinkAttribute()
+    {
+        return sprintf(config('keys.show_direction_link'), trim($this?->lat_lon[0] ?? ''), trim($this?->lat_lon[1] ?? ''));
+    }
 }

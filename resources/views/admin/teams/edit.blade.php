@@ -34,14 +34,14 @@
                     __('general.name') }}</label>
                 <input value="{{ $user->name }}" type="text" name="name" id="team"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                    required />
+                     />
             </div>
             <div>
                 <label for="team" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">{{
                     __('general.phone') }}</label>
                 <input value="{{ $user->phone }}" type="text" name="phone" id="team"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                    required />
+                     />
             </div>
           @foreach(config('app.locales') as $locale)
 <div>
@@ -49,7 +49,7 @@
                     __('general.title_'.$locale) }}</label>
                 <input value="{{ $user->getTranslation('title',$locale) }}" type="text" name="title[{{ $locale }}]" id="team"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                    required />
+                     />
             </div>
           @endforeach
             <div>
@@ -57,14 +57,14 @@
                     __('general.email') }}</label>
                 <input value="{{ $user->email }}" type="email" name="email" id="team"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                    required />
+                     />
             </div>
             <div>
                 <label for="ttype_no" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">{{
                     __('ttype no') }}</label>
                 <input value="{{ $user->ttype_no }}" type="text" name="ttype_no" id="ttype_no"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                    required />
+                     />
             </div>
 
             {{-- <div>
@@ -79,35 +79,35 @@
                     __('facebook') }}</label>
                 <input value="{{ $user->facebook_url }}" type="text" name="facebook_url" id="team"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                    required />
+                     />
             </div>
             <div>
                 <label for="team" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">{{
                     __('instagram') }}</label>
                 <input value="{{ $user->instagram_url }}" type="text" name="instagram_url" id="team"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                    required />
+                     />
             </div>
             <div>
                 <label for="team" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">{{
                     __('adres') }}</label>
                 <input value="{{ $user->address }}" type="text" name="address" id="team"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                    required />
+                     />
             </div>
             <div>
                 <label for="team" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">{{
                     __('tecrübe') }}</label>
-                <input value="{{ implode(',',$user->experience) }}" type="text" name="experience" id="team"
+                <input value="{{ implode(',',$user->experience ?? []) }}" type="text" name="experience" id="team"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                    required placeholder="exp1, exp2, exp3" />
+                     placeholder="exp1, exp2, exp3" />
             </div>
             <div>
                 <label for="team" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">{{
                     __('diller') }}</label>
-                <input value="{{ implode(',',$user->languages) }}" type="text" name="languages" id="team"
+                <input value="{{ implode(',',$user->languages ?? []) }}" type="text" name="languages" id="team"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                    required placeholder="turksih, english" />
+                     placeholder="turksih, english" />
             </div>
             <div>
                 <div class="mb-2">
@@ -137,7 +137,7 @@
                     __('bio '.$locale)}}</label>
                 <textarea type="text" name="bio[{{ $locale }}]" id="team"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                    required rows="7">{{ $user->getTranslation('bio',$locale) }}</textarea>
+                     rows="7">{{ $user->getTranslation('bio',$locale) }}</textarea>
                 <br />
             </div>
           @endforeach
