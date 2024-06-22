@@ -101,4 +101,5 @@ return [
     'ad_no' => 'ad no',
     'address'=> 'address',
     'faq' => 'FAQ',
+    'copy' => 'copy'
 ];

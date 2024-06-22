@@ -47,7 +47,7 @@
                                 <div
                                     class="icon icon-share text-3.5 h-3.5 sm:text-3 sm:h-3 block leading-none duration-300 text-[#454545]">
                                 </div>
-                                <div class="text text-[#454545] text-3.5 sm:text-3 font-medium">Paylaş</div>
+                                <div class="text text-[#454545] text-3.5 sm:text-3 font-medium">{{ __('general.share') }}</div>
                             </a>
                             <a href="{{ $portfolio->brochure_full_url }}" download
                                 class="button add-favorite group/button h-12 md:h-11 sm:h-10 px-5 md:px-4 sm:px-3.5 rounded-3 border border-solid border-black/13 flex items-center justify-center gap-3 sm:gap-2 duration-300 hover:border-black/25">

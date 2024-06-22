@@ -62,7 +62,7 @@
                                 <div
                                     class="icon icon-share text-3.5 h-3.5 sm:text-3 sm:h-3 block leading-none duration-300 text-[#454545]">
                                 </div>
-                                <div class="text text-[#454545] text-3.5 sm:text-3 font-medium">Paylaş</div>
+                                <div class="text text-[#454545] text-3.5 sm:text-3 font-medium">{{ __('general.share') }}</div>
                             </a>
                             @if($project->brochure_full_url)
                             <a href="{{ $project->brochure_full_url }}" download
