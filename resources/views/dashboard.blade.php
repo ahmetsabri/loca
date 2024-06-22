@@ -84,6 +84,13 @@
                             hakkımızda
                         </a>
                     </div>
+
+                <div class="mt-10">
+                        <a href="{{ route('faq.index') }}"
+                            class="px-5 py-2.5 text-base font-medium text-white bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 rounded-lg text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">
+                            SSS
+                        </a>
+                    </div>
         </div>
     </div>
 </x-app-layout>

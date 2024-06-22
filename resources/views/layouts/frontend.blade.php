@@ -558,9 +558,9 @@
                             <a href="{{ route('projects') }}"
                                 class="draw-child-underline capitalize capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">{{ __('general.projects') }}</span></a>
-                            <a href="faq.html"
+                            <a href="{{ route('frontend.faq') }}"
                                 class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
-                                    class="draw-el">Sıkça Sorulan Sorular</span></a>
+                                    class="draw-el">{{ __('general.faq') }}</span></a>
                             <a href="blog.html"
                                 class="draw-child-underline capitalize capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">

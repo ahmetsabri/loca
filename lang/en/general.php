@@ -100,4 +100,5 @@ return [
     'ad_found' => 'ad founds',
     'ad_no' => 'ad no',
     'address'=> 'address',
+    'faq' => 'FAQ',
 ];

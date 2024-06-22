@@ -6,8 +6,10 @@ use App\Http\Controllers\ChangeCurrencyController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\Frontend\AboutController as FrontendAboutController;
+use App\Http\Controllers\Frontend\FaqController as FrontendFaqController;
 use App\Http\Controllers\Frontend\FormController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\PortfolioController as FrontendPortfolioController;
@@ -57,6 +59,7 @@ Route::view('buy-sell', 'frontend.buy_sell', ['provinces' => Province::all()])->
 Route::get('videos', [FrontendVideoController::class, 'index'])->name('videos');
 Route::get('services', [FrontendServiceController::class, 'index'])->name('frontend.services');
 Route::get('about', FrontendAboutController::class)->name('frontend.about');
+Route::get('faq', FrontendFaqController::class)->name('frontend.faq');
 Route::middleware('auth')->prefix('admin')->withoutMiddleware(LocaleMiddleware::class)->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -162,6 +165,14 @@ Route::middleware('auth')->prefix('admin')->withoutMiddleware(LocaleMiddleware::
         Route::post('/', [AboutController::class, 'store'])->name('about.store');
         Route::post('{about}', [AboutController::class, 'update'])->name('about.update');
         Route::get('{about}/delete', [AboutController::class, 'destroy'])->name('about.delete');
+    });
+    Route::prefix('faq')->group(function () {
+        Route::get('/', [FaqController::class, 'index'])->name('faq.index');
+        Route::get('/create', [FaqController::class, 'create'])->name('faq.create');
+        Route::post('/', [FaqController::class, 'store'])->name('faq.store');
+        Route::post('{faq}', [FaqController::class, 'update'])->name('faq.update');
+        Route::get('{faq}/edit', [FaqController::class, 'edit'])->name('faq.edit');
+        Route::get('{faq}/delete', [FaqController::class, 'destroy'])->name('faq.delete');
     });
 });
 Route::get('towns/{province}', [CountryController::class, 'towns'])->name('province.towns');

@@ -113,5 +113,6 @@ return [
     'high_price_first' => 'önce yüksek fiyat',
     'ad_found' => 'ilan bulundu',
     'ad_no' => 'ilan no',
-    'address' => 'adres'
+    'address' => 'adres',
+    'faq'=>'SSS'
 ];
