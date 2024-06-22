@@ -580,9 +580,9 @@
                             <a href="template.html"
                                 class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-semibold text-3 block"><span
                                     class="draw-el">Çerez Politikası</span></a>
-                            <a href="404.html"
+                            {{-- <a href="404.html"
                                 class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-semibold text-3 block"><span
-                                    class="draw-el">404</span></a>
+                                    class="draw-el">404</span></a> --}}
                         </div>
                     </div>
                     <div class="split w-full h-px bg-[#34425A]/75 hidden md:block"></div>
@@ -656,7 +656,7 @@
                         <form action="" class="w-full">
                             <div class="form-wrapper w-full grid gap-4">
                                 <div class="form-el group/form w-full relative">
-                                    <input type="text" placeholder="E-posta adresi giriniz"
+                                    <input type="text" placeholder="{{ __('general.email') }}"
                                         class="h-14 duration-300 bg-[#34425A] rounded-4 w-full placeholder:text-[#8AA5D3] font-medium text-3.5 text-white pl-5.5 pr-24 border border-solid border-transparent hover:border-white focus:border-white group-[&.error]/form:border-secondary-700">
                                     <button
                                         class="absolute right-1 top-1 h-12 px-6 bg-secondary-700 rounded-3.5 text-white font-semibold text-3.5 hover:bg-secondary-600 duration-300 cursor-pointer flex items-center justify-center">Katıl</button>

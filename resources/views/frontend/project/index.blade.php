@@ -22,7 +22,7 @@
                 <div
                     class="inner rounded-6 md:rounded-3 relative overflow-hidden isolate translate-z-0 pt-28 2xl:pt-24 xl:pt-20 lg:pt-16 md:pt-12 pb-58 2xl:pb-54 xl:pb-50 lg:pb-46 md:pb-12">
                     <div class="background-wrapper absolute left-0 top-0 w-full h-full bg-tertiary-950">
-                        <img class="full-cover opacity-15" src="assets/image/photo/3.webp" alt="" loading="lazy">
+                        <img class="full-cover opacity-15" src="{{ asset('image/photo/3.webp') }}" alt="" loading="lazy">
                     </div>
 
                     <div

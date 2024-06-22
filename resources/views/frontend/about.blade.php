@@ -7,7 +7,7 @@
         <div
             class="inner rounded-6 md:rounded-3 relative overflow-hidden isolate translate-z-0 py-28 2xl:py-24 xl:py-20 lg:py-16 md:py-12">
             <div class="background-wrapper absolute left-0 top-0 w-full h-full bg-tertiary-950">
-                <img class="full-cover opacity-15" src="assets/image/photo/3.webp" alt="" loading="lazy">
+                <img class="full-cover opacity-15" src="{{ asset('image/photo/3.webp') }}" alt="" loading="lazy">
             </div>
             <div class="wrapper max-w-1440 mx-auto w-full px-7.5 relative z-2 grid gap-6 xl:gap-5 lg:gap-4 sm:gap-3">
                 <h1
@@ -86,7 +86,7 @@
     <section class="content-field py-20 2xl:py-16 xl:py-14 lg:py-12 md:py-11 sm:pt-0 sm:pb-10">
         <div class="wrapper max-w-1440 mx-auto w-full px-7.5 md:px-5 relative">
             <img class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 max-w-full w-auto h-auto"
-                src="assets/image/static/7.webp" alt="" loading="lazy">
+                src="{{ asset('image/static/7.webp') }}" alt="" loading="lazy">
             <div
                 class="text-editor text-editor-main max-w-768 mx-auto relative z-2 py-30 2xl:py-24 xl:py-20 lg:py-16 md:py-12 sm:py-8 xs:py-4">
                 <!-- .text-editor içerisindeki style attribute değerleri frontendi tasarıma benzetmek adına eklenmiştir, backend aşamasında silinerek panel editöründen tanımlanmalıdır. -->
