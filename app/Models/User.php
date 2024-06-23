@@ -59,6 +59,8 @@ class User extends Authenticatable
 
     public function getWpUrlAttribute()
     {
-        return 'https://api.whatsapp.com/send/?phone='.$this->phone;
+        $phone = $this->phone ? str_replace('+', '', $this->phone) : null;
+
+        return 'https://api.whatsapp.com/send/?phone='.$phone;
     }
 }

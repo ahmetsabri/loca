@@ -72,12 +72,12 @@ class Portfolio extends Model
 
     public function scopeProvince(Builder $builder, $val)
     {
-        return $builder->where('province_id', $val);
+        return is_numeric($val) ? $builder->where('province_id', $val) : $builder;
     }
 
     public function scopeTown(Builder $builder, $val)
     {
-        return $builder->where('town_id', $val);
+        return is_numeric($val) ? $builder->where('town_id', $val) : $builder;
     }
 
     public function scopeCategory(Builder $builder, $val)

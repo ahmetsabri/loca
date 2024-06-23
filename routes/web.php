@@ -143,7 +143,8 @@ Route::middleware('auth')->prefix('admin')->withoutMiddleware(LocaleMiddleware::
         Route::get('{form}', [SubmittedFormController::class, 'destroy'])->name('form.delete');
     });
     Route::prefix('comments')->group(function () {
-        Route::post('{comment}/toggle', [CommentController::class, 'toggleStatus'])->name('comment.toggle');
+        Route::get('/', [CommentController::class, 'index'])->name('comment.index');
+        Route::put('{comment}/toggle', [CommentController::class, 'toggleStatus'])->name('comment.toggle');
         Route::get('{comment}/delete', [CommentController::class, 'destroy'])->name('comment.delete');
     });
 

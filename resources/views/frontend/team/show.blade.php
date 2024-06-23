@@ -17,6 +17,7 @@
                 console.log(self.nextPageUrl)
                 if(!isMore){
                     self.comments = res.data.data
+                    console.log(res.data.data);
                     return;
                 }
                 self.comments = self.comments.concat(res.data.data)
@@ -91,12 +92,12 @@
                                 <a href="{{ $user->address }}"
                                     class="flex items-center gap-2 text-[#224391] duration-300 hover:text-[#2675FA]">
                                     <div class="icon icon-map-2 text-4 h-4 block leading-none"></div>
-                                    <div class="text text-3.5 font-medium">Ofis Konumu</div>
+                                    <div class="text text-3.5 font-medium">{{ __('general.address') }}</div>
                                 </a>
                                 <a href="{{ $user->office_location }}"
                                     class="flex items-center gap-2 text-[#224391] duration-300 hover:text-[#2675FA]">
                                     <div class="icon icon-location-1 text-4 h-4 block leading-none"></div>
-                                    <div class="text text-3.5 font-medium">Adres Bilgileri</div>
+                                    <div class="text text-3.5 font-medium">{{ __('general.office') }}</div>
                                 </a>
                             </div>
                             <div class="content-wrapper p-7 xl:px-5 lg:px-3 pb-0 grid gap-3.5">
@@ -404,7 +405,6 @@
 
                             <div class="list-wrapper grid gap-7">
                                 <template  x-for="comment in comments">
-
                                 <div class="comment bg-[#F0F2F7] rounded-5 md:rounded-3 px-8 lg:px-6 py-6">
                                     <div class="name text-4 font-semibold text-[#224391] capitalize" x-text="comment.formatted_name"></div>
 

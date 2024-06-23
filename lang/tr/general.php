@@ -48,6 +48,7 @@ return [
     'illumination_text' => 'aydınlatma metni',
     'categories' => 'kategoriler',
     'show_all' => 'tümünü göster',
+    'show_more' => 'tümünü göster',
     'we_categorize' => 'Buradaki tüm portföyleri sizler için kategorize ettik. İhtiyacınıza en uygun portföy.',
     'consultants' => 'Remax Loca Danışmanlarımız',
     'team_description' => 'Ofisimizde sürekli eğitimlerle desteklenen, kendi bölgelerinde uzmanlaşarak etik kurallara saygılı ve müşteri memnuniyeti odaklı çalışma prensiplerini ilke edinmiş danışman ve ofis kadromuz ile sizlere en kaliteli ve hızlı hizmeti sunuyoruz.',

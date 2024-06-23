@@ -5,8 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class() extends Migration
-{
+return new class () extends Migration {
     /**
      * Run the migrations.
      */
@@ -16,6 +15,7 @@ return new class() extends Migration
             $table->id();
             $table->json('name');
             $table->foreignIdFor(Category::class, 'parent_id')->nullable();
+            $table->boolean('created_by_system')->default(false);
             $table->softDeletes();
             $table->timestamps();
         });

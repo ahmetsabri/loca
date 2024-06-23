@@ -17,7 +17,7 @@
     <div class="m-5" x-data="
     {
         deleteDepartment(url){
-        if(!confirm('emin misiniz')){
+        if(!confirm('ona bagli hizmetler/ekip/portföyler de silenecek emin misiniz?')){
             return
         }
         window.location.href=url

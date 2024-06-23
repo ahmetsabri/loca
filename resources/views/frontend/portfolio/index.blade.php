@@ -95,14 +95,14 @@
                                         @if(!request('filter.category'))
                                         active
                                         @else
-                                        @if(in_array(request('filter.category'),$category->children->pluck('id')->toArray()))
+                                        @if(in_array(request('filter.category'),$category->children->pluck('id')->merge($category->id)->toArray()))
                                                 active
                                         @endif
                                         @endif
                                         ">
                                     @if($category->children->isNotEmpty())
                                     <button type="button" data-destination-level="s{{ $category->id }}"
-                                        class="text-tertiary-950 @if(in_array(request('filter.category'),$category->children->pluck('id')->toArray())) active block  @endif text-3.5 w-fit font-medium draw-underline [--line-color:#0D1523]  capitalize">
+                                        class="text-tertiary-950 @if(in_array(request('filter.category'),$category->children->pluck('id')->merge($category->id)->toArray())) active block  @endif text-3.5 w-fit font-medium draw-underline [--line-color:#0D1523]  capitalize">
                                         {{ $category->name }}
                                     </button>
                                     @else
@@ -118,7 +118,7 @@
                                 @foreach($rootCategories as $category)
 
                                 <div data-level="s{{ $category->id }}"
-                                    class="list hidden   @if(in_array(request('filter.category'),$category->children->pluck('id')->toArray())) active  @endif [&.active]:grid gap-1 overflow-y-auto overflow-x-hidden max-h-[153px] scrollbar scrollbar-w-1 scrollbar-track-rounded-full scrollbar-thumb-rounded-full scrollbar-track-[#8AA5D3]/24 scrollbar-thumb-[#8AA5D3]/65">
+                                    class="list hidden   @if(in_array(request('filter.category'),$category->children->pluck('id')->merge($category->id)->toArray())) active  @endif [&.active]:grid gap-1 overflow-y-auto overflow-x-hidden max-h-[153px] scrollbar scrollbar-w-1 scrollbar-track-rounded-full scrollbar-thumb-rounded-full scrollbar-track-[#8AA5D3]/24 scrollbar-thumb-[#8AA5D3]/65">
                                     @foreach($category->children as $child)
 
                                     @if($child->children->isNotEmpty())
@@ -176,7 +176,7 @@
                                         <select name="filter[province]"
                                             class="peer w-full h-11 duration-300 rounded-2.5 px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-[#8AA5D3]/15 hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700 invalid:!text-[#6D6D6D]"
                                             >
-                                            <option value="" disabled selected>{{ __('general.province') }}</option>
+                                            <option  selected>{{ __('general.province') }}</option>
 
                                             @foreach($provinces as $province)
                                             <option @selected($province->id == request('filter.province') ) @click="loadTowns(`{{ route('province.towns',$province) }}`)" value="{{ $province->id }}">{{
@@ -196,8 +196,7 @@
                                         <select name="filter[town]"
                                             class="peer w-full h-11 duration-300 rounded-2.5 px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-[#8AA5D3]/15 hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700 invalid:!text-[#6D6D6D]"
                                             >
-                                            <option value="" disabled selected>
-
+                                            <option  selected>
                                                 {{ __('general.town') }}
                                             </option>
                                         <template x-for="town in towns">

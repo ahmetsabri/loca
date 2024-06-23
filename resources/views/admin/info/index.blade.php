@@ -27,6 +27,5 @@
 ">
         @include('admin.info.new_info')
         @include('admin.info.list_info',['infos'=>$infos])
-
     </div>
 </x-app-layout>

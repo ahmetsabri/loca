@@ -1,7 +1,9 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight capitalize">
+        <h2 class="font-semibold text-xl text-blue-700 leading-tight capitalize">
+           <a href="{{ route('form.index') }}">
             {{ __('formlar') }}
+           </a>
         </h2>
     </x-slot>
 

@@ -5,9 +5,16 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCommentRequest;
 use App\Models\Comment;
 use App\Models\User;
+use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
+    public function index(Request $request)
+    {
+        $comments = Comment::latest()->with('user')->paginate();
+        return view('admin.comments.index', compact('comments'));
+    }
+
     public function store(StoreCommentRequest $request)
     {
         Comment::create($request->validated());
@@ -26,7 +33,7 @@ class CommentController extends Controller
     {
         $comment->update(['status' => ! $comment->status]);
 
-        return back()->with('success', 'success');
+        return response()->json(['msg'=>'success']);
     }
 
     public function show(User $user)

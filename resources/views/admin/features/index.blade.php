@@ -26,6 +26,5 @@
 ">
         @include('admin.features.new_feature')
         @include('admin.features.list_feature',['features'=>$features])
-
     </div>
 </x-app-layout>

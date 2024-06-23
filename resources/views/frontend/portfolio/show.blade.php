@@ -49,6 +49,7 @@
                                 </div>
                                 <div class="text text-[#454545] text-3.5 sm:text-3 font-medium">{{ __('general.share') }}</div>
                             </a>
+                            @if($portfolio->brochure_full_url)
                             <a href="{{ $portfolio->brochure_full_url }}" download
                                 class="button add-favorite group/button h-12 md:h-11 sm:h-10 px-5 md:px-4 sm:px-3.5 rounded-3 border border-solid border-black/13 flex items-center justify-center gap-3 sm:gap-2 duration-300 hover:border-black/25">
                                 <div
@@ -56,6 +57,7 @@
                                 </div>
                                 <div class="text text-[#454545] text-3.5 sm:text-3 font-medium">Broşür</div>
                             </a>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -145,7 +147,7 @@
                                         {{ __('general.location') }}
                                     </div>
                                     <div class="button-wrapper flex items-center gap-3">
-                                        <a href="{{ $portfolio->map_link}}"
+                                        <a target="_blank" href="{{ $portfolio->map_link}}"
                                             class="button group/button relative duration-300 w-fit flex items-center gap-2 h-7.5 border border-solid border-[#2675FA] px-3 rounded-2 hover:border-tertiary-950">
                                             <div
                                                 class="icon icon-map-1 text-3 h-3 block leading-none duration-300 text-[#2675FA]">
@@ -177,7 +179,7 @@
                                 class="item bg-white rounded-6 md:rolunded-3 p-6 grid grid-cols-4/8 md:grid-cols-2 sm:grid-cols-1 gap-18 2xl:gap-15 xl:gap-11 lg:gap-8 md:gap-6">
                                 <div class="info-wrapper">
                                     <div class="image aspect-[3/4] overflow-hidden isolate rounded-3 w-full"><img
-                                            class="full-cover" src="{{ $portfolio->user->image->full_url }}" alt="" loading="lazy"></div>
+                                            class="full-cover" src="{{ $portfolio->user->image?->full_url }}" alt="" loading="lazy"></div>
                                     <div class="naming mt-6 md:mt-5 sm:mt-4">
                                         <div
                                             class="name text-center text-5.5 2xl:text-5 xl:text-4.5 lg:text-4 text-tertiary-950 font-semibold">
@@ -191,13 +193,13 @@
                                         class="id text-4 xl:text-3.5 text-center text-[#6D6D6D] font-medium mt-4 md:mt-3 sm:mt-2">
                                         <strong>TTYB NO:</strong> {{ $portfolio->user->ttype_no }}</div>
                                     <div class="button-wrapper flex items-center justify-center mt-4 md:mt-3 sm:mt-2 gap-2">
-                                        <a href="{{ $portfolio->user->wp_url }}"
+                                        <a target="_blank" href="{{ $portfolio->user->wp_url }}"
                                             class="button group/button flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 h-11 w-fit px-5 !gap-2 !rounded-3 bg-[#65CF70] hover:bg-[#5cbf66] text-white !font-medium">
                                             <div class="icon icon-whatsapp-2 text-3.5 h-3.5 block leading-none"></div>
                                             <div class="text whitespace-nowrap font-medium text-4 md:text-3.5">Whatsapp
                                             </div>
 
-                                        </a> <a href="tel:{{ $portfolio->user->phone }}"
+                                        </a> <a target="_blank" href="tel:{{ $portfolio->user->phone }}"
                                             class="button group/button flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 h-11 shrink-0 px-5.5 !rounded-3 bg-[#224391] hover:bg-main-800 text-white">
                                             <div class="icon icon-phone text-3.5 h-3.5 block leading-none"></div>
 

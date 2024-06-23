@@ -215,7 +215,7 @@
                                 <select
                                     class="peer w-full h-14 md:h-12 duration-300 rounded-4 md:rounded-3 px-7 md:px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700 invalid:!text-[#6D6D6D]"
                                     required>
-                                    <option value="" disabled selected>Varlık Tipi Seçin</option>
+                                    <option  disabled selected>Varlık Tipi Seçin</option>
                                     <option value="">Opsiyon 1</option>
                                     <option value="">Opsiyon 2</option>
                                     <option value="">Opsiyon 3</option>
@@ -347,7 +347,7 @@
                                                     class="custom-select relative h-22 sm:h-16 bg-white rounded-6 md:rounded-3 px-10 2xl:px-9 xl:px-8 lg:px-7 md:px-6 flex flex-col justify-center border border-solid border-transparent duration-300 group-[&.error]/form:border-secondary-700">
                                                     <select name="filter[town]"
                                                         class="peer w-full h-full text-4 sm:text-3.5 font-semibold text-tertiary-950">
-                                                        <option value="" selected disabled>{{ __('general.town') }}</option>
+                                                        <option  selected >{{ __('general.town') }}</option>
 <template x-for="town in towns">
     <option :selected="selectedTown == town.id" x-text="town.name" :value="town.id"></option>
 </template>

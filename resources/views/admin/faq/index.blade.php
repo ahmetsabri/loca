@@ -23,6 +23,5 @@
     }
 ">
         @include('admin.faq.list',['faqs'=>$faqs])
-
     </div>
 </x-app-layout>

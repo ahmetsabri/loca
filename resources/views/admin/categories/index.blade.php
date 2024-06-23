@@ -25,7 +25,7 @@
         en:'',
             },
         deleteCategory(url){
-        if(!confirm('emin misiniz')){
+        if(!confirm('ona bağlı portföyler de silenecek emin misiniz?')){
             return
         }
         window.location.href=url
@@ -46,6 +46,5 @@
 ">
         @include('admin.categories.new_category')
         @include('admin.categories.list_categories',['categories'=>$categories])
-
     </div>
 </x-app-layout>

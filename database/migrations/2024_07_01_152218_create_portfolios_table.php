@@ -2,14 +2,15 @@
 
 use App\Models\Category;
 use App\Models\District;
+use App\Models\Portfolio;
 use App\Models\Province;
 use App\Models\Town;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class() extends Migration
-{
+return new class () extends Migration {
     /**
      * Run the migrations.
      */
@@ -18,6 +19,9 @@ return new class() extends Migration
         Schema::create('portfolios', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Category::class)->constrained()->cascadeOnDelete();
+
+            $table->foreignIdFor(User::class)->nullable()->constrained()->cascadeOnDelete();
+
             $table->json('title');
             $table->json('description');
 
@@ -35,6 +39,10 @@ return new class() extends Migration
             $table->string('promotion_url')->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();
+        });
+
+        Schema::table('forms', function (Blueprint $table) {
+            $table->foreignIdFor(Portfolio::class)->nullable()->constrained();
         });
     }
 

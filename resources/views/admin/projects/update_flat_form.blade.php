@@ -1,6 +1,6 @@
 <section class="bg-white dark:bg-gray-900">
     <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
-        <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white capitalize">{{ __('flat') }} <span x-text="'# '+(flatIndex + 1)"></span> </h2>
+        <h2 class="mb-4 text-xl font-bold text-indigo-600 text-center dark:text-white capitalize">{{ __('yeni daire') }}</h2>
             <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                 <div class="w-full">
                     <label for="rooms"
@@ -35,7 +35,7 @@
              <div class="sm:col-span-2">
                 @if($loop->first)
                 <label for="flat_description" class="block mb-2 text-2xl font-semibold capitalize text-gray-900 dark:text-white">{{
-                    __('description') }}</label>
+                    __('general.description') }}</label>
                 @endif
                     <textarea required :name="`flats[${flatIndex+500}][description][{{ $locale }}]`" rows="4"
                         class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
@@ -44,7 +44,7 @@
              @endforeach
             </div>
 <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
-<h4 class="text-xl font-bold mt-10 w-full">{{ __('features') }}</h4>
+<h4 class="text-xl font-bold mt-10 w-full capitalize">{{ __('general.features') }}</h4>
 
 <template x-for="feature,index in flatFeatures">
     <div class="flex justify-evenly">
@@ -63,7 +63,7 @@
 </template>
 <div class="w-full mt-10">
     <button @click="flatFeatures++" type="button"
-        class="px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800">
+        class="px-3 py-2 text-sm capitalize font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800">
         yeni özellik ekle
     </button>
     </div>

@@ -290,12 +290,12 @@
                                             </div>
                                             <div class="detail">
                                                 <div class="custom-list grid grid-cols-3 xs:grid-cols-2 gap-3">
-                                                    @foreach($project->siteFeatures as $features)
+                                                    @foreach($project->siteFeatures as $siteFeature)
                                                     <div class="item flex items-center gap-3">
                                                         <div class="dot w-1 aspect-square rounded-full bg-tertiary-950 shrink-0">
                                                         </div>
                                                         <div class="text text-4 md:text-3.5 text-tertiary-950">
-                                                            {{ $feature->value }}
+                                                            {{ $siteFeature->value }}
                                                         </div>
                                                     </div>
                                                     @endforeach
@@ -506,7 +506,7 @@
                                             class="full-cover group-hover:scale-105 duration-450 translate-z-0"
                                             src="{{ $randomProject->images->first()->full_url }}" alt="" loading="lazy"></a>
                                     <div class="content-wrapper p-5 lg:p-4 mt-2.5">
-                                        <a href="project-detail.html"
+                                        <a href="{{ route('frontend.project.show',$randomProject) }}"
                                             class="title text-6 2xl:text-5.5 xl:text-5 lg:text-4.5 leading-tight text-tertiary-950 hover:text-main-700 duration-300 font-semibold mb-6 xl:mb-5 md:mb-4 block">
                                             {{ $randomProject->title }}
                                         </a>

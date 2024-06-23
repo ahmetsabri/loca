@@ -1,6 +1,6 @@
 <section class="bg-white dark:bg-gray-900">
     <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
-        <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white capitalize">Daire <span x-text="'# '+(flatIndex + 1)"></span> </h2>
+        <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white capitalize">yeni Daire <span x-text="'# '+(flatIndex + 1)"></span> </h2>
             <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                 <div class="w-full">
                     <label for="rooms"
@@ -62,7 +62,7 @@
 </template>
 <div class="w-full mt-10">
     <button @click="flatFeatures++" type="button"
-        class="px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800">
+        class="px-3 py-2 text-sm capitalize font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800">
     yeni özellik ekle
     </button>
     </div>
