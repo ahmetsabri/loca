@@ -24,7 +24,7 @@ return [
     'classified_category_1' => 'Tüm portföylerimizi burada sizin için kategorize ettik.',
     'classified_category_2' => 'İhtiyaçlarınıza en uygun portföyü seçebilir ve tüm detaylarıyla inceleyebilirsiniz.',
     'classified_category_3' => 'Seçtiğiniz portföylerin ilgili danışmanlarına ve ofisimize kolayca ulaşabilirsiniz.',
-
+    'experience' => 'tecrübe',
     'newest_portfolios' => 'en yeni portföyler',
     'newset_1' => 'Hayalinizdeki portföyler aşağıda sizi bekliyor.',
     'newset_2' => 'İhtiyaçlarınıza en uygun portföyleri beğenebilir ve kendi listenizi oluşturabilirsiniz.',
