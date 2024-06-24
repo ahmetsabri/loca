@@ -12,5 +12,6 @@ class Faq extends Model
     use HasTranslations;
 
     protected $guarded = [];
-    public $translatable = ['question','answer'];
+
+    public $translatable = ['question', 'answer'];
 }

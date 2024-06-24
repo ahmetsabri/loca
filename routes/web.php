@@ -13,6 +13,7 @@ use App\Http\Controllers\Frontend\FaqController as FrontendFaqController;
 use App\Http\Controllers\Frontend\FormController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\PortfolioController as FrontendPortfolioController;
+use App\Http\Controllers\Frontend\PostController as FrontendPostController;
 use App\Http\Controllers\Frontend\ProjectController as FrontendProjectController;
 use App\Http\Controllers\Frontend\ServiceController as FrontendServiceController;
 use App\Http\Controllers\Frontend\TeamController as FrontendTeamController;
@@ -21,6 +22,7 @@ use App\Http\Controllers\InfoController;
 use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ServiceController;
@@ -60,6 +62,10 @@ Route::get('videos', [FrontendVideoController::class, 'index'])->name('videos');
 Route::get('services', [FrontendServiceController::class, 'index'])->name('frontend.services');
 Route::get('about', FrontendAboutController::class)->name('frontend.about');
 Route::get('faq', FrontendFaqController::class)->name('frontend.faq');
+Route::get('blog', [FrontendPostController::class,'index'])->name('frontend.blog');
+Route::get('blog/{post}', [FrontendPostController::class,'show'])->name('frontend.post.show');
+
+
 Route::middleware('auth')->prefix('admin')->withoutMiddleware(LocaleMiddleware::class)->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -174,6 +180,15 @@ Route::middleware('auth')->prefix('admin')->withoutMiddleware(LocaleMiddleware::
         Route::post('{faq}', [FaqController::class, 'update'])->name('faq.update');
         Route::get('{faq}/edit', [FaqController::class, 'edit'])->name('faq.edit');
         Route::get('{faq}/delete', [FaqController::class, 'destroy'])->name('faq.delete');
+    });
+
+    Route::prefix('post')->group(function () {
+        Route::get('/', [PostController::class, 'index'])->name('post.index');
+        Route::get('/create', [PostController::class, 'create'])->name('post.create');
+        Route::post('/', [PostController::class, 'store'])->name('post.store');
+        Route::post('{post}', [PostController::class, 'update'])->name('post.update');
+        Route::get('{post}/edit', [PostController::class, 'edit'])->name('post.edit');
+        Route::get('{post}/delete', [PostController::class, 'destroy'])->name('post.delete');
     });
 });
 Route::get('towns/{province}', [CountryController::class, 'towns'])->name('province.towns');

@@ -96,7 +96,7 @@ class CategorySeeder extends Seeder
 
         foreach ($mainCategories as $mainCategory) {
             $mainData = Arr::except($mainCategory, 'sub_categories');
-            $category = Category::create($mainData + ['created_by_system'=>true]);
+            $category = Category::create($mainData + ['created_by_system' => true]);
             Category::create(['parent_id' => $category->id] + Arr::only($mainCategory, 'sub_categories')['sub_categories'][0]);
         }
     }

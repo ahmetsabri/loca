@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        User::factory()->create(['email' => 'admin@mail.com','name'=>'Admin']);
+        User::factory()->create(['email' => 'admin@mail.com', 'name' => 'Admin']);
         $this->call([
             CategorySeeder::class,
             InfoSeeder::class,

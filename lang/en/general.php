@@ -100,7 +100,7 @@ return [
     'high_price_first' => 'High Price First',
     'ad_found' => 'ad founds',
     'ad_no' => 'ad no',
-    'address'=> 'address',
+    'address' => 'address',
     'faq' => 'FAQ',
-    'copy' => 'copy'
+    'copy' => 'copy',
 ];

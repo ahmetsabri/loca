@@ -115,6 +115,6 @@ return [
     'ad_found' => 'ilan bulundu',
     'ad_no' => 'ilan no',
     'address' => 'adres',
-    'faq'=>'SSS',
-    'copy' => 'kopyala'
+    'faq' => 'SSS',
+    'copy' => 'kopyala',
 ];

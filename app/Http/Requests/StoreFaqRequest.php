@@ -22,8 +22,8 @@ class StoreFaqRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'question' => ['required','array'],
-            'answer'=> ['required','array'],
+            'question' => ['required', 'array'],
+            'answer' => ['required', 'array'],
         ];
     }
 }

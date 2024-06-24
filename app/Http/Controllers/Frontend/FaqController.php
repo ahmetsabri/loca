@@ -10,6 +10,7 @@ class FaqController extends Controller
     public function __invoke()
     {
         $questions = Faq::all();
+
         return view('frontend.faq', compact('questions'));
     }
 }

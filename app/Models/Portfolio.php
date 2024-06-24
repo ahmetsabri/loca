@@ -184,16 +184,17 @@ class Portfolio extends Model
 
     public function getRoomsCountAttribute()
     {
-        $roomsCount = $this->load(['infos'=>fn ($q) =>$q->where('info_id', 2)])->infos?->first()?->value;
+        $roomsCount = $this->load(['infos' => fn ($q) => $q->where('info_id', 2)])->infos?->first()?->value;
+
         return $roomsCount;
     }
 
     public function getShareLinksAttribute()
     {
         return [
-            'sms' => sprintf(config('keys.sms_share_link'), $this->title.' '. route('frontend.portfolio.show', $this)),
-            'email' => sprintf(config('keys.email_share_link'), $this->title.' '. route('frontend.portfolio.show', $this)),
-            'wp' => sprintf(config('keys.wp_share_link'), $this->title.' '. route('frontend.portfolio.show', $this)),
+            'sms' => sprintf(config('keys.sms_share_link'), $this->title.' '.route('frontend.portfolio.show', $this)),
+            'email' => sprintf(config('keys.email_share_link'), $this->title.' '.route('frontend.portfolio.show', $this)),
+            'wp' => sprintf(config('keys.wp_share_link'), $this->title.' '.route('frontend.portfolio.show', $this)),
             'x' => sprintf(config('keys.x_share_link'), route('frontend.portfolio.show', $this)),
             'fb' => sprintf(config('keys.fb_share_link'), route('frontend.portfolio.show', $this)),
         ];

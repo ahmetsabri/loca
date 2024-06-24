@@ -189,7 +189,7 @@
                             </a>
                         </li>
                         <li class="group/li flex">
-                            <a href="blog.html"
+                            <a href="{{ route('frontend.blog') }}"
                                 class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">
                             {{ __('general.blog') }}
                             </a>
@@ -236,7 +236,7 @@
                                 class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">{{ __('general.projects') }}</a>
                         </li>
                         <li class="group/li flex">
-                            <a href="blog.html"
+                            <a href="{{ route('frontend.blog') }}"
                                 class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">
                             {{ __('general.blog') }}
 
@@ -561,7 +561,7 @@
                             <a href="{{ route('frontend.faq') }}"
                                 class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">{{ __('general.faq') }}</span></a>
-                            <a href="blog.html"
+                            <a href="{{ route('frontend.blog') }}"
                                 class="draw-child-underline capitalize capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">
                             {{ __('general.blog') }}

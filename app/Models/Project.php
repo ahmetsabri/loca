@@ -139,14 +139,15 @@ class Project extends Model
     {
         return sprintf(config('keys.show_direction_link'), trim($this?->lat_lon[0] ?? ''), trim($this?->lat_lon[1] ?? ''));
     }
-        public function getShareLinksAttribute()
-        {
-            return [
-                'sms' => sprintf(config('keys.sms_share_link'), $this->title.' ' .route('frontend.project.show', $this)),
-                'email' => sprintf(config('keys.email_share_link'), $this->title.' ' .route('frontend.project.show', $this)),
-                'wp' => sprintf(config('keys.wp_share_link'), $this->title.' ' .route('frontend.project.show', $this)),
-                'x' => sprintf(config('keys.x_share_link'), route('frontend.project.show', $this)),
-                'fb' => sprintf(config('keys.fb_share_link'), route('frontend.project.show', $this)),
-            ];
-        }
+
+    public function getShareLinksAttribute()
+    {
+        return [
+            'sms' => sprintf(config('keys.sms_share_link'), $this->title.' '.route('frontend.project.show', $this)),
+            'email' => sprintf(config('keys.email_share_link'), $this->title.' '.route('frontend.project.show', $this)),
+            'wp' => sprintf(config('keys.wp_share_link'), $this->title.' '.route('frontend.project.show', $this)),
+            'x' => sprintf(config('keys.x_share_link'), route('frontend.project.show', $this)),
+            'fb' => sprintf(config('keys.fb_share_link'), route('frontend.project.show', $this)),
+        ];
+    }
 }
