@@ -32,8 +32,7 @@ class StoreServiceRequest extends FormRequest
             'description.en' => ['required'],
             'description.ru' => ['required'],
             'features' => ['required', 'array'],
-            'sub_services' => ['sometimes', 'array'],
-            'department_id' => ['required', 'exists:departments,id'],
+            'sub_services' => ['sometimes', 'array']
         ];
     }
 }

@@ -31,7 +31,7 @@ class PortfolioController extends Controller
         $features = Feature::all();
 
         $provinces = Province::all();
-        $users = User::all();
+        $users = User::where('id', '<>', auth()->id())->get();
 
         return view('admin.portfolios.create', compact('categories', 'infos', 'features', 'provinces', 'users'));
     }

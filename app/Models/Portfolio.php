@@ -31,7 +31,7 @@ class Portfolio extends Model
 
     public function infos()
     {
-        return $this->hasMany(PortfolioInfo::class)->with('info');
+        return $this->hasMany(PortfolioInfo::class)->where('value->tr', '<>', null)->with('info');
     }
 
     public function features()

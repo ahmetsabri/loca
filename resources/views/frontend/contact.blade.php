@@ -29,20 +29,20 @@
                         <div class="detail-wrapper grid grid-cols-2 sm:grid-cols-1 gap-6">
                             <div class="inner grid gap-8 2xl:gap-6 xl:gap-4">
                                 <div class="item-wrapper">
-                                    <a href="javascript:void(0)"
+                                    <a href="https://maps.app.goo.gl/KYeR8YfndhggKMDB8"
                                         class="flex items-start gap-4 draw-child-underline [--line-color:#FFFFFF]">
                                         <div
                                             class="icon icon-location-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
                                         </div>
                                         <div class="text-wrapper">
-                                            <div class="title text-3 text-white">Adres</div>
+                                            <div class="title text-3 text-white">{{ __('general.address') }}</div>
                                             <div class="text text-white text-3.5 font-medium"><span
                                                     class="draw-el">Dumlupınar Mahallesi.1524 Sokak. Oğuz İş Merkezi
                                                     No:2/1 Yenişehir / Mersin</span></div>
                                         </div>
                                     </a>
                                     <div class="button-wrapper ml-4 pl-5 mt-3">
-                                        <a href="javascript:void(0)"
+                                        <a href="https://maps.app.goo.gl/KYeR8YfndhggKMDB8"
                                             class="button group/button relative duration-300 w-fit flex items-center gap-2 h-8.5 border border-solid border-[#8AA5D3]/25 px-3 rounded-2 hover:border-[#8AA5D3]/50">
                                             <div
                                                 class="icon icon-map-1 text-3 h-3 block leading-none duration-300 text-[#2675FA]">
@@ -60,7 +60,7 @@
                                         class="icon icon-email-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
                                     </div>
                                     <div class="text-wrapper">
-                                        <div class="title text-3 text-white">E-posta</div>
+                                        <div class="title text-3 text-white">{{ __('general.email') }}</div>
                                         <div class="text text-white text-3.5 font-medium"><span
                                                 class="draw-el">info@remax-loca-mrs.com</span></div>
                                     </div>
@@ -111,20 +111,19 @@
                         <div class="detail-wrapper grid grid-cols-2 sm:grid-cols-1 gap-6">
                             <div class="inner grid gap-8 2xl:gap-6 xl:gap-4">
                                 <div class="item-wrapper">
-                                    <a href="javascript:void(0)"
+                                    <a href="https://maps.app.goo.gl/KYeR8YfndhggKMDB8"
                                         class="flex items-start gap-4 draw-child-underline [--line-color:#FFFFFF]">
                                         <div
                                             class="icon icon-location-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
                                         </div>
                                         <div class="text-wrapper">
-                                            <div class="title text-3 text-white">Adres</div>
+                                            <div class="title text-3 text-white">{{ __('general.address') }}</div>
                                             <div class="text text-white text-3.5 font-medium"><span
-                                                    class="draw-el">Dumlupınar Mahallesi.1524 Sokak. Oğuz İş Merkezi
-                                                    No:2/1 Yenişehir / Mersin</span></div>
+                                                    class="draw-el">Deniz Mahallesi, Gazipaşa Cadddesi, Akbusi Sitesi AltıNo:56/B Mezitli / Mersin</span></div>
                                         </div>
                                     </a>
                                     <div class="button-wrapper ml-4 pl-5 mt-3">
-                                        <a href="javascript:void(0)"
+                                        <a href="https://maps.app.goo.gl/KYeR8YfndhggKMDB8"
                                             class="button group/button relative duration-300 w-fit flex items-center gap-2 h-8.5 border border-solid border-[#8AA5D3]/25 px-3 rounded-2 hover:border-[#8AA5D3]/50">
                                             <div
                                                 class="icon icon-map-1 text-3 h-3 block leading-none duration-300 text-[#2675FA]">
@@ -143,7 +142,7 @@
                                         class="icon icon-email-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
                                     </div>
                                     <div class="text-wrapper">
-                                        <div class="title text-3 text-white">E-posta</div>
+                                        <div class="title text-3 text-white">{{ __('general.email') }}</div>
                                         <div class="text text-white text-3.5 font-medium"><span
                                                 class="draw-el">info@remax-loca-mrs.com</span></div>
                                     </div>

@@ -33,7 +33,6 @@ class UpdateServiceRequest extends FormRequest
             'description.ru' => ['required'],
             'features' => ['required', 'array'],
             'sub_services' => ['sometimes', 'array'],
-            'department_id' => ['required', 'exists:departments,id'],
         ];
     }
 }

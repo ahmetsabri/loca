@@ -5,9 +5,7 @@
                 <th scope="col" class="px-6 py-3 text-center">
                      ad
                 </th>
-                <th scope="col" class="px-6 py-3 text-center">
-                     tip
-                </th>
+
                 <th scope="col" class="px-6 py-3 text-center">
                     işlemler
                 </th>
@@ -23,9 +21,7 @@
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     {{$department->name}}
                 </td>
-                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {{$department->type}}
-                </td>
+
                 <td scope="row" class=" px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
 
 

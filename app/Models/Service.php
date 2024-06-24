@@ -24,9 +24,4 @@ class Service extends Model
     {
         return $this->hasMany(self::class, 'parent_id');
     }
-
-    public function department()
-    {
-        return $this->belongsTo(Department::class);
-    }
 }

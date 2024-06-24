@@ -28,6 +28,7 @@ class ProjectController extends Controller
             'title' => $project->title,
             'id' => $project->id,
             'url' => route('frontend.project.show', $project),
+            'img' => $project->images->first()->full_url,
         ]);
 
         return view('frontend.project.index', compact('projects', 'provinces', 'locations'));

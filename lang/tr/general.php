@@ -117,4 +117,8 @@ return [
     'address' => 'adres',
     'faq' => 'SSS',
     'copy' => 'kopyala',
+    'sevices_before_sell' => 'SATIŞ VE KİRALAMA ÖNCESİ',
+    'service_detail' =>'Tüm satış ve kiralama hizmetlerinizin en detayını takip ediyoruz'
+
+
 ];

@@ -1,4 +1,4 @@
-<h1 class="text-left font-bold text-2xl capitalize">bölüm <span x-text="'#'+i"></span> </h1>
+<h1 class="text-left font-bold text-2xl capitalize">yeni bölüm </h1>
 @foreach(config('app.locales') as $locale)
 <div>
     <label for="team" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">

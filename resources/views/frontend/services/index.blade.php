@@ -13,7 +13,8 @@
                 <div class="wrapper max-w-1440 mx-auto w-full px-7.5 relative z-2 grid gap-6 xl:gap-5 lg:gap-4 sm:gap-3">
                     <h1
                         class="title text-center font-semibold text-white text-11 2xl:text-10 xl:text-8 lg:text-7 md:text-6 sm:text-5.5 tracking-[0.15em] lg:tracking-widest sm:tracking-wider leading-tight">
-                        HİZMETLERİMİZ</h1>
+                        {{ __('general.services') }}
+                    </h1>
                     <div
                         class="tags flex items-center justify-center flex-wrap gap-x-10 2xl:gap-x-9 xl:gap-x-8 lg:gap-x-6 md:gap-x-4 sm:gap-x-2 gap-y-2 md:gap-y-1.5 sm:gap-y-0.5">
                         <div
@@ -37,11 +38,13 @@
                 <div class="heading-wrapper mb-16 2xl:mb-12 xl:mb-9 lg:mb-6 md:mb-3">
                     <div
                         class="custom-display text-center text-5 xl:text-4.5 lg:text-4 md:text-3.5 text-[#2675FA] font-semibold tracking-[0.07em]">
-                        SATIŞ VE KİRALAMA ÖNCESİ</div>
+                        {{ __('general.sevices_before_sell') }}
+                    </div>
                     <div class="text-editor text-editor-main mt-4">
                         <!-- .text-editor içerisindeki style attribute değerleri frontendi tasarıma benzetmek adına eklenmiştir, backend aşamasında silinerek panel editöründen tanımlanmalıdır. -->
-                        <h2 style="text-align:center;"><strong>Tüm satış ve kiralama hizmetlerinizin <br>en detayını takip
-                                ediyoruz.</strong></h2>
+                        <h2 style="text-align:center;"><strong>
+                        {{ __('general.service_detail') }}
+                        </strong></h2>
                     </div>
                 </div>
 

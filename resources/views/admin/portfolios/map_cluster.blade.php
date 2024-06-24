@@ -28,7 +28,10 @@
 
         // Create an info window
         const infoWindow = new google.maps.InfoWindow({
-        content: `<a href="${location.url}"><h1 style="font-weight:bold;font-size:18pt">${location.title}</h1></a>`,
+        content: `<a href="${location.url}">
+            <h1 class="capitalize" style="font-weight:bold;font-size:15pt;text-align:center;color:indigo">${location.title}</h1>
+                <img src="${location.img}" width="200"/>
+            </a>`,
         });
 
         // Add click listener to open the info window

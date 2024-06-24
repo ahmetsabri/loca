@@ -553,16 +553,16 @@
                                 class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">{{ __('general.career') }}</span></a>
                             <a href="portfolio-grid.html"
-                                class="draw-child-underline capitalize capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
+                                class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">{{ __('general.portfolios') }}</span></a>
                             <a href="{{ route('projects') }}"
-                                class="draw-child-underline capitalize capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
+                                class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">{{ __('general.projects') }}</span></a>
                             <a href="{{ route('frontend.faq') }}"
                                 class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">{{ __('general.faq') }}</span></a>
                             <a href="{{ route('frontend.blog') }}"
-                                class="draw-child-underline capitalize capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
+                                class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">
                             {{ __('general.blog') }}
 
@@ -603,7 +603,7 @@
                         </a>
 
                         <div class="address-wrapper">
-                            <a href="javascript:void(0)"
+                            <a href="https://maps.app.goo.gl/yrCwm7Dm9dxScu2K8"
                                 class="flex items-center gap-4 draw-child-underline [--line-color:#8AA5D3]">
                                 <div
                                     class="icon icon-location-3 text-5 h-5 block leading-none duration-300 text-[#2675FA]">
@@ -612,7 +612,7 @@
                                         Mahallesi.1524 Sokak. Oğuz İş Merkezi No:2/1 Yenişehir / Mersin</span></div>
                             </a>
                             <div class="button-wrapper ml-4 pl-5 mt-3">
-                                <a href="javascript:void(0)"
+                                <a href="https://maps.app.goo.gl/yrCwm7Dm9dxScu2K8"
                                     class="button group/button relative duration-300 w-fit flex items-center gap-2 h-7.5 border border-solid border-[#8AA5D3]/25 px-3 rounded-2 hover:border-[#8AA5D3]/50">
                                     <div
                                         class="icon icon-map-1 text-3 h-3 block leading-none duration-300 text-[#2675FA]">
@@ -622,7 +622,7 @@
                             </div>
                         </div>
                         <div class="address-wrapper">
-                            <a href="javascript:void(0)"
+                            <a href="https://maps.app.goo.gl/KYeR8YfndhggKMDB8"
                                 class="flex items-center gap-4 draw-child-underline [--line-color:#8AA5D3]">
                                 <div
                                     class="icon icon-location-3 text-5 h-5 block leading-none duration-300 text-[#2675FA]">
@@ -632,7 +632,7 @@
                                 </div>
                             </a>
                             <div class="button-wrapper ml-4 pl-5 mt-3">
-                                <a href="javascript:void(0)"
+                                <a href="https://maps.app.goo.gl/KYeR8YfndhggKMDB8"
                                     class="button group/button relative duration-300 w-fit flex items-center gap-2 h-7.5 border border-solid border-[#8AA5D3]/25 px-3 rounded-2 hover:border-[#8AA5D3]/50">
                                     <div
                                         class="icon icon-map-1 text-3 h-3 block leading-none duration-300 text-[#2675FA]">

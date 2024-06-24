@@ -27,8 +27,8 @@ class Info extends Model
         )
             ->selectRaw("DISTINCT(JSON_UNQUOTE(JSON_EXTRACT(`value`, '$.tr'))) as val")
             ->where('info_id', $this->id)
+            ->whereNotNull('value->tr')
             ->get();
-
         return $values->isEmpty() ? null : $values;
     }
 

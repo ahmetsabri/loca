@@ -55,7 +55,7 @@ class UpdatePortfolioRequest extends FormRequest
 
     public function mapInfo(): array
     {
-        $filledInfo = array_filter($this->info, fn ($info) => ! is_null(Arr::get($info, 'tr')));
+        $filledInfo = $this->info;
 
         $onlyTurkishfilled = array_filter($this->info, function ($info) {
             return ! is_null(Arr::get($info, 'tr')) && (is_null(Arr::get($info, 'en')) && is_null(Arr::get($info, 'ru')));

@@ -6,9 +6,7 @@
                 <th scope="col" class="px-6 py-3 text-left">
                      {{__('general.name')}}
                 </th>
-                <th scope="col" class="px-6 py-3 text-left">
-                     departman
-                </th>
+
                 <th scope="col" class="px-6 py-3 text-center">
                      işlemler
                 </th>
@@ -27,13 +25,7 @@
                         </p>
                         </div>
                 </td>
-                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    <div class="flex justify-start items-center space-x-4">
-                        <p class="capitalize font-semibold text-base">
-                        {{$service?->department?->name ?? '-'}}
-                        </p>
-                        </div>
-                </td>
+
                 <td scope="row" class=" px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
 
 

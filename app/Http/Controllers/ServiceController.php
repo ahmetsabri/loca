@@ -20,9 +20,7 @@ class ServiceController extends Controller
 
     public function create()
     {
-        $departments = Department::where('type', DepartmentType::SERVICE->value)->get();
-
-        return view('admin.services.create', compact('departments'));
+        return view('admin.services.create');
     }
 
     public function store(StoreServiceRequest $request)
@@ -112,6 +110,5 @@ class ServiceController extends Controller
         $service->delete();
 
         return back()->with('success', 'success');
-
     }
 }

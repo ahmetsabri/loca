@@ -13,7 +13,7 @@ class Department extends Model
 
     protected $guarded = [];
 
-    public $translatable = ['name', 'description'];
+    public $translatable = ['name'];
 
     public function users()
     {

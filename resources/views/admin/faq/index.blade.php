@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl capitalize text-blue-800 leading-tight">
-            {{ __('general.team') }}
+            {{ __('general.faq') }}
         </h2>
     </x-slot>
 

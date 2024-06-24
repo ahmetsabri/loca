@@ -6,8 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class() extends Migration
-{
+return new class () extends Migration {
     /**
      * Run the migrations.
      */
@@ -15,19 +14,11 @@ return new class() extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Department::class)->constrained()->cascadeOnDelete();
             $table->json('name');
+            $table->foreignIdFor(Service::class, 'parent_id');
             $table->json('description');
             $table->string('promotion_url')->nullable();
             $table->timestamps();
-        });
-
-        Schema::table('services', function (Blueprint $table) {
-            $table->foreignIdFor(Service::class, 'parent_id')
-                ->nullable()
-                ->after('id')
-                ->constrained('services')
-                ->cascadeOnDelete();
         });
     }
 
