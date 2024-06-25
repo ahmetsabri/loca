@@ -333,7 +333,7 @@
                                         </div>
                                         <div class="item grid grid-cols-2/10 lg:grid-cols-1 gap-6">
                                             <div
-                                                class="title text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950">
+                                                class="title text-4.5 capitalize xl:text-4 md:text-3.5 font-semibold text-tertiary-950">
                                             {{ __('general.location') }}
                                             </div>
                                             <div class="detail">
@@ -341,6 +341,7 @@
                                                     src="{{ $project->embed_map_link }}"
                                                     style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="locationIframe">
                                                 </iframe>
+
                                             </div>
                                         </div>
                                     </div>
@@ -561,7 +562,7 @@
                                         <a href="{{ route('frontend.project.show',$randomProject) }}"
                                             class="button group/button flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 h-16 xl:h-14 md:h-12 w-full px-6 bg-[#F0F2F7] hover:bg-main-100 mt-7.5 xl:mt-6 md:mt-5 text-[#2675FA]">
 
-                                            <div class="text whitespace-nowrap font-medium text-4 md:text-3.5">{{ __('general.details') }}</div>
+                                            <div class="text whitespace-nowrap capitalize font-medium text-4 md:text-3.5">{{ __('general.details') }}</div>
 
                                         </a>
                                     </div>

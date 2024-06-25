@@ -14,6 +14,12 @@
         numOfFlats:0,
         projectDistrict:`{{ $project->district_id }}`,
         projectTown:`{{ $project->town_id }}`,
+removeFlat(url){
+    if(!confirm('emin misiniz')){
+    return
+    }
+    window.location.href=url;
+    },
         init(){
             const townUrl = `{{ route('province.towns',$project->province) }}`
 

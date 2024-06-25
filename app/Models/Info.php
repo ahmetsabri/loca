@@ -21,11 +21,11 @@ class Info extends Model
         if (! $this->filterable) {
             return null;
         }
-
+        $locale = app()->getLocale() ?? 'tr';
         $values = DB::table(
             'portfolio_infos'
         )
-            ->selectRaw("DISTINCT(JSON_UNQUOTE(JSON_EXTRACT(`value`, '$.tr'))) as val")
+            ->selectRaw("DISTINCT(JSON_UNQUOTE(JSON_EXTRACT(`value`, '$.$locale'))) as val")
             ->where('info_id', $this->id)
             ->whereNotNull('value->tr')
             ->get();

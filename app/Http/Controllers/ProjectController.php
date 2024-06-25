@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use App\Models\Flat;
 use App\Models\Image;
 use App\Models\Project;
 use App\Models\Province;
@@ -14,7 +15,7 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $projects = Project::paginate(20);
+        $projects = Project::latest()->paginate(20);
 
         return view('admin.projects.index', compact('projects'));
     }
@@ -215,6 +216,14 @@ class ProjectController extends Controller
     {
         abort_if($project->id != $image->imageable_id, 404);
         $image->delete();
+
+        return back()->with('success', 'success');
+    }
+    public function removeFlat(Project $project, Flat $flat)
+    {
+        abort_if($project->id != $flat->project_id, 404);
+        $flat->features()->delete();
+        $flat->delete();
 
         return back()->with('success', 'success');
     }

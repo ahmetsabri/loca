@@ -7,6 +7,9 @@
     towns:[],
     category:1,
     map:0,
+    addToFavorites(id){
+        localStorage.setItem(`project_${id}`,id)
+    },
     loadTowns(url){
                         const self = this
                         axios.get(url).then((res)=>{
@@ -285,7 +288,7 @@
                                         <div class="joint text-4 xl:text-3.5 font-medium">‘{{ __('general.starting_price') }}</div>
                                     </div>
                                     <button
-                                        class="button shrink-0 add-favorite group/button relative duration-300 bg-[#EFF5FF] flex items-center justify-center h-10 aspect-square rounded-full hover:border-tertiary-950/30">
+                                        class="button shrink-0 add-favorite group/button relative duration-300 bg-[#EFF5FF] flex items-center justify-center h-10 aspect-square rounded-full hover:border-tertiary-950/30" @click="addToFavorites(`{{ $project->id }}`)" :class="localStorage.getItem(`project_{{ $project->id }}`) && 'favorited'" >
                                         <div
                                             class="icon icon-like text-4 h-4 block leading-none duration-300 text-[#DC1C2E]">
                                         </div>
@@ -297,7 +300,7 @@
                                 <a href="{{ route('frontend.project.show',$project) }}"
                                     class="button group/button flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 h-16 xl:h-14 md:h-12 w-full px-6 bg-[#F0F2F7] hover:bg-main-100 mt-7.5 xl:mt-6 md:mt-5 text-[#2675FA]">
 
-                                    <div class="text whitespace-nowrap font-medium text-4 md:text-3.5">
+                                    <div class="text capitalize whitespace-nowrap font-medium text-4 md:text-3.5">
                                         {{ __('general.details') }}
                                     </div>
 

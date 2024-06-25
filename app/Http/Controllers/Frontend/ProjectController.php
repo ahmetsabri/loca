@@ -22,7 +22,7 @@ class ProjectController extends Controller
             ])->with('images', 'flats')->paginate(9);
         $provinces = Province::all();
 
-        $locations = Project::limit(200)->get()->map(fn ($project) => [
+        $locations = Project::limit(200)->with('images')->get()->map(fn ($project) => [
             'lat' => (float) $project->lat_lon[0],
             'lng' => (float) $project->lat_lon[1],
             'title' => $project->title,

@@ -151,7 +151,7 @@
                                 class="flex items-center gap-2 text-[#224391] duration-300 hover:text-[#2675FA]"
                                 data-fancybox>
                                 <div class="icon icon-comment text-4 h-4 block leading-none"></div>
-                                <div class="text text-3.5 font-medium">{{ __('general.add_comments') }}s</div>
+                                <div class="text text-3.5 font-medium">{{ __('general.add_comments') }}</div>
                             </a>
                             <a href="#popup-share-team"
                                 class="flex items-center gap-2 text-[#224391] duration-300 hover:text-[#2675FA]"

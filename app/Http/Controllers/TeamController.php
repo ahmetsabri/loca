@@ -20,7 +20,7 @@ class TeamController extends Controller
 
     public function create()
     {
-        $departments = Department::where('type', DepartmentType::TEAM->value)->get();
+        $departments = Department::all();
 
         return view('admin.teams.create', compact('departments'));
     }

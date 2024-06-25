@@ -121,7 +121,9 @@
                         <div class="w-1/5 mx-2">
                             <img src="{{ $image->full_url }}" class="w-20 h-20">
                             <br>
+                            @if($project->images->count() > 1)
                             <a class="text-red-500" href="{{ route('project.image.delete',[$project,$image]) }}">sil</a>
+                            @endif
                         </div>
                         @endforeach
                     </div>
@@ -368,11 +370,18 @@ oda sayısı
                     placeholder="₺2999">
             </div>
         </template>
+        <div class="flex">
         <div class="w-full mt-10">
             <button @click="flatFeatures++" type="button"
-                class="px-3 py-2 text-base capitalize font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800">yeni özellik ekle</button>
+                class="px-3 py-2 text-base capitalize font-medium text-center text-white bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-blue-800">yeni özellik ekle</button>
+        </div>
+        <div class="w-full mt-10">
+            <button @click="removeFlat(`{{ route('project.flat.delete',[$project,$flat]) }}`)" type="button"
+                class="px-3 py-2 text-base capitalize font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-blue-800">Sil</button>
+        </div>
         </div>
 </section>
+
 @endforeach
 <template  x-for="flat, flatIndex in numOfFlats">
     @include('admin.projects.update_flat_form')

@@ -315,7 +315,7 @@
                     </div>
                 </div>
                 <div class="tools-wrapper flex items-center gap-3">
-                    <a href="favorites.html"
+                    {{-- <a href="favorites.html"
                         class="button group/button relative duration-300 flex items-center h-7.5 lg:h-10 border border-solid border-tertiary-950/10 px-2 lg:px-3 rounded-2 hover:border-tertiary-950/30 group-[&:not(.scroll-down):not(.menu-open)]/header:border-white/10 group-[&:not(.scroll-down):not(.menu-open)]/header:hover:border-white/25">
                         <div
                             class="icon icon-like text-4 h-4 block leading-none duration-300 text-[#DC1C2E]  group-[&:not(.scroll-down):not(.menu-open)]/header:text-white">
@@ -323,7 +323,7 @@
                         <div
                             class="icon icon-liked text-4 h-4 block leading-none duration-300 text-[#DC1C2E]  group-[&:not(.scroll-down):not(.menu-open)]/header:text-white absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover/button:opacity-100">
                         </div>
-                    </a>
+                    </a> --}}
                     <a href="{{ route('buy_sell') }}"
                         class="button group/button relative duration-300 flex items-center h-7.5 bg-main-900 px-3 rounded-2 hover:bg-tertiary-950 lg:hidden">
                         <span class="text text-white font-semibold text-3.5">{{ __('general.buy_sell') }}</span>

@@ -46,7 +46,7 @@ class UpdatePortfolioRequest extends FormRequest
             'info.*.ru' => ['sometimes', 'nullable'],
             'info.*.en' => ['sometimes', 'nullable'],
 
-            'features' => ['required', 'array'],
+            'features' => ['sometimes', 'array'],
             'features.*.*.tr' => ['sometimes', 'nullable'],
             'features.*.*.ru' => ['sometimes', 'nullable'],
             'features.*.*.en' => ['sometimes', 'nullable'],
@@ -72,7 +72,7 @@ class UpdatePortfolioRequest extends FormRequest
     public function mapFeatures(): array
     {
         $data = [];
-        foreach ($this->features as $id => $feature) {
+        foreach ($this->features ?? [] as $id => $feature) {
             $filledFeatures = array_filter($feature, fn ($locale) => Arr::get($locale, 'tr') || Arr::get($locale, 'ru') || Arr::get($locale, 'en'));
             $data[] = $filledFeatures;
         }

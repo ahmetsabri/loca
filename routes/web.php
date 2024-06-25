@@ -111,6 +111,7 @@ Route::middleware('auth')->prefix('admin')->withoutMiddleware(LocaleMiddleware::
         Route::post('/{project}/update', [ProjectController::class, 'update'])->name('project.update');
         Route::get('{project}/delete', [ProjectController::class, 'destroy'])->name('project.delete');
         Route::get('{project}/image/{image}/delete', [ProjectController::class, 'removeImage'])->name('project.image.delete');
+        Route::get('{project}/flat/{flat}/delete', [ProjectController::class, 'removeFlat'])->name('project.flat.delete');
     });
 
     Route::prefix('department')->group(function () {
