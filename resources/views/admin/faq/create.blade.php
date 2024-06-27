@@ -10,7 +10,7 @@
     </x-slot>
     <div class="p-12 flex justify-center">
 
-        <form class="space-y-4 w-1/2" action="{{route('faq.store')}}" method="post" enctype="multipart/form-data">
+        <form class="space-y-4 w-1/2" action="{{ isset($faq) ?route('faq.update',$faq): route('faq.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             @if($errors->all())
 
