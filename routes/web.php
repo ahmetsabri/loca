@@ -26,6 +26,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ShowBuySellController;
 use App\Http\Controllers\SubmittedFormController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\VideoCategoryController;
@@ -57,7 +58,7 @@ Route::get('currency/{currency}', ChangeCurrencyController::class)->name('curren
 
 Route::view('dashboard', 'dashboard')->middleware(['auth', 'verified'])->name('dashboard');
 Route::view('career', 'frontend.career')->name('career');
-Route::view('buy-sell', 'frontend.buy_sell', ['provinces' => Province::all()])->name('buy_sell');
+Route::get('buy-sell', ShowBuySellController::class)->name('buy_sell');
 Route::get('videos', [FrontendVideoController::class, 'index'])->name('videos');
 Route::get('services', [FrontendServiceController::class, 'index'])->name('frontend.services');
 Route::get('about', FrontendAboutController::class)->name('frontend.about');
