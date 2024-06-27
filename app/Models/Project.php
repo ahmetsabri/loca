@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\CurrencyEnum;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -65,6 +66,14 @@ class Project extends Model
             $project->images()->each(function ($image) {
                 $image->delete();
             });
+        });
+
+
+        static::saving(function (self $portfolio) {
+            Storage::disk('public')->delete($portfolio->brochure_path);
+            $rate = ExchangeRate::whereIn('currency', [CurrencyEnum::USD->value,CurrencyEnum::EUR->value])->get();
+            $portfolio->price_in_usd = $portfolio->price_in_tl / $rate?->where('currency', CurrencyEnum::USD->value)?->first()?->rate ?? 1;
+            $portfolio->price_in_eur = $portfolio->price_in_tl / $rate?->where('currency', CurrencyEnum::EUR->value)?->first()?->rate ?? 1;
         });
     }
 

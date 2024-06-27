@@ -128,7 +128,7 @@
                                             <div class="dot w-1.5 sm.w-1 aspect-square rounded-full bg-tertiary-950 shrink-0">
                                             </div>
                                             <div class="text capitalize font-medium text-4.5 xl:text-4 md:text-3.5 text-tertiary-950">
-                                                {{ $feature->value }}
+                                                {{ $feature->option->name }}
                                             </div>
                                         </div>
                                         @endforeach
