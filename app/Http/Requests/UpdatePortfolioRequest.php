@@ -47,9 +47,8 @@ class UpdatePortfolioRequest extends FormRequest
             'info.*.en' => ['sometimes', 'nullable'],
 
             'features' => ['sometimes', 'array'],
-            'features.*.*.tr' => ['sometimes', 'nullable'],
-            'features.*.*.ru' => ['sometimes', 'nullable'],
-            'features.*.*.en' => ['sometimes', 'nullable'],
+            'features.*.*' => ['sometimes', 'nullable','exists:feature_options,id'],
+
         ];
     }
 
@@ -67,17 +66,6 @@ class UpdatePortfolioRequest extends FormRequest
         }
 
         return $onlyTurkishfilled + $filledInfo;
-    }
-
-    public function mapFeatures(): array
-    {
-        $data = [];
-        foreach ($this->features ?? [] as $id => $feature) {
-            $filledFeatures = array_filter($feature, fn ($locale) => Arr::get($locale, 'tr') || Arr::get($locale, 'ru') || Arr::get($locale, 'en'));
-            $data[] = $filledFeatures;
-        }
-
-        return array_filter($data);
     }
 
     protected function failedValidation(Validator $validator)

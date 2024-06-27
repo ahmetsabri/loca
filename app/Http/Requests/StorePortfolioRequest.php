@@ -18,6 +18,7 @@ class StorePortfolioRequest extends FormRequest
 
     public function rules(): array
     {
+        // dd($this->all());
         return [
             'title' => ['required', 'array'],
             'title.tr' => ['required', 'string'],
@@ -49,9 +50,7 @@ class StorePortfolioRequest extends FormRequest
             'info.*.en' => ['sometimes', 'nullable'],
 
             'features' => ['sometimes', 'array'],
-            'features.*.*.tr' => ['sometimes', 'nullable'],
-            'features.*.*.ru' => ['sometimes', 'nullable'],
-            'features.*.*.en' => ['sometimes', 'nullable'],
+            'features.*.*' => ['sometimes', 'nullable','exists:feature_options,id'],
         ];
     }
 
@@ -69,18 +68,5 @@ class StorePortfolioRequest extends FormRequest
         }
 
         return $onlyTurkishfilled + $filledInfo;
-    }
-
-    public function mapFeatures(): array
-    {
-        $data = [];
-        foreach ($this->features ?? [] as $id => $feature) {
-            $filledFeatures = array_filter($feature, fn ($locale) => ! is_null(Arr::get($locale, 'tr'))
-            || ! is_null(Arr::get($locale, 'ru'))
-            || ! is_null(Arr::get($locale, 'en')));
-            $data[] = $filledFeatures;
-        }
-
-        return array_filter($data);
     }
 }

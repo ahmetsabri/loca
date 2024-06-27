@@ -36,7 +36,7 @@ class Portfolio extends Model
 
     public function features()
     {
-        return $this->hasMany(PortfolioFeature::class)->with('feature');
+        return $this->hasMany(PortfolioFeature::class)->with('feature')->with('option');
     }
 
     public function category()

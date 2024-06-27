@@ -19,4 +19,8 @@ class PortfolioFeature extends Model
     {
         return $this->belongsTo(Feature::class);
     }
+    public function option()
+    {
+        return $this->belongsTo(FeatureOption::class, 'feature_option_id');
+    }
 }

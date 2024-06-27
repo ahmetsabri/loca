@@ -28,7 +28,7 @@ class PortfolioController extends Controller
     {
         $categories = Category::with('ancestorsAndSelf')->isLeaf()->hasParent()->get();
         $infos = Info::all();
-        $features = Feature::all();
+        $features = Feature::has('options')->with('options')->get();
 
         $provinces = Province::all();
         $users = User::where('id', '<>', auth()->id())->get();
@@ -63,9 +63,12 @@ class PortfolioController extends Controller
             ]);
         }
 
-        $features = $request->mapFeatures();
+        $features = $request->features;
 
-        $this->saveFeatures($portfolio, $features);
+        if ($features) {
+            $this->saveFeatures($portfolio, $features);
+        }
+
 
         // DB::commit();
         // } catch (\Throwable $th) {
@@ -87,7 +90,9 @@ class PortfolioController extends Controller
     {
         $categories = Category::with('ancestorsAndSelf')->isLeaf()->hasParent()->get();
         $infos = Info::all();
-        $features = Feature::all();
+
+        $features = Feature::has('options')->with('options')->get();
+
         $portfolio = $portfolio->load('infos', 'features', 'province', 'town', 'district');
 
         $provinces = Province::all();
@@ -127,8 +132,10 @@ class PortfolioController extends Controller
 
         $portfolio->features()->delete();
 
-        $features = $request->mapFeatures();
-        $this->saveFeatures($portfolio, $features);
+        $features = $request->features;
+        if ($features) {
+            $this->saveFeatures($portfolio, $features);
+        }
 
         DB::commit();
         // } catch (\Throwable $th) {
@@ -161,24 +168,11 @@ class PortfolioController extends Controller
 
     public function saveFeatures(Portfolio $portfolio, array $features)
     {
-        foreach ($features as $allFeature) {
-            foreach ($allFeature as $id => $feature) {
-                if (Arr::get($feature, 'tr') && Arr::get($feature, 'en') && Arr::get($feature, 'ru')) {
-                    $portfolio->features()->create([
-                        'feature_id' => $id,
-                        'value' => $feature,
-                    ]);
-
-                    continue;
-                }
-
+        foreach ($features as $feature=>$options) {
+            foreach ($options as $option) {
                 $portfolio->features()->create([
-                    'feature_id' => $id,
-                    'value' => [
-                        'tr' => Arr::get($feature, 'tr'),
-                        'en' => Arr::get($feature, 'tr'),
-                        'ru' => Arr::get($feature, 'tr'),
-                    ],
+                    'feature_id' => $feature,
+                    'feature_option_id' => $option
                 ]);
             }
         }
