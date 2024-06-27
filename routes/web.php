@@ -8,6 +8,7 @@ use App\Http\Controllers\CountryController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\FeatureOptionController;
 use App\Http\Controllers\Frontend\AboutController as FrontendAboutController;
 use App\Http\Controllers\Frontend\FaqController as FrontendFaqController;
 use App\Http\Controllers\Frontend\FormController;
@@ -92,6 +93,13 @@ Route::middleware('auth')->prefix('admin')->withoutMiddleware(LocaleMiddleware::
         Route::get('/{feature}', [FeatureController::class, 'show'])->name('feature.show');
         Route::post('/{feature}', [FeatureController::class, 'update'])->name('feature.update');
         Route::get('{feature}/delete', [FeatureController::class, 'destroy'])->name('feature.delete');
+        Route::prefix('{feature}/option')->name('option.')->group(function ($feature) {
+            Route::post('/', [FeatureOptionController::class, 'store'])->name('store');
+            Route::get('/', [FeatureOptionController::class, 'index'])->name('index');
+            Route::get('create', [FeatureOptionController::class, 'create'])->name('create');
+            Route::post('{featureOption}', [FeatureOptionController::class, 'update'])->name('update');
+            Route::get('{featureOption}/delete', [FeatureOptionController::class, 'destroy'])->name('delete');
+        });
     });
     Route::prefix('portfolio')->group(function () {
         Route::get('/', [PortfolioController::class, 'index'])->name('portfolio.index');

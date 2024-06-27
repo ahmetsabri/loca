@@ -5,9 +5,11 @@
                 <th scope="col" class="px-6 py-3 text-center">
                      ad
                 </th>
+
                 <th scope="col" class="px-6 py-3 text-center">
                      işlemler
                 </th>
+
 
             </tr>
 
@@ -25,6 +27,10 @@
 
 
 
+
+<a href={{ route('option.index',$feature) }} class="px-3 py-2 mx-1 text-sm font-medium text-center text-white bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">
+    değerler
+</a>
 
 <button type="button"  data-modal-target="edit-feature-modal-{{$feature->id}}" data-modal-toggle="edit-feature-modal-{{$feature->id}}" class="px-3 py-2 text-sm font-medium text-center text-white bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">güncelle</button>
 

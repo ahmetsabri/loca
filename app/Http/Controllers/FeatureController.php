@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreFeatureRequest;
 use App\Models\Feature;
+use App\Models\FeatureOption;
 
 class FeatureController extends Controller
 {
@@ -28,10 +29,11 @@ class FeatureController extends Controller
         return back()->with('success', 'success');
     }
 
-    public function destroy(Feature $info)
+    public function destroy(FeatureOption $featureOption)
     {
         //TODO: DELETE ITS VALUES ALSO
-        $info->delete();
+        dd(213);
+        $featureOption->delete();
 
         return back()->with('success', 'success');
     }
