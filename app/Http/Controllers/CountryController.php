@@ -8,7 +8,7 @@ use App\Models\Town;
 
 class CountryController extends Controller
 {
-    public function towns(Province $province)
+    public function towns(?Province $province = null)
     {
         $towns = Town::where('province_id', $province->id)->get();
 

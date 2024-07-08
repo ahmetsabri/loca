@@ -47,4 +47,10 @@ class CategoryController extends Controller
 
         return back()->with('success', 'success');
     }
+
+    public function getChildren(Category $category)
+    {
+        $children = $category->load('children')->children;
+        return response()->json(compact('children'));
+    }
 }

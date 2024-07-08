@@ -1,11 +1,11 @@
 <?php
 
+use App\Models\Category;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class() extends Migration
-{
+return new class () extends Migration {
     /**
      * Run the migrations.
      */
@@ -14,6 +14,7 @@ return new class() extends Migration
         Schema::create('infos', function (Blueprint $table) {
             $table->id();
             $table->json('name');
+            $table->foreignIdFor(Category::class)->constrained();
             $table->boolean('filterable')->default(false);
             $table->boolean('created_by_system')->default(false);
             $table->timestamps();

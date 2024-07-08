@@ -77,11 +77,13 @@ Route::middleware('auth')->prefix('admin')->withoutMiddleware(LocaleMiddleware::
         Route::post('/', [CategoryController::class, 'store'])->name('category.store');
         Route::get('/{category}', [CategoryController::class, 'show'])->name('category.show');
         Route::post('/{category}', [CategoryController::class, 'update'])->name('category.update');
+        Route::get('children/{category?}/', [CategoryController::class, 'getChildren'])->name('category.children');
         Route::get('{category}/delete', [CategoryController::class, 'destroy'])->name('category.delete');
     });
 
     Route::prefix('info')->group(function () {
         Route::get('/', [InfoController::class, 'index'])->name('info.index');
+        Route::get('/create', [InfoController::class, 'create'])->name('info.create');
         Route::post('/', [InfoController::class, 'store'])->name('info.store');
         Route::get('/{info}', [InfoController::class, 'show'])->name('info.show');
         Route::post('/{info}', [InfoController::class, 'update'])->name('info.update');
@@ -201,6 +203,6 @@ Route::middleware('auth')->prefix('admin')->withoutMiddleware(LocaleMiddleware::
         Route::get('{post}/delete', [PostController::class, 'destroy'])->name('post.delete');
     });
 });
-Route::get('towns/{province}', [CountryController::class, 'towns'])->name('province.towns');
+Route::get('towns/{province?}', [CountryController::class, 'towns'])->name('province.towns');
 Route::get('districts/{town?}', [CountryController::class, 'districts'])->name('towns.districts');
 require __DIR__.'/auth.php';

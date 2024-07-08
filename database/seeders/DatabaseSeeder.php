@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
         User::factory()->create(['email' => 'admin@mail.com', 'name' => 'Admin']);
         $this->call([
             CategorySeeder::class,
-            InfoSeeder::class,
+            // InfoSeeder::class,
             CountrySeeder::class,
         ]);
     }

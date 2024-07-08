@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreInfoRequest;
+use App\Models\Category;
 use App\Models\Info;
 
 class InfoController extends Controller
@@ -12,6 +13,13 @@ class InfoController extends Controller
         $infos = Info::all();
 
         return view('admin.info.index', compact('infos'));
+    }
+
+    public function create()
+    {
+        $categories = Category::isRoot()->get();
+
+        return view('admin.info.create', compact('categories'));
     }
 
     public function store(StoreInfoRequest $request)

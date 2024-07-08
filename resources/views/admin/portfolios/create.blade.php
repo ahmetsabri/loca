@@ -8,7 +8,8 @@
         towns:[],
         districts:[],
         numOfFeatures:3,
-        loadTowns(url){
+        loadTowns(id){
+            const url = `{{ route('province.towns') }}/` + id
             const self = this
             axios.get(url).then((res)=>{
                 console.log(res.data.towns)

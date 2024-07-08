@@ -26,6 +26,7 @@ class StoreInfoRequest extends FormRequest
             'name.tr' => ['required'],
             'name.ru' => ['required'],
             'name.en' => ['required'],
+            'category_id' => ['required', 'exists:categories,id'],
             'filterable' => ['sometimes', 'nullable'],
         ];
     }
