@@ -25,10 +25,10 @@
 
 
 
-<button type="button"  data-modal-target="edit-info-modal-{{$info->id}}" data-modal-toggle="edit-info-modal-{{$info->id}}" class="px-3 py-2 text-sm font-medium text-center text-white bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">
+<a href={{ route('info.edit',$info) }} class="px-3 py-2 mx-3 text-sm font-medium text-center text-white bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">
         güncelle
 
-</button>
+</a>
 
 @if(!$info->created_by_system)
 <button @click="deleteInfo(`{{route('info.delete',$info)}}`)" type="button" class="px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">sil</button>

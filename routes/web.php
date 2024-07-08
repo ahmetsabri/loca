@@ -86,6 +86,7 @@ Route::middleware('auth')->prefix('admin')->withoutMiddleware(LocaleMiddleware::
         Route::get('/', [InfoController::class, 'index'])->name('info.index');
         Route::get('/create', [InfoController::class, 'create'])->name('info.create');
         Route::post('/', [InfoController::class, 'store'])->name('info.store');
+        Route::get('/{info}/edit', [InfoController::class, 'edit'])->name('info.edit');
         Route::get('/{info}', [InfoController::class, 'show'])->name('info.show');
         Route::post('/{info}', [InfoController::class, 'update'])->name('info.update');
         Route::get('{info}/delete', [InfoController::class, 'destroy'])->name('info.delete');

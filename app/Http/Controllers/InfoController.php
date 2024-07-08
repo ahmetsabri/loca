@@ -29,6 +29,13 @@ class InfoController extends Controller
         return back()->with('success', 'success');
     }
 
+    public function edit(Info $info)
+    {
+        $categories = Category::isRoot()->get();
+        $selectedCategory = $info->load('category')?->cateogry?->bloodline;
+        return view('admin.info.edit', compact('categories', 'selectedCategory', 'info'));
+    }
+
     public function update(StoreInfoRequest $request, Info $info)
     {
         $info->update($request->validated());

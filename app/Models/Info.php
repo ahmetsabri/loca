@@ -41,4 +41,10 @@ class Info extends Model
         {
             return $this->hasMany(InfoOption::class);
         }
+
+
+        public function category()
+        {
+            return $this->belongsTo(Category::class);
+        }
 }
