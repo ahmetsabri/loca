@@ -20,6 +20,7 @@ use App\Http\Controllers\Frontend\ServiceController as FrontendServiceController
 use App\Http\Controllers\Frontend\TeamController as FrontendTeamController;
 use App\Http\Controllers\Frontend\VideoController as FrontendVideoController;
 use App\Http\Controllers\InfoController;
+use App\Http\Controllers\InfoOptionController;
 use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\PortfolioController;
@@ -88,6 +89,14 @@ Route::middleware('auth')->prefix('admin')->withoutMiddleware(LocaleMiddleware::
         Route::get('/{info}', [InfoController::class, 'show'])->name('info.show');
         Route::post('/{info}', [InfoController::class, 'update'])->name('info.update');
         Route::get('{info}/delete', [InfoController::class, 'destroy'])->name('info.delete');
+
+        Route::prefix('{info}/option')->name('info.option.')->group(function ($feature) {
+            Route::post('/', [InfoOptionController::class, 'store'])->name('store');
+            Route::get('/', [InfoOptionController::class, 'index'])->name('index');
+            Route::get('create', [InfoOptionController::class, 'create'])->name('create');
+            Route::post('{infoOption}', [InfoOptionController::class, 'update'])->name('update');
+            Route::get('{infoOption}/delete', [InfoOptionController::class, 'destroy'])->name('delete');
+        });
     });
     Route::prefix('feature')->group(function () {
         Route::get('/', [FeatureController::class, 'index'])->name('feature.index');

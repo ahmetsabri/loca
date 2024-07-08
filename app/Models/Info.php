@@ -36,4 +36,9 @@ class Info extends Model
     {
         return $this->hasMany(PortfolioInfo::class);
     }
+
+        public function options()
+        {
+            return $this->hasMany(InfoOption::class);
+        }
 }
