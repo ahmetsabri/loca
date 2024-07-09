@@ -34,7 +34,6 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\VideoCategoryController;
 use App\Http\Controllers\VideoController;
 use App\Http\Middleware\LocaleMiddleware;
-use App\Models\Province;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -65,9 +64,8 @@ Route::get('videos', [FrontendVideoController::class, 'index'])->name('videos');
 Route::get('services', [FrontendServiceController::class, 'index'])->name('frontend.services');
 Route::get('about', FrontendAboutController::class)->name('frontend.about');
 Route::get('faq', FrontendFaqController::class)->name('frontend.faq');
-Route::get('blog', [FrontendPostController::class,'index'])->name('frontend.blog');
-Route::get('blog/{post}', [FrontendPostController::class,'show'])->name('frontend.post.show');
-
+Route::get('blog', [FrontendPostController::class, 'index'])->name('frontend.blog');
+Route::get('blog/{post}', [FrontendPostController::class, 'show'])->name('frontend.post.show');
 
 Route::middleware('auth')->prefix('admin')->withoutMiddleware(LocaleMiddleware::class)->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -79,6 +77,7 @@ Route::middleware('auth')->prefix('admin')->withoutMiddleware(LocaleMiddleware::
         Route::get('/{category}', [CategoryController::class, 'show'])->name('category.show');
         Route::post('/{category}', [CategoryController::class, 'update'])->name('category.update');
         Route::get('children/{category?}/', [CategoryController::class, 'getChildren'])->name('category.children');
+        Route::get('info/{category?}/', [CategoryController::class, 'getInfo'])->name('category.info');
         Route::get('{category}/delete', [CategoryController::class, 'destroy'])->name('category.delete');
     });
 

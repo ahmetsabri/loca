@@ -219,6 +219,7 @@ class ProjectController extends Controller
 
         return back()->with('success', 'success');
     }
+
     public function removeFlat(Project $project, Flat $flat)
     {
         abort_if($project->id != $flat->project_id, 404);

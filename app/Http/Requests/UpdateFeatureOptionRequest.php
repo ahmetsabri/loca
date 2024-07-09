@@ -22,7 +22,7 @@ class UpdateFeatureOptionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required','array'],
+            'name' => ['required', 'array'],
         ];
     }
 }

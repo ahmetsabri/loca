@@ -23,7 +23,7 @@
 
             <input type="hidden" name="category_id" :value="selected2ndCategory ?? selected1stCategory ?? selectedCategory">
 
-                                <div class="flex  p-5 justify-center">
+                                <div class="flex p-5 justify-center">
                                     <ul class="bg-slate-200 px-10">
                                         @foreach($categories as $category)
 

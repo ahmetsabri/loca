@@ -50,7 +50,7 @@ class StorePortfolioRequest extends FormRequest
             'info.*.en' => ['sometimes', 'nullable'],
 
             'features' => ['sometimes', 'array'],
-            'features.*.*' => ['sometimes', 'nullable','exists:feature_options,id'],
+            'features.*.*' => ['sometimes', 'nullable', 'exists:feature_options,id'],
         ];
     }
 

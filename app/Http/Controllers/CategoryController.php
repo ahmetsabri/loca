@@ -51,6 +51,14 @@ class CategoryController extends Controller
     public function getChildren(Category $category)
     {
         $children = $category->load('children')->children;
+
         return response()->json(compact('children'));
+    }
+
+    public function getInfo(Category $category)
+    {
+        $info = $category->load('info')->info;
+
+        return response()->json(compact('info'));
     }
 }

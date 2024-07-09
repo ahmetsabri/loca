@@ -12,9 +12,9 @@ class FeatureOptionController extends Controller
     public function index(Feature $feature)
     {
         $feature = $feature->load('options');
+
         return view('admin.features.options.index', compact('feature'));
     }
-
 
     public function create(Feature $feature)
     {
@@ -24,6 +24,7 @@ class FeatureOptionController extends Controller
     public function store(StoreFeatureOptionRequest $request, Feature $feature)
     {
         $feature->options()->create($request->validated());
+
         return back()->with('success', 'success');
     }
 
@@ -34,11 +35,11 @@ class FeatureOptionController extends Controller
         return back()->with('success', 'success');
     }
 
-
     public function destroy(Feature $feature, FeatureOption $featureOption)
     {
         //TODO:deleted related
         $featureOption->delete();
+
         return back()->with('success', 'success');
     }
 }

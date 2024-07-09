@@ -14,6 +14,21 @@
         selectedCategory:null,
         selected1stCategory:null,
         selected2ndCategory:null,
+        infos:[],
+        init(){
+            {{-- this.loadInfo(4) --}}
+        },
+        loadInfo(id){
+            const self = this;
+            url = `{{ route('category.info') }}/${id}`
+            axios.get(url).then(res=>{
+                self.infos = res.data.info
+                console.log(res.data.info)
+            }).catch(err=>{
+                alert(err);
+                console.log(err)
+            })
+        },
         loadChildren(id,level=1){
             const self = this
             let url;
@@ -27,6 +42,7 @@
             if (level != 1) {
                 self.selected1stCategory = id
             }
+            this.loadInfo(id)
                  url = `{{ route('category.children') }}/${id}`
             axios.get(url).then(res=>{
                 if(level == 1){

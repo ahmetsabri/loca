@@ -10,6 +10,7 @@ class ShowBuySellController extends Controller
     public function __invoke(Request $request)
     {
         $provinces = Province::all();
+
         return view('frontend.buy_sell', compact('provinces'));
     }
 }

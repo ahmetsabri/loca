@@ -29,6 +29,7 @@ class Info extends Model
             ->where('info_id', $this->id)
             ->whereNotNull('value->tr')
             ->get();
+
         return $values->isEmpty() ? null : $values;
     }
 
@@ -37,14 +38,13 @@ class Info extends Model
         return $this->hasMany(PortfolioInfo::class);
     }
 
-        public function options()
-        {
-            return $this->hasMany(InfoOption::class);
-        }
+    public function options()
+    {
+        return $this->hasMany(InfoOption::class);
+    }
 
-
-        public function category()
-        {
-            return $this->belongsTo(Category::class);
-        }
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

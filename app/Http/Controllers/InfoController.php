@@ -33,6 +33,7 @@ class InfoController extends Controller
     {
         $categories = Category::isRoot()->get();
         $selectedCategory = $info->load('category')?->cateogry?->bloodline;
+
         return view('admin.info.edit', compact('categories', 'selectedCategory', 'info'));
     }
 

@@ -11,7 +11,6 @@ use App\Models\Info;
 use App\Models\Portfolio;
 use App\Models\Province;
 use App\Models\User;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -39,14 +38,11 @@ class PortfolioController extends Controller
 
     public function store(StorePortfolioRequest $request)
     {
+        // dd($request->info);
         // DB::beginTransaction();
         $portfolioBasicData = $request->safe();
         // try {
 
-        if ($request->hasFile('brochure')) {
-            $brochure = $request->file('brochure')->storePublicly('portfolio/brochures', ['disk' => 'public']);
-            $portfolioBasicData = $portfolioBasicData->merge(['brochure_path' => $brochure]);
-        }
 
         $portfolio = Portfolio::create($portfolioBasicData->except('brochure', 'images', 'info', 'features'));
 
@@ -55,12 +51,20 @@ class PortfolioController extends Controller
             $portfolio->images()->create(['path' => $path]);
         }
 
-        $infos = $request->mapInfo();
+        // $infos = $request->mapInfo();
 
-        foreach ($infos as $id => $info) {
+        foreach ($request->info as $id => $info) {
+            if (is_array($info)) {
+                $portfolio->infos()->create([
+                    'info_id' => $id,
+                    'value' => $info,
+                ]);
+
+                continue;
+            }
             $portfolio->infos()->create([
                 'info_id' => $id,
-                'value' => $info,
+                'value_id' => $info,
             ]);
         }
 
@@ -69,7 +73,6 @@ class PortfolioController extends Controller
         if ($features) {
             $this->saveFeatures($portfolio, $features);
         }
-
 
         // DB::commit();
         // } catch (\Throwable $th) {
@@ -89,7 +92,6 @@ class PortfolioController extends Controller
 
     public function edit(Portfolio $portfolio)
     {
-
         $categories = Category::isRoot()->get();
         $infos = Info::all();
 
@@ -170,11 +172,11 @@ class PortfolioController extends Controller
 
     public function saveFeatures(Portfolio $portfolio, array $features)
     {
-        foreach ($features as $feature=>$options) {
+        foreach ($features as $feature => $options) {
             foreach ($options as $option) {
                 $portfolio->features()->create([
                     'feature_id' => $feature,
-                    'feature_option_id' => $option
+                    'feature_option_id' => $option,
                 ]);
             }
         }

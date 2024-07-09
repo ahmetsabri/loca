@@ -18,4 +18,9 @@ class Category extends Model
     public $translatable = ['name'];
 
     protected $guarded = [];
+
+    public function info()
+    {
+        return $this->hasMany(Info::class)->with('options');
+    }
 }

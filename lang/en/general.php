@@ -105,6 +105,6 @@ return [
     'copy' => 'copy',
 
     'sevices_before_sell' => 'BEFORE SALE AND RENTAL',
-    'service_detail' =>'We follow the most detailed of all your sales and rental services'
+    'service_detail' => 'We follow the most detailed of all your sales and rental services',
 
 ];
