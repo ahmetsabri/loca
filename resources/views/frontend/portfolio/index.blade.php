@@ -269,12 +269,12 @@ class="list hidden @if($child->id == request('filter.category')) active @endif [
                                     <div class="title text-3.5 font-semibold text-tertiary-950 mb-4 capitalize">{{ $filter->name }}</div>
                                     <div
                                         class="list-wrapper grid gap-2.5 overflow-x-hidden overflow-y-auto max-h-[135px] scrollbar scrollbar-w-1 scrollbar-track-rounded-full scrollbar-thumb-rounded-full scrollbar-track-[#8AA5D3]/24 scrollbar-thumb-[#8AA5D3]/65">
-                                @foreach($filter->used_values as $value)
+                                @foreach($filter->options as $value)
                                         <div class="custom-checkbox relative flex items-center gap-2.5">
                                             <input hidden name="filter[info][{{$filter->id }}][id]" value="{{ $filter->id }}"/>
                                             <input type="checkbox"
-                                            @checked( in_array($value->val,request('filter.info.'.$filter->id,[])) )
-                                            value="{{ $value->val }}"
+                                            @checked( in_array($value->id,request('filter.info.'.$filter->id,[])) )
+                                            value="{{ $value->id }}"
                                             name="filter[info][{{$filter->id }}][]"
                                                 class="peer absolute left-0 top-0 w-full h-full z-2 cursor-pointer opacity-0">
                                             <div
@@ -282,8 +282,7 @@ class="list hidden @if($child->id == request('filter.category')) active @endif [
                                             </div>
                                             <div
                                                 class="text leading-tight duration-300 text-3.5 font-medium text-tertiary-950 [-webkit-text-stroke:0.5px_transparent] peer-checked:text-[#2675FA] peer-checked:[-webkit-text-stroke:0.5px_#2675FA]">
-
-                                                {{ $value->val }}
+                                                {{ $value->name }}
                                             </div>
                                         </div>
                                         @endforeach

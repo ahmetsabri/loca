@@ -36,7 +36,7 @@ class Portfolio extends Model
     }
     public function options()
     {
-        return $this->hasMany(PortfolioInfo::class)->whereNotNull('value_id')->with('option');
+        return $this->hasMany(PortfolioInfo::class)->whereNotNull('value_id')->with('option')->with('info');
     }
     public function features()
     {
@@ -114,16 +114,12 @@ class Portfolio extends Model
 
     public function scopeInfo(Builder $builder, ...$val)
     {
-        if (collect($val)->flatten()->count() == 2) {
-            return $builder;
-        }
-
-        return $builder->whereHas('infos', function ($query) use ($val) {
+        return $builder->whereHas('options', function ($query) use ($val) {
             foreach ($val as $index => $value) {
                 if ($index == 0) {
-                    $query->whereIn('value->tr', Arr::except($value, 'id'))->where('info_id', $value['id'] ?? null);
+                    $query->whereIn('value_id', Arr::except($value, 'id'))->where('info_id', $value['id'] ?? null);
                 }
-                $query->orWhereIn('value->tr', Arr::except($value, 'id'))->where('info_id', $value['id'] ?? null);
+                $query->orWhereIn('value_id', Arr::except($value, 'id'))->where('info_id', $value['id'] ?? null);
             }
         });
     }

@@ -18,7 +18,7 @@
                 const townUrl = `{{ route('province.towns',$portfolio->province) }}`
                 this.loadTowns(townUrl)
                 this.loadDistricts(`{{ $portfolio->town_id }}`)
-
+                this.loadInfo(`{{ $portfolio->category_id }}`)
         },
         firstLevelChildren:[],
         secondLevelChildren:[],
@@ -26,7 +26,19 @@
         selectedCategory:`{{ $portfolio->category_id }}`,
         selected1stCategory:null,
         selected2ndCategory:`{{ $portfolio->category_id }}`,
-
+        infos:[],
+        selectedInfos:JSON.parse(`{{ ($portfolio->infos) }}`),
+        selectedOptions:JSON.parse(`{{ ($portfolio->options) }}`),
+loadInfo(id){
+    const self = this;
+    url = `{{ route('category.info') }}/${id}`
+    axios.get(url).then(res=>{
+    self.infos = res.data.info
+    }).catch(err=>{
+    alert(err);
+    console.log(err)
+    })
+    },
         loadChildren(id,level=1){
             const self = this
             let url;
@@ -41,6 +53,7 @@
             if (level != 1) {
                 self.selected1stCategory = id
             }
+            this.loadInfo(id)
                  url = `{{ route('category.children') }}/${id}`
             axios.get(url).then(res=>{
                 if(level == 1){
@@ -61,7 +74,6 @@
             this.districts=[]
             const self = this
             axios.get(url).then((res)=>{
-                console.log(res.data.towns)
                 self.towns = res.data.towns
 
             }).catch((err)=>{
@@ -72,7 +84,6 @@
         const url = `{{ route('towns.districts') }}/` + id
         const self = this
             axios.get(url).then((res)=>{
-            console.log(res.data.districts)
             self.districts = res.data.districts
 
             }).catch((err)=>{

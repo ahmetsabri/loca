@@ -16,6 +16,7 @@ class PortfolioController extends Controller
     {
         $portfolios = QueryBuilder::for(Portfolio::class)->with(
             'infos',
+            'options.option',
             'images',
             'category.rootAncestor',
             'district.town.province'
@@ -36,9 +37,7 @@ class PortfolioController extends Controller
         $rootCategories = Category::isRoot()->with('children.children')->get();
         $provinces = Province::all();
         $selectedCategory = Category::find(request('filter.category'))?->load('rootAncestor');
-        $filters = Info::whereHas('portfolioValues', function ($query) {
-            $query->where('value->tr', '<>', null);
-        })->where('filterable', true)->get();
+        $filters = Info::has('options')->with('options')->where('filterable', true)->get();
         $locations = Portfolio::limit(200)->with('images')->get()->map(fn ($por) => [
             'lat' => (float) $por->lat_lon[0],
             'lng' => (float) $por->lat_lon[1],

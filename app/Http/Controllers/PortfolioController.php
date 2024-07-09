@@ -62,7 +62,7 @@ class PortfolioController extends Controller
 
                 continue;
             }
-            $portfolio->infos()->create([
+            $portfolio->options()->create([
                 'info_id' => $id,
                 'value_id' => $info,
             ]);
@@ -97,7 +97,7 @@ class PortfolioController extends Controller
 
         $features = Feature::has('options')->with('options')->get();
 
-        $portfolio = $portfolio->load('infos', 'features', 'province', 'town', 'district');
+        $portfolio = $portfolio->load('options', 'infos', 'features', 'province', 'town', 'district');
 
         $provinces = Province::all();
 
@@ -125,13 +125,21 @@ class PortfolioController extends Controller
             }
         }
 
-        $infos = $request->mapInfo();
+        // $infos = $request->mapInfo();
 
-        foreach ($infos as $id => $info) {
-            $portfolio->infos()->updateOrCreate(['info_id' => $id], [
-                'info_id' => $id,
-                'value' => $info,
-            ]);
+        foreach ($request->info as $id => $info) {
+            if (is_array($info)) {
+                $portfolio->infos()->updateOrCreate(['info_id' => $id], [
+                         'info_id' => $id,
+                         'value' => $info,
+                     ]);
+                continue;
+            }
+
+            $portfolio->options()->updateOrCreate(['info_id' => $id], [
+                     'info_id' => $id,
+                     'value_id' => $info,
+                 ]);
         }
 
         $portfolio->features()->delete();

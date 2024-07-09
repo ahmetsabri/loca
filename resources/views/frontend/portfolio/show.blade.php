@@ -316,21 +316,6 @@
                                                 {{ $portfolio->price }}
                                                 </div>
                                         </div>
-
-                                        <div class="split w-full h-px bg-[#8AA5D3]/30 my-2"></div>
-                                        <div class="row flex items-center justify-between gap-7.5 px-1.5 leading-tight">
-                                            <div class="title text-3.5 font-medium text-tertiary-950">m2 ({{ __('general.gross') }})</div>
-                                            <div class="value text-3.5 font-semibold text-tertiary-950 text-right">
-                                                {{ $portfolio->gross }}
-                                            </div>
-                                        </div>
-                                        <div class="split w-full h-px bg-[#8AA5D3]/30 my-2"></div>
-                                        <div class="row flex items-center justify-between gap-7.5 px-1.5 leading-tight">
-                                            <div class="title text-3.5 font-medium text-tertiary-950">m2 ({{ __('general.net') }})</div>
-                                            <div class="value text-3.5 font-semibold text-tertiary-950 text-right">
-                                                {{ $portfolio->net }}
-                                            </div>
-                                        </div>
                                         @foreach($portfolio->infos as $info)
 <div class="split w-full h-px bg-[#8AA5D3]/30 my-2"></div>
                                         <div class="row flex items-center justify-between gap-7.5 px-1.5 leading-tight">
@@ -343,7 +328,18 @@
                                         </div>
 
                                         @endforeach
+@foreach($portfolio->options as $option)
+                <div class="split w-full h-px bg-[#8AA5D3]/30 my-2"></div>
+                <div class="row flex items-center justify-between gap-7.5 px-1.5 leading-tight">
+                    <div class="title text-3.5 font-medium text-tertiary-950 capitalize">
+                        {{ $option->info->name }}
+                    </div>
+                    <div class="value text-3.5 font-semibold text-tertiary-950 text-right capitalize">
+                        {{ $option->option->name }}
+                    </div>
+                </div>
 
+                @endforeach
                                     </div>
                                 </div>
                             </div>

@@ -67,9 +67,4 @@ class UpdatePortfolioRequest extends FormRequest
 
         return $onlyTurkishfilled + $filledInfo;
     }
-
-    protected function failedValidation(Validator $validator)
-    {
-        dd($validator->errors()->all());
-    }
 }
