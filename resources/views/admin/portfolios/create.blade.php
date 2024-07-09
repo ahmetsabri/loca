@@ -8,6 +8,37 @@
         towns:[],
         districts:[],
         numOfFeatures:3,
+        firstLevelChildren:[],
+        secondLevelChildren:[],
+        filterable:0,
+        selectedCategory:null,
+        selected1stCategory:null,
+        selected2ndCategory:null,
+        loadChildren(id,level=1){
+            const self = this
+            let url;
+            if (level == 1 ){
+                self.selectedCategory = id;
+                self.firstLevelChildren= [];
+                self.secondLevelChildren= [];
+                self.selected1stCategory = null;
+                self.selected2ndCategory=null;
+            }
+            if (level != 1) {
+                self.selected1stCategory = id
+            }
+                 url = `{{ route('category.children') }}/${id}`
+            axios.get(url).then(res=>{
+                if(level == 1){
+                    self.firstLevelChildren = res.data.children
+                    return
+                }
+                self.secondLevelChildren = res.data.children
+            }).catch(err=>{
+                alert(err);
+                console.log(err)
+            })
+        },
         loadTowns(id){
             const url = `{{ route('province.towns') }}/` + id
             const self = this

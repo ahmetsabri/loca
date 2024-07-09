@@ -9,8 +9,14 @@
 
         <div class="m-5" x-data="{
             init(){
-                this.loadChildren(`{{ $info->category->parent->parent_id }}`,1); // arsa
-                this.loadChildren(`{{ $info->category->parent_id }}`,2); //kiralik
+                if(`{{ $info->category->parent->parent_id }}`){
+                    this.loadChildren(`{{ $info->category->parent->parent_id }}`,1); // arsa
+                    this.loadChildren(`{{ $info->category->parent_id }}`,2); //kiralik
+                }
+                if(!`{{ $info->category->parent->parent_id }}`){
+                    this.loadChildren(`{{ $info->category->parent_id }}`,1); //kiralik
+                    this.loadChildren(`{{ $info->category_id }}`,2); // arsa
+                }
                 this.selected2ndCategory = `{{ $info->category_id }}`
 
         },

@@ -20,6 +20,57 @@
         </h2>
         <form action="{{route('portfolio.update',$portfolio)}}" method="post" enctype="multipart/form-data">
             @csrf
+            <input type="hidden" name="category_id" :value="selected2ndCategory ?? selected1stCategory ?? selectedCategory">
+
+                             <div class="flex  p-5 justify-center">
+                                                                <ul class="bg-slate-200 px-10">
+                                                                    @foreach($categories as $category)
+
+                                                                    @if($loop->first)
+                                                                    <li class="py-1">
+                                                                        <a class="font-bold capitalize text-gray-600 dark:text-blue-500 ">
+                                                                            Kategori seç
+                                                                        </a>
+                                                                    </li>
+                                                                    @endif
+                                                                    <li class="py-1" @click="loadChildren(`{{ $category->id}}`)">
+                                                                        <a href="#" class="font-bold capitalize text-gray-600 dark:text-blue-500 hover:underline"
+                                                                            :class="{'bg-slate-400 text-white': selectedCategory === '{{ $category->id }}'}">
+                                                                            {{ $category->name }}
+                                                                        </a>
+                                                                    </li>
+                                                                    @endforeach
+                                                                </ul>
+
+                                                                <div class="mx-3"></div>
+                                                                <div class="bg-slate-200 p-5 justify-center" x-show="firstLevelChildren.length">
+                                                                    <ul>
+                                                                        <template x-for="child in firstLevelChildren">
+                                                                            <li>
+                                                                                <a href="#" @click="loadChildren(child.id,2)"
+                                                                                    :class="{'bg-slate-400 text-white': selected1stCategory == child.id}"
+                                                                                    class="font-bold capitalize text-gray-600 dark:text-gray-500 hover:underline"
+                                                                                    x-text="child.name.tr">
+                                                                                </a>
+                                                                            </li>
+                                                                        </template>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="mx-2"></div>
+                                                                <div class="bg-slate-200 p-5 justify-center" x-show="secondLevelChildren.length">
+                                                                    <ul>
+                                                                        <template x-for="child in secondLevelChildren">
+                                                                            <li>
+                                                                                <a href="#" @click="selected2ndCategory = child.id"
+                                                                                    :class="{'bg-slate-400 text-white': selected2ndCategory == child.id}"
+                                                                                    class="font-bold capitalize text-gray-600 dark:text-gray-500 hover:underline"
+                                                                                    x-text="child.name.tr">
+                                                                                </a>
+                                                                            </li>
+                                                                        </template>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
             <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                 <div class="sm:col-span-2">
                     <label for="title_tr" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -47,21 +98,7 @@
                         placeholder="title in" required value="{{ old('title[en]') ?? $portfolio->getTranslation('title','en') }}">
                 </div>
 
-                                <div class="w-full">
-                    <label for="net" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        net</label>
-                    <input value="{{ $portfolio->net }}" type="number" name="net" id="net"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="100" required>
-                </div>
-                <div class="w-full">
-                    <label for="gross" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        brüt
-                    </label>
-                    <input value="{{ $portfolio->gross }}" type="number" name="gross" id="gross"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="200" required>
-                </div>
+
                 <div>
                                     <label for="user"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white capitalize">danışman</label>
@@ -82,46 +119,7 @@
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                         placeholder="₺2999" required value="{{ old('price_in_tl') ?? $portfolio->price_in_tl }}">
                 </div>
-                {{-- <div class="w-full">
-                    <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        Fiyat ABD
-                        </label>
-                    <input type="number" name="price_in_usd" id="price_in_usd"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="$2999" required value="{{ old('price_in_usd') ?? $portfolio->price_in_usd }}">
-                </div> --}}
-                {{-- <div class="w-full">
-                    <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        Fiyat EUR
-                        </label>
-                    <input type="number" name="price_in_eur" id="price_in_eur"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="€2999" required value="{{ old('price_in_eur') ?? $portfolio->price_in_eur }}">
-                </div> --}}
-                <div>
-                    <label for="category"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kategori</label>
-                    <select id="category" name="category_id"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                        @foreach($categories as $category)
 
-
-                        <option value="{{ $category->id }}" @if (old('category_id') && old('category_id') == $category->id) selected @elseif ($category->id == $portfolio->category_id) selected @endif>
-                            @foreach($category->ancestorsAndSelf->reverse() as $ancestor)
-
-                            {{$ancestor->name}}
-
-                            @if(!$loop->last)
-                            >
-                            @endif
-
-
-
-                            @endforeach
-                        </option>
-                        @endforeach
-                    </select>
-                </div>
 <div>
     <label for="province"
         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white capitalize">İl</label>
@@ -178,7 +176,7 @@
                     <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="broushour"></div>
 <div class="flex">
     @foreach($portfolio->images as $image)
-<div class="w-1/5">
+<div class="w-full">
         <img src="{{ $image->full_url }}">
     </div>
     @endforeach
@@ -192,16 +190,6 @@
     @endforeach
 </div>
                 </div>
-
-                <div>
-                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        for="user_avatar">broşür</label>
-                    <input
-                        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                        aria-describedby="brochure_help" id="brochure" type="file" name="brochure">
-                    <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="brochure"></div>
-                </div>
-
                 <div class="sm:col-span-2">
                     <label for="description_tr" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                         Açıklama türkçesi

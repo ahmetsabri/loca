@@ -26,7 +26,8 @@ class PortfolioController extends Controller
 
     public function create()
     {
-        $categories = Category::with('ancestorsAndSelf')->isLeaf()->hasParent()->get();
+        $categories = Category::isRoot()->get();
+
         $infos = Info::all();
         $features = Feature::has('options')->with('options')->get();
 
@@ -88,7 +89,8 @@ class PortfolioController extends Controller
 
     public function edit(Portfolio $portfolio)
     {
-        $categories = Category::with('ancestorsAndSelf')->isLeaf()->hasParent()->get();
+
+        $categories = Category::isRoot()->get();
         $infos = Info::all();
 
         $features = Feature::has('options')->with('options')->get();
