@@ -34,7 +34,10 @@ class Portfolio extends Model
     {
         return $this->hasMany(PortfolioInfo::class)->where('value->tr', '<>', null)->with('info');
     }
-
+    public function options()
+    {
+        return $this->hasMany(PortfolioInfo::class)->whereNotNull('value_id')->with('option');
+    }
     public function features()
     {
         return $this->hasMany(PortfolioFeature::class)->with('feature')->with('option');

@@ -12,12 +12,13 @@ class PortfolioInfo extends Model
     use HasTranslations;
 
     protected $guarded = [];
-
     public $translatable = ['value'];
-
-    // info relation
     public function info()
     {
         return $this->belongsTo(Info::class);
+    }
+    public function option()
+    {
+        return $this->belongsTo(InfoOption::class, 'value_id')->with('info');
     }
 }
