@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Arr;
 use Illuminate\Validation\Rule;
 
 class StorePortfolioRequest extends FormRequest
@@ -53,11 +52,10 @@ class StorePortfolioRequest extends FormRequest
         ];
     }
 
-
     public function prepareForValidation()
     {
         $this->merge([
-            'price_in_tl' => str_replace('.', '', $this->input('price_in_tl', ''))
+            'price_in_tl' => str_replace('.', '', $this->input('price_in_tl', '')),
         ]);
     }
 }

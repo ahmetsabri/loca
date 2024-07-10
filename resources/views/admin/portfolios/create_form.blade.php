@@ -176,39 +176,51 @@
                         for="images">resimler</label>
                     <input
                         class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                        aria-describedby="images" id="images" type="file" name="images[]" multiple>
-                    <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="images"></div>
+                        aria-describedby="images" id="images" type="file" name="images[]" multiple accept="image/*" @change="handleFiles">
                 </div>
+                <div class="sm:col-span-2 flex flex-wrap">
+                <template x-for="image in images" :key="image.id">
+                        <div class="w-1/4 p-1">
+                        <img :src="image.full_url" class="rounded w-52" />
+<button type="button"
+    class="px-3 py-2 text-xs font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 mt-1">
+    sil
+</button>
+<button type="button"
+    class="px-3 py-2 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-1">
+    vitrin yap
+</button>
 
+                    </div>
+                    </template>
+                    </div>
                 <div class="sm:col-span-2">
                     <label for="description_tr" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                       Açıklama türkçesi
+                       Açıklama Türkçesi
                     </label>
                     <textarea name="description[tr]" id="description_tr" rows="4"
                         class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="{{__('description_tr')}}"></textarea>
+                        placeholder="{{__('general.description_tr')}}"></textarea>
                 </div>
                 <div class="sm:col-span-2">
                     <label for="description_tr" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        açıklama rusça
+                        Açıklama Rusça
                     </label>
                     <textarea name="description[ru]" id="description_ru" rows="4"
                         class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="{{__('description_ru')}}"></textarea>
+                        placeholder="{{__('general.description_ru')}}"></textarea>
                 </div>
                 <div class="sm:col-span-2">
                     <label for="description_en" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                       açıklama ingilizce
+                       Açıklama İngilizce
                     </label>
                     <textarea name="description[en]" id="description_en" rows="4"
                         class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="{{__('description_en')}}"></textarea>
+                        placeholder="{{__('general.description_en')}}"></textarea>
                 </div>
             </div>
-
             @include('admin.portfolios.info_form')
             @include('admin.portfolios.feature_form')
-
             <button type="submit"
                 class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                 kaydet

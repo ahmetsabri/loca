@@ -12,6 +12,8 @@ class Image extends Model
 
     protected $guarded = [];
 
+    protected $appends = ['full_url'];
+
     public function imageable()
     {
         return $this->morphTo('imageable');

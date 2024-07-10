@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\InfoOption;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,9 +11,8 @@ return new class() extends Migration
      */
     public function up(): void
     {
-        Schema::table('portfolio_infos', function (Blueprint $table) {
-            $table->foreignIdFor(InfoOption::class, 'value_id')->after('value')->nullable()->constrained('info_options');
-            $table->json('value')->nullable()->change();
+        Schema::table('images', function (Blueprint $table) {
+            $table->boolean('is_main')->after('path')->default(0);
         });
     }
 
@@ -23,8 +21,8 @@ return new class() extends Migration
      */
     public function down(): void
     {
-        Schema::table('portfolio_infos', function (Blueprint $table) {
-            //
+        Schema::table('images', function (Blueprint $table) {
+            $table->dropColumn('is_main');
         });
     }
 };

@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Number;
 use Spatie\Translatable\HasTranslations;
 
@@ -34,10 +33,12 @@ class Portfolio extends Model
     {
         return $this->hasMany(PortfolioInfo::class)->where('value->tr', '<>', null)->with('info');
     }
+
     public function options()
     {
         return $this->hasMany(PortfolioInfo::class)->whereNotNull('value_id')->with('option')->with('info');
     }
+
     public function features()
     {
         return $this->hasMany(PortfolioFeature::class)->with('feature')->with('option');

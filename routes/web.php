@@ -116,11 +116,13 @@ Route::middleware('auth')->prefix('admin')->withoutMiddleware(LocaleMiddleware::
         Route::get('/', [PortfolioController::class, 'index'])->name('portfolio.index');
         Route::get('create', [PortfolioController::class, 'create'])->name('portfolio.create');
         Route::post('/', [PortfolioController::class, 'store'])->name('portfolio.store');
+        Route::post('/upload-images', [PortfolioController::class, 'uploadImages'])->name('portfolio.upload');
         Route::get('/{portfolio}', [PortfolioController::class, 'show'])->name('portfolio.show');
         Route::get('/{portfolio}/edit', [PortfolioController::class, 'edit'])->name('portfolio.edit');
         Route::post('/{portfolio}/update', [PortfolioController::class, 'update'])->name('portfolio.update');
         Route::get('{portfolio}/delete', [PortfolioController::class, 'destroy'])->name('portfolio.delete');
-        Route::get('{portfolio}/image/{image}/delete', [PortfolioController::class, 'removeImage'])->name('image.delete');
+        Route::get('{portfolio?}/image/{image}/delete', [PortfolioController::class, 'removeImage'])->name('image.delete');
+        Route::post('{portfolio?}/image/{image}/set-main', [PortfolioController::class, 'setMain'])->name('image.set_main');
     });
     Route::prefix('project')->group(function () {
         Route::get('/', [ProjectController::class, 'index'])->name('project.index');

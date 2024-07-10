@@ -11,6 +11,7 @@ use App\Models\Info;
 use App\Models\Portfolio;
 use App\Models\Province;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -42,7 +43,6 @@ class PortfolioController extends Controller
         // DB::beginTransaction();
         $portfolioBasicData = $request->safe();
         // try {
-
 
         $portfolio = Portfolio::create($portfolioBasicData->except('brochure', 'images', 'info', 'features'));
 
@@ -130,16 +130,17 @@ class PortfolioController extends Controller
         foreach ($request->info as $id => $info) {
             if (is_array($info)) {
                 $portfolio->infos()->updateOrCreate(['info_id' => $id], [
-                         'info_id' => $id,
-                         'value' => $info,
-                     ]);
+                    'info_id' => $id,
+                    'value' => $info,
+                ]);
+
                 continue;
             }
 
             $portfolio->options()->updateOrCreate(['info_id' => $id], [
-                     'info_id' => $id,
-                     'value_id' => $info,
-                 ]);
+                'info_id' => $id,
+                'value_id' => $info,
+            ]);
         }
 
         $portfolio->features()->delete();
@@ -170,9 +171,8 @@ class PortfolioController extends Controller
         return back()->with('success', 'success');
     }
 
-    public function removeImage(Portfolio $portfolio, Image $image)
+    public function removeImage(?Portfolio $portfolio, Image $image)
     {
-        abort_if($portfolio->id != $image->imageable_id, 404);
         $image->delete();
 
         return back()->with('success', 'success');
@@ -188,5 +188,49 @@ class PortfolioController extends Controller
                 ]);
             }
         }
+    }
+
+    public function uploadImages(Request $request)
+    {
+        $image = $request->input('images');
+        $imageParts = explode(';base64,', $image);
+        $imageTypeAux = explode('image/', $imageParts[0]);
+        $imageType = $imageTypeAux[1];
+        $imageBase64 = base64_decode($imageParts[1]);
+        $fileName = uniqid().'.'.$imageType;
+
+        Storage::disk('public')->put('portfolio/images/'.$fileName, $imageBase64);
+        $path = 'portfolio/images/'.$fileName;
+
+        $lastPortfolioId = Portfolio::latest()->first()?->id + 1;
+        $image = Image::create([
+            'path' => $path,
+            'imageable_id' => $lastPortfolioId,
+            'imageable_type' => \App\Models\Portfolio::class,
+        ]);
+
+        $images = Image::where([
+            ['imageable_id', $lastPortfolioId],
+            ['imageable_type', \App\Models\Portfolio::class],
+        ])->get();
+
+        return response()->json(['images' => $images], 200);
+    }
+
+    public function setMain(Image $image)
+    {
+        $image->update(['is_main' => true]);
+
+        Image::query()->where([
+            ['imageable_id', $image->imageable_id],
+            ['imageable_type', \App\Models\Portfolio::class],
+        ])->where('id', '<>', $image->id)->update(['is_main' => false]);
+
+        $images = Image::where([
+            ['imageable_id', $image->imageable_id],
+            ['imageable_type', \App\Models\Portfolio::class],
+        ])->get();
+
+        return response()->json(['images' => $images], 200);
     }
 }

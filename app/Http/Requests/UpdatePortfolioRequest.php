@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Arr;
 use Illuminate\Validation\Rule;
@@ -68,10 +67,10 @@ class UpdatePortfolioRequest extends FormRequest
         return $onlyTurkishfilled + $filledInfo;
     }
 
-        public function prepareForValidation()
-        {
-            $this->merge([
-                'price_in_tl' => str_replace('.', '', $this->input('price_in_tl', ''))
-            ]);
-        }
+    public function prepareForValidation()
+    {
+        $this->merge([
+            'price_in_tl' => str_replace('.', '', $this->input('price_in_tl', '')),
+        ]);
+    }
 }

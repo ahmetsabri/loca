@@ -16,6 +16,32 @@
         selected2ndCategory:null,
         infos:[],
         formattedNumber:null,
+        images: [],
+        handleFiles(event) {
+            const files = event.target.files;
+            const self = this;
+            for (const file of files) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+        axios.post(`{{ route('portfolio.upload') }}`,{
+                    images:e.target.result
+                    },{
+                    headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name=csrf-token]').getAttribute('content')
+                    },
+                    }).then(res=>{
+
+                    self.images = res.data.images
+                    }).catch(err=>{
+                    alert('err')
+                    console.log(err)
+                    })
+                }
+                reader.readAsDataURL(file);
+                new Promise(resolve => setTimeout(resolve, 2000));
+            }
+        },
         formatNumber(event) {
             let input = event.target;
             let number = parseInt(input.value.replace(/\D/g, ''));

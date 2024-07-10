@@ -78,10 +78,11 @@ class StoreProjectRequest extends FormRequest
             'flats.*.features.*.en' => ['sometimes', 'nullable'],
         ];
     }
-        public function prepareForValidation()
-        {
-            $this->merge([
-                'price_in_tl' => str_replace('.', '', $this->input('price_in_tl', ''))
-            ]);
-        }
+
+    public function prepareForValidation()
+    {
+        $this->merge([
+            'price_in_tl' => str_replace('.', '', $this->input('price_in_tl', '')),
+        ]);
+    }
 }
