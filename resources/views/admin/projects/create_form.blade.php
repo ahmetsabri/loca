@@ -39,21 +39,21 @@
                             <label for="province" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white capitalize">
                             İl
                             </label>
-                            <select required id="province" name="province_id"
+                            <select @change="loadTowns($event.target.value)" required id="province" name="province_id"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                                <option value="">İl</option>
                                 @foreach($provinces as $province)
-                                <option @click="loadTowns(`{{ route('province.towns',$province) }}`)" value="{{ $province->id }}">{{ $province->name }}</option>
+                                <option value="{{ $province->id }}">{{ $province->name }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div>
                             <label for="town" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white capitalize">İlçe</label>
-                            <select required id="town" name="town_id"
+                            <select @change="loadDistricts($event.target.value)" required id="town" name="town_id"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                   <option disabled>İlçe</option>
                                 <template x-for="town in towns">
-                                <option @click="loadDistricts(town.id)" x-text="town.name" :value="town.id"></option>
+                                <option  x-text="town.name" :value="town.id"></option>
                     </template>
                             </select>
                         </div>
@@ -71,28 +71,10 @@
                     <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     Fiyat TL
                     </label>
-                    <input type="number" name="price_in_tl" id="price"
+        <input type="text" name="price_in_tl" id="price"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="₺2999" required>
+                        placeholder="₺2999" x-model="formattedNumber" @input="formatNumber" required>
                 </div>
-                {{-- <div class="w-full">
-                    <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                    Fiyat ABD
-                    </label>
-                    <input type="number" name="price_in_usd" id="price_in_usd"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="$2999" required="">
-                </div> --}}
-                {{-- <div class="w-full">
-                    <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-
-                    Fiyat EUR
-                    </label>
-                    <input type="number" name="price_in_eur" id="price_in_eur"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="€2999" required="">
-                </div> --}}
-
                 <div>
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                         for="user_avatar">tanıtım linki</label>
@@ -120,15 +102,7 @@
                     <input
                         class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                         aria-describedby="images" id="images" type="file" name="images[]" multiple>
-                    <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="broushour"></div>
-                </div>
-                <div>
-                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        for="user_avatar">broşür</label>
-                    <input
-                        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                        aria-describedby="brochure_help" id="brochure" type="file" name="brochure">
-                    <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="brochure"></div>
+                    <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="images"></div>
                 </div>
 @foreach(config('app.locales') as $locale)
 

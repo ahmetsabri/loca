@@ -67,4 +67,11 @@ class UpdatePortfolioRequest extends FormRequest
 
         return $onlyTurkishfilled + $filledInfo;
     }
+
+        public function prepareForValidation()
+        {
+            $this->merge([
+                'price_in_tl' => str_replace('.', '', $this->input('price_in_tl', ''))
+            ]);
+        }
 }

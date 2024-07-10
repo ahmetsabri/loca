@@ -38,7 +38,7 @@ class StoreProjectRequest extends FormRequest
             'location' => ['required'],
             'images' => ['required', 'array'],
             'images.*' => ['required', 'image'],
-            'brochure' => ['sometimes', 'mimes:pdf', 'extensions:pdf'],
+            // 'brochure' => ['sometimes', 'mimes:pdf', 'extensions:pdf'],
             'features' => ['sometimes', 'array'],
             'features.*.tr' => ['sometimes', 'nullable'],
             'features.*.ru' => ['sometimes', 'nullable'],
@@ -78,4 +78,10 @@ class StoreProjectRequest extends FormRequest
             'flats.*.features.*.en' => ['sometimes', 'nullable'],
         ];
     }
+        public function prepareForValidation()
+        {
+            $this->merge([
+                'price_in_tl' => str_replace('.', '', $this->input('price_in_tl', ''))
+            ]);
+        }
 }

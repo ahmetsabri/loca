@@ -115,9 +115,9 @@
                     <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     Fiyat TL
                     </label>
-                    <input type="number" name="price_in_tl" id="price"
+                    <input type="text" name="price_in_tl" id="price"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="₺2999" required value="{{ old('price_in_tl') ?? $portfolio->price_in_tl }}">
+                        placeholder="₺2999" x-model="formattedNumber" @input="formatNumber" required :value="formattedNumber">
                 </div>
 
 <div>

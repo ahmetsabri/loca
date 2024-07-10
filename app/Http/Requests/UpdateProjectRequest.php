@@ -7,19 +7,11 @@ use Illuminate\Validation\Rule;
 
 class UpdateProjectRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
     public function rules(): array
     {
         return [
@@ -32,12 +24,9 @@ class UpdateProjectRequest extends FormRequest
             'description.ru' => ['required', 'nullable', 'string'],
             'description.en' => ['required', 'nullable', 'string'],
             'price_in_tl' => ['required', 'integer', 'gt:0'],
-            // 'price_in_eur' => ['required', 'integer', 'gt:0'],
-            // 'price_in_usd' => ['required', 'integer', 'gt:0'],
             'promotion_url' => ['sometimes', 'nullable', 'url'],
             'images' => ['sometimes', 'array'],
             'images.*' => ['required', 'image'],
-            'brochure' => ['sometimes', 'mimes:pdf', 'extensions:pdf'],
             'features' => ['sometimes', 'array'],
             'features.*.tr' => ['sometimes', 'nullable'],
             'features.*.ru' => ['sometimes', 'nullable'],
@@ -79,4 +68,11 @@ class UpdateProjectRequest extends FormRequest
             'flats.*.features.*.en' => ['sometimes', 'nullable'],
         ];
     }
+
+        public function prepareForValidation()
+        {
+            $this->merge([
+                'price_in_tl' => str_replace('.', '', $this->input('price_in_tl', ''))
+            ]);
+        }
 }

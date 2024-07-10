@@ -18,7 +18,6 @@ class StorePortfolioRequest extends FormRequest
 
     public function rules(): array
     {
-        // dd($this->all());
         return [
             'title' => ['required', 'array'],
             'title.tr' => ['required', 'string'],
@@ -54,19 +53,11 @@ class StorePortfolioRequest extends FormRequest
         ];
     }
 
-    public function mapInfo(): array
+
+    public function prepareForValidation()
     {
-        $filledInfo = array_filter($this->info, fn ($info) => ! is_null(Arr::get($info, 'tr')));
-
-        $onlyTurkishfilled = array_filter($this->info, function ($info) {
-            return ! is_null(Arr::get($info, 'tr')) && (is_null(Arr::get($info, 'en')) && is_null(Arr::get($info, 'ru')));
-        });
-
-        foreach ($onlyTurkishfilled as $index => $info) {
-            $onlyTurkishfilled[$index]['ru'] = $onlyTurkishfilled[$index]['en'] = $onlyTurkishfilled[$index]['tr'];
-            unset($filledInfo[$index]);
-        }
-
-        return $onlyTurkishfilled + $filledInfo;
+        $this->merge([
+            'price_in_tl' => str_replace('.', '', $this->input('price_in_tl', ''))
+        ]);
     }
 }

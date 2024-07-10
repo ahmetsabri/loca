@@ -15,8 +15,14 @@
         selected1stCategory:null,
         selected2ndCategory:null,
         infos:[],
-        init(){
-            {{-- this.loadInfo(4) --}}
+        formattedNumber:null,
+        formatNumber(event) {
+            let input = event.target;
+            let number = parseInt(input.value.replace(/\D/g, ''));
+            if (!isNaN(number)) {
+                let formatted = number.toLocaleString('tr-TR');
+                input.value = formatted;
+            }
         },
         loadInfo(id){
             const self = this;

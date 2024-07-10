@@ -19,6 +19,12 @@
                 this.loadTowns(townUrl)
                 this.loadDistricts(`{{ $portfolio->town_id }}`)
                 this.loadInfo(`{{ $portfolio->category_id }}`)
+                let input = `{{ $portfolio->price_in_tl }}`
+                let number = parseInt(input.replace(/\D/g, ''));
+                if (!isNaN(number)) {
+                    let formatted = number.toLocaleString('tr-TR')
+                    this.formattedNumber = formatted
+                        }
         },
         firstLevelChildren:[],
         secondLevelChildren:[],
@@ -27,8 +33,18 @@
         selected1stCategory:null,
         selected2ndCategory:`{{ $portfolio->category_id }}`,
         infos:[],
-        selectedInfos:JSON.parse(`{{ ($portfolio->infos) }}`),
-        selectedOptions:JSON.parse(`{{ ($portfolio->options) }}`),
+        selectedInfos:JSON.parse(`{{ $portfolio->infos }}`),
+        selectedOptions:JSON.parse(`{{ $portfolio->options }}`),
+        formattedNumber:`{{ $portfolio->price_in_tl }}`,
+formatNumber(event) {
+    let input = event.target;
+    let number = parseInt(input.value.replace(/\D/g, ''));
+    if (!isNaN(number)) {
+    let formatted = number.toLocaleString('tr-TR');
+    input.value = formatted;
+
+    }
+    },
 loadInfo(id){
     const self = this;
     url = `{{ route('category.info') }}/${id}`
@@ -90,6 +106,7 @@ loadInfo(id){
             console.log(err)
             })
     }
+
     }">
         <div class="flex flex-wrap">
             <div class="w-full">

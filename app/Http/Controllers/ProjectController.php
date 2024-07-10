@@ -40,10 +40,6 @@ class ProjectController extends Controller
         $siteFeatures = $this->mapFeatures($data->site_feature);
         $features = $this->mapFeatures($data->features ?? []);
 
-        if ($request->hasFile('brochure')) {
-            $projectData['brochure_path'] = $this->storeBrochure($request->file('brochure'));
-        }
-
         $project = Project::create($projectData);
 
         $this->attachFeatures($project, $features);
@@ -58,17 +54,11 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $data = $request->safe();
-        // dd($data);
         $projectData = $this->extractProjectData($data);
         $flatsData = $this->extractFlatsData($data);
         $transportations = $this->mapFeatures($data->transportaion);
         $siteFeatures = $this->mapFeatures($data->site_feature);
         $features = $this->mapFeatures($data->features ?? []);
-
-        if ($request->hasFile('brochure')) {
-            Storage::disk('public')->delete($project->brochure_path);
-            $projectData['brochure_path'] = $this->storeBrochure($request->file('brochure'));
-        }
 
         $project->update($projectData);
 

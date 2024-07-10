@@ -14,6 +14,16 @@
         numOfFlats:0,
         projectDistrict:`{{ $project->district_id }}`,
         projectTown:`{{ $project->town_id }}`,
+        formattedNumber:`{{ $project->price_in_tl }}`,
+                formatNumber(event) {
+                let input = event.target;
+                let number = parseInt(input.value.replace(/\D/g, ''));
+                if (!isNaN(number)) {
+                let formatted = number.toLocaleString('tr-TR');
+                input.value = formatted;
+
+                }
+                },
 removeFlat(url){
     if(!confirm('emin misiniz')){
     return
@@ -21,8 +31,13 @@ removeFlat(url){
     window.location.href=url;
     },
         init(){
-            const townUrl = `{{ route('province.towns',$project->province) }}`
-
+                const townUrl = `{{ route('province.towns',$project->province) }}`
+                let input = `{{$project->price_in_tl}}`
+                let number = parseInt(input.replace(/\D/g, ''));
+                if (!isNaN(number)) {
+                let formatted = number.toLocaleString('tr-TR')
+                this.formattedNumber = formatted
+                }
             this.loadTowns(townUrl)
             this.loadDistricts(`{{ $project->town_id }}`)
         },

@@ -12,7 +12,17 @@
         siteFeatures:3,
         flatFeatures:3,
         numOfFlats:1,
-        loadTowns(url){
+        formattedNumber:null,
+        formatNumber(event) {
+            let input = event.target;
+            let number = parseInt(input.value.replace(/\D/g, ''));
+            if (!isNaN(number)) {
+                let formatted = number.toLocaleString('tr-TR');
+                input.value = formatted;
+            }
+        },
+        loadTowns(id){
+            const url = `{{ route('province.towns') }}/` + id
             const self = this
             axios.get(url).then((res)=>{
                 console.log(res.data.towns)
