@@ -67,7 +67,6 @@ class Portfolio extends Model
     {
         parent::boot();
         static::deleting(function (self $portfolio) {
-            Storage::disk('public')->delete($portfolio->brochure_path);
             $portfolio->images()->each(function ($image) {
                 $image->delete();
             });
