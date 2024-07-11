@@ -13,6 +13,51 @@
         flatFeatures:3,
         numOfFlats:1,
         formattedNumber:null,
+        images: [],
+        handleFiles(event) {
+            const files = event.target.files;
+            const self = this;
+            for (const file of files) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    axios.post(`{{ route('project.upload') }}`,{
+                    images:e.target.result,
+                    },{
+                    headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name=csrf-token]').getAttribute('content')
+                    },
+                    }).then(res=>{
+
+                    self.images = res.data.images
+                    }).catch(err=>{
+                    alert('err')
+                    console.log(err)
+                    })
+                }
+                reader.readAsDataURL(file);
+                new Promise(resolve => setTimeout(resolve, 2000));
+            }
+            event.target.value=''
+        },
+        deleteImage(id){
+    const url = `{{ route('project.image.delete') }}/` + id
+    const self = this
+        axios.get(url).then((res)=>{
+            self.images = res.data.images
+        }).catch((err)=>{
+        console.log(err)
+        })
+    },
+    setAsMainImage(id){
+    const url = `{{ route('project.image.set_main') }}/` + id
+    const self = this
+        axios.put(url).then((res)=>{
+            self.images = res.data.images
+        }).catch((err)=>{
+        console.log(err)
+        })
+    },
         formatNumber(event) {
             let input = event.target;
             let number = parseInt(input.value.replace(/\D/g, ''));

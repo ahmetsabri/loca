@@ -129,12 +129,18 @@ Route::middleware('auth')->prefix('admin')->withoutMiddleware(LocaleMiddleware::
         Route::get('/', [ProjectController::class, 'index'])->name('project.index');
         Route::get('create', [ProjectController::class, 'create'])->name('project.create');
         Route::post('/', [ProjectController::class, 'store'])->name('project.store');
+
+        Route::post('/upload-images', [ProjectController::class, 'uploadImages'])->name('project.upload');
+        Route::get('/{project}/images', [ProjectController::class, 'getImages'])->name('project.images');
+
         Route::get('/{project}', [ProjectController::class, 'show'])->name('project.show');
         Route::get('/{project}/edit', [ProjectController::class, 'edit'])->name('project.edit');
         Route::post('/{project}/update', [ProjectController::class, 'update'])->name('project.update');
         Route::get('{project}/delete', [ProjectController::class, 'destroy'])->name('project.delete');
-        Route::get('{project}/image/{image}/delete', [ProjectController::class, 'removeImage'])->name('project.image.delete');
+        Route::get('image/delete/{image?}', [ProjectController::class, 'removeImage'])->name('project.image.delete');
         Route::get('{project}/flat/{flat}/delete', [ProjectController::class, 'removeFlat'])->name('project.flat.delete');
+
+        Route::put('image/set-main/{image?}', [ProjectController::class, 'setMain'])->name('project.image.set_main');
     });
 
     Route::prefix('department')->group(function () {
