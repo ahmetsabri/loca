@@ -171,4 +171,25 @@ loadInfo(id){
         </div>
         @include('admin.portfolios.update_form')
     </div>
+
+
+    <script>
+        const tr = new Quill('#description_tr', {
+                    theme: 'snow'
+                });
+            const ru = new Quill('#description_ru', {
+                    theme: 'snow'
+                });
+            const en = new Quill('#description_en', {
+                    theme: 'snow'
+                });
+    document.getElementById('submit-form').addEventListener('click', () => {
+            const trval = tr.root.innerHTML;
+            const ruval = ru.root.innerHTML;
+            const enval = en.root.innerHTML;
+            document.getElementById('desc_tr').value = trval;
+            document.getElementById('desc_ru').value = ruval;
+            document.getElementById('desc_en').value = enval;
+            });
+    </script>
 </x-app-layout>

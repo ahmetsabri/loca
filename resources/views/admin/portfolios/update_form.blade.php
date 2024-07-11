@@ -192,37 +192,32 @@
                         </div>
                     </template>
                 </div>
-                <div class="sm:col-span-2">
-                    <label for="description_tr" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        Açıklama türkçesi
-                    </label>
-                    <textarea name="description[tr]" id="description_tr" rows="4"
-                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="{{__('description_tr')}}">{{ old("description[tr]") ?? $portfolio->getTranslation('description','tr') }}</textarea>
-                </div>
-                <div class="sm:col-span-2">
-                    <label for="description_tr" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        Açıklama rusça
-                    </label>
-                    <textarea name="description[ru]" id="description_ru" rows="4"
-                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="{{__('description_ru')}}">{{ old("description[ru]") ?? $portfolio->getTranslation('description','ru') }}</textarea>
-                </div>
-                <div class="sm:col-span-2">
-                    <label for="description_en" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        açıklama ingilizce
-                    </label>
-                    <textarea name="description[en]" id="description_en" rows="4"
-                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="{{__('description_en')}}">{{ old("description[en]") ?? $portfolio->getTranslation('description','en') }}</textarea>
-                </div>
-            </div>
-            {{-- add divider here --}}
 
+            </div>
+<div class="sm:col-span-2">
+        <p class="font-bold text-base my-4 text-indigo-800">
+            Açıklama Türkçesi
+        </p>
+        <div id="description_tr">{!! $portfolio->getTranslation('description','tr') !!}</div>
+    </div>
+    <div class="sm:col-span-2">
+        <p class="font-bold text-base my-4 text-indigo-800">Açıklama Rusça</p>
+        <div id="description_ru" class="">{!! $portfolio->getTranslation('description','ru') !!}</div>
+    </div>
+    <div class="sm:col-span-2 mt-b0">
+        <p class="font-bold text-base my-4 text-indigo-800">
+            Açıklama Inglizce
+        </p>
+        <div id="description_en">{!! $portfolio->getTranslation('description','en') !!}</div>
+    </div>
+            <br>
+                                <input type="hidden" name="description[tr]" id="desc_tr">
+                                <input type="hidden" name="description[ru]" id="desc_ru">
+                                <input type="hidden" name="description[en]" id="desc_en">
             @include('admin.portfolios.edit_info_form')
             @include('admin.portfolios.edit_feature_form')
 
-            <button type="submit"
+            <button type="submit" id="submit-form"
                 class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                 kaydet
             </button>
