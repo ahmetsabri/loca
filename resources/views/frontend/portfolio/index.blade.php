@@ -175,13 +175,13 @@ class="list hidden @if($child->id == request('filter.category')) active @endif [
                                 </div>
                                 <div class="form-el group/form relative w-full">
                                     <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                    <select name="filter[province]"
+                                    <select @change="loadTowns(`{{ route('province.towns') }}/`+$event.target.value)"  name="filter[province]"
                                         class="peer w-full h-11 duration-300 rounded-2.5 px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-[#8AA5D3]/15 hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700 invalid:!text-[#6D6D6D]"
                                         >
                                         <option  selected>{{ __('general.province') }}</option>
 
                                         @foreach($provinces as $province)
-                                        <option @selected($province->id == request('filter.province') ) @click="loadTowns(`{{ route('province.towns',$province) }}`)" value="{{ $province->id }}">{{
+                                        <option @selected($province->id == request('filter.province') ) value="{{ $province->id }}">{{
                                             $province->name }}
                                             </option>
                                         @endforeach
