@@ -16,47 +16,17 @@ class CategorySeeder extends Seeder
         $mainCategories = [
             [
                 'name' => [
-                    'tr' => 'arsa',
-                    'en' => 'land',
-                    'ru' => 'участок',
-                ],
-                'sub_categories' => [
-                    ['name' => [
-                        'tr' => 'kiralık',
-                        'en' => 'for rent',
-                        'ru' => 'сдается в аренду',
-                    ],
-                    ],
-                ],
-            ],
-            [
-                'name' => [
-                    'tr' => 'bina',
-                    'en' => 'building',
-                    'ru' => 'здание',
-                ],
-                'sub_categories' => [
-                    ['name' => [
-                        'tr' => 'kiralık',
-                        'en' => 'for rent',
-                        'ru' => 'сдается в аренду',
-                    ],
-                    ],
-                ],
-            ],
-            [
-                'name' => [
                     'tr' => 'konut',
                     'en' => 'house',
                     'ru' => 'жилье',
-
                 ],
                 'sub_categories' => [
-                    ['name' => [
-                        'tr' => 'kiralık',
-                        'en' => 'for rent',
-                        'ru' => 'сдается в аренду',
-                    ],
+                    [
+                        'name' => [
+                            'tr' => 'kiralık',
+                            'en' => 'for rent',
+                            'ru' => 'сдается в аренду',
+                        ],
                     ],
                 ],
             ],
@@ -67,15 +37,47 @@ class CategorySeeder extends Seeder
                     'ru' => 'Рабочее место',
                 ],
                 'sub_categories' => [
-                    ['name' => [
-                        'tr' => 'kiralık',
-                        'en' => 'for rent',
-                        'ru' => 'сдается в аренду',
-                    ],
+                    [
+                        'name' => [
+                            'tr' => 'kiralık',
+                            'en' => 'for rent',
+                            'ru' => 'сдается в аренду',
+                        ],
                     ],
                 ],
             ],
-
+            [
+                'name' => [
+                    'tr' => 'arsa',
+                    'en' => 'land',
+                    'ru' => 'участок',
+                ],
+                'sub_categories' => [
+                    [
+                        'name' => [
+                            'tr' => 'kiralık',
+                            'en' => 'for rent',
+                            'ru' => 'сдается в аренду',
+                        ],
+                    ],
+                ],
+            ],
+            [
+                'name' => [
+                    'tr' => 'bina',
+                    'en' => 'building',
+                    'ru' => 'здание',
+                ],
+                'sub_categories' => [
+                    [
+                        'name' => [
+                            'tr' => 'kiralık',
+                            'en' => 'for rent',
+                            'ru' => 'сдается в аренду',
+                        ],
+                    ],
+                ],
+            ],
             [
                 'name' => [
                     'tr' => 'devre mülk',
@@ -92,7 +94,24 @@ class CategorySeeder extends Seeder
                     ],
                 ],
             ],
+            [
+                'name' => [
+                    'tr' => 'turistik tesis',
+                    'en' => 'touristic facility',
+                    'ru' => 'туристическое предприятие',
+                ],
+                'sub_categories' => [
+                    [
+                        'name' => [
+                            'tr' => 'kiralık',
+                            'en' => 'for rent',
+                            'ru' => 'сдается в аренду',
+                        ],
+                    ],
+                ],
+            ],
         ];
+
 
         foreach ($mainCategories as $mainCategory) {
             $mainData = Arr::except($mainCategory, 'sub_categories');
