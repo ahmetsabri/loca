@@ -5,7 +5,71 @@
         </h2>
     </x-slot>
     <div class="p-12" x-data="{
+        firstLevelChildren:[],
+        secondLevelChildren:[],
+        filterable:0,
+        selectedCategory:`{{ $portfolio->category_id }}`,
+        selected1stCategory:null,
+        selected2ndCategory:`{{ $portfolio->category_id }}`,
+        infos:[],
+        selectedInfos:JSON.parse(`{{ $portfolio->infos }}`),
+        selectedOptions:JSON.parse(`{{ $portfolio->options }}`),
+        formattedNumber:`{{ $portfolio->price_in_tl }}`,
+        images: [],
+                handleFiles(event) {
+                const files = event.target.files;
+                const self = this;
+                for (const file of files) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                axios.post(`{{ route('portfolio.upload') }}`,{
+                images:e.target.result,
+                id:`{{ $portfolio->id }}`
+                },{
+                headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name=csrf-token]').getAttribute('content')
+                },
+                }).then(res=>{
+
+                self.images = (res.data.images)
+                }).catch(err=>{
+
+                console.log(err)
+                })
+                }
+                reader.readAsDataURL(file);
+                new Promise(resolve => setTimeout(resolve, 2000));
+                }
+                event.target.value=''
+                },
+                deleteImage(id){
+                    const url = `{{ route('image.delete') }}/` + id
+                    const self = this
+                    axios.get(url).then((res)=>{
+                    self.images = res.data.images
+                    }).catch((err)=>{
+                    console.log(err)
+                    })
+                    },
+                    setAsMainImage(id){
+                    const url = `{{ route('image.set_main') }}/` + id
+                    const self = this
+                    axios.put(url).then((res)=>{
+                    self.images = res.data.images
+                    }).catch((err)=>{
+                    console.log(err)
+                    })
+                    },
         init(){
+
+                const self = this;
+                const imageUrl = `{{ route('portfolio.images',$portfolio) }}`
+                axios.get(imageUrl).then(res=>{
+                    self.images = res.data.images;
+                }).catch(err=>{
+                    alert(err)
+                })
                 if(`{{ $portfolio->category->parent->parent_id }}`){
                     this.loadChildren(`{{ $portfolio->category->parent->parent_id }}`,1); // arsa
                     this.loadChildren(`{{ $portfolio->category->parent_id }}`,2); //kiralik
@@ -26,16 +90,7 @@
                     this.formattedNumber = formatted
                         }
         },
-        firstLevelChildren:[],
-        secondLevelChildren:[],
-        filterable:0,
-        selectedCategory:`{{ $portfolio->category_id }}`,
-        selected1stCategory:null,
-        selected2ndCategory:`{{ $portfolio->category_id }}`,
-        infos:[],
-        selectedInfos:JSON.parse(`{{ $portfolio->infos }}`),
-        selectedOptions:JSON.parse(`{{ $portfolio->options }}`),
-        formattedNumber:`{{ $portfolio->price_in_tl }}`,
+
 formatNumber(event) {
     let input = event.target;
     let number = parseInt(input.value.replace(/\D/g, ''));

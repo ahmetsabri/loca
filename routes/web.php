@@ -117,6 +117,7 @@ Route::middleware('auth')->prefix('admin')->withoutMiddleware(LocaleMiddleware::
         Route::get('create', [PortfolioController::class, 'create'])->name('portfolio.create');
         Route::post('/', [PortfolioController::class, 'store'])->name('portfolio.store');
         Route::post('/upload-images', [PortfolioController::class, 'uploadImages'])->name('portfolio.upload');
+        Route::get('/{portfolio}/images', [PortfolioController::class, 'getImages'])->name('portfolio.images');
         Route::get('/{portfolio}', [PortfolioController::class, 'show'])->name('portfolio.show');
         Route::get('/{portfolio}/edit', [PortfolioController::class, 'edit'])->name('portfolio.edit');
         Route::post('/{portfolio}/update', [PortfolioController::class, 'update'])->name('portfolio.update');

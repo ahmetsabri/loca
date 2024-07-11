@@ -104,19 +104,8 @@ class PortfolioController extends Controller
         // DB::beginTransaction();
         // try {
         $portfolioBasicData = $request->safe();
-        if ($request->hasFile('brochure')) {
-            Storage::disk('public')->delete($portfolio->brochure_path ?? '');
-            $brochure = $request->file('brochure')->storePublicly('portfolio/brochures', ['disk' => 'public']);
-            $portfolioBasicData = $portfolioBasicData->merge(['brochure_path' => $brochure]);
-        }
 
-        $portfolio->update($portfolioBasicData->except('brochure', 'images', 'info', 'features'));
-        if ($request->hasFile('images')) {
-            foreach ($request->images as $image) {
-                $path = $image->storePublicly('portfolio/images', ['disk' => 'public']);
-                $portfolio->images()->create(['path' => $path]);
-            }
-        }
+        $portfolio->update($portfolioBasicData->except('images', 'info', 'features'));
 
         // $infos = $request->mapInfo();
 
@@ -202,17 +191,18 @@ class PortfolioController extends Controller
         Storage::disk('public')->put('portfolio/images/'.$fileName, $imageBase64);
         $path = 'portfolio/images/'.$fileName;
 
-        $lastPortfolioId = Portfolio::latest()->first()?->id + 1;
+        $lastPortfolioId = $request->id ?? Portfolio::latest()->first()?->id + 1;
+        $token =  $request->id ? null : csrf_token();
         $image = Image::create([
             'path' => $path,
-            'imageable_id' => $lastPortfolioId,
-            'token' => csrf_token(),
+            'imageable_id' =>  $lastPortfolioId,
+            'token' => $token,
             'imageable_type' => \App\Models\Portfolio::class,
         ]);
 
         $images = Image::where([
             ['imageable_id', $lastPortfolioId],
-            ['token', csrf_token()],
+            ['token', $token],
             ['imageable_type', \App\Models\Portfolio::class],
         ])->get();
 
@@ -238,6 +228,12 @@ class PortfolioController extends Controller
             $query->where('token', $image->token);
         })->get();
 
+        return response()->json(compact('images'));
+    }
+
+    public function getImages(Portfolio $portfolio)
+    {
+        $images = $portfolio->load('images')->images;
         return response()->json(compact('images'));
     }
 }
