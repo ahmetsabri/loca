@@ -39,7 +39,7 @@ class Project extends Model
 
     public function images()
     {
-        return $this->morphMany(Image::class, 'imageable');
+        return $this->morphMany(Image::class, 'imageable')->orderBy('is_main', 'desc');
     }
 
     public function province()
