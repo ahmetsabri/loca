@@ -41,6 +41,7 @@
                 reader.readAsDataURL(file);
                 new Promise(resolve => setTimeout(resolve, 2000));
             }
+            event.target.value=''
         },
         formatNumber(event) {
             let input = event.target;
@@ -108,7 +109,25 @@
             }).catch((err)=>{
             console.log(err)
             })
-    }
+    },
+    deleteImage(id){
+    const url = `{{ route('image.delete') }}/` + id
+    const self = this
+        axios.get(url).then((res)=>{
+            self.images = res.data.images
+        }).catch((err)=>{
+        console.log(err)
+        })
+    },
+    setAsMainImage(id){
+    const url = `{{ route('image.set_main') }}/` + id
+    const self = this
+        axios.put(url).then((res)=>{
+            self.images = res.data.images
+        }).catch((err)=>{
+        console.log(err)
+        })
+    },
     }">
         <div class="flex flex-wrap">
             <div class="w-full">

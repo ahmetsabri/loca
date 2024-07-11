@@ -39,19 +39,13 @@ class PortfolioController extends Controller
 
     public function store(StorePortfolioRequest $request)
     {
-        // dd($request->info);
         // DB::beginTransaction();
         $portfolioBasicData = $request->safe();
         // try {
 
-        $portfolio = Portfolio::create($portfolioBasicData->except('brochure', 'images', 'info', 'features'));
+        $portfolio = Portfolio::create($portfolioBasicData->except('images', 'info', 'features'));
 
-        foreach ($request->images as $image) {
-            $path = $image->storePublicly('portfolio/images', ['disk' => 'public']);
-            $portfolio->images()->create(['path' => $path]);
-        }
-
-        // $infos = $request->mapInfo();
+        Image::query()->where('token', $request->_token)->update(['imageable_id'=>$portfolio->id,'token'=>null]);
 
         foreach ($request->info as $id => $info) {
             if (is_array($info)) {
@@ -59,7 +53,6 @@ class PortfolioController extends Controller
                     'info_id' => $id,
                     'value' => $info,
                 ]);
-
                 continue;
             }
             $portfolio->options()->create([
@@ -171,11 +164,18 @@ class PortfolioController extends Controller
         return back()->with('success', 'success');
     }
 
-    public function removeImage(?Portfolio $portfolio, Image $image)
+    public function removeImage(?Portfolio $portfolio=null, Image $image)
     {
         $image->delete();
 
-        return back()->with('success', 'success');
+        $images = Image::where([
+                ['imageable_id', $image->imageable_id],
+                ['imageable_type', \App\Models\Portfolio::class],
+            ])->when($image->token, function ($query) use ($image) {
+                $query->where('token', $image->token);
+            })->get();
+
+        return response()->json(compact('images'));
     }
 
     public function saveFeatures(Portfolio $portfolio, array $features)
@@ -206,11 +206,13 @@ class PortfolioController extends Controller
         $image = Image::create([
             'path' => $path,
             'imageable_id' => $lastPortfolioId,
+            'token' => csrf_token(),
             'imageable_type' => \App\Models\Portfolio::class,
         ]);
 
         $images = Image::where([
             ['imageable_id', $lastPortfolioId],
+            ['token', csrf_token()],
             ['imageable_type', \App\Models\Portfolio::class],
         ])->get();
 
@@ -224,13 +226,18 @@ class PortfolioController extends Controller
         Image::query()->where([
             ['imageable_id', $image->imageable_id],
             ['imageable_type', \App\Models\Portfolio::class],
-        ])->where('id', '<>', $image->id)->update(['is_main' => false]);
+        ])->when($image->token, function ($query) use ($image) {
+            $query->where('token', $image->token);
+        })->where('id', '<>', $image->id)
+        ->update(['is_main' => false]);
 
         $images = Image::where([
             ['imageable_id', $image->imageable_id],
             ['imageable_type', \App\Models\Portfolio::class],
-        ])->get();
+        ])->when($image->token, function ($query) use ($image) {
+            $query->where('token', $image->token);
+        })->get();
 
-        return response()->json(['images' => $images], 200);
+        return response()->json(compact('images'));
     }
 }
