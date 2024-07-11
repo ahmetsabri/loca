@@ -87,12 +87,29 @@
                 <div>
                     <label class="block mb-2 text-base font-medium text-gray-900 dark:text-white"
                         for="images">resimler</label>
-                    <input
-                        class="block w-full text-base text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                        aria-describedby="images" id="images" type="file" name="images[]" multiple>
-                    <div class="mt-1 text-base text-gray-500 dark:text-gray-300" id="broushour"></div>
+              <input
+                        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                        aria-describedby="images" id="images" type="file" name="images[]" multiple accept="image/*" @change="handleFiles">
+                    <div class="mt-1 text-base text-gray-500 dark:text-gray-300" id="images"></div>
                 </div>
+<div class="sm:col-span-2 flex flex-wrap">
+                    <template x-for="image in images">
+                        <div class="w-1/4 p-1">
+                            <img :src="image.full_url" class="rounded w-52 my-3"
+                                :class="{'border-8 border-blue-500 shadow-md':image.is_main}" />
+                            <p class="font-bold text-center text-indigo-700" x-show="image.is_main">vitrin</p>
+                            <button type="button" @click="deleteImage(image.id)"
+                                class="px-3 py-2 text-xs font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 mt-1">
+                                sil
+                            </button>
+                            <button type="button" @click="setAsMainImage(image.id)"
+                                class="px-3 py-2 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-1">
+                                vitrin yap
+                            </button>
 
+                        </div>
+                    </template>
+                </div>
                 <div>
                     <label class="block mb-2 text-base font-medium text-gray-900 dark:text-white"
                         for="user_avatar">broşür</label>
@@ -102,19 +119,6 @@
                     <div class="mt-1 text-base text-gray-500 dark:text-gray-300" id="brochure"></div>
                 </div>
 
-                <div>
-                    <div class="flex">
-                        @foreach($project->images as $image)
-                        <div class="w-1/5 mx-2">
-                            <img src="{{ $image->full_url }}" class="w-20 h-20">
-                            <br>
-                            @if($project->images->count() > 1)
-                            <a class="text-red-500" href="{{ route('project.image.delete',[$project,$image]) }}">sil</a>
-                            @endif
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
 @foreach(config('app.locales') as $locale)
   <div class="sm:col-span-2">
                     <label for="description_{{ $locale }}" class="block mb-2 text-base font-medium text-gray-900 dark:text-white">

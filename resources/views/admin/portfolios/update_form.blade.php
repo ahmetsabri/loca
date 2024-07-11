@@ -172,7 +172,7 @@
       <input
                             class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                             aria-describedby="images" id="images" type="file" name="images[]" multiple accept="image/*" @change="handleFiles">
-                    <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="broushour"></div>
+                    <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="images"></div>
                 </div>
                 <div class="sm:col-span-2 flex flex-wrap">
                     <template x-for="image in images">
