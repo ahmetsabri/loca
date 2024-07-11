@@ -1,5 +1,5 @@
-<hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
-<span class="text-indigo-700 font-bold text-3xl capitalize mt-20">bilgileri</span>
+{{-- <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700"> --}}
+<span class="text-indigo-700 font-bold text-3xl capitalize ">bilgileri</span>
 
 <template x-for="info in infos">
 

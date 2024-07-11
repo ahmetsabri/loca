@@ -107,7 +107,7 @@
                                 <div class="detail">
                                     <div class="text-editor text-editor-main">
                                         <p>
-                                            {{ $portfolio->description }}
+                                           {!! $portfolio->description !!}
                                         </p>
                                     </div>
                                 </div>
