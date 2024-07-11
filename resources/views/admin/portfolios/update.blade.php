@@ -175,13 +175,43 @@ loadInfo(id){
 
     <script>
         const tr = new Quill('#description_tr', {
-                    theme: 'snow'
+                    theme: 'snow',
+                    modules: {
+                                toolbar: [
+                                [{ 'header': [1, 2, false] }],
+                                ['bold', 'italic', 'underline'],
+                                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                                [{ 'align': [] }],
+                                ['link', 'image', 'video']
+
+                                ]
+                                }
                 });
             const ru = new Quill('#description_ru', {
-                    theme: 'snow'
+                    theme: 'snow',
+                    modules: {
+                                toolbar: [
+                                [{ 'header': [1, 2, false] }],
+                                ['bold', 'italic', 'underline'],
+                                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                                [{ 'align': [] }],
+                                ['link', 'image', 'video']
+
+                                ]
+                                }
                 });
             const en = new Quill('#description_en', {
-                    theme: 'snow'
+                    theme: 'snow',
+                    modules: {
+                                toolbar: [
+                                [{ 'header': [1, 2, false] }],
+                                ['bold', 'italic', 'underline'],
+                                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                                [{ 'align': [] }],
+                                ['link', 'image', 'video']
+
+                                ]
+                                }
                 });
     document.getElementById('submit-form').addEventListener('click', () => {
             const trval = tr.root.innerHTML;
