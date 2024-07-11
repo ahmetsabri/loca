@@ -6,6 +6,7 @@ use App\Enums\CurrencyEnum;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Number;
 use Spatie\Translatable\HasTranslations;
 
 class Project extends Model
@@ -85,7 +86,13 @@ class Project extends Model
         $currency = session('currency', 'tl');
         $col = 'price_in_'.$currency;
 
-        return $this->{$col}.' '.strtoupper($currency);
+
+        $locale = session('locale', 'tr');
+        if ($locale == 'ru') {
+            $locale = 'tr';
+        }
+
+        return Number::format($this->{$col}, locale: $locale).' '.strtoupper($currency);
     }
 
     public function getBrochureFullUrlAttribute(): ?string

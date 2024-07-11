@@ -12,14 +12,14 @@
             setPriceCurrency(currency='tl'){
                 if(currency == 'eur'){
 
-                 this.price= `{{ $project->price_in_eur }}` + ' EUR'
+                 this.price= `{{ \Number::format($project->price_in_eur,locale:'tr') }}` + ' EUR'
                  return
                 }
                 if(currency == 'usd' ){
-                    this.price = `{{ $project->price_in_usd }}` + ' USD'
+                    this.price =`{{ \Number::format($project->price_in_usd,locale:'tr') }}` + ' USD'
                  return
                 }
-                    this.price = `{{ $project->price_in_tl }}` + ' TL'
+                    this.price =`{{ \Number::format($project->price_in_tl,locale:'tr') }}` + ' TL'
 
             }
         }">
