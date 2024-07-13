@@ -56,7 +56,7 @@
                 </button>
                 <div class="filter-wrapper sticky-el sticky top-0 duration-300 md:mt-7.5 md:hidden md:[&.active]:block">
                     <div class="category-list bg-white rounded-5 md:rounded-3 px-4 py-7">
-                        <div class="title px-3 text-4 font-semibold text-tertiary-950">{{ __('category') }}</div>
+                        <div class="title px-3 text-4 font-semibold text-tertiary-950">{{ __('general.categories') }}</div>
                         <div class="split my-4 w-full h-px bg-[#8AA5D3]/15"></div>
                         <div class="list-wrapper grid gap-4 px-3">
                             @foreach($categories as $category)

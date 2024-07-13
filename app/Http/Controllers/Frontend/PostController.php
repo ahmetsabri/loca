@@ -12,7 +12,7 @@ class PostController extends Controller
     {
         $posts = Post::latest()->with('image')->when($request->search, function ($query) use ($request) {
             $query->where('title->'.app()->getLocale(), 'like', '%'.$request->search.'%');
-        })->paginate(1);
+        })->paginate();
 
         return view('frontend.blog.index', compact('posts'));
     }

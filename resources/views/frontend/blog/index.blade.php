@@ -10,7 +10,6 @@
             <div
                 class="wrapper max-w-1440 mx-auto w-full px-7.5 relative z-2 flex items-center justify-between gap-7.5 md:flex-col">
                 <div class="text-editor text-editor-white !gap-2 md:text-center">
-                    <!-- .text-editor içerisindeki style attribute değerleri frontendi tasarıma benzetmek adına eklenmiştir, backend aşamasında silinerek panel editöründen tanımlanmalıdır. -->
                     <h2><strong>{{ __('general.blog') }}</strong></h2>
                 </div>
                 <div class="form-outer-wrapper max-w-[300px] w-full">
@@ -48,7 +47,7 @@
                     <div class="content px-5 pt-5">
                         <div class="date text-[#5D5D5D] flex items-center gap-2 mb-2">
                             <div class="icon icon-date text-3.5 h-3.5 block leading-none duration-300"></div>
-                            <div class="text text-3.5 font-medium">{{ $post->created_at->toDateString() }}</div>
+                            <div class="text text-3.5 font-medium">{{ $post->created_at->format('d-m-Y') }}</div>
                         </div>
                         <div
                             class="title text-5.5 2xl:text-5 xl:text-4.5 lg:text-4 font-semibold text-tertiary-950 duration-300 group-hover:text-main-700 leading-tight">

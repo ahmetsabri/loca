@@ -56,7 +56,7 @@
                 <div class="hidden-el h-0 overflow-hidden isolate translate-z-0 duration-450 ease-manidar">
                     <div class="text-editor px-11 2xl:px-10 xl:px-9 lg:px-7 md:px-6 pb-7 lg:pb-6 md:pb-5">
                         <p>
-                            {{ $question->answer }}
+                            {!! $question->answer !!}
                         </p>
                     </div>
                 </div>

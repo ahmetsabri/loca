@@ -16,6 +16,6 @@ class AppServiceProvider extends ServiceProvider
     {
         app()->setLocale('tr');
 
-        Model::preventLazyLoading();
+        Model::preventLazyLoading(app()->isLocal());
     }
 }

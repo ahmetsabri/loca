@@ -40,23 +40,73 @@
                     required />
             </div>
             @endforeach
-
+<div class="sm:col-span-2 mt-b0">
 @foreach(config('app.locales') as $locale)
+                <p class="font-bold text-base my-4 text-indigo-800">
+                                    Cevap {{ $locale }}
+                                </p>
+                                <div id="description_{{ $locale }}">
+                                    @if(isset($faq))
 
-            <div>
-                    <label for="team" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">cevap
-                        {{ $locale }}</label>
-                    <textarea  name="answer[{{ $locale }}]" id="team"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                        required rows="7">{{ $faq?->getTranslation('answer',$locale) ??'' }}</textarea>
-                </div>
-
+                                   {!! $faq->getTranslation('answer',$locale) !!}
+                                    @endif
+                                </div>
+                                <br>
+                                <input type="hidden" name="answer[{{ $locale }}]" id="answer_{{ $locale }}">
             @endforeach
-
-            <button type="submit"
+</div>
+            <button type="submit" id="submit-form"
                 class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">gönder</button>
         </form>
-
-
     </div>
+
+    <script>
+            const tr = new Quill('#description_tr', {
+                                theme: 'snow',
+                              modules: {
+                                    toolbar: [
+                                    [{ 'header': [1, 2, false] }],
+                                    ['bold', 'italic', 'underline'],
+                                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                                    [{ 'align': [] }],
+                                    ['link', 'image', 'video']
+
+                                    ]
+                                    }
+                            });
+                        const ru = new Quill('#description_ru', {
+                                theme: 'snow',
+                                modules: {
+                                toolbar: [
+                                [{ 'header': [1, 2, false] }],
+                                ['bold', 'italic', 'underline'],
+                                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                                [{ 'align': [] }],
+                                                    ['link', 'image', 'video']
+
+                                ]
+                                }
+                            });
+                        const en = new Quill('#description_en', {
+                                theme: 'snow',
+                                modules: {
+                                toolbar: [
+                                [{ 'header': [1, 2, false] }],
+                                ['bold', 'italic', 'underline'],
+                                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                                [{ 'align': [] }],
+                                                    ['link', 'image', 'video']
+
+                                ]
+                                }
+                            });
+                document.getElementById('submit-form').addEventListener('click', () => {
+                        const trval = tr.root.innerHTML;
+                        const ruval = ru.root.innerHTML;
+                        const enval = en.root.innerHTML;
+                        document.getElementById('answer_tr').value = trval;
+                        document.getElementById('answer_ru').value = ruval;
+                        document.getElementById('answer_en').value = enval;
+                        });
+        </script>
 </x-app-layout>

@@ -6,6 +6,9 @@
                 <th scope="col" class="px-6 py-3 text-left">
                     post
                 </th>
+                <th scope="col" class="px-6 py-3 text-left">
+                    tarihi
+                </th>
 
                 <th scope="col" class="px-6 py-3 text-center">
                     işlemler
@@ -26,6 +29,14 @@
 
                         <p class="capitalize font-semibold text-base">
                             {{$post->title}}
+                        </p>
+                    </div>
+                </td>
+                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <div class="flex justify-start items-center space-x-4">
+
+                        <p class="capitalize font-semibold text-base">
+                            {{$post->created_at->format('d-m-Y')}}
                         </p>
                     </div>
                 </td>

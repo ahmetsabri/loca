@@ -65,7 +65,7 @@ Route::get('services', [FrontendServiceController::class, 'index'])->name('front
 Route::get('about', FrontendAboutController::class)->name('frontend.about');
 Route::get('faq', FrontendFaqController::class)->name('frontend.faq');
 Route::get('blog', [FrontendPostController::class, 'index'])->name('frontend.blog');
-Route::get('blog/{post}', [FrontendPostController::class, 'show'])->name('frontend.post.show');
+Route::get('blog/{post:slug}', [FrontendPostController::class, 'show'])->name('frontend.post.show');
 
 Route::middleware('auth')->prefix('admin')->withoutMiddleware(LocaleMiddleware::class)->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

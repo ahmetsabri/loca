@@ -41,7 +41,7 @@
                     <h3><strong>
                         {{ $about?->title_1 }}</strong></h3>
                     <h6 style="color:#6D6D6D">
-                        {{ $about?->description_1 }}
+                        {!! $about?->description_1 !!}
                     </h6>
 
                 </div>
@@ -92,7 +92,7 @@
                 <!-- .text-editor içerisindeki style attribute değerleri frontendi tasarıma benzetmek adına eklenmiştir, backend aşamasında silinerek panel editöründen tanımlanmalıdır. -->
                 <h3 style="text-align:center;"><strong>{{ $about?->title_2 }}</strong></h3>
                 <h6 style="color:#6D6D6D;text-align:center;">
-                    {{ $about?->description_2 }}.</h6>
+                    {!! $about?->description_2 !!}.</h6>
             </div>
         </div>
     </section>

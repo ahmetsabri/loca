@@ -33,15 +33,18 @@
                                başlık {{ $i }} {{ $locale }}
                                </label>
                             <input value="{{ $about?->getTranslation('title_'.$i,$locale) }}" type="text" name="title_{{ $i }}[{{ $locale }}]" id="team"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="başlık {{ $i }} {{ $locale }}"
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="başlık {{ $i }} {{ $locale }}"
                                 required />
                         </div>
 
                         <div>
                             <label for="team" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">açıklama {{ $i }} {{ $locale }}</label>
-                            <textarea type="text" name="description_{{ $i }}[{{ $locale }}]" id="team"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                required rows="7">{{ $about?->getTranslation('description_'.$i,$locale) }}</textarea>
+                         <div id="description_{{ $i }}_{{ $locale }}" class="bg-white">
+                            {!! $about?->getTranslation('description_'.$i,$locale) !!}
+                         </div>
+
+                         <input type="hidden" name="description_{{ $i }}[{{ $locale }}]" id="desc_{{ $i }}_{{ $locale }}">
+
                         </div>
                         @endforeach
                         <hr><hr>
@@ -58,10 +61,105 @@
         </div>
 
         @endforeach
-        <button type="submit"
+        <button type="submit" id="submit-form"
         class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">gönder</button>
     </form>
 
 
     </div>
-</x-app-layout>
+    <script>
+
+            const tr1 = new Quill('#description_1_tr', {
+                        theme: 'snow',
+                      modules: {
+                            toolbar: [
+                            [{ 'header': [1, 2, false] }],
+                            ['bold', 'italic', 'underline'],
+                            [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                            [{ 'align': [] }],
+                            ['link', 'image', 'video']
+
+                            ]
+                            }
+                    });
+                const ru1 = new Quill('#description_1_ru', {
+                        theme: 'snow',
+                        modules: {
+                        toolbar: [
+                        [{ 'header': [1, 2, false] }],
+                        ['bold', 'italic', 'underline'],
+                        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                        [{ 'align': [] }],
+                                            ['link', 'image', 'video']
+
+                        ]
+                        }
+                    });
+                const en1 = new Quill('#description_1_en', {
+                        theme: 'snow',
+                        modules: {
+                        toolbar: [
+                        [{ 'header': [1, 2, false] }],
+                        ['bold', 'italic', 'underline'],
+                        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                        [{ 'align': [] }],
+                                            ['link', 'image', 'video']
+
+                        ]
+                        }
+                    });
+            const tr2 = new Quill('#description_2_tr', {
+                        theme: 'snow',
+                      modules: {
+                            toolbar: [
+                            [{ 'header': [1, 2, false] }],
+                            ['bold', 'italic', 'underline'],
+                            [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                            [{ 'align': [] }],
+                            ['link', 'image', 'video']
+
+                            ]
+                            }
+                    });
+                const ru2 = new Quill('#description_2_ru', {
+                        theme: 'snow',
+                        modules: {
+                        toolbar: [
+                        [{ 'header': [1, 2, false] }],
+                        ['bold', 'italic', 'underline'],
+                        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                        [{ 'align': [] }],
+                                            ['link', 'image', 'video']
+
+                        ]
+                        }
+                    });
+                const en2 = new Quill('#description_2_en', {
+                        theme: 'snow',
+                        modules: {
+                        toolbar: [
+                        [{ 'header': [1, 2, false] }],
+                        ['bold', 'italic', 'underline'],
+                        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                        [{ 'align': [] }],
+                                            ['link', 'image', 'video']
+
+                        ]
+                        }
+                    });
+        document.getElementById('submit-form').addEventListener('click', () => {
+                const trval1 = tr1.root.innerHTML;
+                const ruval1 = ru1.root.innerHTML;
+                const enval1 = en1.root.innerHTML;
+                document.getElementById('desc_1_tr').value = trval1;
+                document.getElementById('desc_1_ru').value = ruval1;
+                document.getElementById('desc_1_en').value = enval1;
+                const trval2 = tr2.root.innerHTML;
+                const ruval2 = ru2.root.innerHTML;
+                const enval2 = en2.root.innerHTML;
+                document.getElementById('desc_2_tr').value = trval2;
+                document.getElementById('desc_2_ru').value = ruval2;
+                document.getElementById('desc_2_en').value = enval2;
+                });
+        </script>
+        </x-app-layout>
