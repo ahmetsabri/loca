@@ -186,7 +186,7 @@
                                             {{ $portfolio->user->name }}
                                         </div>
                                         <div class="position text-4 xl:text-3.5 text-center text-[#6D6D6D] font-medium">
-                                           {{ $portfolio->user->bio }}
+                                           {{ $portfolio->user->title }}
                                         </div>
                                     </div>
                                     <div
