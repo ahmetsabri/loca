@@ -62,7 +62,7 @@
                                         <ul>
                                             <template x-for="child in secondLevelChildren">
                                                 <li>
-                                                    <a href="#" @click="selected2ndCategory = child.id"
+                                                    <a href="#" @click="selected2ndCategory = child.id;loadInfo(child.id)"
                                                         :class="{'bg-slate-400 text-white': selected2ndCategory == child.id}"
                                                         class="font-bold capitalize text-gray-600 dark:text-gray-500 hover:underline"
                                                         x-text="child.name.tr">
