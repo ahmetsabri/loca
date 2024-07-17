@@ -58,7 +58,7 @@
             axios.get(url).then(res=>{
                 self.infos = res.data.info
                 self.features = res.data.features
-                console.log(res.data.info)
+                console.log(res.data.features)
             }).catch(err=>{
                 alert(err);
                 console.log(err)

@@ -3,9 +3,8 @@
 
 Özellikler
 </h4>
-
 <template x-for="feature in features">
-    <template  x-if="feature.options.length > 1">
+    <template  x-if="feature.options.length > 0">
         <div class="">
     <h3 class="mb-4 font-semibold text-indigo-600 dark:text-white text-2xl" x-text="feature.name.tr"></h3>
 <ul
