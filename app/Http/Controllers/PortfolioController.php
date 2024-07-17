@@ -45,7 +45,7 @@ class PortfolioController extends Controller
 
         $portfolio = Portfolio::create($portfolioBasicData->except('images', 'info', 'features'));
 
-        Image::query()->where('token', $request->_token)->update(['imageable_id'=>$portfolio->id,'token'=>null]);
+        Image::query()->where('token', $request->_token)->update(['imageable_id' => $portfolio->id, 'token' => null]);
 
         foreach ($request->info as $id => $info) {
             if (is_array($info)) {
@@ -53,6 +53,7 @@ class PortfolioController extends Controller
                     'info_id' => $id,
                     'value' => $info,
                 ]);
+
                 continue;
             }
             $portfolio->options()->create([
@@ -153,16 +154,16 @@ class PortfolioController extends Controller
         return back()->with('success', 'success');
     }
 
-    public function removeImage(?Portfolio $portfolio=null, Image $image)
+    public function removeImage(?Portfolio $portfolio, Image $image)
     {
         $image->delete();
 
         $images = Image::where([
-                ['imageable_id', $image->imageable_id],
-                ['imageable_type', \App\Models\Portfolio::class],
-            ])->when($image->token, function ($query) use ($image) {
-                $query->where('token', $image->token);
-            })->get();
+            ['imageable_id', $image->imageable_id],
+            ['imageable_type', \App\Models\Portfolio::class],
+        ])->when($image->token, function ($query) use ($image) {
+            $query->where('token', $image->token);
+        })->get();
 
         return response()->json(compact('images'));
     }
@@ -192,10 +193,10 @@ class PortfolioController extends Controller
         $path = 'portfolio/images/'.$fileName;
 
         $lastPortfolioId = $request->id ?? Portfolio::latest()->first()?->id + 1;
-        $token =  $request->id ? null : csrf_token();
+        $token = $request->id ? null : csrf_token();
         $image = Image::create([
             'path' => $path,
-            'imageable_id' =>  $lastPortfolioId,
+            'imageable_id' => $lastPortfolioId,
             'token' => $token,
             'imageable_type' => \App\Models\Portfolio::class,
         ]);
@@ -219,7 +220,7 @@ class PortfolioController extends Controller
         ])->when($image->token, function ($query) use ($image) {
             $query->where('token', $image->token);
         })->where('id', '<>', $image->id)
-        ->update(['is_main' => false]);
+            ->update(['is_main' => false]);
 
         $images = Image::where([
             ['imageable_id', $image->imageable_id],
@@ -234,6 +235,7 @@ class PortfolioController extends Controller
     public function getImages(Portfolio $portfolio)
     {
         $images = $portfolio->load('images')->images;
+
         return response()->json(compact('images'));
     }
 }

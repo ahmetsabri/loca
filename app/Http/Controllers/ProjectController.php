@@ -48,7 +48,7 @@ class ProjectController extends Controller
         $this->attachTransportations($project, $transportations);
         $this->attachFlats($project, $flatsData);
 
-        Image::query()->where('token', $request->_token)->update(['imageable_id'=>$project->id,'token'=>null]);
+        Image::query()->where('token', $request->_token)->update(['imageable_id' => $project->id, 'token' => null]);
 
         return back()->with('success', 'success');
     }
@@ -209,11 +209,11 @@ class ProjectController extends Controller
         $image->delete();
 
         $images = Image::where([
-                ['imageable_id', $image->imageable_id],
-                ['imageable_type', \App\Models\Project::class],
-            ])->when($image->token, function ($query) use ($image) {
-                $query->where('token', $image->token);
-            })->get();
+            ['imageable_id', $image->imageable_id],
+            ['imageable_type', \App\Models\Project::class],
+        ])->when($image->token, function ($query) use ($image) {
+            $query->where('token', $image->token);
+        })->get();
 
         return response()->json(compact('images'));
     }
@@ -227,35 +227,35 @@ class ProjectController extends Controller
         return back()->with('success', 'success');
     }
 
-        public function uploadImages(Request $request)
-        {
-            $image = $request->input('images');
-            $imageParts = explode(';base64,', $image);
-            $imageTypeAux = explode('image/', $imageParts[0]);
-            $imageType = $imageTypeAux[1];
-            $imageBase64 = base64_decode($imageParts[1]);
-            $fileName = uniqid().'.'.$imageType;
+    public function uploadImages(Request $request)
+    {
+        $image = $request->input('images');
+        $imageParts = explode(';base64,', $image);
+        $imageTypeAux = explode('image/', $imageParts[0]);
+        $imageType = $imageTypeAux[1];
+        $imageBase64 = base64_decode($imageParts[1]);
+        $fileName = uniqid().'.'.$imageType;
 
-            Storage::disk('public')->put('project/images/'.$fileName, $imageBase64);
-            $path = 'project/images/'.$fileName;
+        Storage::disk('public')->put('project/images/'.$fileName, $imageBase64);
+        $path = 'project/images/'.$fileName;
 
-            $lastProjectId = $request->id ?? Project::latest()->first()?->id + 1;
-            $token =  $request->id ? null : csrf_token();
-            $image = Image::create([
-                'path' => $path,
-                'imageable_id' =>  $lastProjectId,
-                'token' => $token,
-                'imageable_type' => \App\Models\Project::class,
-            ]);
+        $lastProjectId = $request->id ?? Project::latest()->first()?->id + 1;
+        $token = $request->id ? null : csrf_token();
+        $image = Image::create([
+            'path' => $path,
+            'imageable_id' => $lastProjectId,
+            'token' => $token,
+            'imageable_type' => \App\Models\Project::class,
+        ]);
 
-            $images = Image::where([
-                ['imageable_id', $lastProjectId],
-                ['token', $token],
-                ['imageable_type', \App\Models\Project::class],
-            ])->get();
+        $images = Image::where([
+            ['imageable_id', $lastProjectId],
+            ['token', $token],
+            ['imageable_type', \App\Models\Project::class],
+        ])->get();
 
-            return response()->json(['images' => $images], 200);
-        }
+        return response()->json(['images' => $images], 200);
+    }
 
     public function setMain(Image $image)
     {
@@ -266,8 +266,7 @@ class ProjectController extends Controller
         ])->when($image->token, function ($query) use ($image) {
             $query->where('token', $image->token);
         })->where('id', '<>', $image->id)
-        ->update(['is_main' => false]);
-
+            ->update(['is_main' => false]);
 
         $images = Image::where([
             ['imageable_id', $image->imageable_id],
@@ -282,6 +281,7 @@ class ProjectController extends Controller
     public function getImages(Project $project)
     {
         $images = $project->load('images')->images;
+
         return response()->json(compact('images'));
     }
 }

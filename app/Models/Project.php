@@ -86,7 +86,6 @@ class Project extends Model
         $currency = session('currency', 'tl');
         $col = 'price_in_'.$currency;
 
-
         $locale = session('locale', 'tr');
         if ($locale == 'ru') {
             $locale = 'tr';

@@ -8,6 +8,6 @@ return [
     'wp_share_link' => 'https://wa.me/?text=%s',
     'fb_share_link' => 'https://www.facebook.com/sharer/sharer.php?u=%s',
     'x_share_link' => 'https://twitter.com/intent/tweet?url=%s',
-    'li_share_link' => 'https://www.linkedin.com/shareArticle?mini=true&url=%s'
+    'li_share_link' => 'https://www.linkedin.com/shareArticle?mini=true&url=%s',
 
 ];

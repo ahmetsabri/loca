@@ -100,7 +100,10 @@ Route::middleware('auth')->prefix('admin')->withoutMiddleware(LocaleMiddleware::
     });
     Route::prefix('feature')->group(function () {
         Route::get('/', [FeatureController::class, 'index'])->name('feature.index');
+
+        Route::get('/create', [FeatureController::class, 'create'])->name('feature.create');
         Route::post('/', [FeatureController::class, 'store'])->name('feature.store');
+        Route::get('/{feature}/edit', [FeatureController::class, 'edit'])->name('feature.edit');
         Route::get('/{feature}', [FeatureController::class, 'show'])->name('feature.show');
         Route::post('/{feature}', [FeatureController::class, 'update'])->name('feature.update');
         Route::get('{feature}/delete', [FeatureController::class, 'destroy'])->name('feature.delete');
