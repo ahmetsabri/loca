@@ -11,11 +11,10 @@ return new class () extends Migration {
      */
     public function up(): void
     {
-        Schema::create('features', function (Blueprint $table) {
-            $table->id();
-            $table->foreignIdFor(Category::class)->constrained()->cascadeOnDelete();
-            $table->json('name');
-            $table->timestamps();
+        Schema::table('features', function (Blueprint $table) {
+            if (!Schema::hasColumn('features', 'category_id')) {
+                $table->foreignIdFor(Category::class)->constrained()->cascadeOnDelete();
+            }
         });
     }
 
@@ -24,6 +23,8 @@ return new class () extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('features');
+        Schema::table('features', function (Blueprint $table) {
+            //
+        });
     }
 };
