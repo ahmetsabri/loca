@@ -15,6 +15,7 @@
         selected1stCategory:null,
         selected2ndCategory:null,
         infos:[],
+        features:[],
         formattedNumber:null,
         images: [],
         handleFiles(event) {
@@ -56,6 +57,7 @@
             url = `{{ route('category.info') }}/${id}`
             axios.get(url).then(res=>{
                 self.infos = res.data.info
+                self.features = res.data.features
                 console.log(res.data.info)
             }).catch(err=>{
                 alert(err);

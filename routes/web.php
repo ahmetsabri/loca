@@ -78,6 +78,7 @@ Route::middleware('auth')->prefix('admin')->withoutMiddleware(LocaleMiddleware::
         Route::post('/{category}', [CategoryController::class, 'update'])->name('category.update');
         Route::get('children/{category?}/', [CategoryController::class, 'getChildren'])->name('category.children');
         Route::get('info/{category?}/', [CategoryController::class, 'getInfo'])->name('category.info');
+        Route::get('feature/{category?}/', [CategoryController::class, 'getFeatures'])->name('category.feature');
         Route::get('{category}/delete', [CategoryController::class, 'destroy'])->name('category.delete');
     });
 

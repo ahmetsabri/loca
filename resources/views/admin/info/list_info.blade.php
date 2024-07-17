@@ -27,7 +27,6 @@
 
 <a href={{ route('info.edit',$info) }} class="px-3 py-2 mx-3 text-sm font-medium text-center text-white bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">
         güncelle
-
 </a>
 
 @if(!$info->created_by_system)

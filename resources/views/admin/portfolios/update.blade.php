@@ -12,8 +12,10 @@
         selected1stCategory:null,
         selected2ndCategory:`{{ $portfolio->category_id }}`,
         infos:[],
+        features:[],
         selectedInfos:JSON.parse(`{{ $portfolio->infos }}`),
         selectedOptions:JSON.parse(`{{ $portfolio->options }}`),
+        selectedFeatures:JSON.parse(`{{ $portfolio->features->pluck('feature_option_id') }}`),
         formattedNumber:`{{ $portfolio->price_in_tl }}`,
         images: [],
                 handleFiles(event) {
@@ -62,7 +64,7 @@
                     })
                     },
         init(){
-
+            console.log(this.selectedFeatures[0])
                 const self = this;
                 const imageUrl = `{{ route('portfolio.images',$portfolio) }}`
                 axios.get(imageUrl).then(res=>{
@@ -105,6 +107,7 @@ loadInfo(id){
     url = `{{ route('category.info') }}/${id}`
     axios.get(url).then(res=>{
     self.infos = res.data.info
+    self.features = res.data.features
     }).catch(err=>{
     alert(err);
     console.log(err)

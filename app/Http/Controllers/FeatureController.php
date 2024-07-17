@@ -48,7 +48,6 @@ class FeatureController extends Controller
     public function destroy(FeatureOption $featureOption)
     {
         //TODO: DELETE ITS VALUES ALSO
-        dd(213);
         $featureOption->delete();
 
         return back()->with('success', 'success');

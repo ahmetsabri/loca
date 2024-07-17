@@ -19,4 +19,8 @@ class Feature extends Model
     {
         return $this->hasMany(FeatureOption::class);
     }
+        public function category()
+        {
+            return $this->belongsTo(Category::class);
+        }
 }

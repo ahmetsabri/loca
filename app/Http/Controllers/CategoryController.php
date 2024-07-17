@@ -57,8 +57,10 @@ class CategoryController extends Controller
 
     public function getInfo(Category $category)
     {
-        $info = $category->load('info')->info;
+        $data =  $category->load('info', 'features');
+        $info =$data->info;
+        $features =$data->features;
 
-        return response()->json(compact('info'));
+        return response()->json(compact('info', 'features'));
     }
 }

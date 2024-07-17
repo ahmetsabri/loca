@@ -23,4 +23,8 @@ class Category extends Model
     {
         return $this->hasMany(Info::class)->with('options');
     }
+    public function features()
+    {
+        return $this->hasMany(Feature::class)->with('options');
+    }
 }
