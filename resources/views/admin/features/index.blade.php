@@ -15,7 +15,7 @@
     </div>
     <div class="m-5" x-data="
     {
-        deleteInfo(url){
+        deleteFeature(url){
         if(!confirm('emin misiniz')){
             return
         }

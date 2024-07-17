@@ -45,11 +45,11 @@ class FeatureController extends Controller
         return back()->with('success', 'success');
     }
 
-    public function destroy(FeatureOption $featureOption)
+    public function destroy(Feature $feature)
     {
         //TODO: DELETE ITS VALUES ALSO
-        $featureOption->delete();
-
+        $feature->options()->delete();
+        $feature->delete();
         return back()->with('success', 'success');
     }
 }
