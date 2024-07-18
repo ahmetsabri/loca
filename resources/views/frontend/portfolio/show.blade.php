@@ -77,6 +77,10 @@
                                             src="{{ $portfolio->images->first()->full_url }}" alt="" loading="lazy"></a>
                                     <div
                                         class="button-wrapper absolute bottom-0 right-0 lg:bottom-auto lg:top-0 p-4 flex items-center gap-2">
+<a href="{{ $portfolio->images->first()->full_url }}" data-fancybox="gallery"
+    class="button group/button bg-white h-12 md:h-11 sm:h-10 px-5 md:px-4 sm:px-3.5 rounded-3 flex items-center justify-center gap-3 sm:gap-2 duration-300 hover:bg-main-50">
+    <div class="text text-[#454545] text-3.5 sm:text-3 font-medium">Tüm Fotoğraflar</div>
+</a>
                                         @if($portfolio->promotion_url)
                                         <a href="{{ $portfolio->promotion_url }}" data-fancybox
                                         class="button group/button bg-white h-12 md:h-11 sm:h-10 px-5 md:px-4 sm:px-3.5 rounded-3 flex items-center justify-center gap-3 sm:gap-2 duration-300 hover:bg-main-50">
@@ -86,16 +90,16 @@
                                     @endif
                                     </div>
                                 </div>
-                                <div class="image-inner-wrapper grid grid-cols-4 gap-3">
+                                <div class="image-inner-wrapper grid grid-cols-4 gap-3" x-data>
                                     @foreach($portfolio->images as $image)
 
-
-                                    <a href="{{ $image->full_url }}"
+                                    <a x-show="`{{ $loop->iteration <= 4 }}`" href="{{ $image->full_url }}"
                                         class="image block aspect-[64/57] overflow-hidden isolate rounded-6 md:rounded-3 translate-z-0 group"
                                         data-fancybox="gallery"
                                         ><img
                                             class="full-cover translate-z-0 group-hover:scale-105 duration-450"
                                             src="{{ $image->full_url }}" alt="" loading="lazy"></a>
+
 
                                @endforeach
                                 </div>

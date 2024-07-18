@@ -38,7 +38,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('portfolios', [FrontendPortfolioController::class, 'index'])->name('portfolios');
-Route::get('portfolio/{portfolio}', [FrontendPortfolioController::class, 'show'])->name('frontend.portfolio.show');
+Route::get('portfolio/{portfolio:slug}', [FrontendPortfolioController::class, 'show'])->name('frontend.portfolio.show');
 
 Route::get('projects', [FrontendProjectController::class, 'index'])->name('projects');
 Route::get('project/{project}', [FrontendProjectController::class, 'show'])->name('frontend.project.show');
