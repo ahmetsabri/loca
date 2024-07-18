@@ -11,7 +11,7 @@ class FeatureController extends Controller
 {
     public function index()
     {
-        $features = Feature::all();
+        $features = Feature::with('category.bloodline')->get();
 
         return view('admin.features.index', compact('features'));
     }

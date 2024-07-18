@@ -5,6 +5,9 @@
                 <th scope="col" class="px-6 py-3 text-center">
                      ad
                 </th>
+                <th scope="col" class="px-6 py-3 text-center">
+                     kategori
+                </th>
 
                 <th scope="col" class="px-6 py-3 text-center">
                      işlemler
@@ -23,6 +26,9 @@
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     {{$feature->name}}
                 </td>
+                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    {{$feature->category->bloodline->pluck('name')->reverse()->implode(' > ')}}
+                                </td>
                 <td scope="row" class=" px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
 
 
