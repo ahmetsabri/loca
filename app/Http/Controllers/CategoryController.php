@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
+use App\Models\PortfolioFeature;
+use App\Models\PortfolioInfo;
 
 class CategoryController extends Controller
 {
@@ -43,7 +45,12 @@ class CategoryController extends Controller
             $child->delete();
         }
 
-        $category->delete();
+        foreach ($category->info as $info) {
+            PortfolioInfo::query()->where('info_id', $info->id)->delete();
+            $info->delete();
+        }
+
+        $category->forceDelete();
 
         return back()->with('success', 'success');
     }
