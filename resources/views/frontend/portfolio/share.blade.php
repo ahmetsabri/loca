@@ -14,7 +14,7 @@
         <div
             class="info-wrapper bg-[#F2F8FD] px-11 2xl:px-10 xl:px-8 lg:px-6 py-6 flex items-center gap-7 sm:flex-col sm:gap-6">
             <div class="image aspect-[52/33] overflow-hidden isolate rounded-3 max-w-[230px] sm:max-w-none w-full">
-                <img class="full-cover" src="{{ asset('image/other/2.webp') }}" alt="" loading="lazy">
+                <img class="full-cover" src="{{ $portfolio->images->first()->full_url }}" alt="" loading="lazy">
             </div>
             <div class="naming">
                 <div class="name text-4 font-medium text-tertiary-950 mb-1">
@@ -67,15 +67,15 @@
         </div>
         <div class="copy-wrapper px-11 2xl:px-10 xl:px-8 lg:px-6 pb-11 2xl:pb-10 xl:pb-8 lg:pb-6 pt-6 bg-[#F2F8FD]">
             <div class="title text-4 md:text-3.5 font-medium text-[#2675FA] mb-3">
-
                 {{ __('general.copy') }}
             </div>
             <div
                 class="link-wrapper bg-white h-14 rounded-4 md:rounded-3 flex items-center justify-between pl-6 pr-1 py-1 gap-6">
-                <div class="link w-[calc(100%-72px)] text-3.5 font-medium text-tertiary-950"><span
+                <div  class="link w-[calc(100%-72px)] text-3.5 font-medium text-tertiary-950"><span
                         class="line-clamp-1">{{ route('frontend.portfolio.show',$portfolio) }}</span></div>
                 <button
-                    class="h-full shrink-0 relative copy-link group aspect-square rounded-3 bg-[#E8F0FD] flex items-center justify-center duration-300 hover:bg-main-100">
+                data-clipboard-text="{{ route('frontend.portfolio.show',$portfolio) }}"
+                    class="h-full copy shrink-0 relative copy-link group aspect-square rounded-3 bg-[#E8F0FD] flex items-center justify-center duration-300 hover:bg-main-100">
                     <div class="icon icon-copy text-4 h-4 block leading-none duration-300 text-[#2675FA]"></div>
                     <div
                         class="tooltip bg-[#0B90F3] text-white absolute px-3 leading-none rounded-2 left-1/2 -translate-x-1/2 bottom-[calc(100%+15px)] translate-y-[-5px] pointer-events-none opacity-0 ease-manidar backface-hidden whitespace-nowrap font-medium text-[10px] tracking-[-0.03em] py-[7.5px] group-[&.copied]:translate-y-0 group-[&.copied]:opacity-100 duration-300">
