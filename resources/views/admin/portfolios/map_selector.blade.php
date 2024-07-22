@@ -39,7 +39,7 @@
         </div>
     </div>
 </div>
-    <input type="hidden" name="location" value="@if(isset($model)) {{ $model->location }} @endif" id="location">
+    <input type="hidden" name="location" value="@if(isset($model)) {{ $model->location }} @else  {{ old('location') }} @endif" id="location">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDw9HPxhdYmLJsF_xVXmEs_f2QwfaEoGho"></script>
     <script>
             function initMap () {

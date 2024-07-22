@@ -16,8 +16,15 @@
         selected2ndCategory:null,
         infos:[],
         features:[],
-        formattedNumber:null,
+        formattedNumber:`{{ old('price_in_tl') }}` ?? null,
         images: [],
+        init(){
+            this.loadTowns(`{{ old('province_id') }}`)
+            this.loadDistricts(`{{ old('town_id') }}`)
+            this.loadChildren(`{{ old('main_category') }}`)
+            this.loadChildren(`{{ old('first_level_category') }}`,2)
+            this.selected2ndCategory = `{{ old('category_id') }}`
+        },
         handleFiles(event) {
             const files = event.target.files;
             const self = this;
@@ -35,7 +42,6 @@
 
                     self.images = res.data.images
                     }).catch(err=>{
-                    alert('err')
                     console.log(err)
                     })
                 }
@@ -60,7 +66,6 @@
                 self.features = res.data.features
                 console.log(res.data.features)
             }).catch(err=>{
-                alert(err);
                 console.log(err)
             })
         },
@@ -86,7 +91,6 @@
                 }
                 self.secondLevelChildren = res.data.children
             }).catch(err=>{
-                alert(err);
                 console.log(err)
             })
         },
@@ -141,7 +145,6 @@
         </div>
         @include('admin.portfolios.create_form')
     </div>
-
     <script>
         const tr = new Quill('#description_tr', {
                 theme: 'snow',
