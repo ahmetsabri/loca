@@ -168,12 +168,8 @@
                                         </a> --}}
                                     </div>
                                 </div>
-                                <div class="detail">
-                                    <iframe class="w-full h-auto block aspect-[177/73] xs:aspect-[5/4]"
-                                        src="{{ $portfolio->embed_map_link }}"
-                                        style="border:0;" allowfullscreen="" loading="lazy"
-                                        referrerpolicy="no-referrer-when-downgrade" id="locationIframe">
-                                    </iframe>
+                                <div class="detail" style="width: 100%">
+                                   @include('admin.portfolios.single_map',['model'=>$portfolio])
                                 </div>
                             </div>
                             <div class="split h-px w-full bg-black/11 my-10 xl:my-8 lg:my-6"></div>
