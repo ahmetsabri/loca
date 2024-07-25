@@ -40,7 +40,7 @@ class PortfolioController extends Controller
     public function store(StorePortfolioRequest $request)
     {
         // DB::beginTransaction();
-        $portfolioBasicData = $request->safe();
+        $portfolioBasicData = $request->safe()->merge(['ad_number'=>random_int(10000000, 1000000000)]);
         // try {
 
         $portfolio = Portfolio::create($portfolioBasicData->except('images', 'info', 'features'));

@@ -295,7 +295,7 @@
                                         <div class="row flex items-center justify-between gap-7.5 px-1.5 leading-tight">
                                             <div class="title text-3.5 font-medium text-tertiary-950">{{ __('general.ad_no') }}</div>
                                             <div class="value text-3.5 font-semibold text-tertiary-950 text-right">
-                                                {{ $portfolio->id }}
+                                                {{ $portfolio->ad_number }}
                                             </div>
                                         </div>
 
