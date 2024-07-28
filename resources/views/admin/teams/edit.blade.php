@@ -30,8 +30,9 @@
                 @endif
             @csrf
             <div>
-                <label for="team" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">{{
-                    __('general.name') }}</label>
+                <label for="team" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    Ad Soyad
+                </label>
                 <input value="{{ $user->name }}" type="text" name="name" id="team"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                      />
@@ -61,7 +62,7 @@
             </div>
             <div>
                 <label for="ttype_no" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">{{
-                    __('ttype no') }}</label>
+                    __('TTYB No') }}</label>
                 <input value="{{ $user->ttype_no }}" type="text" name="ttype_no" id="ttype_no"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                      />
@@ -90,14 +91,14 @@
             </div>
             <div>
                 <label for="team" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">{{
-                    __('adres') }}</label>
+                    __('adres bilgileri') }}</label>
                 <input value="{{ $user->address }}" type="text" name="address" id="team"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                      />
             </div>
             <div>
                 <label for="team" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                    {{ __('general.office') }} konumu linki</label>
+                    {{ __('general.office') }} konumu</label>
                 <input value="{{ $user->office_location }}" type="text" name="office_location" id="team"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                     required />
@@ -136,22 +137,78 @@
                 <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="name"></div>
             </div>
 
-          @foreach(config('app.locales') as $locale)
 
-
-            <div>
-                <label for="team" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">{{
-                    __('bio '.$locale)}}</label>
-                <textarea type="text" name="bio[{{ $locale }}]" id="team"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                     rows="7">{{ $user->getTranslation('bio',$locale) }}</textarea>
-                <br />
-            </div>
-          @endforeach
-            <button type="submit"
+            <div> <p class="font-bold text-base my-4 text-indigo-800">
+                    Bio Türkçesi
+                </p>
+                <div id="description_tr">{!! $user->getTranslation('bio','tr') !!}</div>
+                </div>
+                <div class="sm:col-span-2">
+                    <p class="font-bold text-base my-4 text-indigo-800">Bio Rusça</p>
+                    <div id="description_ru" class="">{!! $user->getTranslation('bio','ru') !!}</div>
+                </div>
+                <div class="sm:col-span-2 mt-b0">
+                    <p class="font-bold text-base my-4 text-indigo-800">
+                        Bio Inglizce
+                    </p>
+                    <div id="description_en">{!! $user->getTranslation('bio','en') !!}</div>
+                </div>
+                <input type="hidden" name="bio[tr]" id="desc_tr">
+                <input type="hidden" name="bio[ru]" id="desc_ru">
+                <input type="hidden" name="bio[en]" id="desc_en">
+            <button type="submit" id="submit-form"
                 class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">gönder</button>
         </form>
+ <script>
+const tr = new Quill('#description_tr', {
+        theme: 'snow',
+        modules: {
+        toolbar: [
+        [{ 'header': [1, 2, false] }],
+        ['bold', 'italic', 'underline'],
+        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+        [{ 'align': [] }],
+        ['link', 'image', 'video']
 
+        ]
+        }
+        });
+        const ru = new Quill('#description_ru', {
+        theme: 'snow',
+        modules: {
+        toolbar: [
+        [{ 'header': [1, 2, false] }],
+        ['bold', 'italic', 'underline'],
+        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+        [{ 'align': [] }],
+        ['link', 'image', 'video']
+
+        ]
+        }
+        });
+        const en = new Quill('#description_en', {
+        theme: 'snow',
+        modules: {
+        toolbar: [
+        [{ 'header': [1, 2, false] }],
+        ['bold', 'italic', 'underline'],
+        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+        [{ 'align': [] }],
+        ['link', 'image', 'video']
+
+        ]
+        }
+        });
+        document.getElementById('submit-form').addEventListener('click', () => {
+        const trval = tr.root.innerHTML;
+        const ruval = ru.root.innerHTML;
+        const enval = en.root.innerHTML;
+        document.getElementById('desc_tr').value = trval;
+        document.getElementById('desc_ru').value = ruval;
+        document.getElementById('desc_en').value = enval;
+        });
+
+    </script>
 
     </div>
 </x-app-layout>

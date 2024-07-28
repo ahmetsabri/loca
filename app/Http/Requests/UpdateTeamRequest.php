@@ -21,10 +21,10 @@ class UpdateTeamRequest extends FormRequest
         return [
             'name' => ['required', 'string'],
             'department_id' => ['required', Rule::exists('departments', 'id')],
-            'bio' => ['required', 'array'],
-            'title' => ['required', 'array'],
-            'ttype_no' => ['required'],
-            'email' => ['required', 'email', Rule::unique('users', 'email')->ignore($this->user?->id)],
+            'bio' => ['nullable', 'array'],
+            'title' => ['nullable', 'array'],
+            'ttype_no' => ['nullable'],
+            'email' => ['nullable', 'email', Rule::unique('users', 'email')->ignore($this->user?->id)],
             // 'password' => ['sometimes', 'nullable'],
             'facebook_url' => ['sometimes'],
             'instagram_url' => ['sometimes'],
@@ -32,7 +32,7 @@ class UpdateTeamRequest extends FormRequest
             'office_location' => ['sometimes'],
             'experience' => ['sometimes'],
             'languages' => ['sometimes'],
-            'phone' => ['required', 'string'],
+            'phone' => ['nullable', 'string'],
             'image' => ['sometimes', 'nullable', 'image'],
         ];
     }
