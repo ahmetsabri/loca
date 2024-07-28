@@ -243,7 +243,7 @@
                                 <!-- .text-editor içerisindeki style attribute değerleri frontendi tasarıma benzetmek adına eklenmiştir, backend aşamasında silinerek panel editöründen tanımlanmalıdır. -->
                                 <h5>We Are <strong>LOCA</strong></h5>
                                 <p style="color:#0D1523">
-                                    {{ $user->bio }}
+                                    {!! $user->bio !!}
                                 </p>
 
 
