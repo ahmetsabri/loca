@@ -43,7 +43,7 @@ Route::get('portfolio/{portfolio:slug}', [FrontendPortfolioController::class, 's
 Route::get('projects', [FrontendProjectController::class, 'index'])->name('projects');
 Route::get('project/{project}', [FrontendProjectController::class, 'show'])->name('frontend.project.show');
 Route::get('teams', [FrontendTeamController::class, 'index'])->name('frontend.team.index');
-Route::get('team/{user}', [FrontendTeamController::class, 'show'])->name('frontend.user.show');
+Route::get('team/{user:slug}', [FrontendTeamController::class, 'show'])->name('frontend.user.show');
 
 Route::view('contact', 'frontend.contact')->name('contact');
 Route::post('contact-form', [FormController::class, 'storeContactForm'])->name('form.contact');

@@ -63,4 +63,12 @@ class User extends Authenticatable
 
         return 'https://api.whatsapp.com/send/?phone='.$phone;
     }
+
+        public static function boot()
+        {
+            parent::boot();
+            static::saving(function (self $user) {
+                $user->slug = str()->slug($user->name);
+            });
+        }
 }

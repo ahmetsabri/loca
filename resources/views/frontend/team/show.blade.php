@@ -1,5 +1,6 @@
 @extends('layouts.frontend')
 
+@section('title',$user->name.' | RE/MAX Loca')
 @section('content')
 
 <soho-technologies class="block">
@@ -188,7 +189,7 @@
                                         <div class="form-el group/form w-full col-span-2 sm:col-span-1 px-2">
                                             <!-- Buraya `error` classı gelince ilgili style değişiyor -->
                                             <div class="custom-input relative flex items-center gap-2">
-                                                <input name="show_name" type="checkbox" value="1"
+                                                <input name="show_name" type="checkbox" value="0"
                                                     class="opacity-0 absolute left-0 top-0 w-full h-full peer z-2 cursor-pointer">
                                                 <div
                                                     class="box relative duration-300 w-4 aspect-square shrink-0 bg-bodyColor rounded-0.75 border border-solid border-[#8AA5D3]/30 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:w-65/100 before:aspect-square before:rounded-0.5 before:bg-main-700 before:duration-300 before:pointer-events-none before:opacity-0 peer-hover:border-main-700 peer-checked:border-main-700 peer-checked:before:opacity-100">
@@ -281,57 +282,21 @@
                             <div
                                 class="filter-wrapper grid grid-cols-[minmax(0,5fr)_minmax(0,4fr)_minmax(0,5fr)] sm:grid-cols-1 gap-5.5 sm:gap-3">
                                 <div class="form-el group/form relative w-full">
-                                    <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                    <select
-                                        class="peer w-full h-16 xl:h-14 md:h-12 duration-300 rounded-4 md:rounded-3 px-7 md:px-5 bg-transparent placeholder:text-[#224391] text-tertiary-950 font-medium text-4 xl:text-3.5 border border-solid border-[#E8F0FD] hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700 invalid:!text-[#224391]"
-                                        required>
-                                        <option value="" disabled selected>{{ __('general.type') }}</option>
-                                    @foreach($cateogries as $category)
-                                    <option @click="quickFilter(`{{ route('frontend.user.show',[$user,'filter[parent_category]'=>$category->id])}}`)" value="{{ $category->id }}" @selected($category->id == request('filter.parent_category')) >{{ $category->name }}</option>
-                                    @endforeach
-                                    </select>
-                                    <div
-                                        class="icon icon-chevron-bottom text-3 h-3 xl:text-2.5 xl:h-2.5 md:text-2 md:h-2 block leading-none duration-300 text-[#224391] pointer-events-none absolute right-7 md:right-5 top-6.5 xl:top-[23px] md:top-5 peer-focus:rotate-180">
-                                    </div>
-                                    <div
-                                        class="tooltip text-secondary-700 text-3 mt-2 hidden group-[&.error]/form:block">
-                                        Lütfen ilgili alanı doldurunuz.</div>
-                                </div>
-                                <div class="form-el group/form relative w-full">
-                                    <select
-                                        class="peer w-full h-16 xl:h-14 md:h-12 duration-300 rounded-4 md:rounded-3 px-7 md:px-5 bg-transparent placeholder:text-[#224391] text-tertiary-950 font-medium text-4 xl:text-3.5 border border-solid border-[#E8F0FD] hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700 invalid:!text-[#224391]"
-                                        required>
-                                        <option value="" disabled selected>Satılık / Kiralık</option>
-@foreach($cateogries as $category)
-@if($category->id == request('filter.parent_category'))
-@foreach($category->children as $child)
 
-<option @click="quickFilter(`{{ request()->fullUrlWithQuery(['filter[category]'=>$child->id]) }}`)"
-    value="{{ $child->id }}" @selected($child->id == request('filter.category')) > {{ $child->name }} </option>
-    @endforeach
-@endif
-                                    @endforeach
-                                    </select>
                                     <div
-                                        class="icon icon-chevron-bottom text-3 h-3 xl:text-2.5 xl:h-2.5 md:text-2 md:h-2 block leading-none duration-300 text-[#224391] pointer-events-none absolute right-7 md:right-5 top-6.5 xl:top-[23px] md:top-5 peer-focus:rotate-180">
-                                    </div>
+                                        class="tooltip text-secondary-700 text-3 mt-2 hidden group-[&.error]/form:block">
+                                        Lütfen ilgili alanı doldurunuz.</div>
+                                </div>
+                                <div class="form-el group/form relative w-full">
+
                                     <div
                                         class="tooltip text-secondary-700 text-3 mt-2 hidden group-[&.error]/form:block">
                                         Lütfen ilgili alanı doldurunuz.</div>
                                 </div>
                                 <div class="form-el group/form relative w-full">
                                     <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                    <select
-                                        class="peer w-full h-16 xl:h-14 md:h-12 duration-300 rounded-4 md:rounded-3 px-7 md:px-5 bg-transparent placeholder:text-[#224391] text-tertiary-950 font-medium text-4 xl:text-3.5 border border-solid border-[#E8F0FD] hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700 invalid:!text-[#224391]"
-                                        required>
-                                        <option value="" disabled selected>Sırala</option>
-                                        <option value="">Opsiyon 1</option>
-                                        <option value="">Opsiyon 2</option>
-                                        <option value="">Opsiyon 3</option>
-                                    </select>
-                                    <div
-                                        class="icon icon-chevron-bottom text-3 h-3 xl:text-2.5 xl:h-2.5 md:text-2 md:h-2 block leading-none duration-300 text-[#224391] pointer-events-none absolute right-7 md:right-5 top-6.5 xl:top-[23px] md:top-5 peer-focus:rotate-180">
-                                    </div>
+
+
                                     <div
                                         class="tooltip text-secondary-700 text-3 mt-2 hidden group-[&.error]/form:block">
                                         Lütfen ilgili alanı doldurunuz.</div>

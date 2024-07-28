@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 @section('content')
-
+@section('title','Ekibimiz | RE/MAX Loca')
 <soho-technologies class="block">
 
     <main class="main-field relative pt-[134px] sm:pt-[124px]">
@@ -184,7 +184,7 @@
                                     <div class="form-el group/form w-full col-span-2 sm:col-span-1">
                                         <!-- Buraya `error` classı gelince ilgili style değişiyor -->
                                         <div class="custom-input relative">
-                                            <input name="attachment" required type="file"
+                                            <input name="attachment" required type="file" accept=".pdf,.docx,.doc"
                                                 class="opacity-0 absolute left-0 top-0 w-full h-full peer z-2 cursor-pointer">
                                             <div
                                                 class="box flex items-center justify-center gap-2 duration-300 h-20 md:h-18 px-7 md:px-5 rounded-4 md:rounded-3 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-dashed border-[#8AA5D3]/30 peer-hover:border-main-700 peer-focus:border-main-700 group-[&.error]/form:border-secondary-700">
