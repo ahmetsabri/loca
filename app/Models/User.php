@@ -71,4 +71,15 @@ class User extends Authenticatable
                 $user->slug = str()->slug($user->name);
             });
         }
+
+            public function getShareLinksAttribute()
+            {
+                return [
+                    'sms' => sprintf(config('keys.sms_share_link'), $this->title.' '.route('frontend.user.show', $this)),
+                    'email' => sprintf(config('keys.email_share_link'), $this->title.' '.route('frontend.user.show', $this)),
+                    'wp' => sprintf(config('keys.wp_share_link'), $this->title.' '.route('frontend.user.show', $this)),
+                    'x' => sprintf(config('keys.x_share_link'), route('frontend.user.show', $this)),
+                    'fb' => sprintf(config('keys.fb_share_link'), route('frontend.user.show', $this)),
+                ];
+            }
 }

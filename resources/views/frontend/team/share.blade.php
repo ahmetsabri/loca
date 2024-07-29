@@ -23,35 +23,35 @@
         </div>
         <div
             class="share-wrapper flex-wrap p-11 2xl:p-10 xl:p-8 lg:p-6 flex items-center justify-evenly gap-7.5 sm:gap-4">
-            <a href="javascript:void(0)" class="item block group">
+            <a href="{{ $user->share_links['wp'] }}" class="item block group">
                 <img class="w-7.5 aspect-square object-contain object-center block mx-auto"
                     src="{{asset('image/icon/1.webp')}}" alt="" loading="lazy">
                 <div
                     class="text text-3 sm:text-2.5 font-medium text-tertiary-950 duration-300 group-hover:text-main-600 mt-1.5 leading-tight text-center">
                     Whatsapp</div>
             </a>
-            <a href="javascript:void(0)" class="item block group">
+            <a href="{{ $user->share_links['fb'] }}" class="item block group">
                 <img class="w-7.5 aspect-square object-contain object-center block mx-auto"
                     src="{{asset('image/icon/2.webp')}}" alt="" loading="lazy">
                 <div
                     class="text text-3 sm:text-2.5 font-medium text-tertiary-950 duration-300 group-hover:text-main-600 mt-1.5 leading-tight text-center">
                     Facebook</div>
             </a>
-            <a href="javascript:void(0)" class="item block group">
+            <a href="{{ $user->share_links['x'] }}" class="item block group">
                 <img class="w-7.5 aspect-square object-contain object-center block mx-auto"
                     src="{{ asset('image/icon/3.webp') }}" alt="" loading="lazy">
                 <div
                     class="text text-3 sm:text-2.5 font-medium text-tertiary-950 duration-300 group-hover:text-main-600 mt-1.5 leading-tight text-center">
                     X ile Paylaş</div>
             </a>
-            <a href="javascript:void(0)" class="item block group">
+            <a href="{{ $user->share_links['email'] }}" class="item block group">
                 <img class="w-7.5 aspect-square object-contain object-center block mx-auto"
                     src="{{asset('image/icon/4.webp')}}" alt="" loading="lazy">
                 <div
                     class="text text-3 sm:text-2.5 font-medium text-tertiary-950 duration-300 group-hover:text-main-600 mt-1.5 leading-tight text-center">
                     E-posta</div>
             </a>
-            <a href="javascript:void(0)" class="item block group">
+            <a href="{{ $user->share_links['sms'] }}" class="item block group">
                 <img class="w-7.5 aspect-square object-contain object-center block mx-auto"
                     src="{{asset('image/icon/5.webp')}}" alt="" loading="lazy">
                 <div
