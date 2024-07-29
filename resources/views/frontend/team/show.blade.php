@@ -93,12 +93,12 @@
                                 <a href="{{ $user->address }}"
                                     class="flex items-center gap-2 text-[#224391] duration-300 hover:text-[#2675FA]">
                                     <div class="icon icon-map-2 text-4 h-4 block leading-none"></div>
-                                    <div class="text text-3.5 font-medium">{{ __('general.address') }}</div>
+                                    <div class="text text-3.5 font-medium">{{ __('general.office_location') }}</div>
                                 </a>
                                 <a href="{{ $user->office_location }}"
                                     class="flex items-center gap-2 text-[#224391] duration-300 hover:text-[#2675FA]">
                                     <div class="icon icon-location-1 text-4 h-4 block leading-none"></div>
-                                    <div class="text text-3.5 font-medium">{{ __('general.office') }}</div>
+                                    <div class="text text-3.5 font-medium">{{ __('general.address_info') }}</div>
                                 </a>
                             </div>
                             <div class="content-wrapper p-7 xl:px-5 lg:px-3 pb-0 grid gap-3.5">
@@ -201,7 +201,7 @@
                                         </div>
                                         <div class="form-el group/form w-full">
                                             <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                            <input name="phone" type="tel" placeholder="+90 (___) ___ __ __"
+                                            <input name="phone" type="tel" placeholder="Telefon"
                                                 class="w-full h-13 md:h-12 duration-300 rounded-3 px-5 bg-transparent placeholder:text-[#8AA5D3] text-tertiary-950 font-medium text-3.5 border border-solid border-[#E8F0FD] hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
                                             <div class="tooltip text-secondary-700 text-3 mt-2 hidden group-[&.error]/form:block">Lütfen
                                                 ilgili alanı doldurunuz.</div>
@@ -251,22 +251,21 @@
 
                             <div class="split h-px w-full my-8 xl:my-7 lg:my-6 md:my-4 bg-[#E8F0FD]"></div>
 
+                            @if($user->experience)
                             <div class="info">
                                 <div class="title capitalize text-4 font-semibold text-[#224391] mb-7 xl:mb-6 lg:mb-5 md:mb-4">
                                     {{ __('general.experience') }}
                                 </div>
                                 <div class="list flex items-center flex-wrap gap-4 lg:gap-3 md:gap-2">
-                                    @if($user->languages)
                                   @foreach($user->experience as $experience)
 
 
-                                  <a href="javascript:void(0)"
-                                  class="bg-[#F2F8FD] h-11 lg:h-10 md:h-9 rounded-4 md:rounded-3 font-medium text-tertiary-950 text-3.5 text-center flex items-center justify-center px-5 lg:px-4.5 md:px-4 duration-300 hover:bg-main-100">{{ $experience }}</a>
+                                  <p href="javascript:void(0)"
+                                  class="bg-[#F2F8FD] h-11 lg:h-10 md:h-9 rounded-4 md:rounded-3 font-medium text-tertiary-950 text-3.5 text-center flex items-center justify-center px-5 lg:px-4.5 md:px-4 duration-300 hover:bg-main-100">{{ $experience }} </p>
                                   @endforeach
-@endif
                                 </div>
                             </div>
-
+@endif
                             <div class="split h-px w-full my-8 xl:my-7 lg:my-6 md:my-4 bg-[#E8F0FD]"></div>
 
                             <div class="info">
@@ -400,3 +399,8 @@
 
 </soho-technologies>
 @endsection
+<script>
+    @session('success')
+        alert('Yorumunuz için teşekkürler')
+    @endsession
+</script>

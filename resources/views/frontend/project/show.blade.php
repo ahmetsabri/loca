@@ -582,3 +582,8 @@
 @include('frontend.project.share',['project'=>$project])
     </soho-technologies>
 @endsection
+<script>
+    @session('success')
+        alert('İlginiz için teşekkürler')
+    @endsession
+</script>

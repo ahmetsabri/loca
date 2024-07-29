@@ -252,3 +252,8 @@
 </soho-technologies>
 
 @endsection
+<script>
+    @session('success')
+        alert('Başvurunuz için teşekkürler')
+    @endsession
+</script>
