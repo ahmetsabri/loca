@@ -92,19 +92,19 @@
             <div>
                         <label for="team" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('whatsapp')
                             }}</label>
-                        <input value={{ $user->whatsapp }} type="text" name="whatsapp" id="team"
+                        <input value="{{ $user->whatsapp }}" type="text" name="whatsapp" id="team"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" />
                     </div>
                     <div>
                         <label for="team" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('youtube')
                             }}</label>
-                        <input value={{ $user->youtube }} type="text" name="youtube" id="team"
+                        <input value="{{ $user->youtube }}" type="text" name="youtube" id="team"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" />
                     </div>
                     <div>
                         <label for="team" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('linkedin')
                             }}</label>
-                        <input value={{ $user->linkedin }} type="text" name="linkedin" id="team"
+                        <input value="{{ $user->linkedin }}" type="text" name="linkedin" id="team"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" />
                     </div>
             <div>
