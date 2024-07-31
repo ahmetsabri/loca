@@ -73,6 +73,24 @@
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                          />
                 </div>
+                <div>
+                    <label for="team" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('whatsapp') }}</label>
+                    <input type="text" name="whatsapp" id="team"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                         />
+                </div>
+                <div>
+                    <label for="team" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('youtube') }}</label>
+                    <input type="text" name="youtube" id="team"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                         />
+                </div>
+                <div>
+                    <label for="team" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('linkedin') }}</label>
+                    <input type="text" name="linkedin" id="team"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                         />
+                </div>
 
                 <div>
                     <label for="team" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -91,6 +109,13 @@
                 <div>
                     <label for="team" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('general.experience') }}</label>
                     <input type="text" name="experience" id="team"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                         placeholder="exp1, exp2, exp3" />
+                </div>
+                <div>
+                    <label for="experience_area" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        {{ __('general.experience_area') }}</label>
+                    <input type="text" name="experience_area" id="experience_area"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                          placeholder="exp1, exp2, exp3" />
                 </div>

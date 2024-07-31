@@ -28,6 +28,11 @@ class StoreTeamMemberRequest extends FormRequest
             'password' => ['required'],
             'facebook_url' => ['sometimes'],
             'instagram_url' => ['sometimes'],
+                        'whatsapp' => ['sometimes'],
+            'linkedin' => ['sometimes'],
+            'youtube' => ['sometimes'],
+            'experience_area' => ['sometimes'],
+
             'address' => ['sometimes'],
             'office_location' => ['sometimes'],
             'experience' => ['sometimes'],

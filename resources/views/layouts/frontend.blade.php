@@ -20,27 +20,27 @@
             <div class="wrapper max-w-1440 mx-auto w-full h-full px-7.5 flex items-center justify-between gap-4">
                 <div class="left-wrapper flex items-center gap-7.5 lg:hidden">
                     <div class="social-wrapper flex items-center gap-4.5">
-                        <a href="javascript:void(0)"
+                        <a href="https://wa.me/905324275936"
                             class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                             <div class="icon icon-whatsapp-1 text-4 h-4 block leading-none relative z-2"></div>
                         </a>
-                        <a href="javascript:void(0)"
+                        <a href="https://www.facebook.com/remaxloca/"
                             class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                             <div class="icon icon-facebook-1 text-4 h-4 block leading-none relative z-2"></div>
                         </a>
-                        <a href="javascript:void(0)"
+                        <a href="https://www.instagram.com/remaxloca/"
                             class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                             <div class="icon icon-instagram text-4 h-4 block leading-none relative z-2"></div>
                         </a>
-                        <a href="javascript:void(0)"
+                        <a href="https://www.linkedin.com/company/12904651/admin/"
                             class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                             <div class="icon icon-linkedin-1 text-4 h-4 block leading-none relative z-2"></div>
                         </a>
-                        <a href="javascript:void(0)"
+                        <a href="https://www.youtube.com/channel/UCsirgnE5j4PZNOTvaMuezeQ"
                             class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                             <div class="icon icon-youtube text-4 h-4 block leading-none relative z-2"></div>
                         </a>
-                        <a href="javascript:void(0)"
+                        <a href="https://www.tiktok.com/@remaxloca"
                             class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                             <div class="icon icon-tiktok text-4 h-4 block leading-none relative z-2"></div>
                         </a>
@@ -287,28 +287,28 @@
                         </a>
                         <div class="split hidden lg:block w-full h-px bg-tertiary-950/10"></div>
                         <div class="social-wrapper flex items-center justify-center gap-4.5">
-                            <a href="javascript:void(0)"
-                                class="block relative text-main-900 duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-main-900 hover:before:rotate-0 hover:before:opacity-100 hover:text-white">
+                            <a href="https://wa.me/905324275936"
+                                class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                                 <div class="icon icon-whatsapp-1 text-4 h-4 block leading-none relative z-2"></div>
                             </a>
-                            <a href="javascript:void(0)"
-                                class="block relative text-main-900 duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-main-900 hover:before:rotate-0 hover:before:opacity-100 hover:text-white">
+                            <a href="https://www.facebook.com/remaxloca/"
+                                class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                                 <div class="icon icon-facebook-1 text-4 h-4 block leading-none relative z-2"></div>
                             </a>
-                            <a href="javascript:void(0)"
-                                class="block relative text-main-900 duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-main-900 hover:before:rotate-0 hover:before:opacity-100 hover:text-white">
+                            <a href="https://www.instagram.com/remaxloca/"
+                                class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                                 <div class="icon icon-instagram text-4 h-4 block leading-none relative z-2"></div>
                             </a>
-                            <a href="javascript:void(0)"
-                                class="block relative text-main-900 duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-main-900 hover:before:rotate-0 hover:before:opacity-100 hover:text-white">
+                            <a href="https://www.linkedin.com/company/12904651/admin/"
+                                class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                                 <div class="icon icon-linkedin-1 text-4 h-4 block leading-none relative z-2"></div>
                             </a>
-                            <a href="javascript:void(0)"
-                                class="block relative text-main-900 duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-main-900 hover:before:rotate-0 hover:before:opacity-100 hover:text-white">
+                            <a href="https://www.youtube.com/channel/UCsirgnE5j4PZNOTvaMuezeQ"
+                                class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                                 <div class="icon icon-youtube text-4 h-4 block leading-none relative z-2"></div>
                             </a>
-                            <a href="javascript:void(0)"
-                                class="block relative text-main-900 duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-main-900 hover:before:rotate-0 hover:before:opacity-100 hover:text-white">
+                            <a href="https://www.tiktok.com/@remaxloca"
+                                class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                                 <div class="icon icon-tiktok text-4 h-4 block leading-none relative z-2"></div>
                             </a>
                         </div>
@@ -686,30 +686,30 @@
                         <div class="social-outer-wrapper px-5.5 mt-15 2xl:mt-13 xl:mt-11 lg:mt-9">
                             <div class="title text-3.5 font-medium text-white mb-3">{{ __('general.follow_us') }}</div>
                             <div class="social-wrapper flex items-center gap-4.5">
-                                <a href="javascript:void(0)"
-                                    class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
-                                    <div class="icon icon-whatsapp-1 text-4 h-4 block leading-none relative z-2"></div>
-                                </a>
-                                <a href="javascript:void(0)"
-                                    class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
-                                    <div class="icon icon-facebook-1 text-4 h-4 block leading-none relative z-2"></div>
-                                </a>
-                                <a href="javascript:void(0)"
-                                    class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
-                                    <div class="icon icon-instagram text-4 h-4 block leading-none relative z-2"></div>
-                                </a>
-                                <a href="javascript:void(0)"
-                                    class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
-                                    <div class="icon icon-linkedin-1 text-4 h-4 block leading-none relative z-2"></div>
-                                </a>
-                                <a href="javascript:void(0)"
-                                    class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
-                                    <div class="icon icon-youtube text-4 h-4 block leading-none relative z-2"></div>
-                                </a>
-                                <a href="javascript:void(0)"
-                                    class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
-                                    <div class="icon icon-tiktok text-4 h-4 block leading-none relative z-2"></div>
-                                </a>
+<a href="https://wa.me/905324275936"
+    class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
+    <div class="icon icon-whatsapp-1 text-4 h-4 block leading-none relative z-2"></div>
+</a>
+<a href="https://www.facebook.com/remaxloca/"
+    class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
+    <div class="icon icon-facebook-1 text-4 h-4 block leading-none relative z-2"></div>
+</a>
+<a href="https://www.instagram.com/remaxloca/"
+    class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
+    <div class="icon icon-instagram text-4 h-4 block leading-none relative z-2"></div>
+</a>
+<a href="https://www.linkedin.com/company/12904651/admin/"
+    class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
+    <div class="icon icon-linkedin-1 text-4 h-4 block leading-none relative z-2"></div>
+</a>
+<a href="https://www.youtube.com/channel/UCsirgnE5j4PZNOTvaMuezeQ"
+    class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
+    <div class="icon icon-youtube text-4 h-4 block leading-none relative z-2"></div>
+</a>
+<a href="https://www.tiktok.com/@remaxloca"
+    class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
+    <div class="icon icon-tiktok text-4 h-4 block leading-none relative z-2"></div>
+</a>
                             </div>
                         </div>
                     </div>

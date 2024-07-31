@@ -28,6 +28,7 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
             'experience' => 'json',
+            'experience_area' => 'json',
             'languages' => 'json',
         ];
     }
@@ -47,6 +48,10 @@ class User extends Authenticatable
         return $this->hasMany(Portfolio::class);
     }
 
+    public function setExperienceAreaAttribute($value)
+    {
+        $this->attributes['experience_area'] = json_encode(explode(',', $value));
+    }
     public function setExperienceAttribute($value)
     {
         $this->attributes['experience'] = json_encode(explode(',', $value));
@@ -59,9 +64,7 @@ class User extends Authenticatable
 
     public function getWpUrlAttribute()
     {
-        $phone = $this->phone ? str_replace('+', '', $this->phone) : null;
-
-        return 'https://api.whatsapp.com/send/?phone='.$phone;
+        return 'https://api.whatsapp.com/send/?phone='.$this->whatsapp;
     }
 
         public static function boot()

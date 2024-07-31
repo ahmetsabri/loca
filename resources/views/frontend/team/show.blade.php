@@ -86,6 +86,20 @@
                                         <div class="icon icon-instagram text-4 h-4 block leading-none relative z-2">
                                         </div>
                                     </a>
+                                    <a href="{{ $user->youtube }}"
+                                        class="block relative text-[#224391] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#224391] hover:before:rotate-0 hover:before:opacity-100 hover:text-white">
+                                        <div class="icon icon-youtube text-4 h-4 block leading-none relative z-2">
+                                        </div>
+                                    </a>
+                                    <a href="{{ $user->linkedin }}"
+                                        class="block relative text-[#224391] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#224391] hover:before:rotate-0 hover:before:opacity-100 hover:text-white">
+                                        <div class="icon icon-linkedin-1 text-4 h-4 block leading-none relative z-2">
+                                        </div>
+                                    </a>
+                                    <a target="_blank" href="https://api.whatsapp.com/send/?phone={{ $user->whatsapp }}"
+                                        class="block relative text-[#224391] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
+                                        <div class="icon icon-whatsapp-1 text-4 h-4 block leading-none relative z-2"></div>
+                                    </a>
                                 </div>
                             </div>
                             <div
@@ -262,6 +276,22 @@
 
                                   <p href="javascript:void(0)"
                                   class="bg-[#F2F8FD] h-11 lg:h-10 md:h-9 rounded-4 md:rounded-3 font-medium text-tertiary-950 text-3.5 text-center flex items-center justify-center px-5 lg:px-4.5 md:px-4 duration-300 hover:bg-main-100">{{ $experience }} </p>
+                                  @endforeach
+                                </div>
+                            </div>
+                            <br>
+@endif
+                            @if($user->experience)
+                            <div class="info">
+                                <div class="title capitalize text-4 font-semibold text-[#224391] mb-7 xl:mb-6 lg:mb-5 md:mb-4">
+                                    {{ __('general.experience_area') }}
+                                </div>
+                                <div class="list flex items-center flex-wrap gap-4 lg:gap-3 md:gap-2">
+                                  @foreach($user->experience_area as $experienceArea)
+
+
+                                  <p href="javascript:void(0)"
+                                  class="bg-[#F2F8FD] h-11 lg:h-10 md:h-9 rounded-4 md:rounded-3 font-medium text-tertiary-950 text-3.5 text-center flex items-center justify-center px-5 lg:px-4.5 md:px-4 duration-300 hover:bg-main-100">{{ $experienceArea }} </p>
                                   @endforeach
                                 </div>
                             </div>

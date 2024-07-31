@@ -90,6 +90,24 @@
                      />
             </div>
             <div>
+                        <label for="team" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('whatsapp')
+                            }}</label>
+                        <input value={{ $user->whatsapp }} type="text" name="whatsapp" id="team"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" />
+                    </div>
+                    <div>
+                        <label for="team" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('youtube')
+                            }}</label>
+                        <input value={{ $user->youtube }} type="text" name="youtube" id="team"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" />
+                    </div>
+                    <div>
+                        <label for="team" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('linkedin')
+                            }}</label>
+                        <input value={{ $user->linkedin }} type="text" name="linkedin" id="team"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" />
+                    </div>
+            <div>
                 <label for="team" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">{{
                     __('adres bilgileri') }}</label>
                 <input value="{{ $user->address }}" type="text" name="address" id="team"
@@ -117,6 +135,13 @@
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                      placeholder="turksih, english" />
             </div>
+            <div>
+                                <label for="experience_area" class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                    {{ __('general.experience_area') }}</label>
+                                <input type="text" name="experience_area" id="experience_area"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                    placeholder="exp1, exp2, exp3" value="{{ implode(',',$user->experience_area ?? []) }}" />
+                            </div>
             <div>
                 <div class="mb-2">
                     <label for="department"
