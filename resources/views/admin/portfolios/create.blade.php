@@ -5,24 +5,24 @@
         </h2>
     </x-slot>
     <div class="p-12" x-data="{
-        towns:[],
-        districts:[],
-        numOfFeatures:3,
-        firstLevelChildren:[],
-        secondLevelChildren:[],
-        filterable:0,
-        selectedCategory:null,
-        selected1stCategory:null,
-        selected2ndCategory:null,
-        infos:[],
-        features:[],
-        formattedNumber:`{{ old('price_in_tl') }}` ?? null,
+        towns: [],
+        districts: [],
+        numOfFeatures: 3,
+        firstLevelChildren: [],
+        secondLevelChildren: [],
+        filterable: 0,
+        selectedCategory: null,
+        selected1stCategory: null,
+        selected2ndCategory: null,
+        infos: [],
+        features: [],
+        formattedNumber: `{{ old('price_in_tl') }}` ?? null,
         images: [],
-        init(){
+        init() {
             this.loadTowns(`{{ old('province_id') }}`)
             this.loadDistricts(`{{ old('town_id') }}`)
             this.loadChildren(`{{ old('main_category') }}`)
-            this.loadChildren(`{{ old('first_level_category') }}`,2)
+            this.loadChildren(`{{ old('first_level_category') }}`, 2)
             this.selected2ndCategory = `{{ old('category_id') }}`
         },
         handleFiles(event) {
@@ -31,24 +31,24 @@
             for (const file of files) {
                 const reader = new FileReader();
                 reader.onload = (e) => {
-        axios.post(`{{ route('portfolio.upload') }}`,{
-                    images:e.target.result
-                    },{
-                    headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name=csrf-token]').getAttribute('content')
-                    },
-                    }).then(res=>{
+                    axios.post(`{{ route('portfolio.upload') }}`, {
+                        images: e.target.result
+                    }, {
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name=csrf-token]').getAttribute('content')
+                        },
+                    }).then(res => {
 
-                    self.images = res.data.images
-                    }).catch(err=>{
-                    console.log(err)
+                        self.images = res.data.images
+                    }).catch(err => {
+                        console.log(err)
                     })
                 }
                 reader.readAsDataURL(file);
                 new Promise(resolve => setTimeout(resolve, 2000));
             }
-            event.target.value=''
+            event.target.value = ''
         },
         formatNumber(event) {
             let input = event.target;
@@ -58,86 +58,89 @@
                 input.value = formatted;
             }
         },
-        loadInfo(id){
+        loadInfo(id) {
             const self = this;
             url = `{{ route('category.info') }}/${id}`
-            axios.get(url).then(res=>{
+            axios.get(url).then(res => {
                 self.infos = res.data.info
                 self.features = res.data.features
                 console.log(res.data.features)
-            }).catch(err=>{
+            }).catch(err => {
                 console.log(err)
             })
         },
-        loadChildren(id,level=1){
+        loadChildren(id, level = 1) {
             const self = this
             let url;
-            if (level == 1 ){
+            if (level == 1) {
                 self.selectedCategory = id;
-                self.firstLevelChildren= [];
-                self.secondLevelChildren= [];
+                self.firstLevelChildren = [];
+                self.secondLevelChildren = [];
                 self.selected1stCategory = null;
-                self.selected2ndCategory=null;
+                self.selected2ndCategory = null;
             }
             if (level != 1) {
                 self.selected1stCategory = id
             }
             this.loadInfo(id)
-                 url = `{{ route('category.children') }}/${id}`
-            axios.get(url).then(res=>{
-                if(level == 1){
+            url = `{{ route('category.children') }}/${id}`
+            axios.get(url).then(res => {
+                if (level == 1) {
                     self.firstLevelChildren = res.data.children
                     return
                 }
                 self.secondLevelChildren = res.data.children
-            }).catch(err=>{
+                if (res.data.children.length == 0) {
+                    self.selected2ndCategory = id
+                }
+            }).catch(err => {
                 console.log(err)
             })
         },
-        loadTowns(id){
+        loadTowns(id) {
             const url = `{{ route('province.towns') }}/` + id
             const self = this
-            axios.get(url).then((res)=>{
+            axios.get(url).then((res) => {
                 console.log(res.data.towns)
                 self.towns = res.data.towns
 
-            }).catch((err)=>{
+            }).catch((err) => {
                 console.log(err)
             })
-    },
-    loadDistricts(id){
-        const url = `{{ route('towns.districts') }}/` + id
-        const self = this
-            axios.get(url).then((res)=>{
-            console.log(res.data.districts)
-            self.districts = res.data.districts
+        },
+        loadDistricts(id) {
+            const url = `{{ route('towns.districts') }}/` + id
+            const self = this
+            axios.get(url).then((res) => {
+                console.log(res.data.districts)
+                self.districts = res.data.districts
 
-            }).catch((err)=>{
-            console.log(err)
+            }).catch((err) => {
+                console.log(err)
             })
-    },
-    deleteImage(id){
-    const url = `{{ route('image.delete') }}/` + id
-    const self = this
-        axios.get(url).then((res)=>{
-            self.images = res.data.images
-        }).catch((err)=>{
-        console.log(err)
-        })
-    },
-    setAsMainImage(id){
-    const url = `{{ route('image.set_main') }}/` + id
-    const self = this
-        axios.put(url).then((res)=>{
-            self.images = res.data.images
-        }).catch((err)=>{
-        console.log(err)
-        })
-    },
-    assignHtmlContent(locale){
-        const htmlContent = quill.root.innerHTML;
-        document.getElementById('output').innerText = htmlContent;
-    }
+        },
+        deleteImage(id) {
+            const url = `{{ route('image.delete') }}/` + id
+            const self = this
+            axios.get(url).then((res) => {
+                self.images = res.data.images
+            }).catch((err) => {
+                console.log(err)
+            })
+        },
+        setAsMainImage(id) {
+            const url = `{{ route('image.set_main') }}/` + id
+            const self = this
+            axios.put(url).then((res) => {
+                self.images = res.data.images
+            }).catch((err) => {
+                console.log(err)
+            })
+        },
+        assignHtmlContent(locale) {
+            const htmlContent = quill.root.innerHTML;
+            document.getElementById('output').innerText = htmlContent;
+        }
     }">
         <div class="flex flex-wrap">
             <div class="w-full">
@@ -147,51 +150,75 @@
     </div>
     <script>
         const tr = new Quill('#description_tr', {
-                theme: 'snow',
-              modules: {
-                    toolbar: [
-                    [{ 'header': [1, 2, false] }],
+            theme: 'snow',
+            modules: {
+                toolbar: [
+                    [{
+                        'header': [1, 2, false]
+                    }],
                     ['bold', 'italic', 'underline'],
-                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-                    [{ 'align': [] }],
+                    [{
+                        'list': 'ordered'
+                    }, {
+                        'list': 'bullet'
+                    }],
+                    [{
+                        'align': []
+                    }],
                     ['link', 'image', 'video']
 
-                    ]
-                    }
-            });
-        const ru = new Quill('#description_ru', {
-                theme: 'snow',
-                modules: {
-                toolbar: [
-                [{ 'header': [1, 2, false] }],
-                ['bold', 'italic', 'underline'],
-                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-                [{ 'align': [] }],
-                                    ['link', 'image', 'video']
-
                 ]
-                }
-            });
-        const en = new Quill('#description_en', {
-                theme: 'snow',
-                modules: {
-                toolbar: [
-                [{ 'header': [1, 2, false] }],
-                ['bold', 'italic', 'underline'],
-                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-                [{ 'align': [] }],
-                                    ['link', 'image', 'video']
-
-                ]
-                }
-            });
-document.getElementById('submit-form').addEventListener('click', () => {
-        const trval = tr.root.innerHTML;
-        const ruval = ru.root.innerHTML;
-        const enval = en.root.innerHTML;
-        document.getElementById('desc_tr').value = trval;
-        document.getElementById('desc_ru').value = ruval;
-        document.getElementById('desc_en').value = enval;
+            }
         });
-            </script>
+        const ru = new Quill('#description_ru', {
+            theme: 'snow',
+            modules: {
+                toolbar: [
+                    [{
+                        'header': [1, 2, false]
+                    }],
+                    ['bold', 'italic', 'underline'],
+                    [{
+                        'list': 'ordered'
+                    }, {
+                        'list': 'bullet'
+                    }],
+                    [{
+                        'align': []
+                    }],
+                    ['link', 'image', 'video']
+
+                ]
+            }
+        });
+        const en = new Quill('#description_en', {
+            theme: 'snow',
+            modules: {
+                toolbar: [
+                    [{
+                        'header': [1, 2, false]
+                    }],
+                    ['bold', 'italic', 'underline'],
+                    [{
+                        'list': 'ordered'
+                    }, {
+                        'list': 'bullet'
+                    }],
+                    [{
+                        'align': []
+                    }],
+                    ['link', 'image', 'video']
+
+                ]
+            }
+        });
+        document.getElementById('submit-form').addEventListener('click', () => {
+            const trval = tr.root.innerHTML;
+            const ruval = ru.root.innerHTML;
+            const enval = en.root.innerHTML;
+            document.getElementById('desc_tr').value = trval;
+            document.getElementById('desc_ru').value = ruval;
+            document.getElementById('desc_en').value = enval;
+        });
+    </script>
 </x-app-layout>
