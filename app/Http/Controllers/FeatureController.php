@@ -11,7 +11,7 @@ class FeatureController extends Controller
 {
     public function index()
     {
-        $features = Feature::with('category.bloodline')->get();
+        $features = Feature::with('category.bloodline')->paginate(20);
 
         return view('admin.features.index', compact('features'));
     }
