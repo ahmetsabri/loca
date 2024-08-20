@@ -1,8 +1,8 @@
 @extends('layouts.frontend')
 
-@section('title',$portfolio->title)
+@section('title', $portfolio->title)
 @section('content')
-<soho-technologies class="block">
+    <soho-technologies class="block">
 
         <main class="main-field relative pt-[134px] sm:pt-[124px]">
 
@@ -20,8 +20,8 @@
                                     class="icon icon-location-1 text-4 h-4 xl:text-3.5 xl:h-3.5 block leading-none text-[#2675FA]">
                                 </div>
                                 <div class="text text-[#888888] font-medium text-4 xl:text-3.5">
-                                    {{ $portfolio->district->town->province->name }}/{{ $portfolio->district->town->name }} , {{ $portfolio->district->name
-                                                                    }}
+                                    {{ $portfolio->district->town->province->name }}/{{ $portfolio->district->town->name }}
+                                    , {{ $portfolio->district->name }}
                                 </div>
                             </div>
                         </div>
@@ -47,7 +47,8 @@
                                 <div
                                     class="icon icon-share text-3.5 h-3.5 sm:text-3 sm:h-3 block leading-none duration-300 text-[#454545]">
                                 </div>
-                                <div class="text text-[#454545] text-3.5 sm:text-3 font-medium">{{ __('general.share') }}</div>
+                                <div class="text text-[#454545] text-3.5 sm:text-3 font-medium">{{ __('general.share') }}
+                                </div>
                             </a>
                             <a x-data="{}" @click="window.print()"
                                 class="button add-favorite group/button h-12 md:h-11 sm:h-10 px-5 md:px-4 sm:px-3.5 rounded-3 border border-solid border-black/13 flex items-center justify-center gap-3 sm:gap-2 duration-300 hover:border-black/25">
@@ -60,7 +61,6 @@
                     </div>
                 </div>
             </section>
-
             <section class="content-field py-15 2xl:py-14 xl:py-13 lg:pt-12 md:pt-11 sm:pt-10 lg:pb-0">
                 <div class="wrapper max-w-1440 mx-auto w-full px-7.5 md:px-5">
                     <div
@@ -68,95 +68,99 @@
                         <div class="inner-wrapper">
                             <div class="image-outer-wrapper relative grid gap-3 mb-18 2xl:mb-15 xl:mb-12 lg:mb-10 md:mb-8">
                                 <div class="image-inner-wrapper flex relative">
-                                    <a href="{{ $portfolio->images->first()->full_url}}"
+                                    <a href="{{ $portfolio->images->first()->full_url }}"
                                         class="image block aspect-[15/8] xs:aspect-[5/4] overflow-hidden isolate rounded-6 md:rounded-3 translate-z-0 group"
                                         data-fancybox="gallery"><img
                                             class="full-cover translate-z-0 group-hover:scale-105 duration-450"
-                                            src="{{ $portfolio->images->first()->full_url }}" alt="" loading="lazy"></a>
+                                            src="{{ $portfolio->images->first()->full_url }}" alt=""
+                                            loading="lazy"></a>
                                     <div
                                         class="button-wrapper absolute bottom-0 right-0 lg:bottom-auto lg:top-0 p-4 flex items-center gap-2">
-<a href="{{ $portfolio->images->first()->full_url }}" data-fancybox="gallery"
-    class="button group/button bg-white h-12 md:h-11 sm:h-10 px-5 md:px-4 sm:px-3.5 rounded-3 flex items-center justify-center gap-3 sm:gap-2 duration-300 hover:bg-main-50">
-    <div class="text text-[#454545] text-3.5 sm:text-3 font-medium">Tüm Fotoğraflar</div>
-</a>
-                                        @if($portfolio->promotion_url)
-                                        <a href="{{ $portfolio->promotion_url }}" data-fancybox
-                                        class="button group/button bg-white h-12 md:h-11 sm:h-10 px-5 md:px-4 sm:px-3.5 rounded-3 flex items-center justify-center gap-3 sm:gap-2 duration-300 hover:bg-main-50">
-                                        <div class="text text-[#454545] text-3.5 sm:text-3 font-medium">Tanıtımı İzle
-                                        </div>
+                                        <a href="{{ $portfolio->images->last()->full_url }}" data-fancybox="gallery"
+                                            class="button group/button bg-white h-12 md:h-11 sm:h-10 px-5 md:px-4 sm:px-3.5 rounded-3 flex items-center justify-center gap-3 sm:gap-2 duration-300 hover:bg-main-50">
+                                            <div class="text text-[#454545] text-3.5 sm:text-3 font-medium">Tüm Fotoğraflar
+                                            </div>
                                         </a>
-                                    @endif
+                                        @if ($portfolio->promotion_url)
+                                            <a href="{{ $portfolio->promotion_url }}" data-fancybox
+                                                class="button group/button bg-white h-12 md:h-11 sm:h-10 px-5 md:px-4 sm:px-3.5 rounded-3 flex items-center justify-center gap-3 sm:gap-2 duration-300 hover:bg-main-50">
+                                                <div class="text text-[#454545] text-3.5 sm:text-3 font-medium">Tanıtımı
+                                                    İzle
+                                                </div>
+                                            </a>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="image-inner-wrapper grid grid-cols-4 gap-3" x-data>
-                                    @foreach($portfolio->images as $image)
-
-                                    <a x-show="`{{ $loop->iteration <= 4 }}`" href="{{ $image->full_url }}"
-                                        class="image block aspect-[64/57] overflow-hidden isolate rounded-6 md:rounded-3 translate-z-0 group"
-                                        data-fancybox="gallery"
-                                        ><img
-                                            class="full-cover translate-z-0 group-hover:scale-105 duration-450"
-                                            src="{{ $image->full_url }}" alt="" loading="lazy"></a>
-
-
-                               @endforeach
+                                    @foreach ($portfolio->images as $image)
+                                        @if (!$image->is_main)
+                                            <a x-show="`{{ $loop->iteration <= 4 }}`" href="{{ $image->full_url }}"
+                                                class="image block aspect-[64/57] overflow-hidden isolate rounded-6 md:rounded-3 translate-z-0 group"
+                                                data-fancybox="gallery"><img
+                                                    class="full-cover translate-z-0 group-hover:scale-105 duration-450"
+                                                    src="{{ $image->full_url }}" alt="" loading="lazy"></a>
+                                        @endif
+                                    @endforeach
                                 </div>
                             </div>
                             <div class="item grid grid-cols-2/10 lg:grid-cols-1 gap-6">
-                                <div class="title text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950 capitalize">
+                                <div
+                                    class="title text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950 capitalize">
                                     {{ __('description') }}
                                 </div>
                                 <div class="detail">
                                     <div class="text-editor text-editor-main">
                                         <p>
-                                           {!! $portfolio->description !!}
+                                            {!! $portfolio->description !!}
                                         </p>
                                     </div>
                                 </div>
                             </div>
                             <div class="split h-px w-full bg-black/11 my-10 xl:my-8 lg:my-6"></div>
-                            @foreach($portfolio->features->groupBy('feature.name') as $featureName=>$features)
-
-
-                            <div class="item grid grid-cols-2/10 lg:grid-cols-1 gap-6">
-                                <div class="title text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950 capitalize">
-                                    {{ $featureName }}
-                                    </div>
-                                <div class="detail">
+                            @foreach ($portfolio->features->groupBy('feature.name') as $featureName => $features)
+                                <div class="item grid grid-cols-2/10 lg:grid-cols-1 gap-6">
                                     <div
-                                        class="custom-list grid grid-cols-2 xs:grid-cols-1 gap-6 xl:gap-5 lg:gap-4 md:gap-3 sm:gap-2 xs:gap-1.5">
-                                        @foreach($features as $feature)
-                                        <div class="item flex items-center gap-3">
-                                            <div class="dot w-1.5 sm.w-1 aspect-square rounded-full bg-tertiary-950 shrink-0">
-                                            </div>
-                                            <div class="text capitalize font-medium text-4.5 xl:text-4 md:text-3.5 text-tertiary-950">
-                                                {{ $feature->option->name }}
-                                            </div>
+                                        class="title text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950 capitalize">
+                                        {{ $featureName }}
+                                    </div>
+                                    <div class="detail">
+                                        <div
+                                            class="custom-list grid grid-cols-2 xs:grid-cols-1 gap-6 xl:gap-5 lg:gap-4 md:gap-3 sm:gap-2 xs:gap-1.5">
+                                            @foreach ($features as $feature)
+                                                <div class="item flex items-center gap-3">
+                                                    <div
+                                                        class="dot w-1.5 sm.w-1 aspect-square rounded-full bg-tertiary-950 shrink-0">
+                                                    </div>
+                                                    <div
+                                                        class="text capitalize font-medium text-4.5 xl:text-4 md:text-3.5 text-tertiary-950">
+                                                        {{ $feature->option->name }}
+                                                    </div>
+                                                </div>
+                                            @endforeach
                                         </div>
-                                        @endforeach
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="split h-px w-full bg-black/11 my-10 xl:my-8 lg:my-6"></div>
+                                <div class="split h-px w-full bg-black/11 my-10 xl:my-8 lg:my-6"></div>
                             @endforeach
 
                             <div class="item">
                                 <div
                                     class="heading-wrapper mb-6 flex items-center justify-between gap-7.5 sm:flex-col sm:items-start sm:gap-3">
-                                    <div class="title text-4.5 xl:text-4 md:text-3.5 font-semibold text-[#2675FA] capitalize">
+                                    <div
+                                        class="title text-4.5 xl:text-4 md:text-3.5 font-semibold text-[#2675FA] capitalize">
 
                                         {{ __('general.location') }}
                                     </div>
                                     <div class="button-wrapper flex items-center gap-3">
-                                        <a target="_blank" href="{{ $portfolio->map_link}}"
+                                        <a target="_blank" href="{{ $portfolio->map_link }}"
                                             class="button group/button relative duration-300 w-fit flex items-center gap-2 h-7.5 border border-solid border-[#2675FA] px-3 rounded-2 hover:border-tertiary-950">
                                             <div
                                                 class="icon icon-map-1 text-3 h-3 block leading-none duration-300 text-[#2675FA]">
                                             </div>
                                             <div class="text text-[#2675FA] font-semibold text-3.5 tracking-wider">
-                                                    {{ __('general.directions') }}
-                                                </div>
+                                                {{ __('general.directions') }}
+                                            </div>
                                         </a>
                                         {{-- <a href="javascript:void(0)"
                                             class="button group/button relative duration-300 w-fit flex items-center gap-2 h-7.5 border border-solid border-[#2675FA] px-3 rounded-2 hover:border-tertiary-950">
@@ -169,7 +173,7 @@
                                     </div>
                                 </div>
                                 <div class="detail" style="width: 100%">
-                                   @include('admin.portfolios.single_map',['model'=>$portfolio])
+                                    @include('admin.portfolios.single_map', ['model' => $portfolio])
                                 </div>
                             </div>
                             <div class="split h-px w-full bg-black/11 my-10 xl:my-8 lg:my-6"></div>
@@ -177,19 +181,21 @@
                                 class="item bg-white rounded-6 md:rolunded-3 p-6 grid grid-cols-4/8 md:grid-cols-2 sm:grid-cols-1 gap-18 2xl:gap-15 xl:gap-11 lg:gap-8 md:gap-6">
                                 <div class="info-wrapper">
                                     <div class="image aspect-[3/4] overflow-hidden isolate rounded-3 w-full"><img
-                                            class="full-cover" src="{{ $portfolio->user->image?->full_url }}" alt="" loading="lazy"></div>
+                                            class="full-cover" src="{{ $portfolio->user->image?->full_url }}"
+                                            alt="" loading="lazy"></div>
                                     <div class="naming mt-6 md:mt-5 sm:mt-4">
                                         <div
                                             class="name text-center text-5.5 2xl:text-5 xl:text-4.5 lg:text-4 text-tertiary-950 font-semibold">
                                             {{ $portfolio->user->name }}
                                         </div>
                                         <div class="position text-4 xl:text-3.5 text-center text-[#6D6D6D] font-medium">
-                                           {{ $portfolio->user->title }}
+                                            {{ $portfolio->user->title }}
                                         </div>
                                     </div>
                                     <div
                                         class="id text-4 xl:text-3.5 text-center text-[#6D6D6D] font-medium mt-4 md:mt-3 sm:mt-2">
-                                        <strong>TTYB NO:</strong> {{ $portfolio->user->ttype_no }}</div>
+                                        <strong>TTYB NO:</strong> {{ $portfolio->user->ttype_no }}
+                                    </div>
                                     <div class="button-wrapper flex items-center justify-center mt-4 md:mt-3 sm:mt-2 gap-2">
                                         <a target="_blank" href="{{ $portfolio->user->wp_url }}"
                                             class="button group/button flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 h-11 w-fit px-5 !gap-2 !rounded-3 bg-[#65CF70] hover:bg-[#5cbf66] text-white !font-medium">
@@ -214,7 +220,8 @@
                                         <div class="form-wrapper grid gap-3">
                                             <div class="form-el relative group/form w-full">
                                                 <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                                <input name="name" type="text" placeholder="{{ __('general.name') }}"
+                                                <input name="name" type="text"
+                                                    placeholder="{{ __('general.name') }}"
                                                     class="w-full h-14 md:h-12 duration-300 rounded-4 md:rounded-3 px-7 md:px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
 
                                                 <div
@@ -223,7 +230,8 @@
                                             </div>
                                             <div class="form-el relative group/form w-full">
                                                 <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                                <input required name="email" type="email" placeholder="{{ __('general.email') }}"
+                                                <input required name="email" type="email"
+                                                    placeholder="{{ __('general.email') }}"
                                                     class="w-full h-14 md:h-12 duration-300 rounded-4 md:rounded-3 px-7 md:px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
 
                                                 <div
@@ -233,7 +241,8 @@
                                             <div class="form-el relative group/form w-full">
                                                 <input hidden name="portfolio_id" value="{{ $portfolio->id }}" />
                                                 <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                                <input required name="phone" type="tel" placeholder="{{ __('general.phone') }}"
+                                                <input required name="phone" type="tel"
+                                                    placeholder="{{ __('general.phone') }}"
                                                     class="w-full h-14 md:h-12 duration-300 rounded-4 md:rounded-3 px-7 md:px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
 
                                                 <div
@@ -272,13 +281,12 @@
                                                 </div>
                                                 <div class="form-el group/form w-fit lg:w-full">
                                                     <!-- Buraya `loading` classı gelince ilgili style değişiyor -->
-                                                    <button
-                                                    type="submit"
+                                                    <button type="submit"
                                                         class="button group/button relative flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 after:absolute after:left-[calc(50%-13px)] xl:after:left-[calc(50%-12px)] md:after:left-[calc(50%-10px)] after:top-[calc(50%-13px)] xl:after:top-[calc(50%-12px)] md:after:top-[calc(50%-10px)] after:h-6.5 xl:after:h-6 md:after:h-5 after:aspect-square after:rounded-full after:border-0.5 after:border-solid after:border-white after:[clip-path:polygon(0%_0%,100%_0%,100%_50%,0%_50%)] after:opacity-0 after:duration-300 after:transition-opacity after:animate-spin group-[&.loading]/form:[&_.icon]:opacity-0 group-[&.loading]/form:[&_.text]:opacity-0 group-[&.loading]/form:after:opacity-100 group-[&.loading]/form:pointer-events-none h-16 xl:h-14 md:h-12 w-full px-8 sm:px-6 bg-secondary-700 hover:bg-secondary-600 text-white">
 
                                                         <div
                                                             class="text whitespace-nowrap font-medium text-4 md:text-3.5 transition-opacity duration-300">
-                                                            {{__('general.submit')}}</div>
+                                                            {{ __('general.submit') }}</div>
                                                     </button>
                                                 </div>
                                             </div>
@@ -290,10 +298,12 @@
                         <div class="sidebar-wrapper">
                             <div class="sticky-el sticky top-0 duration-300">
                                 <div class="inner bg-[#8AA5D3]/15 rounded-4 md:rounded-3 p-7.5 sm:p-6">
-                                    <div class="price text-5 font-semibold text-[#224391] px-1.5 mb-4">{{ $portfolio->price }}</div>
+                                    <div class="price text-5 font-semibold text-[#224391] px-1.5 mb-4">
+                                        {{ $portfolio->price }}</div>
                                     <div class="list">
                                         <div class="row flex items-center justify-between gap-7.5 px-1.5 leading-tight">
-                                            <div class="title text-3.5 font-medium text-tertiary-950">{{ __('general.ad_no') }}</div>
+                                            <div class="title text-3.5 font-medium text-tertiary-950">
+                                                {{ __('general.ad_no') }}</div>
                                             <div class="value text-3.5 font-semibold text-tertiary-950 text-right">
                                                 {{ $portfolio->ad_number }}
                                             </div>
@@ -301,43 +311,47 @@
 
                                         <div class="split w-full h-px bg-[#8AA5D3]/30 my-2"></div>
                                         <div class="row flex items-center justify-between gap-7.5 px-1.5 leading-tight">
-                                            <div class="title text-3.5 font-medium text-tertiary-950">{{ __('general.province') }} / {{ __('general.town') }}</div>
+                                            <div class="title text-3.5 font-medium text-tertiary-950">
+                                                {{ __('general.province') }} / {{ __('general.town') }}</div>
                                             <div class="value text-3.5 font-semibold text-tertiary-950 text-right">
-                                                {{ $portfolio->district->town->province->name }}/{{ $portfolio->district->town->name }} , {{ $portfolio->district->name
-                                                }}
+                                                {{ $portfolio->district->town->province->name }}/{{ $portfolio->district->town->name }}
+                                                , {{ $portfolio->district->name }}
                                             </div>
                                         </div>
                                         <div class="split w-full h-px bg-[#8AA5D3]/30 my-2"></div>
                                         <div class="row flex items-center justify-between gap-7.5 px-1.5 leading-tight">
-                                            <div class="title text-3.5 font-medium text-tertiary-950">{{ __('general.price') }} </div>
+                                            <div class="title text-3.5 font-medium text-tertiary-950">
+                                                {{ __('general.price') }} </div>
                                             <div class="value text-3.5 font-semibold text-tertiary-950 text-right">
                                                 {{ $portfolio->price }}
+                                            </div>
+                                        </div>
+                                        @foreach ($portfolio->infos as $info)
+                                            <div class="split w-full h-px bg-[#8AA5D3]/30 my-2"></div>
+                                            <div
+                                                class="row flex items-center justify-between gap-7.5 px-1.5 leading-tight">
+                                                <div class="title text-3.5 font-medium text-tertiary-950 capitalize">
+                                                    {{ $info->info->name }}
                                                 </div>
-                                        </div>
-                                        @foreach($portfolio->infos as $info)
-<div class="split w-full h-px bg-[#8AA5D3]/30 my-2"></div>
-                                        <div class="row flex items-center justify-between gap-7.5 px-1.5 leading-tight">
-                                            <div class="title text-3.5 font-medium text-tertiary-950 capitalize">
-                                                {{ $info->info->name }}
+                                                <div
+                                                    class="value text-3.5 font-semibold text-tertiary-950 text-right capitalize">
+                                                    {{ $info->value }}
+                                                </div>
                                             </div>
-                                            <div class="value text-3.5 font-semibold text-tertiary-950 text-right capitalize">
-                                                {{ $info->value }}
-                                            </div>
-                                        </div>
-
                                         @endforeach
-@foreach($portfolio->options as $option)
-                <div class="split w-full h-px bg-[#8AA5D3]/30 my-2"></div>
-                <div class="row flex items-center justify-between gap-7.5 px-1.5 leading-tight">
-                    <div class="title text-3.5 font-medium text-tertiary-950 capitalize">
-                        {{ $option->info->name }}
-                    </div>
-                    <div class="value text-3.5 font-semibold text-tertiary-950 text-right capitalize">
-                        {{ $option->option->name }}
-                    </div>
-                </div>
-
-                @endforeach
+                                        @foreach ($portfolio->options as $option)
+                                            <div class="split w-full h-px bg-[#8AA5D3]/30 my-2"></div>
+                                            <div
+                                                class="row flex items-center justify-between gap-7.5 px-1.5 leading-tight">
+                                                <div class="title text-3.5 font-medium text-tertiary-950 capitalize">
+                                                    {{ $option->info->name }}
+                                                </div>
+                                                <div
+                                                    class="value text-3.5 font-semibold text-tertiary-950 text-right capitalize">
+                                                    {{ $option->option->name }}
+                                                </div>
+                                            </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -349,98 +363,98 @@
             <section class="portfolio-field py-20 2xl:py-16 xl:py-12 lg:py-8">
                 <div class="wrapper max-w-1440 mx-auto w-full px-7.5">
                     <div class="text-editor text-editor-main">
-<h3 style="text-align:center;"><strong>{{ __('general.more') }}</strong></h3>
+                        <h3 style="text-align:center;"><strong>{{ __('general.more') }}</strong></h3>
                     </div>
                     <div
                         class="list my-18 2x:my-15 xl:my-12 lg:my-9 md:my-7.5 grid grid-cols-3 lg:grid-cols-2 sm:grid-cols-1 gap-x-9 xl:gap-x-8 lg:gap-x-7 gap-y-6">
 
 
-                        @foreach($randomPortfolios as $portfolio)
-
-
-                        <div
-                            class="portfolio group/item p-2.5 bg-white rounded-6 md:rounded-3 border border-solid border-transparent hover:border-[#8AA5D3]/35 duration-300">
-                            <div class="carousel-wrapper w-full">
-                                <div
-                                    class="portfolio-images-carousel w-full relative swiper !h-auto shadow-s3 rounded-6 md:rounded-3 overflow-hidden isolate">
-                                    <div class="swiper-wrapper !h-auto">
-                                        @foreach($portfolio->images as $image)
-                                        <div class="swiper-slide">
-                                            <a href="{{ route('frontend.portfolio.show',$portfolio) }}"
-                                                class="image group block aspect-[36/25] overflow-hidden isolate translate-z-0"><img
-                                                    class="full-cover group-hover:scale-105 duration-450 translate-z-0 pointer-events-none"
-                                                    src="{{ $image->full_url }}" alt="" loading="lazy"></a>
-                                        </div>
-                                        @endforeach
-                                    </div>
+                        @foreach ($randomPortfolios as $portfolio)
+                            <div
+                                class="portfolio group/item p-2.5 bg-white rounded-6 md:rounded-3 border border-solid border-transparent hover:border-[#8AA5D3]/35 duration-300">
+                                <div class="carousel-wrapper w-full">
                                     <div
-                                        class="portfolio-images-next flex items-center justify-center cursor-pointer z-5 absolute right-5.5 top-1/2 -translate-y-1/2 w-7 aspect-square rounded-full bg-white text-tertiary-950 [&:not(.swiper-button-disabled):hover]:bg-main-700 [&:not(.swiper-button-disabled):hover]:text-white duration-300 [&.swiper-button-disabled]:cursor-default min-lg:opacity-0 min-lg:pointer-events-none min-lg:group-hover/item:opacity-100 min-lg:group-hover/item:pointer-events-auto">
-                                        <div class="icon icon-chevron-right text-2 h-2 block leading-none"></div>
-                                    </div>
-                                    <div
-                                        class="portfolio-images-prev flex items-center justify-center cursor-pointer z-5 absolute left-5.5 top-1/2 -translate-y-1/2 w-7 aspect-square rounded-full bg-white text-tertiary-950 [&:not(.swiper-button-disabled):hover]:bg-main-700 [&:not(.swiper-button-disabled):hover]:text-white duration-300 [&.swiper-button-disabled]:cursor-default min-lg:opacity-0 min-lg:pointer-events-none min-lg:group-hover/item:opacity-100 min-lg:group-hover/item:pointer-events-auto">
-                                        <div class="icon icon-chevron-left text-2 h-2 block leading-none"></div>
-                                    </div>
-                                    <div
-                                        class="portfolio-images-pagination duration-300 !flex items-center justify-center gap-3 absolute !left-1/2 -translate-x-1/2 !bottom-5.5 z-5 !w-fit !right-auto !top-auto [&_span]:w-2 [&_span]:h-2 [&_span]:!m-0 [&_span]:!p-0 [&_span]:opacity-100 [&_span]:bg-white/40 [&_span:hover]:bg-white [&_span]:duration-300 [&_span.swiper-pagination-bullet-active]:pointer-events-none [&_span.swiper-pagination-bullet-active]:bg-white min-lg:opacity-0 min-lg:pointer-events-none min-lg:group-hover/item:opacity-100 min-lg:group-hover/item:pointer-events-auto">
-                                    </div>
-                                    <div
-                                        class="tag absolute left-4 top-4 bg-tertiary-950/50 rounded-2 px-2 py-1.5 text-white text-3 font-medium leading-none z-5 capitalize">
-                                        {{ $portfolio->category?->rootAncestor?->name }}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="content-wrapper p-5 lg:p-4 mt-2.5">
-                                <div class="item flex items-center gap-2 mb-2">
-                                    <div class="icon icon-location-1 text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
-                                    </div>
-                                    <div class=" text-3.5 font-medium text-tertiary-950/40 capitalize">{{
-                                        $portfolio->district->town->province->name }}/{{ $portfolio->district->town->name }} , {{
-                                        $portfolio->district->name }}
-                                    </div>
-                                </div>
-                                <a href="{{ route('frontend.portfolio.show',$portfolio) }}"
-                                    class="title text-4.5 leading-tight text-tertiary-950 hover:text-main-700 duration-300 font-semibold mb-4 xl:mb-5 md:mb-4 block capitalize">{{
-                                    $portfolio->title }}</a>
-                                <div class="price text-[#2675FA] font-semibold text-5 lg:text-4.5 md:text-4">
-                                    {{ $portfolio->price }}
-                                </div>
-                                <div class="info flex items-center justify-between gap-7.5 mt-5 md:mt-4">
-                                    <div
-                                        class="tags flex flex-wrap items-center gap-8 2xl:gap-7 xl:gap-6 lg:gap-5 md:gap-4 sm:gap-3">
-                                        <div class="item flex items-center gap-2">
-                                            <div
-                                                class="icon-wrapper w-7.5 aspect-square shrink-0 bg-[#EDF3FE] flex items-center justify-center rounded-full">
-                                                <div
-                                                    class="icon icon-bedroom text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
+                                        class="portfolio-images-carousel w-full relative swiper !h-auto shadow-s3 rounded-6 md:rounded-3 overflow-hidden isolate">
+                                        <div class="swiper-wrapper !h-auto">
+                                            @foreach ($portfolio->images as $image)
+                                                <div class="swiper-slide">
+                                                    <a href="{{ route('frontend.portfolio.show', $portfolio) }}"
+                                                        class="image group block aspect-[36/25] overflow-hidden isolate translate-z-0"><img
+                                                            class="full-cover group-hover:scale-105 duration-450 translate-z-0 pointer-events-none"
+                                                            src="{{ $image->full_url }}" alt=""
+                                                            loading="lazy"></a>
                                                 </div>
-                                            </div>
-                                            <div class="text text-3.5 font-medium text-tertiary-950/40">3+1</div>
-                                        </div>
-                                        <div class="item flex items-center gap-2">
-                                            <div
-                                                class="icon-wrapper w-7.5 aspect-square shrink-0 bg-[#EDF3FE] flex items-center justify-center rounded-full">
-                                                <div
-                                                    class="icon icon-square-meter-1 text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
-                                                </div>
-                                            </div>
-                                            <div class="text text-3.5 font-medium text-tertiary-950/40">352 m²</div>
-                                        </div>
-                                    </div>
-                                    <button
-                                        class="button shrink-0 add-favorite group/button relative duration-300 bg-[#EFF5FF] flex items-center justify-center h-10 aspect-square rounded-full hover:border-tertiary-950/30">
-                                        <div class="icon icon-like text-4 h-4 block leading-none duration-300 text-[#DC1C2E]">
+                                            @endforeach
                                         </div>
                                         <div
-                                            class="icon icon-liked text-4 h-4 block leading-none duration-300 text-[#DC1C2E] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover/button:opacity-100 group-[&.favorited]/button:opacity-100">
+                                            class="portfolio-images-next flex items-center justify-center cursor-pointer z-5 absolute right-5.5 top-1/2 -translate-y-1/2 w-7 aspect-square rounded-full bg-white text-tertiary-950 [&:not(.swiper-button-disabled):hover]:bg-main-700 [&:not(.swiper-button-disabled):hover]:text-white duration-300 [&.swiper-button-disabled]:cursor-default min-lg:opacity-0 min-lg:pointer-events-none min-lg:group-hover/item:opacity-100 min-lg:group-hover/item:pointer-events-auto">
+                                            <div class="icon icon-chevron-right text-2 h-2 block leading-none"></div>
                                         </div>
-                                    </button>
+                                        <div
+                                            class="portfolio-images-prev flex items-center justify-center cursor-pointer z-5 absolute left-5.5 top-1/2 -translate-y-1/2 w-7 aspect-square rounded-full bg-white text-tertiary-950 [&:not(.swiper-button-disabled):hover]:bg-main-700 [&:not(.swiper-button-disabled):hover]:text-white duration-300 [&.swiper-button-disabled]:cursor-default min-lg:opacity-0 min-lg:pointer-events-none min-lg:group-hover/item:opacity-100 min-lg:group-hover/item:pointer-events-auto">
+                                            <div class="icon icon-chevron-left text-2 h-2 block leading-none"></div>
+                                        </div>
+                                        <div
+                                            class="portfolio-images-pagination duration-300 !flex items-center justify-center gap-3 absolute !left-1/2 -translate-x-1/2 !bottom-5.5 z-5 !w-fit !right-auto !top-auto [&_span]:w-2 [&_span]:h-2 [&_span]:!m-0 [&_span]:!p-0 [&_span]:opacity-100 [&_span]:bg-white/40 [&_span:hover]:bg-white [&_span]:duration-300 [&_span.swiper-pagination-bullet-active]:pointer-events-none [&_span.swiper-pagination-bullet-active]:bg-white min-lg:opacity-0 min-lg:pointer-events-none min-lg:group-hover/item:opacity-100 min-lg:group-hover/item:pointer-events-auto">
+                                        </div>
+                                        <div
+                                            class="tag absolute left-4 top-4 bg-tertiary-950/50 rounded-2 px-2 py-1.5 text-white text-3 font-medium leading-none z-5 capitalize">
+                                            {{ $portfolio->category?->rootAncestor?->name }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="content-wrapper p-5 lg:p-4 mt-2.5">
+                                    <div class="item flex items-center gap-2 mb-2">
+                                        <div
+                                            class="icon icon-location-1 text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
+                                        </div>
+                                        <div class=" text-3.5 font-medium text-tertiary-950/40 capitalize">
+                                            {{ $portfolio->district->town->province->name }}/{{ $portfolio->district->town->name }}
+                                            , {{ $portfolio->district->name }}
+                                        </div>
+                                    </div>
+                                    <a href="{{ route('frontend.portfolio.show', $portfolio) }}"
+                                        class="title text-4.5 leading-tight text-tertiary-950 hover:text-main-700 duration-300 font-semibold mb-4 xl:mb-5 md:mb-4 block capitalize">{{ $portfolio->title }}</a>
+                                    <div class="price text-[#2675FA] font-semibold text-5 lg:text-4.5 md:text-4">
+                                        {{ $portfolio->price }}
+                                    </div>
+                                    <div class="info flex items-center justify-between gap-7.5 mt-5 md:mt-4">
+                                        <div
+                                            class="tags flex flex-wrap items-center gap-8 2xl:gap-7 xl:gap-6 lg:gap-5 md:gap-4 sm:gap-3">
+                                            <div class="item flex items-center gap-2">
+                                                <div
+                                                    class="icon-wrapper w-7.5 aspect-square shrink-0 bg-[#EDF3FE] flex items-center justify-center rounded-full">
+                                                    <div
+                                                        class="icon icon-bedroom text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
+                                                    </div>
+                                                </div>
+                                                <div class="text text-3.5 font-medium text-tertiary-950/40">3+1</div>
+                                            </div>
+                                            <div class="item flex items-center gap-2">
+                                                <div
+                                                    class="icon-wrapper w-7.5 aspect-square shrink-0 bg-[#EDF3FE] flex items-center justify-center rounded-full">
+                                                    <div
+                                                        class="icon icon-square-meter-1 text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
+                                                    </div>
+                                                </div>
+                                                <div class="text text-3.5 font-medium text-tertiary-950/40">352 m²</div>
+                                            </div>
+                                        </div>
+                                        <button
+                                            class="button shrink-0 add-favorite group/button relative duration-300 bg-[#EFF5FF] flex items-center justify-center h-10 aspect-square rounded-full hover:border-tertiary-950/30">
+                                            <div
+                                                class="icon icon-like text-4 h-4 block leading-none duration-300 text-[#DC1C2E]">
+                                            </div>
+                                            <div
+                                                class="icon icon-liked text-4 h-4 block leading-none duration-300 text-[#DC1C2E] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover/button:opacity-100 group-[&.favorited]/button:opacity-100">
+                                            </div>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         @endforeach
                     </div>
-                    <a href="{{ route('portfolios',['grid_type'=>'grid']) }}"
+                    <a href="{{ route('portfolios', ['grid_type' => 'grid']) }}"
                         class="button group/button flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 h-14 md:h-12 w-fit mx-auto px-14 2xl:px-12 xl:px-10 lg:px-8 sm:px-6 bg-secondary-700 hover:bg-secondary-600 text-white">
 
                         <div class="text whitespace-nowrap font-medium text-4 md:text-3.5">
@@ -452,12 +466,12 @@
             </section>
 
         </main>
-        @include('frontend.portfolio.share',['portfolio'=>$portfolio])
+        @include('frontend.portfolio.share', ['portfolio' => $portfolio])
 
     </soho-technologies>
 @endsection
 <script>
     @session('success')
-        alert('İlginiz için teşekkürler')
+    alert('İlginiz için teşekkürler')
     @endsession
 </script>
