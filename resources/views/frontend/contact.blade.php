@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title','Contact us')
+@section('title', ' İletişim | RE/MAX Loca')
 @section('content')
 
     <main class="main-field relative pt-[134px] sm:pt-[124px]">
@@ -12,8 +12,8 @@
                     <div class="text-editor !gap-2 md:text-center">
                         <!-- .text-editor içerisindeki style attribute değerleri frontendi tasarıma benzetmek adına eklenmiştir, backend aşamasında silinerek panel editöründen tanımlanmalıdır. -->
                         <h2 style="color:#224391;"><strong>
-                            {{ __('general.contact_us') }}
-                           </h2>
+                                {{ __('general.contact_us') }}
+                        </h2>
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@
                                     </div>
                                 </div>
 
-                                <a href="javascript:void(0)"
+                                <a href="mailto:info@remax-loca-mrs.com"
                                     class="flex items-start gap-4 draw-child-underline [--line-color:#FFFFFF]">
                                     <div
                                         class="icon icon-email-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
@@ -68,18 +68,19 @@
                             </div>
                             <div class="split h-px w-full bg-white/10 hidden sm:block"></div>
                             <div class="inner grid gap-5 2xl:gap-4 xl:gap-3 justify-end sm:justify-start">
-                                <a href="javascript:void(0)"
+                                <a href="tel:+90 (324) 325 30 30"
                                     class="flex items-start gap-4 draw-child-underline [--line-color:#FFFFFF]">
                                     <div
                                         class="icon icon-headset-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
                                     </div>
                                     <div class="text-wrapper">
-                                        <div class="title text-3 text-white capitalize">{{ __('general.customer_services') }}</div>
+                                        <div class="title text-3 text-white capitalize">
+                                            {{ __('general.customer_services') }}</div>
                                         <div class="text text-white text-4 font-medium"><span class="draw-el">+90 (324)
                                                 325 30 30</span></div>
                                     </div>
                                 </a>
-                                <a href="javascript:void(0)"
+                                <a href="tel:+90 (532) 427 59 36"
                                     class="flex items-start gap-4 draw-child-underline [--line-color:#FFFFFF]">
                                     <div
                                         class="icon icon-cellphone-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
@@ -90,15 +91,15 @@
                                                 427 59 36</span></div>
                                     </div>
                                 </a>
-                                <a href="javascript:void(0)"
+                                <a href="tel:+90 (533)140 36 29"
                                     class="flex items-start gap-4 draw-child-underline [--line-color:#FFFFFF]">
                                     <div
                                         class="icon icon-cellphone-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
                                     </div>
                                     <div class="text-wrapper">
                                         <div class="title text-3 text-white capitalize">{{ __('general.phone') }} 2</div>
-                                        <div class="text text-white text-4 font-medium"><span class="draw-el">+90 (533)
-                                                140 36 29</span></div>
+                                        <div class="text text-white text-4 font-medium"><span class="draw-el">+90 (533)140
+                                                36 29</span></div>
                                     </div>
                                 </a>
                             </div>
@@ -118,8 +119,9 @@
                                         </div>
                                         <div class="text-wrapper">
                                             <div class="title text-3 text-white">{{ __('general.address') }}</div>
-                                            <div class="text text-white text-3.5 font-medium"><span
-                                                    class="draw-el">Deniz Mahallesi, Gazipaşa Cadddesi, Akbusi Sitesi AltıNo:56/B Mezitli / Mersin</span></div>
+                                            <div class="text text-white text-3.5 font-medium"><span class="draw-el">Deniz
+                                                    Mahallesi, Gazipaşa Cadddesi, Akbusi Sitesi AltıNo:56/B Mezitli /
+                                                    Mersin</span></div>
                                         </div>
                                     </a>
                                     <div class="button-wrapper ml-4 pl-5 mt-3">
@@ -130,13 +132,13 @@
                                             </div>
                                             <div class="text text-white font-semibold text-3.5 tracking-wider">
 
-                                             {{ __('general.directions') }}
+                                                {{ __('general.directions') }}
                                             </div>
                                         </a>
                                     </div>
                                 </div>
 
-                                <a href="javascript:void(0)"
+                                <a href="mailto:info@remax-loca-mrs.com"
                                     class="flex items-start gap-4 draw-child-underline [--line-color:#FFFFFF]">
                                     <div
                                         class="icon icon-email-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
@@ -150,7 +152,7 @@
                             </div>
                             <div class="split h-px w-full bg-white/10 hidden sm:block"></div>
                             <div class="inner grid gap-5 2xl:gap-4 xl:gap-3 justify-end sm:justify-start">
-                                <a href="javascript:void(0)"
+                                <a href="tel:+90 (324)325 30 30"
                                     class="flex items-start gap-4 draw-child-underline [--line-color:#FFFFFF]">
                                     <div
                                         class="icon icon-headset-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
@@ -159,30 +161,30 @@
                                         <div class="title text-3 text-white capitalize">
                                             {{ __('general.customer_services') }}
                                         </div>
-                                        <div class="text text-white text-4   font-medium"><span class="draw-el">+90 (324)
-                                                325 30 30</span></div>
+                                        <div class="text text-white text-4   font-medium"><span class="draw-el">+90 (324)325
+                                                30 30</span></div>
                                     </div>
                                 </a>
-                                <a href="javascript:void(0)"
+                                <a href="tel:+90 (532)427 59 36"
                                     class="flex items-start gap-4 draw-child-underline [--line-color:#FFFFFF]">
                                     <div
                                         class="icon icon-cellphone-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
                                     </div>
                                     <div class="text-wrapper">
                                         <div class="title text-3 text-white capitalize">{{ __('general.phone') }} 1</div>
-                                        <div class="text text-white text-4 font-medium"><span class="draw-el">+90 (532)
-                                                427 59 36</span></div>
+                                        <div class="text text-white text-4 font-medium"><span class="draw-el">+90 (532)427
+                                                59 36</span></div>
                                     </div>
                                 </a>
-                                <a href="javascript:void(0)"
+                                <a href="tel:+90 (533)140 36 29"
                                     class="flex items-start gap-4 draw-child-underline [--line-color:#FFFFFF]">
                                     <div
                                         class="icon icon-cellphone-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
                                     </div>
                                     <div class="text-wrapper">
                                         <div class="title text-3 text-white capitalize">{{ __('general.phone') }} 2</div>
-                                        <div class="text text-white text-4 font-medium"><span class="draw-el">+90 (533)
-                                                140 36 29</span></div>
+                                        <div class="text text-white text-4 font-medium"><span class="draw-el">+90 (533)140
+                                                36 29</span></div>
                                     </div>
                                 </a>
                             </div>
@@ -203,49 +205,42 @@
                                     <input required name="name" type="text" placeholder="{{ __('general.name') }}"
                                         class="w-full h-14 md:h-12 duration-300 rounded-4 md:rounded-3 px-7 md:px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
 
-                            @error('name')
-
-                                <div class="tooltip text-secondary-700 text-3 mt-2 hidden group-[&.error]/form:block">
-                                    {{$message}}
-                                </div>
-
-                                @enderror
+                                    @error('name')
+                                        <div class="tooltip text-secondary-700 text-3 mt-2 hidden group-[&.error]/form:block">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="form-el relative group/form w-full">
                                     <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                    <input required name="email" type="email" placeholder="{{ __('general.email') }}"
+                                    <input required name="email" type="email"
+                                        placeholder="{{ __('general.email') }}"
                                         class="w-full h-14 md:h-12 duration-300 rounded-4 md:rounded-3 px-7 md:px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
-@error('email')
-
-    <div class="tooltip text-secondary-700 text-3 mt-2 hidden group-[&.error]/form:block">
-        {{$message}}
-    </div>
-
-    @enderror
+                                    @error('email')
+                                        <div class="tooltip text-secondary-700 text-3 mt-2 hidden group-[&.error]/form:block">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="form-el relative group/form w-full">
                                     <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                    <input required name="phone" type="tel"  placeholder="{{ __('general.phone') }}"
+                                    <input required name="phone" type="tel"
+                                        placeholder="{{ __('general.phone') }}"
                                         class="w-full h-14 md:h-12 duration-300 rounded-4 md:rounded-3 px-7 md:px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
                                     @error('phone')
-
-                                    <div
-                                        class="tooltip text-secondary-700 text-3 mt-2 hidden group-[&.error]/form:block">
-                                        {{$message}}
-                                    </div>
-
-                                        @enderror
+                                        <div class="tooltip text-secondary-700 text-3 mt-2 hidden group-[&.error]/form:block">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="form-el group/form w-full">
                                     <!-- Buraya `error` classı gelince ilgili style değişiyor -->
                                     <textarea required name="message" placeholder="{{ __('general.message') }}"
                                         class="w-full h-28 md:h-20 duration-300 rounded-4 md:rounded-3 p-7 md:p-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700"></textarea>
-                                  @error('message')
-
-                                    <div class="tooltip text-secondary-700 text-3 mt-2 hidden group-[&.error]/form:block">
-                                        {{$message}}
-                                    </div>
-
+                                    @error('message')
+                                        <div class="tooltip text-secondary-700 text-3 mt-2 hidden group-[&.error]/form:block">
+                                            {{ $message }}
+                                        </div>
                                     @enderror
                                 </div>
                                 <div class="form-el group/form w-full px-2 my-3 md:my-2">
@@ -263,8 +258,7 @@
                                                 class="text-[#6D6D6D] font-semibold duration-300 hover:text-main-700 relative z-3">Gizlilik
                                                 Şartları</a>’nı okudum, kabul ediyorum.</div>
                                     </div>
-                                    <div
-                                        class="tooltip text-secondary-700 text-3 mt-2 hidden group-[&.error]/form:block">
+                                    <div class="tooltip text-secondary-700 text-3 mt-2 hidden group-[&.error]/form:block">
                                         Lütfen ilgili alanı doldurunuz.</div>
                                 </div>
                                 <div class="form-el group/form w-full">
@@ -274,7 +268,7 @@
 
                                         <div
                                             class="text whitespace-nowrap font-medium text-4 md:text-3.5 transition-opacity duration-300">
-                                            {{__('general.submit')}}</div>
+                                            {{ __('general.submit') }}</div>
                                     </button>
                                 </div>
                             </div>
@@ -286,4 +280,4 @@
 
     </main>
 
-    @endsection
+@endsection

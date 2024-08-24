@@ -20,49 +20,49 @@
             <div class="wrapper max-w-1440 mx-auto w-full h-full px-7.5 flex items-center justify-between gap-4">
                 <div class="left-wrapper flex items-center gap-7.5 lg:hidden">
                     <div class="social-wrapper flex items-center gap-4.5">
-                        <a href="https://wa.me/905324275936"
+                        <a target="_blank" href="https://wa.me/905324275936"
                             class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                             <div class="icon icon-whatsapp-1 text-4 h-4 block leading-none relative z-2"></div>
                         </a>
-                        <a href="https://www.facebook.com/remaxloca/"
+                        <a target="_blank" href="https://www.facebook.com/remaxloca/"
                             class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                             <div class="icon icon-facebook-1 text-4 h-4 block leading-none relative z-2"></div>
                         </a>
-                        <a href="https://www.instagram.com/remaxloca/"
+                        <a target="_blank" href="https://www.instagram.com/remaxloca/"
                             class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                             <div class="icon icon-instagram text-4 h-4 block leading-none relative z-2"></div>
                         </a>
-                        <a href="https://www.linkedin.com/company/12904651/admin/"
+                        <a target="_blank" href="https://www.linkedin.com/company/12904651/admin/"
                             class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                             <div class="icon icon-linkedin-1 text-4 h-4 block leading-none relative z-2"></div>
                         </a>
-                        <a href="https://www.youtube.com/channel/UCsirgnE5j4PZNOTvaMuezeQ"
+                        <a target="_blank" href="https://www.youtube.com/channel/UCsirgnE5j4PZNOTvaMuezeQ"
                             class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                             <div class="icon icon-youtube text-4 h-4 block leading-none relative z-2"></div>
                         </a>
-                        <a href="https://www.tiktok.com/@remaxloca"
+                        <a target="_blank" href="https://www.tiktok.com/@remaxloca"
                             class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                             <div class="icon icon-tiktok text-4 h-4 block leading-none relative z-2"></div>
                         </a>
                     </div>
-                    <a href="javascript:void(0)"
+                    <a href="tel:+90 543 21 21 212"
                         class="text-3.5 text-white draw-child-underline [--line-color:#FFFFFF]">
                         <span class="font-semibold">TR</span>
                         <span class="font-medium draw-el">+90 543 21 21 212</span>
                     </a>
-                    <a href="javascript:void(0)"
+                    <a href="tel:+90 543 21 21 212"
                         class="text-3.5 text-white draw-child-underline [--line-color:#FFFFFF]">
                         <span class="font-semibold">KZ</span>
                         <span class="font-medium draw-el">+90 543 21 21 212</span>
                     </a>
-                    <a href="javascript:void(0)"
+                    <a href="tel:+90 543 21 21 212"
                         class="text-3.5 text-white draw-child-underline [--line-color:#FFFFFF]">
                         <span class="font-semibold">UA</span>
                         <span class="font-medium draw-el">+90 543 21 21 212</span>
                     </a>
                 </div>
                 <div class="right-wrapper flex items-center lg:hidden">
-                    <a href="javascript:void(0)"
+                    <a href="mailto:info@remaxloca.com"
                         class="flex items-center gap-2 text-3.5 text-[#8AA5D3] draw-child-underline [--line-color:#8AA5D3]">
                         <div class="icon icon-email-1 text-4 h-4 block leading-none duration-300"></div>
                         <div class="text font-medium"><span class="draw-el">info@remaxloca.com</span></div>
@@ -75,14 +75,14 @@
                             class="image-wrapper bg-white/5 self-stretch flex items-center px-1 rounded-1 group-hover/wrapper:bg-white/10 duration-300">
                             <img class="w-3.5 h-auto block pointer-events-none" src="{{ asset('image/static/4.webp') }}"
                                 alt="" loading="lazy">
-                            </div>
+                        </div>
                         <span class="text text-white text-3.5 font-medium">
-                            @if(app()->getLocale() == 'en')
-                            ENG
+                            @if (app()->getLocale() == 'en')
+                                ENG
                             @elseif(app()->getLocale() == 'tr')
-                            TUR
+                                TUR
                             @else
-                            RUS
+                                RUS
                             @endif
                         </span>
                         <div
@@ -92,17 +92,17 @@
 
                     <div
                         class="options bg-white duration-300 grid gap-1 p-2 rounded-2 absolute left-1/2 -translate-x-1/2 w-max min-w-full top-[calc(100%+8px)] before:absolute before:bottom-full before:left-0 before:w-full before:h-2 opacity-0 pointer-events-none scale-95 origin-top group-hover/wrapper:opacity-100 group-hover/wrapper:pointer-events-auto group-hover/wrapper:scale-100">
-                        <a href="{{ route('locale','tr') }}"
+                        <a href="{{ route('locale', 'tr') }}"
                             class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none current">
                             <img src="{{ asset('image/static/4.webp') }}" alt="" loading="lazy">
                             <span class="text text-3.5 font-medium text-tertiary-950">TUR</span>
                         </a>
-                        <a href="{{ route('locale','en') }}"
+                        <a href="{{ route('locale', 'en') }}"
                             class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
                             <img src="{{ asset('image/static/5.webp') }}" alt="" loading="lazy">
                             <span class="text text-3.5 font-medium text-tertiary-950">ENG</span>
                         </a>
-                        <a href="{{ route('locale','rus') }}"
+                        <a href="{{ route('locale', 'rus') }}"
                             class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
                             <img src="{{ asset('image/static/6.webp') }}" alt="" loading="lazy">
                             <span class="text text-3.5 font-medium text-tertiary-950">RUS</span>
@@ -114,14 +114,19 @@
                         <div
                             class="icon-wrapper bg-white/5 self-stretch flex items-center px-1 rounded-1 group-hover/wrapper:bg-white/10 duration-300">
                             <div
-                                class="icon @if(session('currency') == 'usd') icon-dolar @elseif(session('currency') == 'eur') icon-euro @else icon-turkish-lira @endif text-3 h-3 block leading-none duration-300 text-[#2675FA]">
+                                class="icon @if (session('currency') == 'usd') icon-dolar @elseif(session('currency') == 'eur') icon-euro @else icon-turkish-lira @endif text-3 h-3 block leading-none duration-300 text-[#2675FA]">
                             </div>
                         </div>
                         {{-- PHONEEE --}}
                         <span class="text text-white text-3.5 font-medium">
 
-                            @if(session('currency') == 'usd') USD
-                            @elseif(session('currency') == 'eur') EUR @else TRY @endif
+                            @if (session('currency') == 'usd')
+                                USD
+                            @elseif(session('currency') == 'eur')
+                                EUR
+                            @else
+                                TRY
+                            @endif
                         </span>
                         <div
                             class="icon icon-chevron-bottom text-2 h-2 block leading-none duration-300 text-white/55 group-hover/wrapper:text-white group-hover/wrapper:rotate-180">
@@ -129,19 +134,20 @@
                     </div>
                     <div
                         class="options bg-white duration-300 grid gap-1 p-2 rounded-2 absolute left-1/2 -translate-x-1/2 w-max min-w-full top-[calc(100%+8px)] before:absolute before:bottom-full before:left-0 before:w-full before:h-2 opacity-0 pointer-events-none scale-95 origin-top group-hover/wrapper:opacity-100 group-hover/wrapper:pointer-events-auto group-hover/wrapper:scale-100">
-                        <a href="{{ route('currency','tl') }}"
+                        <a href="{{ route('currency', 'tl') }}"
                             class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none current">
                             <div
                                 class="icon icon-turkish-lira text-3 h-3 block leading-none duration-300 text-[#2675FA]">
                             </div>
                             <span class="text text-3.5 font-medium text-tertiary-950">TRY</span>
                         </a>
-                        <a href="{{ route('currency','eur') }}"
+                        <a href="{{ route('currency', 'eur') }}"
                             class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
-                            <div class="icon icon-euro text-3 h-3 block leading-none duration-300 text-[#2675FA]"></div>
+                            <div class="icon icon-euro text-3 h-3 block leading-none duration-300 text-[#2675FA]">
+                            </div>
                             <span class="text text-3.5 font-medium text-tertiary-950">EUR</span>
                         </a>
-                        <a href="{{ route('currency','usd') }}"
+                        <a href="{{ route('currency', 'usd') }}"
                             class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
                             <div class="icon icon-dolar text-3 h-3 block leading-none duration-300 text-[#2675FA]">
                             </div>
@@ -160,122 +166,122 @@
                 </a>
                 <div
                     class="menu-wrapper flex lg:absolute lg:left-0 lg:top-full lg:w-full lg:h-auto lg:max-h-[calc(100dvh-90px-44px)] sm:max-h-[calc(100dvh-80px-44px)] lg:group-[&.scroll-bottom]/header:max-h-[calc(100dvh-90px)] sm:group-[&.scroll-bottom]/header:max-h-[calc(100dvh-80px)] lg:bg-white lg:p-7.5 lg:overflow-x-hidden lg:overflow-y-auto lg:scrollbar lg:scrollbar-w-1 lg:scrollbar-h-1 lg:scrollbar-thumb-main-500 lg:scrollbar-track-main-500/10 lg:scrollbar-thumb-rounded-none lg:border-0 lg:border-t lg:border-solid lg:border-tertiary-950/10 lg:hidden lg:group-[&.menu-open]/header:block">
-                    @if(Route::currentRouteName()=='home')
-                    <ul class="menu flex gap-8 2xl:gap-7 xl:gap-6 lg:flex-col">
-                        <li class="group/li flex">
-                            <a href="{{ route('frontend.services') }}"
-                                class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">
-                            {{ __('general.services') }}
-                            </a>
-                        </li>
-                        <li class="group/li flex">
-                            <a href="{{ route('frontend.about') }}"
-                                class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">{{ __('general.about') }}</a>
-                        </li>
-                        <li class="group/li flex">
-                            <a href="{{ route('frontend.team.index') }}"
-                                class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">{{ __('general.team') }}</a>
-                        </li>
-                        <li class="group/li flex">
-                            <a href="{{ route('portfolios',['grid_type'=>'grid']) }}"
-                                class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">
-                            {{ __('general.portfolios') }}
-                            </a>
-                        </li>
-                        <li class="group/li flex">
-                            <a href="{{ route('projects') }}"
-                                class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">
-                            {{ __('general.projects') }}
-                            </a>
-                        </li>
-                        <li class="group/li flex">
-                            <a href="{{ route('frontend.blog') }}"
-                                class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">
-                            {{ __('general.blog') }}
-                            </a>
-                        </li>
-                        <li class="group/li flex">
-                            <a href="{{ route('contact') }}"
-                                class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">
-                            {{ __('general.contact') }}
-                            </a>
-                        </li>
-                        <li class="group/li flex">
-                            <a href="{{ route('videos') }}" class="flex items-center gap-2">
-                                <span
-                                    class="text text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">LOCA</span>
-                                <img class="w-6 h-auto object-contain object-center block pointer-events-none"
-                                    src="{{ asset('image/static/1.webp') }}" alt="" loading="lazy">
-                            </a>
-                        </li>
-                    </ul>
-                    @else
-                    <ul class="menu flex gap-8 2xl:gap-7 xl:gap-6 lg:flex-col">
-                        <li class="group/li flex">
-                            <a href="{{ route('frontend.about') }}"
-                                class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">
-                                   {{ __('general.about') }}
-</a>
-                        </li>
-                        <li class="group/li flex">
-                            <a href="{{ route('frontend.services') }}"
-                                class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">
+                    @if (Route::currentRouteName() == 'home')
+                        <ul class="menu flex gap-8 2xl:gap-7 xl:gap-6 lg:flex-col">
+                            <li class="group/li flex">
+                                <a href="{{ route('frontend.services') }}"
+                                    class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">
                                     {{ __('general.services') }}
-</a>
-                        </li>
-                        <li class="group/li flex">
-                            <a href="{{ route('frontend.team.index') }}"
-                                class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">{{ __('general.team') }}</a>
-                        </li>
-                        <li class="group/li flex">
-                            <a href="{{ route('portfolios',['grid_type'=>'grid']) }}"
-                                class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">{{ __('general.portfolios') }}</a>
-                        </li>
-                        <li class="group/li flex">
-                            <a href="{{ route('projects') }}"
-                                class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">{{ __('general.projects') }}</a>
-                        </li>
-                        <li class="group/li flex">
-                            <a href="{{ route('frontend.blog') }}"
-                                class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">
-                            {{ __('general.blog') }}
+                                </a>
+                            </li>
+                            <li class="group/li flex">
+                                <a href="{{ route('frontend.about') }}"
+                                    class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">{{ __('general.about') }}</a>
+                            </li>
+                            <li class="group/li flex">
+                                <a href="{{ route('frontend.team.index') }}"
+                                    class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">{{ __('general.team') }}</a>
+                            </li>
+                            <li class="group/li flex">
+                                <a href="{{ route('portfolios', ['grid_type' => 'grid']) }}"
+                                    class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">
+                                    {{ __('general.portfolios') }}
+                                </a>
+                            </li>
+                            <li class="group/li flex">
+                                <a href="{{ route('projects') }}"
+                                    class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">
+                                    {{ __('general.projects') }}
+                                </a>
+                            </li>
+                            <li class="group/li flex">
+                                <a href="{{ route('frontend.blog') }}"
+                                    class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">
+                                    {{ __('general.blog') }}
+                                </a>
+                            </li>
+                            <li class="group/li flex">
+                                <a href="{{ route('contact') }}"
+                                    class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">
+                                    {{ __('general.contact') }}
+                                </a>
+                            </li>
+                            <li class="group/li flex">
+                                <a href="{{ route('videos') }}" class="flex items-center gap-2">
+                                    <span
+                                        class="text text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">LOCA</span>
+                                    <img class="w-6 h-auto object-contain object-center block pointer-events-none"
+                                        src="{{ asset('image/static/1.webp') }}" alt="" loading="lazy">
+                                </a>
+                            </li>
+                        </ul>
+                    @else
+                        <ul class="menu flex gap-8 2xl:gap-7 xl:gap-6 lg:flex-col">
+                            <li class="group/li flex">
+                                <a href="{{ route('frontend.about') }}"
+                                    class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">
+                                    {{ __('general.about') }}
+                                </a>
+                            </li>
+                            <li class="group/li flex">
+                                <a href="{{ route('frontend.services') }}"
+                                    class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">
+                                    {{ __('general.services') }}
+                                </a>
+                            </li>
+                            <li class="group/li flex">
+                                <a href="{{ route('frontend.team.index') }}"
+                                    class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">{{ __('general.team') }}</a>
+                            </li>
+                            <li class="group/li flex">
+                                <a href="{{ route('portfolios', ['grid_type' => 'grid']) }}"
+                                    class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">{{ __('general.portfolios') }}</a>
+                            </li>
+                            <li class="group/li flex">
+                                <a href="{{ route('projects') }}"
+                                    class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">{{ __('general.projects') }}</a>
+                            </li>
+                            <li class="group/li flex">
+                                <a href="{{ route('frontend.blog') }}"
+                                    class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">
+                                    {{ __('general.blog') }}
 
-                            </a>
-                        </li>
-                        <li class="group/li flex">
-                            <a href="{{ route('contact') }}"
-                                class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">
-                            {{ __('general.contact') }}
-                            </a>
-                        </li>
-                        <li class="group/li flex">
-                            <a href="{{ route('videos') }}" class="flex items-center gap-2">
-                                <span
-                                    class="text text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">LOCA</span>
-                                <img class="w-6 h-auto object-contain object-center block pointer-events-none"
-                                    src="{{ asset('image/static/1.webp') }}" alt="" loading="lazy">
-                            </a>
-                        </li>
-                    </ul>
+                                </a>
+                            </li>
+                            <li class="group/li flex">
+                                <a href="{{ route('contact') }}"
+                                    class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">
+                                    {{ __('general.contact') }}
+                                </a>
+                            </li>
+                            <li class="group/li flex">
+                                <a href="{{ route('videos') }}" class="flex items-center gap-2">
+                                    <span
+                                        class="text text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">LOCA</span>
+                                    <img class="w-6 h-auto object-contain object-center block pointer-events-none"
+                                        src="{{ asset('image/static/1.webp') }}" alt="" loading="lazy">
+                                </a>
+                            </li>
+                        </ul>
                     @endif
                     <div class="split hidden lg:block w-full h-px my-7.5 bg-tertiary-950/10"></div>
                     <div class="content-wrapper hidden lg:grid gap-4.5">
-                        <a href="javascript:void(0)"
+                        <a href="tel:+90 543 21 21 212"
                             class="text-3.5 text-main-900 draw-child-underline [--line-color:#144495]">
                             <span class="font-semibold">TR</span>
                             <span class="font-medium draw-el">+90 543 21 21 212</span>
                         </a>
-                        <a href="javascript:void(0)"
+                        <a href="tel:+90 543 21 21 212"
                             class="text-3.5 text-main-900 draw-child-underline [--line-color:#144495]">
                             <span class="font-semibold">KZ</span>
                             <span class="font-medium draw-el">+90 543 21 21 212</span>
                         </a>
-                        <a href="javascript:void(0)"
+                        <a href="tel:+90 543 21 21 212"
                             class="text-3.5 text-main-900 draw-child-underline [--line-color:#144495]">
                             <span class="font-semibold">UA</span>
                             <span class="font-medium draw-el">+90 543 21 21 212</span>
                         </a>
-                        <a href="javascript:void(0)"
+                        <a href="mailto:info@remaxloca.com"
                             class="flex items-center gap-2 text-3.5 text-main-900 draw-child-underline [--line-color:#144495]">
                             <div class="icon icon-email-1 text-4 h-4 block leading-none duration-300"></div>
                             <div class="text font-medium"><span class="draw-el">info@remaxloca.com</span></div>
@@ -287,27 +293,27 @@
                         </a>
                         <div class="split hidden lg:block w-full h-px bg-tertiary-950/10"></div>
                         <div class="social-wrapper flex items-center justify-center gap-4.5">
-                            <a href="https://wa.me/905324275936"
+                            <a target="_blank" href="https://wa.me/905324275936"
                                 class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                                 <div class="icon icon-whatsapp-1 text-4 h-4 block leading-none relative z-2"></div>
                             </a>
-                            <a href="https://www.facebook.com/remaxloca/"
+                            <a target="_blank" href="https://www.facebook.com/remaxloca/"
                                 class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                                 <div class="icon icon-facebook-1 text-4 h-4 block leading-none relative z-2"></div>
                             </a>
-                            <a href="https://www.instagram.com/remaxloca/"
+                            <a target="_blank" href="https://www.instagram.com/remaxloca/"
                                 class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                                 <div class="icon icon-instagram text-4 h-4 block leading-none relative z-2"></div>
                             </a>
-                            <a href="https://www.linkedin.com/company/12904651/admin/"
+                            <a target="_blank" href="https://www.linkedin.com/company/12904651/admin/"
                                 class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                                 <div class="icon icon-linkedin-1 text-4 h-4 block leading-none relative z-2"></div>
                             </a>
-                            <a href="https://www.youtube.com/channel/UCsirgnE5j4PZNOTvaMuezeQ"
+                            <a target="_blank" href="https://www.youtube.com/channel/UCsirgnE5j4PZNOTvaMuezeQ"
                                 class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                                 <div class="icon icon-youtube text-4 h-4 block leading-none relative z-2"></div>
                             </a>
-                            <a href="https://www.tiktok.com/@remaxloca"
+                            <a target="_blank" href="https://www.tiktok.com/@remaxloca"
                                 class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                                 <div class="icon icon-tiktok text-4 h-4 block leading-none relative z-2"></div>
                             </a>
@@ -329,106 +335,69 @@
                         <span class="text text-white font-semibold text-3.5">{{ __('general.buy_sell') }}</span>
                     </a>
 
-                    @if(\Route::currentRouteName() == 'home')
-<div class="language-wrapper relative group/wrapper  lg:block">
-        <div class="current cursor-pointer flex items-center justify-center gap-2 py-1 h-7.5">
-            <div
-                class="image-wrapper bg-white/5 self-stretch flex items-center px-1 rounded-1 group-hover/wrapper:bg-white/10 duration-300">
-                <img class="w-3.5 h-auto block pointer-events-none" src="{{asset('image/static/'.app()->getLocale().'.webp')}}" alt="" loading="lazy">
-            </div>
-            <span class="text text-white text-3.5 font-medium">
-            @if(app()->getLocale() == 'en')
-            ENG
-            @elseif(app()->getLocale() == 'tr')
-            TUR
-            @else
-            RUS
-            @endif
-            </span>
-            <div
-                class="icon icon-chevron-bottom text-2 h-2 block leading-none duration-300 text-white/55 group-hover/wrapper:text-white group-hover/wrapper:rotate-180">
-            </div>
-        </div>
-        <div
-            class="options bg-white duration-300 grid gap-1 p-2 rounded-2 absolute left-1/2 -translate-x-1/2 w-max min-w-full top-[calc(100%+8px)] before:absolute before:bottom-full before:left-0 before:w-full before:h-2 opacity-0 pointer-events-none scale-95 origin-top group-hover/wrapper:opacity-100 group-hover/wrapper:pointer-events-auto group-hover/wrapper:scale-100">
-            <a href="{{ route('locale','tr') }}"
-                class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none @if(app()->getLocale()=='tr') current @endif">
-                <img src="{{asset('image/static/4.webp')}}" alt="" loading="lazy">
-                <span class="text text-3.5 font-medium text-tertiary-950">TUR</span>
-            </a>
-            <a href="{{ route('locale','en') }}"
-                class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
-                <img src="{{ asset('image/static/5.webp') }}" alt="" loading="lazy">
-                <span class="text text-3.5 font-medium text-tertiary-950 @if(app()->getLocale()=='en') current @endif">ENG</span>
-            </a>
-            <a href="{{ route('locale','ru') }}"
-                class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
-                <img src="{{ asset('image/static/6.webp') }}" alt="" loading="lazy">
-                <span class="text text-3.5 font-medium text-tertiary-950 @if(app()->getLocale()=='en') current @endif">RUS</span>
-            </a>
-        </div>
-    </div>
-
-    {{-- MAIN --}}
-    <div class="currency-wrapper relative group/wrapper lg:hidden">
-
-        <div
-            class="current cursor-pointer flex items-center justify-center gap-2 p-1 pr-2.5 xl:pr-2 h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 group-hover/wrapper:border-tertiary-950/30 min-lg:group-[&:not(.scroll-down)]/header:border-white/10 min-lg:group-[&:not(.scroll-down)]/header:group-hover/wrapper:border-white/25">
-            <div
-                class="icon-wrapper bg-tertiary-950/5 self-stretch flex items-center px-1 rounded-1 group-hover/wrapper:bg-tertiary-950/10 duration-300 min-lg:group-[&:not(.scroll-down)]/header:bg-white/5 min-lg:group-[&:not(.scroll-down)]/header:group-hover/wrapper:bg-white/10">
-                <div class="icon @if(session('currency') == 'usd') icon-dolar @elseif(session('currency') == 'eur') icon-euro @else icon-turkish-lira @endif text-3 h-3 block leading-none duration-300 text-[#2675FA]">
-                </div>
-            </div>
-            <span
-                class="text text-tertiary-950 text-3.5 font-medium duration-300 min-lg:group-[&:not(.scroll-down)]/header:text-white">
-            @if(session('currency') == 'usd') USD
-            @elseif(session('currency') == 'eur') EUR @else TRY
-            @endif
-            </span>
-            <div
-                class="icon icon-chevron-bottom text-2 h-2 block leading-none duration-300 text-tertiary-950/55 group-hover/wrapper:text-tertiary-950 group-hover/wrapper:rotate-180 xl:hidden min-lg:group-[&:not(.scroll-down)]/header:text-white/50">
-            </div>
-        </div>
-        <div
-            class="options bg-white duration-300 grid gap-1 p-2 rounded-2 absolute left-1/2 -translate-x-1/2 w-max min-w-full top-[calc(100%+8px)] before:absolute before:bottom-full before:left-0 before:w-full before:h-2 opacity-0 pointer-events-none scale-95 origin-top group-hover/wrapper:opacity-100 group-hover/wrapper:pointer-events-auto group-hover/wrapper:scale-100">
-      <a href="{{ route('currency','tl') }}"
-                class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
-                <div class="icon icon-turkish-lira text-3 h-3 block leading-none duration-300 text-[#2675FA]">
-                </div>
-                <span class="text text-3.5 font-medium text-tertiary-950">TRY</span>
-            </a>
-            <a href="{{ route('currency','eur') }}"
-                class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
-                <div class="icon icon-euro text-3 h-3 block leading-none duration-300 text-[#2675FA]">
-                </div>
-                <span class="text text-3.5 font-medium text-tertiary-950">EUR</span>
-            </a>
-            <a href="{{ route('currency','usd') }}"
-                class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
-                <div class="icon icon-dolar text-3 h-3 block leading-none duration-300 text-[#2675FA]">
-                </div>
-                <span class="text text-3.5 font-medium text-tertiary-950">USD</span>
-            </a>
-        </div>
-    </div>
-                    @else
-                        <div class="language-wrapper relative group/wrapper lg:hidden">
-                            <div
-                                class="current cursor-pointer flex items-center justify-center gap-2 p-1 pr-2.5 xl:pr-2 h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 group-hover/wrapper:border-tertiary-950/30 min-lg:group-[&:not(.scroll-down)]/header:border-black/10 min-lg:group-[&:not(.scroll-down)]/header:group-hover/wrapper:border-black/25">
+                    @if (\Route::currentRouteName() == 'home')
+                        <div class="language-wrapper relative group/wrapper  lg:block">
+                            <div class="current cursor-pointer flex items-center justify-center gap-2 py-1 h-7.5">
                                 <div
-                                    class="image-wrapper bg-tertiary-950/5 self-stretch flex items-center px-1 rounded-1 group-hover/wrapper:bg-tertiary-950/10 duration-300 min-lg:group-[&:not(.scroll-down)]/header:bg-white/5 min-lg:group-[&:not(.scroll-down)]/header:group-hover/wrapper:bg-white/10">
-                                    <img class="w-3.5 h-auto block pointer-events-none" src="{{ asset('image/static/'.app()->getLocale().'.webp') }}" alt=""
-                                        loading="lazy">
+                                    class="image-wrapper bg-white/5 self-stretch flex items-center px-1 rounded-1 group-hover/wrapper:bg-white/10 duration-300">
+                                    <img class="w-3.5 h-auto block pointer-events-none"
+                                        src="{{ asset('image/static/' . app()->getLocale() . '.webp') }}"
+                                        alt="" loading="lazy">
+                                </div>
+                                <span class="text text-white text-3.5 font-medium">
+                                    @if (app()->getLocale() == 'en')
+                                        ENG
+                                    @elseif(app()->getLocale() == 'tr')
+                                        TUR
+                                    @else
+                                        RUS
+                                    @endif
+                                </span>
+                                <div
+                                    class="icon icon-chevron-bottom text-2 h-2 block leading-none duration-300 text-white/55 group-hover/wrapper:text-white group-hover/wrapper:rotate-180">
+                                </div>
+                            </div>
+                            <div
+                                class="options bg-white duration-300 grid gap-1 p-2 rounded-2 absolute left-1/2 -translate-x-1/2 w-max min-w-full top-[calc(100%+8px)] before:absolute before:bottom-full before:left-0 before:w-full before:h-2 opacity-0 pointer-events-none scale-95 origin-top group-hover/wrapper:opacity-100 group-hover/wrapper:pointer-events-auto group-hover/wrapper:scale-100">
+                                <a href="{{ route('locale', 'tr') }}"
+                                    class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none @if (app()->getLocale() == 'tr') current @endif">
+                                    <img src="{{ asset('image/static/4.webp') }}" alt="" loading="lazy">
+                                    <span class="text text-3.5 font-medium text-tertiary-950">TUR</span>
+                                </a>
+                                <a href="{{ route('locale', 'en') }}"
+                                    class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
+                                    <img src="{{ asset('image/static/5.webp') }}" alt="" loading="lazy">
+                                    <span
+                                        class="text text-3.5 font-medium text-tertiary-950 @if (app()->getLocale() == 'en') current @endif">ENG</span>
+                                </a>
+                                <a href="{{ route('locale', 'ru') }}"
+                                    class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
+                                    <img src="{{ asset('image/static/6.webp') }}" alt="" loading="lazy">
+                                    <span
+                                        class="text text-3.5 font-medium text-tertiary-950 @if (app()->getLocale() == 'en') current @endif">RUS</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        {{-- MAIN --}}
+                        <div class="currency-wrapper relative group/wrapper lg:hidden">
+
+                            <div
+                                class="current cursor-pointer flex items-center justify-center gap-2 p-1 pr-2.5 xl:pr-2 h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 group-hover/wrapper:border-tertiary-950/30 min-lg:group-[&:not(.scroll-down)]/header:border-white/10 min-lg:group-[&:not(.scroll-down)]/header:group-hover/wrapper:border-white/25">
+                                <div
+                                    class="icon-wrapper bg-tertiary-950/5 self-stretch flex items-center px-1 rounded-1 group-hover/wrapper:bg-tertiary-950/10 duration-300 min-lg:group-[&:not(.scroll-down)]/header:bg-white/5 min-lg:group-[&:not(.scroll-down)]/header:group-hover/wrapper:bg-white/10">
+                                    <div
+                                        class="icon @if (session('currency') == 'usd') icon-dolar @elseif(session('currency') == 'eur') icon-euro @else icon-turkish-lira @endif text-3 h-3 block leading-none duration-300 text-[#2675FA]">
+                                    </div>
                                 </div>
                                 <span
-                                    class="text text-tertiary-950 text-3.5 font-medium duration-300 min-lg:group-[&:not(.scroll-down)]/header:text-black">
-
-                                    @if(app()->getLocale() == 'en')
-                                    ENG
-                                    @elseif(app()->getLocale() == 'tr')
-                                    TUR
+                                    class="text text-tertiary-950 text-3.5 font-medium duration-300 min-lg:group-[&:not(.scroll-down)]/header:text-white">
+                                    @if (session('currency') == 'usd')
+                                        USD
+                                    @elseif(session('currency') == 'eur')
+                                        EUR
                                     @else
-                                    RUS
+                                        TRY
                                     @endif
                                 </span>
                                 <div
@@ -437,20 +406,72 @@
                             </div>
                             <div
                                 class="options bg-white duration-300 grid gap-1 p-2 rounded-2 absolute left-1/2 -translate-x-1/2 w-max min-w-full top-[calc(100%+8px)] before:absolute before:bottom-full before:left-0 before:w-full before:h-2 opacity-0 pointer-events-none scale-95 origin-top group-hover/wrapper:opacity-100 group-hover/wrapper:pointer-events-auto group-hover/wrapper:scale-100">
-                                <a href="{{ route('locale','tr') }}"
-                                    class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none @if(app()->getLocale()=='tr') current @endif">
+                                <a href="{{ route('currency', 'tl') }}"
+                                    class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
+                                    <div
+                                        class="icon icon-turkish-lira text-3 h-3 block leading-none duration-300 text-[#2675FA]">
+                                    </div>
+                                    <span class="text text-3.5 font-medium text-tertiary-950">TRY</span>
+                                </a>
+                                <a href="{{ route('currency', 'eur') }}"
+                                    class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
+                                    <div
+                                        class="icon icon-euro text-3 h-3 block leading-none duration-300 text-[#2675FA]">
+                                    </div>
+                                    <span class="text text-3.5 font-medium text-tertiary-950">EUR</span>
+                                </a>
+                                <a href="{{ route('currency', 'usd') }}"
+                                    class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
+                                    <div
+                                        class="icon icon-dolar text-3 h-3 block leading-none duration-300 text-[#2675FA]">
+                                    </div>
+                                    <span class="text text-3.5 font-medium text-tertiary-950">USD</span>
+                                </a>
+                            </div>
+                        </div>
+                    @else
+                        <div class="language-wrapper relative group/wrapper lg:hidden">
+                            <div
+                                class="current cursor-pointer flex items-center justify-center gap-2 p-1 pr-2.5 xl:pr-2 h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 group-hover/wrapper:border-tertiary-950/30 min-lg:group-[&:not(.scroll-down)]/header:border-black/10 min-lg:group-[&:not(.scroll-down)]/header:group-hover/wrapper:border-black/25">
+                                <div
+                                    class="image-wrapper bg-tertiary-950/5 self-stretch flex items-center px-1 rounded-1 group-hover/wrapper:bg-tertiary-950/10 duration-300 min-lg:group-[&:not(.scroll-down)]/header:bg-white/5 min-lg:group-[&:not(.scroll-down)]/header:group-hover/wrapper:bg-white/10">
+                                    <img class="w-3.5 h-auto block pointer-events-none"
+                                        src="{{ asset('image/static/' . app()->getLocale() . '.webp') }}"
+                                        alt="" loading="lazy">
+                                </div>
+                                <span
+                                    class="text text-tertiary-950 text-3.5 font-medium duration-300 min-lg:group-[&:not(.scroll-down)]/header:text-black">
+
+                                    @if (app()->getLocale() == 'en')
+                                        ENG
+                                    @elseif(app()->getLocale() == 'tr')
+                                        TUR
+                                    @else
+                                        RUS
+                                    @endif
+                                </span>
+                                <div
+                                    class="icon icon-chevron-bottom text-2 h-2 block leading-none duration-300 text-tertiary-950/55 group-hover/wrapper:text-tertiary-950 group-hover/wrapper:rotate-180 xl:hidden min-lg:group-[&:not(.scroll-down)]/header:text-white/50">
+                                </div>
+                            </div>
+                            <div
+                                class="options bg-white duration-300 grid gap-1 p-2 rounded-2 absolute left-1/2 -translate-x-1/2 w-max min-w-full top-[calc(100%+8px)] before:absolute before:bottom-full before:left-0 before:w-full before:h-2 opacity-0 pointer-events-none scale-95 origin-top group-hover/wrapper:opacity-100 group-hover/wrapper:pointer-events-auto group-hover/wrapper:scale-100">
+                                <a href="{{ route('locale', 'tr') }}"
+                                    class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none @if (app()->getLocale() == 'tr') current @endif">
                                     <img src="{{ asset('image/static/4.webp') }}" alt="" loading="lazy">
                                     <span class="text text-3.5 font-medium text-tertiary-950">TUR</span>
                                 </a>
-                                <a href="{{ route('locale','en') }}"
+                                <a href="{{ route('locale', 'en') }}"
                                     class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
                                     <img src="{{ asset('image/static/5.webp') }}" alt="" loading="lazy">
-                                    <span class="text text-3.5 font-medium text-tertiary-950 @if(app()->getLocale()=='en') current @endif">ENG</span>
+                                    <span
+                                        class="text text-3.5 font-medium text-tertiary-950 @if (app()->getLocale() == 'en') current @endif">ENG</span>
                                 </a>
-                                <a href="{{ route('locale','ru') }}"
+                                <a href="{{ route('locale', 'ru') }}"
                                     class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
                                     <img src="{{ asset('image/static/6.webp') }}" alt="" loading="lazy">
-                                    <span class="text text-3.5 font-medium text-tertiary-950 @if(app()->getLocale()=='ru') current @endif">RUS</span>
+                                    <span
+                                        class="text text-3.5 font-medium text-tertiary-950 @if (app()->getLocale() == 'ru') current @endif">RUS</span>
                                 </a>
                             </div>
                         </div>
@@ -460,12 +481,19 @@
                                 class="current cursor-pointer flex items-center justify-center gap-2 p-1 pr-2.5 xl:pr-2 h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 group-hover/wrapper:border-tertiary-950/30">
                                 <div
                                     class="icon-wrapper bg-tertiary-950/5 self-stretch flex items-center px-1 rounded-1 group-hover/wrapper:bg-tertiary-950/10 duration-300">
-                                    <div class="icon @if(session('currency') == 'usd') icon-dolar @elseif(session('currency') == 'eur') icon-euro @else icon-turkish-lira @endif text-3 h-3 block leading-none duration-300 text-[#2675FA]"></div>
+                                    <div
+                                        class="icon @if (session('currency') == 'usd') icon-dolar @elseif(session('currency') == 'eur') icon-euro @else icon-turkish-lira @endif text-3 h-3 block leading-none duration-300 text-[#2675FA]">
+                                    </div>
                                 </div>
                                 {{-- selected currency --}}
                                 <span class="text text-tertiary-950 text-3.5 font-medium duration-300">
 
-                                    @if(session('currency') == 'usd') USD @elseif(session('currency') == 'eur') EUR @else TRY
+                                    @if (session('currency') == 'usd')
+                                        USD
+                                    @elseif(session('currency') == 'eur')
+                                        EUR
+                                    @else
+                                        TRY
                                     @endif
                                 </span>
                                 <div
@@ -474,19 +502,25 @@
                             </div>
                             <div
                                 class="options bg-white duration-300 grid gap-1 p-2 rounded-2 absolute left-1/2 -translate-x-1/2 w-max min-w-full top-[calc(100%+8px)] before:absolute before:bottom-full before:left-0 before:w-full before:h-2 opacity-0 pointer-events-none scale-95 origin-top group-hover/wrapper:opacity-100 group-hover/wrapper:pointer-events-auto group-hover/wrapper:scale-100">
-                            <a href="{{ route('currency','tl') }}"
-                                class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
-                                <div class="icon icon-turkish-lira text-3 h-3 block leading-none duration-300 text-[#2675FA]"></div>
-                                <span class="text text-3.5 font-medium text-tertiary-950">TRY</span>
-                            </a>
-                                <a href="{{ route('currency','eur') }}"
+                                <a href="{{ route('currency', 'tl') }}"
                                     class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
-                                    <div class="icon icon-euro text-3 h-3 block leading-none duration-300 text-[#2675FA]"></div>
+                                    <div
+                                        class="icon icon-turkish-lira text-3 h-3 block leading-none duration-300 text-[#2675FA]">
+                                    </div>
+                                    <span class="text text-3.5 font-medium text-tertiary-950">TRY</span>
+                                </a>
+                                <a href="{{ route('currency', 'eur') }}"
+                                    class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
+                                    <div
+                                        class="icon icon-euro text-3 h-3 block leading-none duration-300 text-[#2675FA]">
+                                    </div>
                                     <span class="text text-3.5 font-medium text-tertiary-950">EUR</span>
                                 </a>
-                                <a href="{{ route('currency','usd') }}"
+                                <a href="{{ route('currency', 'usd') }}"
                                     class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
-                                    <div class="icon icon-dolar text-3 h-3 block leading-none duration-300 text-[#2675FA]"></div>
+                                    <div
+                                        class="icon icon-dolar text-3 h-3 block leading-none duration-300 text-[#2675FA]">
+                                    </div>
                                     <span class="text text-3.5 font-medium text-tertiary-950">USD</span>
                                 </a>
                             </div>
@@ -540,12 +574,12 @@
                         <div class="list mt-5 grid gap-1">
                             <a href="{{ route('frontend.about') }}"
                                 class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
-                                    class="draw-el">                            {{ __('general.about') }}
-</span></a>
+                                    class="draw-el"> {{ __('general.about') }}
+                                </span></a>
                             <a href="{{ route('frontend.services') }}"
                                 class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
-                                    class="draw-el">                            {{ __('general.contact') }}
-</span></a>
+                                    class="draw-el"> {{ __('general.contact') }}
+                                </span></a>
                             <a href="{{ route('frontend.team.index') }}"
                                 class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">{{ __('general.team') }}</span></a>
@@ -564,13 +598,13 @@
                             <a href="{{ route('frontend.blog') }}"
                                 class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">
-                            {{ __('general.blog') }}
+                                    {{ __('general.blog') }}
 
                                 </span></a>
                             <a href="{{ route('contact') }}"
                                 class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">
-                            {{ __('general.contact') }}
+                                    {{ __('general.contact') }}
                                 </span></a>
                         </div>
                         <div class="list mt-5 grid gap-1">
@@ -617,7 +651,8 @@
                                     <div
                                         class="icon icon-map-1 text-3 h-3 block leading-none duration-300 text-[#2675FA]">
                                     </div>
-                                    <div class="text text-white font-semibold text-3.5 tracking-wider">{{ __('general.directions') }}</div>
+                                    <div class="text text-white font-semibold text-3.5 tracking-wider">
+                                        {{ __('general.directions') }}</div>
                                 </a>
                             </div>
                         </div>
@@ -637,7 +672,8 @@
                                     <div
                                         class="icon icon-map-1 text-3 h-3 block leading-none duration-300 text-[#2675FA]">
                                     </div>
-<div class="text text-white font-semibold text-3.5 tracking-wider">{{ __('general.directions') }}</div>
+                                    <div class="text text-white font-semibold text-3.5 tracking-wider">
+                                        {{ __('general.directions') }}</div>
                                 </a>
                             </div>
                         </div>
@@ -684,39 +720,41 @@
                         </form>
 
                         <div class="social-outer-wrapper px-5.5 mt-15 2xl:mt-13 xl:mt-11 lg:mt-9">
-                            <div class="title text-3.5 font-medium text-white mb-3">{{ __('general.follow_us') }}</div>
+                            <div class="title text-3.5 font-medium text-white mb-3">{{ __('general.follow_us') }}
+                            </div>
                             <div class="social-wrapper flex items-center gap-4.5">
-<a href="https://wa.me/905324275936"
-    class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
-    <div class="icon icon-whatsapp-1 text-4 h-4 block leading-none relative z-2"></div>
-</a>
-<a href="https://www.facebook.com/remaxloca/"
-    class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
-    <div class="icon icon-facebook-1 text-4 h-4 block leading-none relative z-2"></div>
-</a>
-<a href="https://www.instagram.com/remaxloca/"
-    class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
-    <div class="icon icon-instagram text-4 h-4 block leading-none relative z-2"></div>
-</a>
-<a href="https://www.linkedin.com/company/12904651/admin/"
-    class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
-    <div class="icon icon-linkedin-1 text-4 h-4 block leading-none relative z-2"></div>
-</a>
-<a href="https://www.youtube.com/channel/UCsirgnE5j4PZNOTvaMuezeQ"
-    class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
-    <div class="icon icon-youtube text-4 h-4 block leading-none relative z-2"></div>
-</a>
-<a href="https://www.tiktok.com/@remaxloca"
-    class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
-    <div class="icon icon-tiktok text-4 h-4 block leading-none relative z-2"></div>
-</a>
+                                <a target="_blank" href="https://wa.me/905324275936"
+                                    class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
+                                    <div class="icon icon-whatsapp-1 text-4 h-4 block leading-none relative z-2"></div>
+                                </a>
+                                <a target="_blank" href="https://www.facebook.com/remaxloca/"
+                                    class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
+                                    <div class="icon icon-facebook-1 text-4 h-4 block leading-none relative z-2"></div>
+                                </a>
+                                <a target="_blank" href="https://www.instagram.com/remaxloca/"
+                                    class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
+                                    <div class="icon icon-instagram text-4 h-4 block leading-none relative z-2"></div>
+                                </a>
+                                <a target="_blank" href="https://www.linkedin.com/company/12904651/admin/"
+                                    class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
+                                    <div class="icon icon-linkedin-1 text-4 h-4 block leading-none relative z-2"></div>
+                                </a>
+                                <a target="_blank" href="https://www.youtube.com/channel/UCsirgnE5j4PZNOTvaMuezeQ"
+                                    class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
+                                    <div class="icon icon-youtube text-4 h-4 block leading-none relative z-2"></div>
+                                </a>
+                                <a target="_blank" href="https://www.tiktok.com/@remaxloca"
+                                    class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
+                                    <div class="icon icon-tiktok text-4 h-4 block leading-none relative z-2"></div>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="split w-full h-px bg-[#34425A]/75"></div>
                 <div class="copyright-wrapper py-7.5">
-                    <div class="text text-white text-3.5 font-medium sm:text-center">© {{ date('Y') }} Remax Loca</div>
+                    <div class="text text-white text-3.5 font-medium sm:text-center">© {{ date('Y') }} Remax Loca
+                    </div>
                 </div>
             </div>
         </footer>
@@ -753,8 +791,8 @@
                 <p>Çerezler, ziyaret ettiğiniz internet siteleri tarafından tarayıcılar aracılığıyla cihazınıza veya ağ
                     sunucusuna depolanan küçük metin dosyalarıdır. Sitede tercih ettiğiniz dil ve diğer ayarları içeren
                     bu küçük metin dosyaları, siteye bir sonraki ziyaretinizde tercihlerinizin hatırlanmasına ve
-                    sitedeki deneyiminizi iyileştirmek için                             {{ __('general.') }}
-de geliştirmeler yapmamıza yardımcı olur.
+                    sitedeki deneyiminizi iyileştirmek için {{ __('general.') }}
+                    de geliştirmeler yapmamıza yardımcı olur.
                     Böylece bir sonraki ziyaretinizde daha iyi ve kişiselleştirilmiş bir kullanım deneyimi
                     yaşayabilirsiniz.</p>
                 <p>İnternet Sitemizde çerez kullanılmasının başlıca amaçları aşağıda sıralanmaktadır:</p>

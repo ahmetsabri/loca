@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title', 'RE/MAX LOCA')
+@section('title', 'Portföyler | RE/MAX LOCA')
 
 @section('content')
 <soho-technologies class="block">

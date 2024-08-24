@@ -8,7 +8,7 @@ return [
     'portfolios' => 'portföyler',
     'projects' => 'projeler',
     'project' => 'proje',
-    'blog' => 'blog',
+    'blog' => 'LOCAMag',
     'contact' => 'iletisim',
     'search' => 'arama',
     'phone' => 'telefon No',
