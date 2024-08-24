@@ -10,7 +10,7 @@ class PostController extends Controller
 {
     public function index(Request $request)
     {
-        $posts = Post::latest()->select('id', 'created_at', 'title')->with('image')->when($request->search, function ($query) use ($request) {
+        $posts = Post::latest()->select('id', 'created_at', 'title', 'slug')->with('image')->when($request->search, function ($query) use ($request) {
             $query->where('title->'.app()->getLocale(), 'like', '%'.$request->search.'%');
         })->paginate();
 
