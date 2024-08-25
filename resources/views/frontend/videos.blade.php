@@ -59,10 +59,29 @@
                             <div class="title px-3 text-4 font-semibold text-tertiary-950">{{ __('general.categories') }}
                             </div>
                             <div class="split my-4 w-full h-px bg-[#8AA5D3]/15"></div>
-                            <div class="list-wrapper grid gap-4 px-3">
+                            <div class="list-wrapper grid gap-4 px-3" x-data="{
+                                filters: [],
+                                filterCategory() {
+                                    const vals = this.filters.join(',')
+                                    if (vals == '') {
+                                        return;
+                                    }
+                                    url = '{{ request()->fullUrl() }}';
+                                    if (!url.includes('category')) {
+                                        window.location.href = url + '?category=' + vals
+                                        return
+                                    }
+
+                                    window.location.href = url + ',' + vals
+                                    this.filters = '{{ json_encode($filters) }}'
+                                },
+
+                            }" x-effect="filterCategory()">
                                 @foreach ($categories as $category)
                                     <div class="custom-checkbox relative flex items-center gap-2.5">
-                                        <input name="filter[category][]" type="checkbox"
+                                        <input name="filter[category][]" value="{{ $category->id }}" type="checkbox"
+                                            x-model="filters" @checked(in_array($category->id, $filters))
+                                            :checked="filters.includes(`{{ $category->id }}`)"
                                             class="peer absolute left-0 top-0 w-full h-full z-2 cursor-pointer opacity-0">
                                         <div
                                             class="box relative duration-300 w-4 aspect-square shrink-0 rounded-0.75 bg-white border border-solid border-[#8AA5D3]/50 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:w-65/100 before:aspect-square before:rounded-0.5 before:bg-main-700 before:duration-300 before:pointer-events-none before:opacity-0 peer-hover:border-main-700 peer-checked:border-main-700 peer-checked:before:opacity-100">
@@ -81,23 +100,18 @@
                     <div
                         class="list-wrapper grid grid-cols-3 lg:grid-cols-2 xs:grid-cols-1 gap-x-9 xl:gap-x-8 lg:gap-x-7 gap-y-6">
                         @foreach ($videos as $video)
-                            <a href="{{ $video->url }}" class="item block group" data-fancybox>
-                                <div class="image-wrapper relative aspect-[9/5]">
-                                    <div
-                                        class="image w-full h-full rounded-5 md:rounded-3 overflow-hidden isolate translate-z-0 bg-tertiary-950">
-                                        <img class="full-cover opacity-85 duration-450 group-hover:opacity-100 group-hover:scale-105"
-                                            src="{{ asset('image/other/7.webp') }}" alt="" loading="lazy">
-                                    </div>
-                                    <div
-                                        class="icon-wrapper w-6.5 rounded-full aspect-square bg-secondary-600 flex items-center justify-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 duration-450 group-hover:delay-150 group-hover:scale-125">
-                                        <div class="icon icon-play text-2 h-2 block leading-none duration-300 text-white">
-                                        </div>
-                                    </div>
-                                </div>
+                            <div>
+                                <iframe width="350" height="200" style="border-radius: 10px"
+                                    src="{{ str_replace('/watch?v=', '/embed/', $video->url) }}" title="YouTube video player"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                                 <div
-                                    class="title text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950 leading-tight px-4 pt-4 duration-300 group-hover:text-main-700">
+                                    class="title text-center text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950 leading-tight px-4 pt-4 duration-300 group-hover:text-main-700">
                                     {{ $video->title }}
                                 </div>
+                            </div>
+
                             </a>
                         @endforeach
                     </div>

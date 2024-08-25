@@ -4,41 +4,44 @@
 
 @section('content')
 
-<section class="hero-field relative mb-20 2xl:mb-16 xl:mb-12 lg:mb-8 overflow-hidden isolate bg-tertiary-950" x-data="{
-    towns:[],
-    category:1,
-    map:0,
-    loadTowns(url){
-                        const self = this
-                        axios.get(url).then((res)=>{
-                            self.towns = res.data.towns
-                            self.selectedTownName = res.data.towns.filter(town => town.id == self.selectedTown)[0]?.name
-                        }).catch((err)=>{
-                            console.log(err)
-                        })
-                }
-}">
+    <section class="hero-field relative mb-20 2xl:mb-16 xl:mb-12 lg:mb-8 overflow-hidden isolate bg-tertiary-950"
+        x-data="{
+            towns: [],
+            category: 1,
+            map: 0,
+            loadTowns(id) {
+                const url = `{{ route('province.towns') }}/` + id
+                const self = this
+                axios.get(url).then((res) => {
+                    console.log(res.data.towns)
+                    self.towns = res.data.towns
+
+                }).catch((err) => {
+                    console.log(err)
+                })
+            },
+        }">
         <div class="hero-bg-carousel swiper !h-full !absolute left-0 top-0 !w-full">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="slide w-full h-full relative overflow-hidden isolate">
                         <div class="background absolute left-0 top-0 w-full h-full bg-tertiary-950"><img
                                 data-swiper-parallax-x="50%" data-swiper-parallax-scale="1.25" class="full-cover opacity-20"
-                                src="{{   asset('image/photo/8.webp')  }}" alt="" loading="lazy"></div>
+                                src="{{ asset('image/photo/8.webp') }}" alt="" loading="lazy"></div>
                     </div>
                 </div>
                 <div class="swiper-slide">
                     <div class="slide w-full h-full relative overflow-hidden isolate">
                         <div class="background absolute left-0 top-0 w-full h-full bg-tertiary-950"><img
                                 data-swiper-parallax-x="50%" data-swiper-parallax-scale="1.25" class="full-cover opacity-20"
-                                src="{{   asset('image/photo/8.webp')  }}" alt="" loading="lazy"></div>
+                                src="{{ asset('image/photo/8.webp') }}" alt="" loading="lazy"></div>
                     </div>
                 </div>
                 <div class="swiper-slide">
                     <div class="slide w-full h-full relative overflow-hidden isolate">
                         <div class="background absolute left-0 top-0 w-full h-full bg-tertiary-950"><img
                                 data-swiper-parallax-x="50%" data-swiper-parallax-scale="1.25" class="full-cover opacity-20"
-                                src="{{   asset('image/photo/8.webp')  }}" alt="" loading="lazy"></div>
+                                src="{{ asset('image/photo/8.webp') }}" alt="" loading="lazy"></div>
                     </div>
                 </div>
             </div>
@@ -123,87 +126,85 @@
                             <div data-level="y0"
                                 class="list hidden [&.active]:grid gap-1 overflow-y-auto overflow-x-hidden max-h-[196px] scrollbar scrollbar-w-1 scrollbar-track-rounded-full scrollbar-thumb-rounded-full scrollbar-track-[#8AA5D3]/24 scrollbar-thumb-[#8AA5D3]/65 active">
 
-                                    @foreach($rootCategories as $category)
-
-
-                                    @if($category->children->isEmpty())
-                            <a href="{{ route('portfolios',['filter[category]'=>$category->id]) }}"
-                                class="text-tertiary-950 capitalize text-3.5 w-fit font-medium draw-underline [--line-color:#0D1523] block">
-                                {{ $category->name }}
-                            </a>
-                            @else
-                            <button data-destination-level="s{{ $category->id }}"
-                                class="text-tertiary-950 capitalize text-3.5 w-fit font-medium draw-underline [--line-color:#0D1523] block">
-                                {{ $category->name }}
-                            </button>
-                            @endif
-                                    @endforeach
+                                @foreach ($rootCategories as $category)
+                                    @if ($category->children->isEmpty())
+                                        <a href="{{ route('portfolios', ['filter[category]' => $category->id]) }}"
+                                            class="text-tertiary-950 capitalize text-3.5 w-fit font-medium draw-underline [--line-color:#0D1523] block">
+                                            {{ $category->name }}
+                                        </a>
+                                    @else
+                                        <button data-destination-level="s{{ $category->id }}"
+                                            class="text-tertiary-950 capitalize text-3.5 w-fit font-medium draw-underline [--line-color:#0D1523] block">
+                                            {{ $category->name }}
+                                        </button>
+                                    @endif
+                                @endforeach
 
                             </div>
-                          @foreach($rootCategories as $category)
-
-                          <div data-level="s{{ $category->id }}"
-                            class="list hidden capitalize [&.active]:grid gap-1 overflow-y-auto overflow-x-hidden max-h-[153px] scrollbar scrollbar-w-1 scrollbar-track-rounded-full scrollbar-thumb-rounded-full scrollbar-track-[#8AA5D3]/24 scrollbar-thumb-[#8AA5D3]/65">
-                            @foreach($category->children as $child)
-                            @if($child->children->isEmpty())
-<a href="{{ route('portfolios',['filter[category]'=>$child->id]) }}" data-destination-level="k{{ $child->id }}"
-    class="text-tertiary-950 text-3.5 w-fit capitalize font-medium draw-underline [--line-color:#0D1523] block">
-    {{ $child->name }}
-</a>
-@else
-                        <button data-destination-level="k{{ $child->id }}"
-                                class="text-tertiary-950 capitalize text-3.5 w-fit font-medium draw-underline [--line-color:#0D1523] block">
-                            {{ $child->name }}
-                        </button>
-                        @endif
+                            @foreach ($rootCategories as $category)
+                                <div data-level="s{{ $category->id }}"
+                                    class="list hidden capitalize [&.active]:grid gap-1 overflow-y-auto overflow-x-hidden max-h-[153px] scrollbar scrollbar-w-1 scrollbar-track-rounded-full scrollbar-thumb-rounded-full scrollbar-track-[#8AA5D3]/24 scrollbar-thumb-[#8AA5D3]/65">
+                                    @foreach ($category->children as $child)
+                                        @if ($child->children->isEmpty())
+                                            <a href="{{ route('portfolios', ['filter[category]' => $child->id]) }}"
+                                                data-destination-level="k{{ $child->id }}"
+                                                class="text-tertiary-950 text-3.5 w-fit capitalize font-medium draw-underline [--line-color:#0D1523] block">
+                                                {{ $child->name }}
+                                            </a>
+                                        @else
+                                            <button data-destination-level="p{{ $child->id }}"
+                                                class="text-tertiary-950 capitalize text-3.5 w-fit font-medium draw-underline [--line-color:#0D1523] block">
+                                                {{ $child->name }}
+                                            </button>
+                                        @endif
+                                    @endforeach
+                                </div>
                             @endforeach
-                        </div>
-                          @endforeach
 
 
 
-@foreach($rootCategories as $category)
-@foreach($category->children as $child)
-<div data-level="p{{ $child->id }}"
-            class="list hidden [&.active]:grid gap-1 overflow-y-auto overflow-x-hidden max-h-[153px] scrollbar scrollbar-w-1 scrollbar-track-rounded-full scrollbar-thumb-rounded-full scrollbar-track-[#8AA5D3]/24 scrollbar-thumb-[#8AA5D3]/65">
-           @foreach($child->children as $descandant)
-
-           @if($descandant->children->isEmpty())
-                        <a href="{{ route('portfolios',['filter[category]'=>$descandant->id]) }}" data-destination-level="p{{ $child->id }}"
-                            class="text-tertiary-950 text-3.5 w-fit capitalize font-medium draw-underline [--line-color:#0D1523] block">
-                            {{ $descandant->name }}
-                        </a>
-                        @else
-                        <button data-destination-level="p{{ $descandant->id }}"
-                            class="text-tertiary-950 capitalize text-3.5 w-fit font-medium draw-underline [--line-color:#0D1523] block">
-                            {{ $descandant->name }}
-                        </button>
-
-@endif
-           @endforeach
-        </div>
-@endforeach
-@endforeach
+                            @foreach ($rootCategories as $category)
+                                @foreach ($category->children as $child)
+                                    <div data-level="p{{ $child->id }}"
+                                        class="list hidden [&.active]:grid gap-1 overflow-y-auto overflow-x-hidden max-h-[153px] scrollbar scrollbar-w-1 scrollbar-track-rounded-full scrollbar-thumb-rounded-full scrollbar-track-[#8AA5D3]/24 scrollbar-thumb-[#8AA5D3]/65">
+                                        @foreach ($child->children as $descandant)
+                                            @if ($descandant->children->isEmpty())
+                                                <a href="{{ route('portfolios', ['filter[category]' => $descandant->id]) }}"
+                                                    data-destination-level="p{{ $child->id }}"
+                                                    class="text-tertiary-950 text-3.5 w-fit capitalize font-medium draw-underline [--line-color:#0D1523] block">
+                                                    {{ $descandant->name }}
+                                                </a>
+                                            @else
+                                                <button data-destination-level="p{{ $descandant->id }}"
+                                                    class="text-tertiary-950 capitalize text-3.5 w-fit font-medium draw-underline [--line-color:#0D1523] block">
+                                                    {{ $descandant->name }}
+                                                </button>
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                @endforeach
+                            @endforeach
 
                         </div>
                     </div>
                     <div class="self-filter-wrapper md:order-1">
                         <div
                             class="category-select flex items-center gap-7.5 xl:gap-6 md:gap-5 bg-white rounded-6 md:rounded-3 !rounded-bl-0 !rounded-br-0 px-10 xl:px-9 lg:px-8 md:px-7 py-6 lg:py-5 md:py-4 w-fit mx-auto sm:hidden">
-                        @foreach($searchableCategories as $searchableCategory)
-                        <div class="custom-radio relative flex items-center gap-2 cursor-pointer">
-                                <input @checked($loop->first) type="radio" @click="category=`{{ $searchableCategory->id }}`"
-                                    class="peer absolute left-0 top-0 w-full h-full z-3 cursor-pointer opacity-0" name="s5">
-                                <div
-                                    class="icon icon-{{ $searchableCategory->getTranslation('name','en') }} text-6 h-6 xl:text-5 xl:h-5 md:text-4.5 md:h-4.5 block leading-none duration-300 text-black/30 peer-hover:text-secondary-700 peer-checked:text-secondary-700">
+                            @foreach ($searchableCategories as $searchableCategory)
+                                <div class="custom-radio relative flex items-center gap-2 cursor-pointer">
+                                    <input @checked($loop->first) type="radio"
+                                        @click="category=`{{ $searchableCategory->id }}`"
+                                        class="peer absolute left-0 top-0 w-full h-full z-3 cursor-pointer opacity-0"
+                                        name="s5">
+                                    <div
+                                        class="icon @if ($loop->first) icon-house @else icon-{{ $searchableCategory->getTranslation('name', 'en') }} @endif text-6 h-6 xl:text-5 xl:h-5 md:text-4.5 md:h-4.5 block leading-none duration-300 text-black/30 peer-hover:text-secondary-700 peer-checked:text-secondary-700">
+                                    </div>
+                                    <div
+                                        class="text text-4.5 xl:text-4 md:text-3.5 font-semibold text-black/47 duration-300 peer-hover:text-secondary-700 peer-checked:text-secondary-700 capitalize">
+                                        {{ $searchableCategory->name }}
+                                    </div>
                                 </div>
-                                <div
-                                    class="text text-4.5 xl:text-4 md:text-3.5 font-semibold text-black/47 duration-300 peer-hover:text-secondary-700 peer-checked:text-secondary-700 capitalize">
-                                    {{  $searchableCategory->name }}
-                                </div>
-                            </div>
-
-                        @endforeach
+                            @endforeach
 
 
                         </div>
@@ -215,7 +216,7 @@
                                 <select
                                     class="peer w-full h-14 md:h-12 duration-300 rounded-4 md:rounded-3 px-7 md:px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700 invalid:!text-[#6D6D6D]"
                                     required>
-                                    <option  disabled selected>Varlık Tipi Seçin</option>
+                                    <option disabled selected>Varlık Tipi Seçin</option>
                                     <option value="">Opsiyon 1</option>
                                     <option value="">Opsiyon 2</option>
                                     <option value="">Opsiyon 3</option>
@@ -240,7 +241,8 @@
                                                     class="block text-3.5 font-semibold text-tertiary-950 mb-1">
                                                     {{ __('general.search') }}
                                                 </label>
-                                                <input name="filter[search]" id="q1" type="text" placeholder="Örn: 3+1 Satılık veya İlan No"
+                                                <input name="filter[search]" id="q1" type="text"
+                                                    placeholder="Örn: 3+1 Satılık veya İlan No"
                                                     class="text-4 placeholder:text-[#B0B0B0] font-medium text-tertiary-950 w-full">
                                             </div>
                                             <div
@@ -270,7 +272,8 @@
                                                 <div class="inner-group flex flex-col w-fit xs:w-full">
                                                     <label for="q2"
                                                         class="block text-3.5 font-semibold text-tertiary-950 mb-1 xs:text-center">{{ __('general.price') }}</label>
-                                                    <input name="filter[min_price]" id="q2" type="text" placeholder="Min"
+                                                    <input name="filter[min_price]" id="q2" type="text"
+                                                        placeholder="Min"
                                                         class="text-4 placeholder:text-[#B0B0B0] font-medium text-tertiary-950 w-10 xs:w-full xs:text-center">
                                                 </div>
                                                 <div class="split h-11 w-px bg-[#D1D1D1]/50 shrink-0 xs:hidden">
@@ -278,7 +281,8 @@
                                                 <div class="inner-group flex flex-col w-fit xs:w-full">
                                                     <label for="q3"
                                                         class="block text-3.5 font-semibold text-tertiary-950 mb-1 xs:text-center">{{ __('general.price') }}</label>
-                                                    <input  name="filter[max_price]" id="q3" type="text" placeholder="Max"
+                                                    <input name="filter[max_price]" id="q3" type="text"
+                                                        placeholder="Max"
                                                         class="text-4 placeholder:text-[#B0B0B0] font-medium text-tertiary-950 w-10 xs:w-full xs:text-center">
                                                 </div>
                                                 <div
@@ -288,7 +292,8 @@
                                                     <div
                                                         class="custom-radio-group flex items-center gap-3 xl:gap-2 xs:justify-center">
                                                         <div class="custom-radio relative">
-                                                            <input name="filte[currency]" value="tl" type="radio" name="r1"
+                                                            <input name="filte[currency]" value="tl" type="radio"
+                                                                name="r1"
                                                                 class="peer absolute left-0 top-0 w-full h-full opacity-0 cursor-pointer"
                                                                 checked>
                                                             <div
@@ -296,14 +301,16 @@
                                                                 TRY</div>
                                                         </div>
                                                         <div class="custom-radio relative">
-                                                            <input name="filte[currency]" value="eur" type="radio" name="r1"
+                                                            <input name="filte[currency]" value="eur" type="radio"
+                                                                name="r1"
                                                                 class="peer absolute left-0 top-0 w-full h-full opacity-0 cursor-pointer">
                                                             <div
                                                                 class="box text-3.5 md:text-3 font-medium w-16 xl:w-14 md:w-12 h-12 xl:h-10 md:h-8 rounded-2 flex items-center justify-center text-[#888888] peer-hover:text-tertiary-950 duration-300 border border-solid border-transparent [-webkit-text-stroke:0.5px_transparent] peer-checked:pointer-events-none peer-checked:border-[#144495] peer-checked:bg-[#144495]/5 peer-checked:text-[#144495] peer-checked:[-webkit-text-stroke:0.5px_#144495]">
                                                                 EUR</div>
                                                         </div>
                                                         <div class="custom-radio relative">
-                                                            <input name="filte[currency]" value="usd" type="radio" name="r1"
+                                                            <input name="filte[currency]" value="usd" type="radio"
+                                                                name="r1"
                                                                 class="peer absolute left-0 top-0 w-full h-full opacity-0 cursor-pointer">
                                                             <div
                                                                 class="box text-3.5 md:text-3 font-medium w-16 xl:w-14 md:w-12 h-12 xl:h-10 md:h-8 rounded-2 flex items-center justify-center text-[#888888] peer-hover:text-tertiary-950 duration-300 border border-solid border-transparent [-webkit-text-stroke:0.5px_transparent] peer-checked:pointer-events-none peer-checked:border-[#144495] peer-checked:bg-[#144495]/5 peer-checked:text-[#144495] peer-checked:[-webkit-text-stroke:0.5px_#144495]">
@@ -321,16 +328,16 @@
                                                 <!-- Buraya `error` classı gelince ilgili style değişiyor -->
                                                 <div
                                                     class="custom-select relative h-22 sm:h-16 bg-white rounded-6 md:rounded-3 px-10 2xl:px-9 xl:px-8 lg:px-7 md:px-6 flex flex-col justify-center border border-solid border-transparent duration-300 group-[&.error]/form:border-secondary-700">
-                                                    <select
-                                                    name="filter[province]"
-                                                        class="peer w-full h-full text-4 sm:text-3.5 font-semibold text-tertiary-950">
-                                                        <option value="" selected disabled>{{ __('general.province') }}</option>
-                                                        @foreach($provinces as $province)
-<option @selected($province->id == request('filter.province') ) @click="loadTowns(`{{ route('province.towns',$province)
-                                                }}`)" value="{{ $province->id }}">{{
-                                                $province->name }}
-                                            </option>
-
+                                                    <select name="filter[province]"
+                                                        @change="loadTowns($event.target.value)"
+                                                        class="peer
+                                                        w-full h-full text-4 sm:text-3.5 font-semibold text-tertiary-950">
+                                                        <option value="" selected disabled>
+                                                            {{ __('general.province') }}</option>
+                                                        @foreach ($provinces as $province)
+                                                            <option @selected($province->id == request('filter.province'))
+                                                                value="{{ $province->id }}">{{ $province->name }}
+                                                            </option>
                                                         @endforeach
                                                     </select>
                                                     <div
@@ -347,10 +354,11 @@
                                                     class="custom-select relative h-22 sm:h-16 bg-white rounded-6 md:rounded-3 px-10 2xl:px-9 xl:px-8 lg:px-7 md:px-6 flex flex-col justify-center border border-solid border-transparent duration-300 group-[&.error]/form:border-secondary-700">
                                                     <select name="filter[town]"
                                                         class="peer w-full h-full text-4 sm:text-3.5 font-semibold text-tertiary-950">
-                                                        <option  selected >{{ __('general.town') }}</option>
-<template x-for="town in towns">
-    <option :selected="selectedTown == town.id" x-text="town.name" :value="town.id"></option>
-</template>
+                                                        <option selected>{{ __('general.town') }}</option>
+                                                        <template x-for="town in towns">
+                                                            <option :selected="selectedTown == town.id" x-text="town.name"
+                                                                :value="town.id"></option>
+                                                        </template>
                                                     </select>
                                                     <div
                                                         class="icon icon-chevron-bottom text-3 h-3 lg:text-2.5 lg:h-2.5 block leading-none duration-300 absolute right-10 2xl:right-9 xl:right-8 lg:right-7 md:right-6 top-50/100 -translate-y-1/2 pointer-events-none peer-focus:rotate-180 text-tertiary-950">
@@ -372,12 +380,10 @@
                                                     {{ __('general.search') }}</div>
                                             </button>
                                         </div>
-                                        <input type="hidden" name="map" :value="map"/>
+                                        <input type="hidden" name="map" :value="map" />
                                         <div class="form-el group/form">
                                             <!-- Buraya `loading` classı gelince ilgili style değişiyor -->
-                                            <button
-                                            type="submit"
-                                            @click="map=1"
+                                            <button type="submit" @click="map=1"
                                                 class="button group/button relative flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 after:absolute after:left-[calc(50%-13px)] xl:after:left-[calc(50%-12px)] md:after:left-[calc(50%-10px)] after:top-[calc(50%-13px)] xl:after:top-[calc(50%-12px)] md:after:top-[calc(50%-10px)] after:h-6.5 xl:after:h-6 md:after:h-5 after:aspect-square after:rounded-full after:border-0.5 after:border-solid after:border-white after:[clip-path:polygon(0%_0%,100%_0%,100%_50%,0%_50%)] after:opacity-0 after:duration-300 after:transition-opacity after:animate-spin group-[&.loading]/form:[&_.icon]:opacity-0 group-[&.loading]/form:[&_.text]:opacity-0 group-[&.loading]/form:after:opacity-100 group-[&.loading]/form:pointer-events-none bg-secondary-700 hover:bg-secondary-600 h-22 md:h-16 w-full text-white font-semibold text-4">
                                                 <div
                                                     class="text whitespace-nowrap font-medium text-4 md:text-3.5 transition-opacity duration-300">
@@ -437,7 +443,8 @@
                 <a href="{{ route('portfolios') }}"
                     class="button group/button flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 h-16 xl:h-14 md:h-12 w-fit px-8 sm:px-6 bg-main-900 hover:bg-main-950 mt-7.5 text-white">
 
-                    <div class="text whitespace-nowrap font-medium text-4 md:text-3.5">{{ __('general.portfolios') }}</div>
+                    <div class="text whitespace-nowrap font-medium text-4 md:text-3.5">{{ __('general.portfolios') }}
+                    </div>
                     <div class="icon icon-chevron-right text-2.5 h-2.5 block leading-none"></div>
                 </a>
             </div>
@@ -576,89 +583,90 @@
                 class="list my-18 2x:my-15 xl:my-12 lg:my-9 md:my-7.5 grid grid-cols-3 lg:grid-cols-2 sm:grid-cols-1 gap-x-9 xl:gap-x-8 lg:gap-x-7 gap-y-6">
 
 
-            @foreach($portfolios as $portfolio)
-
-
-                <div
-                    class="portfolio group/item p-2.5 bg-white rounded-6 md:rounded-3 border border-solid border-transparent hover:border-[#8AA5D3]/35 duration-300">
-                    <div class="carousel-wrapper w-full">
-                        <div
-                            class="portfolio-images-carousel w-full relative swiper !h-auto shadow-s3 rounded-6 md:rounded-3 overflow-hidden isolate">
-                            <div class="swiper-wrapper !h-auto">
-                                @foreach($portfolio->images as $image)
+                @foreach ($portfolios as $portfolio)
+                    <div
+                        class="portfolio group/item p-2.5 bg-white rounded-6 md:rounded-3 border border-solid border-transparent hover:border-[#8AA5D3]/35 duration-300">
+                        <div class="carousel-wrapper w-full">
+                            <div
+                                class="portfolio-images-carousel w-full relative swiper !h-auto shadow-s3 rounded-6 md:rounded-3 overflow-hidden isolate">
+                                <div class="swiper-wrapper !h-auto">
+                                    @foreach ($portfolio->images as $image)
                                         <div class="swiper-slide">
-                                            <a href="{{ route('frontend.portfolio.show',$portfolio) }}"
+                                            <a href="{{ route('frontend.portfolio.show', $portfolio) }}"
                                                 class="image group block aspect-[36/25] overflow-hidden isolate translate-z-0"><img
                                                     class="full-cover group-hover:scale-105 duration-450 translate-z-0 pointer-events-none"
                                                     src="{{ $image->full_url }}" alt="" loading="lazy"></a>
                                         </div>
                                     @endforeach
-                            </div>
-                            <div
-                                class="portfolio-images-next flex items-center justify-center cursor-pointer z-5 absolute right-5.5 top-1/2 -translate-y-1/2 w-7 aspect-square rounded-full bg-white text-tertiary-950 [&:not(.swiper-button-disabled):hover]:bg-main-700 [&:not(.swiper-button-disabled):hover]:text-white duration-300 [&.swiper-button-disabled]:cursor-default min-lg:opacity-0 min-lg:pointer-events-none min-lg:group-hover/item:opacity-100 min-lg:group-hover/item:pointer-events-auto">
-                                <div class="icon icon-chevron-right text-2 h-2 block leading-none"></div>
-                            </div>
-                            <div
-                                class="portfolio-images-prev flex items-center justify-center cursor-pointer z-5 absolute left-5.5 top-1/2 -translate-y-1/2 w-7 aspect-square rounded-full bg-white text-tertiary-950 [&:not(.swiper-button-disabled):hover]:bg-main-700 [&:not(.swiper-button-disabled):hover]:text-white duration-300 [&.swiper-button-disabled]:cursor-default min-lg:opacity-0 min-lg:pointer-events-none min-lg:group-hover/item:opacity-100 min-lg:group-hover/item:pointer-events-auto">
-                                <div class="icon icon-chevron-left text-2 h-2 block leading-none"></div>
-                            </div>
-                            <div
-                                class="portfolio-images-pagination duration-300 !flex items-center justify-center gap-3 absolute !left-1/2 -translate-x-1/2 !bottom-5.5 z-5 !w-fit !right-auto !top-auto [&_span]:w-2 [&_span]:h-2 [&_span]:!m-0 [&_span]:!p-0 [&_span]:opacity-100 [&_span]:bg-white/40 [&_span:hover]:bg-white [&_span]:duration-300 [&_span.swiper-pagination-bullet-active]:pointer-events-none [&_span.swiper-pagination-bullet-active]:bg-white min-lg:opacity-0 min-lg:pointer-events-none min-lg:group-hover/item:opacity-100 min-lg:group-hover/item:pointer-events-auto">
-                            </div>
-                            <div
-                                class="tag absolute left-4 top-4 bg-tertiary-950/50 rounded-2 px-2 py-1.5 text-white text-3 font-medium leading-none z-5 capitalize">
-                            {{ $portfolio->main_category }}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="content-wrapper p-5 lg:p-4 mt-2.5">
-                        <div class="item flex items-center gap-2 mb-2">
-                            <div class="icon icon-location-1 text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
-                            </div>
-                            <div class=" text-3.5 font-medium text-tertiary-950/40 capitalize">{{ $portfolio->district->town->province->name }}/{{ $portfolio->district->town->name }} , {{ $portfolio->district->name }}
-                            </div>
-                        </div>
-                        <a href="{{ route('frontend.portfolio.show',$portfolio) }}"
-                            class="title text-4.5 leading-tight text-tertiary-950 hover:text-main-700 duration-300 font-semibold mb-4 xl:mb-5 md:mb-4 block capitalize">{{ $portfolio->title }}</a>
-                        <div class="price text-[#2675FA] font-semibold text-5 lg:text-4.5 md:text-4">
-                                {{ $portfolio->price }}
-                            </div>
-                        <div class="info flex items-center justify-between gap-7.5 mt-5 md:mt-4">
-                            <div
-                                class="tags flex flex-wrap items-center gap-8 2xl:gap-7 xl:gap-6 lg:gap-5 md:gap-4 sm:gap-3">
-                                <div class="item flex items-center gap-2">
-                                    <div
-                                        class="icon-wrapper w-7.5 aspect-square shrink-0 bg-[#EDF3FE] flex items-center justify-center rounded-full">
-                                        <div
-                                            class="icon icon-bedroom text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
-                                        </div>
-                                    </div>
-                                    <div class="text text-3.5 font-medium text-tertiary-950/40">3+1</div>
-                                </div>
-                                <div class="item flex items-center gap-2">
-                                    <div
-                                        class="icon-wrapper w-7.5 aspect-square shrink-0 bg-[#EDF3FE] flex items-center justify-center rounded-full">
-                                        <div
-                                            class="icon icon-square-meter-1 text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
-                                        </div>
-                                    </div>
-                                    <div class="text text-3.5 font-medium text-tertiary-950/40">352 m²</div>
-                                </div>
-                            </div>
-                            <button
-                                class="button shrink-0 add-favorite group/button relative duration-300 bg-[#EFF5FF] flex items-center justify-center h-10 aspect-square rounded-full hover:border-tertiary-950/30">
-                                <div class="icon icon-like text-4 h-4 block leading-none duration-300 text-[#DC1C2E]">
                                 </div>
                                 <div
-                                    class="icon icon-liked text-4 h-4 block leading-none duration-300 text-[#DC1C2E] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover/button:opacity-100 group-[&.favorited]/button:opacity-100">
+                                    class="portfolio-images-next flex items-center justify-center cursor-pointer z-5 absolute right-5.5 top-1/2 -translate-y-1/2 w-7 aspect-square rounded-full bg-white text-tertiary-950 [&:not(.swiper-button-disabled):hover]:bg-main-700 [&:not(.swiper-button-disabled):hover]:text-white duration-300 [&.swiper-button-disabled]:cursor-default min-lg:opacity-0 min-lg:pointer-events-none min-lg:group-hover/item:opacity-100 min-lg:group-hover/item:pointer-events-auto">
+                                    <div class="icon icon-chevron-right text-2 h-2 block leading-none"></div>
                                 </div>
-                            </button>
+                                <div
+                                    class="portfolio-images-prev flex items-center justify-center cursor-pointer z-5 absolute left-5.5 top-1/2 -translate-y-1/2 w-7 aspect-square rounded-full bg-white text-tertiary-950 [&:not(.swiper-button-disabled):hover]:bg-main-700 [&:not(.swiper-button-disabled):hover]:text-white duration-300 [&.swiper-button-disabled]:cursor-default min-lg:opacity-0 min-lg:pointer-events-none min-lg:group-hover/item:opacity-100 min-lg:group-hover/item:pointer-events-auto">
+                                    <div class="icon icon-chevron-left text-2 h-2 block leading-none"></div>
+                                </div>
+                                <div
+                                    class="portfolio-images-pagination duration-300 !flex items-center justify-center gap-3 absolute !left-1/2 -translate-x-1/2 !bottom-5.5 z-5 !w-fit !right-auto !top-auto [&_span]:w-2 [&_span]:h-2 [&_span]:!m-0 [&_span]:!p-0 [&_span]:opacity-100 [&_span]:bg-white/40 [&_span:hover]:bg-white [&_span]:duration-300 [&_span.swiper-pagination-bullet-active]:pointer-events-none [&_span.swiper-pagination-bullet-active]:bg-white min-lg:opacity-0 min-lg:pointer-events-none min-lg:group-hover/item:opacity-100 min-lg:group-hover/item:pointer-events-auto">
+                                </div>
+                                <div
+                                    class="tag absolute left-4 top-4 bg-tertiary-950/50 rounded-2 px-2 py-1.5 text-white text-3 font-medium leading-none z-5 capitalize">
+                                    {{ $portfolio->main_category }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-wrapper p-5 lg:p-4 mt-2.5">
+                            <div class="item flex items-center gap-2 mb-2">
+                                <div
+                                    class="icon icon-location-1 text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
+                                </div>
+                                <div class=" text-3.5 font-medium text-tertiary-950/40 capitalize">
+                                    {{ $portfolio->district->town->province->name }}/{{ $portfolio->district->town->name }}
+                                    , {{ $portfolio->district->name }}
+                                </div>
+                            </div>
+                            <a href="{{ route('frontend.portfolio.show', $portfolio) }}"
+                                class="title text-4.5 leading-tight text-tertiary-950 hover:text-main-700 duration-300 font-semibold mb-4 xl:mb-5 md:mb-4 block capitalize">{{ $portfolio->title }}</a>
+                            <div class="price text-[#2675FA] font-semibold text-5 lg:text-4.5 md:text-4">
+                                {{ $portfolio->price }}
+                            </div>
+                            <div class="info flex items-center justify-between gap-7.5 mt-5 md:mt-4">
+                                <div
+                                    class="tags flex flex-wrap items-center gap-8 2xl:gap-7 xl:gap-6 lg:gap-5 md:gap-4 sm:gap-3">
+                                    <div class="item flex items-center gap-2">
+                                        <div
+                                            class="icon-wrapper w-7.5 aspect-square shrink-0 bg-[#EDF3FE] flex items-center justify-center rounded-full">
+                                            <div
+                                                class="icon icon-bedroom text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
+                                            </div>
+                                        </div>
+                                        <div class="text text-3.5 font-medium text-tertiary-950/40">3+1</div>
+                                    </div>
+                                    <div class="item flex items-center gap-2">
+                                        <div
+                                            class="icon-wrapper w-7.5 aspect-square shrink-0 bg-[#EDF3FE] flex items-center justify-center rounded-full">
+                                            <div
+                                                class="icon icon-square-meter-1 text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
+                                            </div>
+                                        </div>
+                                        <div class="text text-3.5 font-medium text-tertiary-950/40">352 m²</div>
+                                    </div>
+                                </div>
+                                <button
+                                    class="button shrink-0 add-favorite group/button relative duration-300 bg-[#EFF5FF] flex items-center justify-center h-10 aspect-square rounded-full hover:border-tertiary-950/30">
+                                    <div class="icon icon-like text-4 h-4 block leading-none duration-300 text-[#DC1C2E]">
+                                    </div>
+                                    <div
+                                        class="icon icon-liked text-4 h-4 block leading-none duration-300 text-[#DC1C2E] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover/button:opacity-100 group-[&.favorited]/button:opacity-100">
+                                    </div>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-         @endforeach
+                @endforeach
             </div>
-            <a href="{{ route('portfolios',['grid_type'=>'grid']) }}"
+            <a href="{{ route('portfolios', ['grid_type' => 'grid']) }}"
                 class="button group/button flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 h-14 md:h-12 w-fit mx-auto px-14 2xl:px-12 xl:px-10 lg:px-8 sm:px-6 bg-secondary-700 hover:bg-secondary-600 text-white">
 
                 <div class="text whitespace-nowrap font-medium text-4 md:text-3.5">
@@ -681,7 +689,8 @@
                     <div
                         class="icon icon-headset-3 text-12 h-12 xl:text-10 xl:h-10 lg:text-8 lg:h-8 md:text-6 md:h-6 block leading-none duration-300 text-[#2675FA] mb-5 xl:mb-4 md:mb-3">
                     </div>
-                    <div class="title text-4 xl:text-3.5 font-medium text-[#6D6D6D]">{{ __('general.customer_services') }}</div>
+                    <div class="title text-4 xl:text-3.5 font-medium text-[#6D6D6D]">{{ __('general.customer_services') }}
+                    </div>
                     <a href="javascript:void(0)"
                         class="font-semibold text-[#144495] text-6.5 2xl:text-6 xl:text-5 md:text-4.5 draw-underline [--line-color:#144495]">+90
                         532 427 59 36</a>
@@ -692,7 +701,7 @@
                     <!-- .text-editor içerisindeki style attribute değerleri frontendi tasarıma benzetmek adına eklenmiştir, backend aşamasında silinerek panel editöründen tanımlanmalıdır. -->
                     <h3> <strong>{{ __('general.by_number') }}</strong></h3>
                     <p>
-                       {{ __('general.by_number_details') }}
+                        {{ __('general.by_number_details') }}
                     </p>
                 </div>
                 <div class="split w-full h-px bg-black/7 my-14 2xl:my-12 xl:my-10 lg:my-8 md:my-6"></div>
@@ -704,7 +713,7 @@
                             +1,687</div>
                         <div
                             class="title text-4 xl:text-3.5 sm:text-3 font-medium text-[#6D6D6D] leading-tight text-center">
-                           {{ __('general.contacted_customers') }}
+                            {{ __('general.contacted_customers') }}
 
                         </div>
                     </div>
@@ -714,7 +723,7 @@
                             +548</div>
                         <div
                             class="title text-4 xl:text-3.5 sm:text-3 font-medium text-[#6D6D6D] leading-tight text-center">
-                        {{ __('general.hosted_customers') }}
+                            {{ __('general.hosted_customers') }}
                         </div>
                     </div>
                     <div class="item grid gap-1.5">
@@ -778,16 +787,16 @@
             <div
                 class="tags flex items-center justify-center flex-wrap gap-x-10 2xl:gap-x-9 xl:gap-x-8 lg:gap-x-6 md:gap-x-4 gap-y-3 md:gap-y-2 mt-13 2xl:mt-11 xl:mt-9 lg:mt-7">
 
-                @foreach($videoCategories as $videoCategory)
+                @foreach ($videoCategories as $videoCategory)
                     <a href="{{ route('videos') }}" class="flex items-center gap-3 md:gap-2 group">
-                        <div class="icon icon-check text-3.5 h-3.5 md:text-3 md:h-3 block leading-none duration-300 text-secondary-700">
+                        <div
+                            class="icon icon-check text-3.5 h-3.5 md:text-3 md:h-3 block leading-none duration-300 text-secondary-700">
                         </div>
                         <div
                             class="text text-4.5 xl:text-4 md:text-3.5 font-medium text-tertiary-950 duration-300 group-hover:text-secondary-700">
                             {{ $videoCategory->name }}
                         </div>
                     </a>
-
                 @endforeach
 
 
@@ -797,26 +806,20 @@
             <div
                 class="video-carousel swiper !h-auto w-full [mask-image:linear-gradient(90deg,transparent_5%,black_25%,black_75%,transparent_95%)] sm:[mask-image:unset]">
                 <div class="swiper-wrapper !h-auto">
-                    @foreach($videos as $video)
-                    <div class="swiper-slide group/slide">
-                        <a href="{{ $video->url }}"
-                            class="item block group duration-450 scale-90 group-[&.swiper-slide-active]/slide:scale-100"
-                            data-fancybox>
-                            <div class="image-wrapper relative aspect-[7/4] xs:aspect-[5/4]">
+                    @foreach ($videos as $video)
+                        <div class="swiper-slide group/slide">
+                            <div>
+                                <iframe width="400" height="300" style="border-radius: 10px"
+                                    src="{{ str_replace('/watch?v=', '/embed/', $video->url) }}"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                                 <div
-                                    class="image w-full h-full rounded-5 md:rounded-3 overflow-hidden isolate translate-z-0 bg-tertiary-950">
-                                    <img class="full-cover opacity-85 duration-450 group-hover:opacity-100 group-hover:scale-105"
-                                        src="{{ asset('image/other/3.webp') }}" alt="" loading="lazy">
-                                </div>
-                                <div
-                                    class="icon-wrapper w-13 xl:w-11 md:w-9 rounded-full aspect-square bg-secondary-600 flex items-center justify-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 duration-450 group-hover:delay-150 group-hover:scale-125">
-                                    <div
-                                        class="icon icon-play text-4 h-4 xl:text-3.5 xl:h-3.5 md:text-3 md:h-3 block leading-none duration-300 text-white">
-                                    </div>
+                                    class="title text-center text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950 leading-tight px-4 pt-4 duration-300 group-hover:text-main-700">
+                                    {{ $video->title }}
                                 </div>
                             </div>
-                        </a>
-                    </div>
+                        </div>
                     @endforeach
                 </div>
             </div>

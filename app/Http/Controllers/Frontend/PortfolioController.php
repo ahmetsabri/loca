@@ -32,12 +32,18 @@ class PortfolioController extends Controller
         ])->allowedSorts([
             'price_in_tl',
             'created_at',
-        ])->paginate();
+        ])->defaultSort('-created_at')->paginate();
 
         $rootCategories = Category::isRoot()->with('children.children')->get();
         $provinces = Province::all();
         $selectedCategory = Category::find(request('filter.category'))?->load('rootAncestor');
+        $selectedCategoryFilters = Category::find(request('filter.category'));
+
         $filters = Info::has('options')->with('options')->where('filterable', true)->get();
+        if ($selectedCategoryFilters) {
+            $filters = Info::has('options')->with('options')->where('filterable', true)
+            ->whereIn('category_id', $selectedCategoryFilters->bloodline()->pluck('id')->toArray())->get();
+        }
         $locations = Portfolio::limit(200)->with('images')->get()->map(fn ($por) => [
             'lat' => (float) $por->lat_lon[0],
             'lng' => (float) $por->lat_lon[1],
@@ -46,7 +52,6 @@ class PortfolioController extends Controller
             'img' => $por->images->first()?->full_url,
             'url' => route('frontend.portfolio.show', $por),
         ]);
-
         return view('frontend.portfolio.index', compact(
             'portfolios',
             'rootCategories',

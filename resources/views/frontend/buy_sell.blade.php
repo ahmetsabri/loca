@@ -135,7 +135,12 @@
                                             <option value="" disabled selected>{{ __('general.type') }}</option>
                                             <option value="{{ __('arsa') }}">{{ __('general.arsa') }}</option>
                                             <option value="{{ __('konut') }}">{{ __('general.konut') }}</option>
-                                            <option value="{{ __('dieger') }}">{{ __('general.other') }}</option>
+                                            <option value="{{ __('general.devre_mulk') }}">{{ __('general.devre_mulk') }}
+                                            <option value="{{ __('general.for_tur') }}">{{ __('general.for_tur') }}
+                                            </option>
+                                            <option value="{{ __('general.is_yeri') }}">{{ __('general.is_yeri') }}
+                                            </option>
+                                            <option value="{{ __('general.bina') }}">{{ __('general.bina') }}</option>
                                         </select>
                                         <div
                                             class="icon icon-chevron-bottom text-2.5 h-2.5 md:text-2 md:h-2 block leading-none duration-300 text-[#6D6D6D] pointer-events-none absolute right-7 md:right-5 top-[23px] md:top-5 peer-focus:rotate-180">

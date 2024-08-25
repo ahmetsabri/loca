@@ -91,15 +91,15 @@
                                         @endif
                                     </div>
                                 </div>
+                                @include('frontend.portfolio.share', ['portfolio' => $portfolio])
+
                                 <div class="image-inner-wrapper grid grid-cols-4 gap-3" x-data>
                                     @foreach ($portfolio->images as $image)
-                                        @if (!$image->is_main)
-                                            <a x-show="`{{ $loop->iteration <= 4 }}`" href="{{ $image->full_url }}"
-                                                class="image block aspect-[64/57] overflow-hidden isolate rounded-6 md:rounded-3 translate-z-0 group"
-                                                data-fancybox="gallery"><img
-                                                    class="full-cover translate-z-0 group-hover:scale-105 duration-450"
-                                                    src="{{ $image->full_url }}" alt="" loading="lazy"></a>
-                                        @endif
+                                        <a x-show="`{{ $loop->iteration < 5 }}`" href="{{ $image->full_url }}"
+                                            class="image block aspect-[64/57] overflow-hidden isolate rounded-6 md:rounded-3 translate-z-0 group"
+                                            data-fancybox="gallery"><img
+                                                class="full-cover translate-z-0 group-hover:scale-105 duration-450"
+                                                src="{{ $image->full_url }}" alt="" loading="lazy"></a>
                                     @endforeach
                                 </div>
                             </div>
@@ -153,15 +153,7 @@
                                         {{ __('general.location') }}
                                     </div>
                                     <div class="button-wrapper flex items-center gap-3">
-                                        <a target="_blank" href="{{ $portfolio->map_link }}"
-                                            class="button group/button relative duration-300 w-fit flex items-center gap-2 h-7.5 border border-solid border-[#2675FA] px-3 rounded-2 hover:border-tertiary-950">
-                                            <div
-                                                class="icon icon-map-1 text-3 h-3 block leading-none duration-300 text-[#2675FA]">
-                                            </div>
-                                            <div class="text text-[#2675FA] font-semibold text-3.5 tracking-wider">
-                                                {{ __('general.directions') }}
-                                            </div>
-                                        </a>
+
                                         {{-- <a href="javascript:void(0)"
                                             class="button group/button relative duration-300 w-fit flex items-center gap-2 h-7.5 border border-solid border-[#2675FA] px-3 rounded-2 hover:border-tertiary-950">
                                             <div
@@ -421,24 +413,8 @@
                                     <div class="info flex items-center justify-between gap-7.5 mt-5 md:mt-4">
                                         <div
                                             class="tags flex flex-wrap items-center gap-8 2xl:gap-7 xl:gap-6 lg:gap-5 md:gap-4 sm:gap-3">
-                                            <div class="item flex items-center gap-2">
-                                                <div
-                                                    class="icon-wrapper w-7.5 aspect-square shrink-0 bg-[#EDF3FE] flex items-center justify-center rounded-full">
-                                                    <div
-                                                        class="icon icon-bedroom text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
-                                                    </div>
-                                                </div>
-                                                <div class="text text-3.5 font-medium text-tertiary-950/40">3+1</div>
-                                            </div>
-                                            <div class="item flex items-center gap-2">
-                                                <div
-                                                    class="icon-wrapper w-7.5 aspect-square shrink-0 bg-[#EDF3FE] flex items-center justify-center rounded-full">
-                                                    <div
-                                                        class="icon icon-square-meter-1 text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
-                                                    </div>
-                                                </div>
-                                                <div class="text text-3.5 font-medium text-tertiary-950/40">352 m²</div>
-                                            </div>
+
+
                                         </div>
                                         <button
                                             class="button shrink-0 add-favorite group/button relative duration-300 bg-[#EFF5FF] flex items-center justify-center h-10 aspect-square rounded-full hover:border-tertiary-950/30">
@@ -466,7 +442,6 @@
             </section>
 
         </main>
-        @include('frontend.portfolio.share', ['portfolio' => $portfolio])
 
     </soho-technologies>
 @endsection

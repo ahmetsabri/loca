@@ -10,9 +10,9 @@ class VideoController extends Controller
 {
     public function index()
     {
-        $videos = Video::paginate();
+        $videos = Video::filter(request('category'))->paginate();
         $categories = VideoCategory::all();
-
-        return view('frontend.videos', compact('videos', 'categories'));
+        $filters = explode(',', request('category'));
+        return view('frontend.videos', compact('videos', 'categories', 'filters'));
     }
 }

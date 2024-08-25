@@ -1,4 +1,5 @@
 @extends('layouts.frontend')
+@section('title', 'LocaMag | RE/MAX Loca')
 @section('content')
     <main class="main-field relative pt-[134px] sm:pt-[124px]">
 
@@ -10,13 +11,13 @@
                 <div
                     class="wrapper max-w-1440 mx-auto w-full px-7.5 relative z-2 flex items-center justify-between gap-7.5 md:flex-col">
                     <div class="text-editor text-editor-white !gap-2 md:text-center">
-                        <h2><strong>{{ __('general.blog') }}</strong></h2>
+                        <h2><strong>LOCA Magazin</strong></h2>
                     </div>
                     <div class="form-outer-wrapper max-w-[300px] w-full">
                         <form action="{{ route('frontend.blog') }}" class="w-full" method="GET">
                             <div class="form-wrapper w-full grid gap-4">
                                 <div class="form-el group/form w-full relative">
-                                    <input name="search" type="text" placeholder="{{ __('general.search') }}"
+                                    <input name="search" type="text" placeholder="LOCA Mag’ta ara"
                                         class="h-14 duration-300 bg-[#B8D0F7]/6 backdrop-blur-md rounded-4 w-full placeholder:text-[#B8D0F7] font-medium text-3.5 text-white pl-5.5 pr-18 border border-solid border-[#B8D0F7]/10 hover:border-[#B8D0F7] focus:border-[#B8D0F7] group-[&.error]/form:border-secondary-700">
                                     <button
                                         class="absolute right-1 top-1 h-12 px-4 bg-transparent rounded-3.5 text-[#2675FA] font-semibold text-3.5 hover:bg-white duration-300 cursor-pointer flex items-center justify-center">
@@ -41,7 +42,8 @@
                         <a href="{{ route('frontend.post.show', $post) }}" class="block item group">
                             <div class="image aspect-[18/11] rounded-5 md:rounded-3 overflow-hidden isolate translate-z-0">
                                 <img class="full-cover group-hover:scale-105 duration-450 translate-z-0"
-                                    src="{{ $post->image->full_url }}" alt="" loading="lazy"></div>
+                                    src="{{ $post->image->full_url }}" alt="" loading="lazy">
+                            </div>
                             <div class="content px-5 pt-5">
                                 <div class="date text-[#5D5D5D] flex items-center gap-2 mb-2">
                                     <div class="icon icon-date text-3.5 h-3.5 block leading-none duration-300"></div>
@@ -55,7 +57,7 @@
                         </a>
                     @endforeach
                 </div>
-                <div class="flex">
+                <div class="flex justify-center">
                     {{ $posts->links('vendor.pagination.loca') }}
                 </div>
             </div>
