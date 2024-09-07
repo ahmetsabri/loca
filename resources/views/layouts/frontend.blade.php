@@ -168,15 +168,16 @@
                     class="menu-wrapper flex lg:absolute lg:left-0 lg:top-full lg:w-full lg:h-auto lg:max-h-[calc(100dvh-90px-44px)] sm:max-h-[calc(100dvh-80px-44px)] lg:group-[&.scroll-bottom]/header:max-h-[calc(100dvh-90px)] sm:group-[&.scroll-bottom]/header:max-h-[calc(100dvh-80px)] lg:bg-white lg:p-7.5 lg:overflow-x-hidden lg:overflow-y-auto lg:scrollbar lg:scrollbar-w-1 lg:scrollbar-h-1 lg:scrollbar-thumb-main-500 lg:scrollbar-track-main-500/10 lg:scrollbar-thumb-rounded-none lg:border-0 lg:border-t lg:border-solid lg:border-tertiary-950/10 lg:hidden lg:group-[&.menu-open]/header:block">
                     @if (Route::currentRouteName() == 'home')
                         <ul class="menu flex gap-8 2xl:gap-7 xl:gap-6 lg:flex-col">
+
+                            <li class="group/li flex">
+                                <a href="{{ route('frontend.about') }}"
+                                    class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">{{ __('general.about') }}</a>
+                            </li>
                             <li class="group/li flex">
                                 <a href="{{ route('frontend.services') }}"
                                     class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">
                                     {{ __('general.services') }}
                                 </a>
-                            </li>
-                            <li class="group/li flex">
-                                <a href="{{ route('frontend.about') }}"
-                                    class="flex items-center capitalize text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">{{ __('general.about') }}</a>
                             </li>
                             <li class="group/li flex">
                                 <a href="{{ route('frontend.team.index') }}"

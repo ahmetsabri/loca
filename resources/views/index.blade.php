@@ -9,6 +9,24 @@
             towns: [],
             category: 1,
             map: 0,
+            minFormattedNumber: null,
+            maxFormattedNumber: null,
+            formatMinNumber(event) {
+                let input = event.target;
+                let number = parseInt(input.value.replace(/\D/g, ''));
+                if (!isNaN(number)) {
+                    let formatted = number.toLocaleString('tr-TR');
+                    input.value = formatted;
+                }
+            },
+            formatMaxNumber(event) {
+                let input = event.target;
+                let number = parseInt(input.value.replace(/\D/g, ''));
+                if (!isNaN(number)) {
+                    let formatted = number.toLocaleString('tr-TR');
+                    input.value = formatted;
+                }
+            },
             loadTowns(id) {
                 const url = `{{ route('province.towns') }}/` + id
                 const self = this
@@ -272,8 +290,9 @@
                                                 <div class="inner-group flex flex-col w-fit xs:w-full">
                                                     <label for="q2"
                                                         class="block text-3.5 font-semibold text-tertiary-950 mb-1 xs:text-center">{{ __('general.price') }}</label>
-                                                    <input name="filter[min_price]" id="q2" type="text"
-                                                        placeholder="Min"
+                                                    <input x-model="minFormattedNumber" @input="formatMinNumber"
+                                                        :value="minFormattedNumber" name="filter[min_price]"
+                                                        id="q2" type="text" placeholder="Min"
                                                         class="text-4 placeholder:text-[#B0B0B0] font-medium text-tertiary-950 w-10 xs:w-full xs:text-center">
                                                 </div>
                                                 <div class="split h-11 w-px bg-[#D1D1D1]/50 shrink-0 xs:hidden">
@@ -281,8 +300,9 @@
                                                 <div class="inner-group flex flex-col w-fit xs:w-full">
                                                     <label for="q3"
                                                         class="block text-3.5 font-semibold text-tertiary-950 mb-1 xs:text-center">{{ __('general.price') }}</label>
-                                                    <input name="filter[max_price]" id="q3" type="text"
-                                                        placeholder="Max"
+                                                    <input x-model="maxFormattedNumber" @input="formatMaxNumber"
+                                                        :value="maxFormattedNumber" name="filter[max_price]"
+                                                        id="q3" type="text" placeholder="Max"
                                                         class="text-4 placeholder:text-[#B0B0B0] font-medium text-tertiary-950 w-10 xs:w-full xs:text-center">
                                                 </div>
                                                 <div

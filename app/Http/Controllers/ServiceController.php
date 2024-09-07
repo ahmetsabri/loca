@@ -13,7 +13,7 @@ class ServiceController extends Controller
 {
     public function index()
     {
-        $services = Service::with('department')->whereNull('parent_id')->get();
+        $services = Service::whereNull('parent_id')->get();
 
         return view('admin.services.index', compact('services'));
     }
@@ -57,7 +57,7 @@ class ServiceController extends Controller
 
     public function edit(Service $service)
     {
-        $departments = Department::where('type', DepartmentType::SERVICE->value)->get();
+        $departments = Department::get();
         $servie = $service->load('features', 'subServices.features');
 
         return view('admin.services.edit', compact('service', 'departments'));
@@ -86,7 +86,7 @@ class ServiceController extends Controller
 
         foreach ($data->only('sub_services')['sub_services'] as $subServiceData) {
             $data = collect($subServiceData);
-            $subService = $service->subServices()->create($data->except('features')->toArray() + ['department_id' => $request->department_id]);
+            $subService = $service->subServices()->create($data->except('features')->toArray());
 
             foreach ($data->only('features')['features'] as $subFeature) {
                 if (! Arr::get($subFeature, 'tr')) {

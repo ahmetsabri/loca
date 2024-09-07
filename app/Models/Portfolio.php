@@ -99,18 +99,25 @@ class Portfolio extends Model
 
     public function scopeMinPrice(Builder $builder, $val = 0)
     {
+        if (!str_replace('.', '', $val)) {
+            return $builder;
+        }
+
         $allowedPrices = ['tl', 'eur', 'usd'];
         $col = in_array(request('filter.currency'), $allowedPrices) ? request('filter.currency') : 'tl';
 
-        return $builder->where("price_in_{$col}", '>=', $val);
+        return $builder->where("price_in_{$col}", '>=', str_replace('.', '', $val));
     }
 
     public function scopeMaxPrice(Builder $builder, $val = 0)
     {
+        if (!str_replace('.', '', $val)) {
+            return $builder;
+        }
         $allowedPrices = ['tl', 'eur', 'usd'];
         $col = in_array(request('filter.currency'), $allowedPrices) ? request('filter.currency') : 'tl';
 
-        return $builder->where("price_in_{$col}", '<=', $val);
+        return $builder->where("price_in_{$col}", '<=', str_replace('.', '', $val));
     }
 
     public function scopeInfo(Builder $builder, ...$val)

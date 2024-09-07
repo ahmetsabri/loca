@@ -142,24 +142,26 @@
                                             @endforeach
                                         </ul>
                                     </div>
-                                    <div class="image-wrapper sm:order-1">
-                                        <a href="{{ $service->promotion_url }}" class="item block group" data-fancybox>
-                                            <div class="image-wrapper relative aspect-[7/4]">
-                                                <div
-                                                    class="image w-full h-full rounded-5 md:rounded-3 overflow-hidden isolate translate-z-0 bg-tertiary-950">
-                                                    <img class="full-cover opacity-85 duration-450 group-hover:opacity-100 group-hover:scale-105"
-                                                        src="{{ asset('image/other/10.webp') }}" alt=""
-                                                        loading="lazy">
-                                                </div>
-                                                <div
-                                                    class="icon-wrapper w-13 xl:w-11 md:w-9 rounded-full aspect-square bg-secondary-600 flex items-center justify-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 duration-450 group-hover:delay-150 group-hover:scale-125">
+                                    @if ($service->promotion_url)
+                                        <div class="image-wrapper sm:order-1">
+                                            <a href="{{ $service->promotion_url }}" class="item block group" data-fancybox>
+                                                <div class="image-wrapper relative aspect-[7/4]">
                                                     <div
-                                                        class="icon icon-play text-4 h-4 xl:text-3.5 xl:h-3.5 md:text-3 md:h-3 block leading-none duration-300 text-white">
+                                                        class="image w-full h-full rounded-5 md:rounded-3 overflow-hidden isolate translate-z-0 bg-tertiary-950">
+                                                        <img class="full-cover opacity-85 duration-450 group-hover:opacity-100 group-hover:scale-105"
+                                                            src="{{ asset('image/other/10.webp') }}" alt=""
+                                                            loading="lazy">
+                                                    </div>
+                                                    <div
+                                                        class="icon-wrapper w-13 xl:w-11 md:w-9 rounded-full aspect-square bg-secondary-600 flex items-center justify-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 duration-450 group-hover:delay-150 group-hover:scale-125">
+                                                        <div
+                                                            class="icon icon-play text-4 h-4 xl:text-3.5 xl:h-3.5 md:text-3 md:h-3 block leading-none duration-300 text-white">
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                    </div>
+                                            </a>
+                                        </div>
+                                    @endif
                                 </div>
                             @endif
                             @if (($lastSubService = $service->subServices->last()) && $service->subServices->count() > 1)

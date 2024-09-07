@@ -378,9 +378,9 @@
                                                 {{ __('general.low_price_first') }}</option>
                                             <option value="-price_in_tl" @selected(request('sort') == '-price_in_tl')>
                                                 {{ __('general.high_price_first') }}</option>
-                                            <option value="created_at" @selected(request('sort') == 'created_at')>
-                                                {{ __('general.new_created_at') }}</option>
                                             <option value="-created_at" @selected(request('sort') == '-created_at')>
+                                                {{ __('general.new_created_at') }}</option>
+                                            <option value="created_at" @selected(request('sort') == 'created_at')>
                                                 {{ __('general.old_created_at') }}</option>
                                         </select>
                                         <div

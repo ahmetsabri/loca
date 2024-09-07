@@ -6,15 +6,19 @@
         towns: [],
         category: 1,
         map: 0,
-        loadTowns(url) {
+        loadTowns(id) {
+            const url = `{{ route('province.towns') }}/` + id
+            alert(url)
             const self = this
             axios.get(url).then((res) => {
+                console.log(res.data.towns)
                 self.towns = res.data.towns
-                self.selectedTownName = res.data.towns.filter(town => town.id == self.selectedTown)[0]?.name
+
             }).catch((err) => {
                 console.log(err)
             })
-        }
+        },
+
     }">
 
         <section class="breadcrumb-field px-7.5 md:px-5">
@@ -92,14 +96,14 @@
                                     </div>
                                     <div class="form-el group/form relative w-full">
                                         <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                        <select name="province"
+                                        <select name="province" @change="loadTowns($event.target.value)"
                                             class="peer w-full h-14 md:h-12 duration-300 rounded-4 md:rounded-3 px-7 md:px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700 invalid:!text-[#6D6D6D]"
                                             required>
                                             <option value="" disabled selected>{{ __('general.province') }}</option>
                                             @foreach ($provinces as $province)
-                                                <option @selected($province->id == request('filter.province'))
-                                                    @click="loadTowns(`{{ route('province.towns', $province) }}`)"
-                                                    value="{{ $province->name }}">{{ $province->name }}
+                                                <option value="{{ $province->id }}" @selected($province->id == request('filter.province'))
+                                                    value="{{ $province->name }}">
+                                                    {{ $province->name }}
                                             @endforeach
                                         </select>
                                         <div

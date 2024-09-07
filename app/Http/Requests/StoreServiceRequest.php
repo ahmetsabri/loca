@@ -28,9 +28,9 @@ class StoreServiceRequest extends FormRequest
             'name.ru' => ['required'],
             'promotion_url' => ['sometimes', 'nullable'],
             'description' => ['required', 'array'],
-            'description.tr' => ['required'],
-            'description.en' => ['required'],
-            'description.ru' => ['required'],
+            'description.tr' => ['sometimes','nullable'],
+            'description.en' => ['sometimes','nullable'],
+            'description.ru' => ['sometimes','nullable'],
             'features' => ['required', 'array'],
             'sub_services' => ['sometimes', 'array'],
         ];

@@ -39,7 +39,7 @@ class PortfolioController extends Controller
         $selectedCategory = Category::find(request('filter.category'))?->load('rootAncestor');
         $selectedCategoryFilters = Category::find(request('filter.category'));
 
-        $filters = Info::has('options')->with('options')->where('filterable', true)->get();
+        $filters = collect();
         if ($selectedCategoryFilters) {
             $filters = Info::has('options')->with('options')->where('filterable', true)
             ->whereIn('category_id', $selectedCategoryFilters->bloodline()->pluck('id')->toArray())->get();
