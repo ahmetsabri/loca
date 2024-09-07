@@ -43,7 +43,7 @@ class ServiceController extends Controller
         }
         foreach ($data->only('sub_services')['sub_services'] as $subServiceData) {
             $data = collect($subServiceData);
-            $subService = $service->subServices()->create($data->except('features')->toArray() + ['department_id' => $request->department_id]);
+            $subService = $service->subServices()->create($data->except('features')->toArray());
             foreach ($data->only('features')['features'] as $subFeature) {
                 if (! Arr::get($subFeature, 'tr')) {
                     continue;
