@@ -143,9 +143,9 @@
                                 @endforeach
                             </ul>
                         </div>
-                        @if ($service->promotion_url)
+                        @if ($footerAServices->promotion_url)
                             <div class="image-wrapper sm:order-1">
-                                <a href="{{ $service->promotion_url }}" class="item block group" data-fancybox>
+                                <a href="{{ $footerAServices->promotion_url }}" class="item block group" data-fancybox>
                                     <div class="image-wrapper relative aspect-[7/4]">
                                         <div
                                             class="image w-full h-full rounded-5 md:rounded-3 overflow-hidden isolate translate-z-0 bg-tertiary-950">
