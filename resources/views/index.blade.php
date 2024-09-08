@@ -230,14 +230,13 @@
                         <div
                             class="custom-select bg-white p-3 rounded-3 !rounded-bl-0 !rounded-br-0 hidden sm:block max-w-[90%] w-full mx-auto">
                             <div class="form-el group/form relative w-full">
-                                <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                <select
+                                <select name="filter[category]"
                                     class="peer w-full h-14 md:h-12 duration-300 rounded-4 md:rounded-3 px-7 md:px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700 invalid:!text-[#6D6D6D]"
-                                    required>
+                                    @change="category=($event.target.value)" required>
                                     <option disabled selected>Varlık Tipi Seçin</option>
-                                    <option value="">Opsiyon 1</option>
-                                    <option value="">Opsiyon 2</option>
-                                    <option value="">Opsiyon 3</option>
+                                    @foreach ($rootCategories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
                                 </select>
                                 <div
                                     class="icon icon-chevron-bottom text-2.5 h-2.5 md:text-2 md:h-2 block leading-none duration-300 text-[#6D6D6D] pointer-events-none absolute right-7 md:right-5 top-[23px] md:top-5 peer-focus:rotate-180">
