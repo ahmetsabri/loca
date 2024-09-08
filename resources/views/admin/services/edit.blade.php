@@ -72,7 +72,7 @@
                     </label>
                     <textarea type="text" name="description[{{ $locale }}]" id="team"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                        required rows="7">{{ $service->getTranslation('description', $locale) }}</textarea>
+                        rows="7">{{ $service->getTranslation('description', $locale) }}</textarea>
                 </div>
             @endforeach
             <h3 class="text-2xl font-semibold ">
@@ -131,7 +131,7 @@
                         </label>
                         <textarea type="text" name="sub_services[{{ $index }}][description][{{ $locale }}]" id="team"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            required rows="7">{{ $subService->getTranslation('description', $locale) }}</textarea>
+                            rows="7">{{ $subService->getTranslation('description', $locale) }}</textarea>
                     </div>
                 @endforeach
 

@@ -8,7 +8,6 @@
         map: 0,
         loadTowns(id) {
             const url = `{{ route('province.towns') }}/` + id
-            alert(url)
             const self = this
             axios.get(url).then((res) => {
                 console.log(res.data.towns)
