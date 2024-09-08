@@ -58,7 +58,7 @@
                                     class="item group relative rounded-full h-13 lg:h-10 px-8 lg:px-4 flex items-center justify-center duration-300 [&.active]:bg-white [&.active]:shadow-s2 my-4 @if ($loop->first) active @endif">
                                     <div
                                         class="number text-3.5 font-semibold text-[#2675FA] absolute left-5 top-2 duration-300 opacity-0 group-[&.active]:opacity-100 lg:hidden">
-                                        {{ $index + 1 }}
+                                        {{ $loop->iteration }}
                                     </div>
                                     <div
                                         class="text text-[#6D6D6D] text-4 lg:text-3.5 font-medium whitespace-nowrap duration-300 group-hover:text-tertiary-950 group-[&.active]:text-tertiary-950">
@@ -213,8 +213,8 @@
                                     </div>
 
                                 </div>
+                            @endif
                         </div>
-                    @endif
                     @endforeach
                 </div>
             </div>
