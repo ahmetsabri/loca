@@ -9,8 +9,13 @@ class ServiceController extends Controller
 {
     public function index()
     {
-        $services = Service::with('features', 'subServices.features')->whereNull('parent_id')->get();
+        $services = Service::with('features', 'subServices.features')
+        ->whereNull('parent_id')
+        ->whereNotIn('id', [17,18])
+        ->get();
 
-        return view('frontend.services.index', compact('services'));
+        $footerAServices = Service::with('features', 'subServices.features')->where('id', 17)->first();
+        $footerBServices = Service::with('features', 'subServices.features')->where('id', 18)->first();
+        return view('frontend.services.index', compact('services', 'footerAServices', 'footerBServices'));
     }
 }
