@@ -73,8 +73,17 @@
 
                         <div
                             class="image-wrapper bg-white/5 self-stretch flex items-center px-1 rounded-1 group-hover/wrapper:bg-white/10 duration-300">
-                            <img class="w-3.5 h-auto block pointer-events-none" src="{{ asset('image/static/4.webp') }}"
-                                alt="" loading="lazy">
+                            @if (app()->getLocale() == 'en')
+                                <img class="w-3.5 h-auto block pointer-events-none"
+                                    src="{{ asset('image/static/5.webp') }}" alt="" loading="lazy">
+                            @elseif(app()->getLocale() == 'tr')
+                                <img class="w-3.5 h-auto block pointer-events-none"
+                                    src="{{ asset('image/static/4.webp') }}" alt="" loading="lazy">
+                            @else
+                                <img class="w-3.5 h-auto block pointer-events-none"
+                                    src="{{ asset('image/static/6.webp') }}" alt="" loading="lazy">
+                            @endif
+
                         </div>
                         <span class="text text-white text-3.5 font-medium">
                             @if (app()->getLocale() == 'en')
@@ -93,17 +102,17 @@
                     <div
                         class="options bg-white duration-300 grid gap-1 p-2 rounded-2 absolute left-1/2 -translate-x-1/2 w-max min-w-full top-[calc(100%+8px)] before:absolute before:bottom-full before:left-0 before:w-full before:h-2 opacity-0 pointer-events-none scale-95 origin-top group-hover/wrapper:opacity-100 group-hover/wrapper:pointer-events-auto group-hover/wrapper:scale-100">
                         <a href="{{ route('locale', 'tr') }}"
-                            class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none current">
+                            class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none @if (app()->isLocale('tr')) current @endif">
                             <img src="{{ asset('image/static/4.webp') }}" alt="" loading="lazy">
                             <span class="text text-3.5 font-medium text-tertiary-950">TUR</span>
                         </a>
                         <a href="{{ route('locale', 'en') }}"
-                            class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
+                            class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none @if (app()->isLocale('en')) current @endif">
                             <img src="{{ asset('image/static/5.webp') }}" alt="" loading="lazy">
                             <span class="text text-3.5 font-medium text-tertiary-950">ENG</span>
                         </a>
-                        <a href="{{ route('locale', 'rus') }}"
-                            class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none">
+                        <a href="{{ route('locale', 'ru') }}"
+                            class="flex items-center h-7.5 border border-solid border-tertiary-950/10 rounded-2 duration-300 px-2.5 gap-2.5 hover:border-tertiary-950/30 [&.current]:bg-tertiary-950/5 [&.current]:border-transparent [&.current]:pointer-events-none @if (app()->isLocale('ru')) current @endif">
                             <img src="{{ asset('image/static/6.webp') }}" alt="" loading="lazy">
                             <span class="text text-3.5 font-medium text-tertiary-950">RUS</span>
                         </a>
@@ -337,7 +346,7 @@
                     </a>
 
                     @if (\Route::currentRouteName() == 'home')
-                        <div class="language-wrapper relative group/wrapper  lg:block">
+                        <div class="language-wrapper relative group/wrapper lg:hidden ">
                             <div class="current cursor-pointer flex items-center justify-center gap-2 py-1 h-7.5">
                                 <div
                                     class="image-wrapper bg-white/5 self-stretch flex items-center px-1 rounded-1 group-hover/wrapper:bg-white/10 duration-300">
