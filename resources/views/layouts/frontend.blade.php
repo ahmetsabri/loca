@@ -9,6 +9,13 @@
     <script type="module" src="{{ asset('script/script.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('style/style.css') }}">
     <link rel="stylesheet" href="{{ asset('style/utils.css') }}">
+    @if (isset($portfolio))
+        <meta property="og:title" content="{{ $portfolio->title }}" />
+        <meta property="og:site_name" content="remaxloca.com/" />
+        <meta property="og:image" itemprop="image" content="{{ $portfolio->images->first()->full_url }}" />
+        <meta property="og:url" content="{{ route('frontend.portfolio.show', $portfolio) }}" />
+        <meta property="og:type" content="product" />
+    @endif
     @vite(['resources/js/app.js'])
 </head>
 
