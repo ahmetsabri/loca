@@ -28,8 +28,12 @@
                         <!--<a href="javascript:void(0)" class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0] hover:text-white">#LocaFarkYaratır</a>-->
                         <div
                             class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
-                            #eskiusulemlakçılığason</div>
+                            #EskiUsulEmlakçılığaSon</div>
                         <!--<a href="javascript:void(0)" class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0] hover:text-white">#eskiusulemlakçılığason</a>-->
+                        <div
+                            class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
+                            #SizinİçinEnİyisiLOCA</div>
+                        <!--<a href="javascript:void(0)" class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0] hover:text-white">#SizinİçinEnİyisiLOCA</a>-->
                     </div>
                 </div>
             </div>
@@ -44,7 +48,7 @@
                     <div class="text-editor text-editor-main mt-4">
                         <!-- .text-editor içerisindeki style attribute değerleri frontendi tasarıma benzetmek adına eklenmiştir, backend aşamasında silinerek panel editöründen tanımlanmalıdır. -->
                         <h2 style="text-align:center;"><strong>
-                                {{ __('general.service_detail') }}
+                                {{ __('general.service_detail') }} <br> {{ __('general.service_detail2') }}
                             </strong></h2>
                     </div>
                 </div>
@@ -78,12 +82,12 @@
                                 <div class="image-wrapper grid gap-2 sm:grid-cols-2">
                                     <div
                                         class="image aspect-[37/26] sm:aspect-square rounded-6 md:rounded-3 overflow-hidden isolate max-w-[370px] xl:max-w-[300px] md:max-w-[250px] sm:max-w-none w-full h-auto mr-0 ml-auto">
-                                        <img class="full-cover" src="{{ asset('image/photo/3.webp') }}" alt=""
+                                        <img class="full-cover" src="{{ asset('image/photo/4.webp') }}" alt=""
                                             loading="lazy">
                                     </div>
                                     <div
                                         class="image aspect-[34/21] sm:aspect-square rounded-6 md:rounded-3 overflow-hidden isolate max-w-[340px] xl:max-w-[250px] md:max-w-[200px] sm:max-w-none w-full h-auto ml-0 mr-auto">
-                                        <img class="full-cover" src="{{ asset('image/photo/3.webp') }}" alt=""
+                                        <img class="full-cover" src="{{ asset('image/photo/2.webp') }}" alt=""
                                             loading="lazy">
                                     </div>
                                 </div>
@@ -173,12 +177,12 @@
                             </div>
                             <div
                                 class="image relative z-2 aspect-[34/21] sm:aspect-square rounded-6 md:rounded-3 overflow-hidden isolate max-w-[280px] xl:max-w-[225px] md:max-w-[175px] sm:max-w-none w-full h-auto ml-0 mr-auto -mt-24 xl:-mt-12 sm:mt-0">
-                                <img class="full-cover" src="{{ asset('image/photo/4.webp') }}" alt=""
+                                <img class="full-cover" src="{{ asset('image/photo/2.webp') }}" alt=""
                                     loading="lazy">
                             </div>
                             <div
                                 class="image relative z-1 aspect-[34/21] sm:aspect-square rounded-6 md:rounded-3 overflow-hidden isolate max-w-[300px] xl:max-w-[275px] md:max-w-[200px] sm:max-w-none w-full h-auto mr-0 ml-auto -mt-30 xl:-mt-24 sm:mt-0">
-                                <img class="full-cover" src="{{ asset('image/photo/4.webp') }}" alt=""
+                                <img class="full-cover" src="{{ asset('image/photo/21.webp') }}" alt=""
                                     loading="lazy">
                             </div>
                         </div>
