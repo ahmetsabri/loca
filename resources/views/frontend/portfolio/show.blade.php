@@ -71,7 +71,7 @@
                                     <a href="{{ $portfolio->images->first()->full_url }}"
                                         class="image block aspect-[15/8] xs:aspect-[5/4] overflow-hidden isolate rounded-6 md:rounded-3 translate-z-0 group"
                                         data-fancybox="gallery"><img
-                                            class="lg:hidden full-cover translate-z-0 group-hover:scale-105 duration-450"
+                                            class=" full-cover translate-z-0 group-hover:scale-105 duration-450"
                                             src="{{ $portfolio->images->first()->full_url }}" alt=""
                                             loading="lazy"></a>
                                     <div
