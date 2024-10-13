@@ -18,7 +18,9 @@
     @endif
     @vite(['resources/js/app.js'])
 
-    <script src="//code.jivosite.com/widget/iOiujXThVF" async></script>
+    @production
+        <script src="//code.jivosite.com/widget/iOiujXThVF" async></script>
+    @endproduction
 </head>
 
 <body

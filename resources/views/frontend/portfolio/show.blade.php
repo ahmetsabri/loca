@@ -361,16 +361,16 @@
                         class="list my-18 2x:my-15 xl:my-12 lg:my-9 md:my-7.5 grid grid-cols-3 lg:grid-cols-2 sm:grid-cols-1 gap-x-9 xl:gap-x-8 lg:gap-x-7 gap-y-6">
 
 
-                        @foreach ($randomPortfolios as $portfolio)
+                        @foreach ($randomPortfolios as $rportfolio)
                             <div
                                 class="portfolio group/item p-2.5 bg-white rounded-6 md:rounded-3 border border-solid border-transparent hover:border-[#8AA5D3]/35 duration-300">
                                 <div class="carousel-wrapper w-full">
                                     <div
                                         class="portfolio-images-carousel w-full relative swiper !h-auto shadow-s3 rounded-6 md:rounded-3 overflow-hidden isolate">
                                         <div class="swiper-wrapper !h-auto">
-                                            @foreach ($portfolio->images as $image)
+                                            @foreach ($rportfolio->images as $image)
                                                 <div class="swiper-slide">
-                                                    <a href="{{ route('frontend.portfolio.show', $portfolio) }}"
+                                                    <a href="{{ route('frontend.portfolio.show', $rportfolio) }}"
                                                         class="image group block aspect-[36/25] overflow-hidden isolate translate-z-0"><img
                                                             class="full-cover group-hover:scale-105 duration-450 translate-z-0 pointer-events-none"
                                                             src="{{ $image->full_url }}" alt=""
@@ -391,7 +391,7 @@
                                         </div>
                                         <div
                                             class="tag absolute left-4 top-4 bg-tertiary-950/50 rounded-2 px-2 py-1.5 text-white text-3 font-medium leading-none z-5 capitalize">
-                                            {{ $portfolio->category?->rootAncestor?->name }}
+                                            {{ $rportfolio->category?->rootAncestor?->name }}
                                         </div>
                                     </div>
                                 </div>
@@ -401,14 +401,14 @@
                                             class="icon icon-location-1 text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
                                         </div>
                                         <div class=" text-3.5 font-medium text-tertiary-950/40 capitalize">
-                                            {{ $portfolio->district->town->province->name }}/{{ $portfolio->district->town->name }}
-                                            , {{ $portfolio->district->name }}
+                                            {{ $rportfolio->district->town->province->name }}/{{ $rportfolio->district->town->name }}
+                                            , {{ $rportfolio->district->name }}
                                         </div>
                                     </div>
-                                    <a href="{{ route('frontend.portfolio.show', $portfolio) }}"
-                                        class="title text-4.5 leading-tight text-tertiary-950 hover:text-main-700 duration-300 font-semibold mb-4 xl:mb-5 md:mb-4 block capitalize">{{ $portfolio->title }}</a>
+                                    <a href="{{ route('frontend.portfolio.show', $rportfolio) }}"
+                                        class="title text-4.5 leading-tight text-tertiary-950 hover:text-main-700 duration-300 font-semibold mb-4 xl:mb-5 md:mb-4 block capitalize">{{ $rportfolio->title }}</a>
                                     <div class="price text-[#2675FA] font-semibold text-5 lg:text-4.5 md:text-4">
-                                        {{ $portfolio->price }}
+                                        {{ $rportfolio->price }}
                                     </div>
                                     <div class="info flex items-center justify-between gap-7.5 mt-5 md:mt-4">
                                         <div
