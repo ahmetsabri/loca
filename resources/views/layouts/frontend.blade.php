@@ -17,6 +17,8 @@
         <meta property="og:type" content="product" />
     @endif
     @vite(['resources/js/app.js'])
+
+    <script src="//code.jivosite.com/widget/iOiujXThVF" async></script>
 </head>
 
 <body
