@@ -27,8 +27,12 @@
                         <!--<a href="javascript:void(0)" class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0] hover:text-white">#LocaFarkYaratır</a>-->
                         <div
                             class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
-                            #eskiusulemlakçılığason</div>
+                            #EskiUsulEmlakçılığaSon</div>
                         <!--<a href="javascript:void(0)" class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0] hover:text-white">#eskiusulemlakçılığason</a>-->
+                        <div
+                            class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
+                            #SizinİçinEnİyisiLOCA</div>
+                        <!--<a href="javascript:void(0)" class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0] hover:text-white">#SizinİçinEnİyisiLOCA</a>-->
                     </div>
                 </div>
             </div>
@@ -72,7 +76,7 @@
                     </div>
                     <div
                         class="image absolute right-0 bottom-0 translate-x-20/100 translate-y-20/100 max-w-[285px] 2xl:max-w-[250px] xl:max-w-[200px] md:max-w-[150px] sm:max-w-none rounded-15 2xl:rounded-13 xl:rounded-11 lg:rounded-9 md:rounded-7 sm:rounded-5 overflow-hidden isolate aspect-square w-full h-auto sm:aspect-5/4 sm:relative sm:translate-x-0 sm:translate-y-0 sm:right-auto sm:bottom-auto">
-                        <img class="full-cover" src="{{ __('image/photo/16.webp') }}" alt="" loading="lazy">
+                        <img class="full-cover" src="{{ __('image/photo/14.webp') }}" alt="" loading="lazy">
                     </div>
                 </div>
                 <div class="text-wrapper">
@@ -95,7 +99,7 @@
                     <!-- .text-editor içerisindeki style attribute değerleri frontendi tasarıma benzetmek adına eklenmiştir, backend aşamasında silinerek panel editöründen tanımlanmalıdır. -->
                     <h3 style="text-align:center;"><strong>{{ $about?->title_2 }}</strong></h3>
                     <h6 style="color:#6D6D6D;text-align:center;">
-                        {!! $about?->description_2 !!}.</h6>
+                        {!! $about?->description_2 !!}</h6>
                 </div>
             </div>
         </section>
