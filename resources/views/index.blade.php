@@ -84,7 +84,10 @@
                                         #LocaFarkYaratır</div>
                                     <div
                                         class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
-                                        #eskiusulemlakçılığason</div>
+                                        #EskiUsulEmlakçılığaSon</div>
+                                    <div
+                                        class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
+                                        #SizinİçinEnİyisiLOCA</div>
                                 </div>
                             </div>
                         </div>
@@ -103,7 +106,10 @@
                                         #LocaFarkYaratır</div>
                                     <div
                                         class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
-                                        #eskiusulemlakçılığason</div>
+                                        #EskiUsulEmlakçılığaSon</div>
+                                    <div
+                                        class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
+                                        #SizinİçinEnİyisiLOCA</div>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +128,10 @@
                                         #LocaFarkYaratır</div>
                                     <div
                                         class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
-                                        #eskiusulemlakçılığason</div>
+                                        #EskiUsulEmlakçılığaSon</div>
+                                    <div
+                                        class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
+                                        #SizinİçinEnİyisiLOCA</div>
                                 </div>
                             </div>
                         </div>
@@ -233,7 +242,7 @@
                                 <select name="filter[category]"
                                     class="peer w-full h-14 md:h-12 duration-300 rounded-4 md:rounded-3 px-7 md:px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700 invalid:!text-[#6D6D6D]"
                                     @change="category=($event.target.value)" required>
-                                    <option disabled selected>Varlık Tipi Seçin</option>
+                                    <option disabled selected>Gayrimenkul Tipi Seçin</option>
                                     @foreach ($rootCategories as $category)
                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
@@ -415,7 +424,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="https://www.youtube.com/watch?v=MLpWrANjFbI"
+                <a href="https://www.youtube.com/watch?v=3CA0gZatTMI"
                     class="hero-trailer block w-fit mx-auto mt-12 2xl:mt-10 xl:mt-8 draw-child-underline [--line-color:#FFFFFF]"
                     data-fancybox>
                     <div
@@ -450,7 +459,8 @@
             <div class="text-wrapper relative z-7">
                 <div class="text-editor text-editor-main max-w-[565px] sm:max-w-none">
                     <!-- .text-editor içerisindeki style attribute değerleri frontendi tasarıma benzetmek adına eklenmiştir, backend aşamasında silinerek panel editöründen tanımlanmalıdır. -->
-                    <h3><strong>{{ __('general.portfolio') }} <br>{{ __('general.categories') }}</strong></h3>
+                    <h3><strong>{{ __('general.portfolio_categories1') }}
+                            <br>{{ __('general.portfolio_categories2') }}</strong></h3>
                     <h6 style="color:#6D6D6D">{{ __('general.classified_category_1') }}
                         <br> {{ __('general.classified_category_2') }}
                     </h6>
@@ -462,7 +472,7 @@
                 <a href="{{ route('portfolios') }}"
                     class="button group/button flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 h-16 xl:h-14 md:h-12 w-fit px-8 sm:px-6 bg-main-900 hover:bg-main-950 mt-7.5 text-white">
 
-                    <div class="text whitespace-nowrap font-medium text-4 md:text-3.5">{{ __('general.portfolios') }}
+                    <div class="text whitespace-nowrap font-medium text-4 md:text-3.5">{{ __('general.portfolios_link') }}
                     </div>
                     <div class="icon icon-chevron-right text-2.5 h-2.5 block leading-none"></div>
                 </a>
@@ -477,15 +487,16 @@
                                 <div
                                     class="image aspect-[71/55] overflow-hidden isolate !rounded-bl-0 !rounded-br-0 rounded-8 xl:rounded-6 md:rounded-3">
                                     <img class="full-cover translate-z-0 duration-450 group-hover:scale-105"
-                                        src="{{ asset('image/photo/12.webp') }}" alt="" loading="lazy">
+                                        src="{{ asset('image/photo/is_yeri_kategori.webp') }}" alt="RE/MAX Loca"
+                                        loading="lazy">
                                 </div>
                                 <div class="content p-6">
                                     <div
                                         class="title text-tertiary-950 text-5.5 2xl:text-5 xl:text-4.5 lg:text-4 font-semibold duration-300 group-hover:text-main-700 mb-2">
-                                        Arsa</div>
+                                        İş Yeri</div>
                                     <p class="expo text-4 xl:text-3.5 font-medium text-[#6D6D6D]">
 
-                                        {{ __('general.we_categorize') }}
+                                        {{ __('general.we_categorize_workplace') }}
                                     </p>
                                 </div>
                             </a>
@@ -496,14 +507,15 @@
                                 <div
                                     class="image aspect-[71/55] overflow-hidden isolate !rounded-bl-0 !rounded-br-0 rounded-8 xl:rounded-6 md:rounded-3">
                                     <img class="full-cover translate-z-0 duration-450 group-hover:scale-105"
-                                        src="{{ asset('image/photo/8.webp') }}" alt="" loading="lazy">
+                                        src="{{ asset('image/photo/konut_kategori.webp') }}" alt="RE/MAX Loca"
+                                        loading="lazy">
                                 </div>
                                 <div class="content p-6">
                                     <div
                                         class="title text-tertiary-950 text-5.5 2xl:text-5 xl:text-4.5 lg:text-4 font-semibold duration-300 group-hover:text-main-700 mb-2">
                                         Konut</div>
                                     <p class="expo text-4 xl:text-3.5 font-medium text-[#6D6D6D]">
-                                        {{ __('general.we_categorize') }}
+                                        {{ __('general.we_categorize_residentialproperty') }}
                                     </p>
                                 </div>
                             </a>
@@ -514,14 +526,15 @@
                                 <div
                                     class="image aspect-[71/55] overflow-hidden isolate !rounded-bl-0 !rounded-br-0 rounded-8 xl:rounded-6 md:rounded-3">
                                     <img class="full-cover translate-z-0 duration-450 group-hover:scale-105"
-                                        src="{{ asset('image/photo/12.webp') }}" alt="" loading="lazy">
+                                        src="{{ asset('image/photo/turistik_tesis_kategori.webp') }}" alt="RE/MAX Loca"
+                                        loading="lazy">
                                 </div>
                                 <div class="content p-6">
                                     <div
                                         class="title text-tertiary-950 text-5.5 2xl:text-5 xl:text-4.5 lg:text-4 font-semibold duration-300 group-hover:text-main-700 mb-2">
                                         Turistik Tesis</div>
                                     <p class="expo text-4 xl:text-3.5 font-medium text-[#6D6D6D]">
-                                        {{ __('general.we_categorize') }}
+                                        {{ __('general.we_categorize_touristicfacility') }}
                                     </p>
                                 </div>
                             </a>
@@ -532,50 +545,53 @@
                                 <div
                                     class="image aspect-[71/55] overflow-hidden isolate !rounded-bl-0 !rounded-br-0 rounded-8 xl:rounded-6 md:rounded-3">
                                     <img class="full-cover translate-z-0 duration-450 group-hover:scale-105"
-                                        src="{{ asset('image/photo/12.webp') }}" alt="" loading="lazy">
+                                        src="{{ asset('image/photo/devre_mulk_kategori.webp') }}" alt="RE/MAX Loca"
+                                        loading="lazy">
+                                </div>
+                                <div class="content p-6">
+                                    <div
+                                        class="title text-tertiary-950 text-5.5 2xl:text-5 xl:text-4.5 lg:text-4 font-semibold duration-300 group-hover:text-main-700 mb-2">
+                                        Devre Mülk</div>
+                                    <p class="expo text-4 xl:text-3.5 font-medium text-[#6D6D6D]">
+                                        {{ __('general.we_categorize_timeshare') }}
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide group/slide min-md:!opacity-100">
+                            <a href="javascript:void(0)"
+                                class="card block group p-1.5 bg-white rounded-8 xl:rounded-6 md:rounded-3 shadow-s2 min-md:opacity-0 duration-450 min-md:group-[&.swiper-slide-active]/slide:opacity-100 min-md:group-[&.swiper-slide-prev]/slide:opacity-100 min-md:group-[&.swiper-slide-prev]/slide:scale-90 min-md:group-[&.swiper-slide-prev]/slide:-translate-x-25/100 min-md:group-[&.swiper-slide-next]/slide:translate-x-full min-md:group-[&.swiper-slide:has(+.swiper-slide-prev)]/slide:opacity-100 min-md:group-[&.swiper-slide:has(+.swiper-slide-prev)]/slide:scale-[0.8] min-md:group-[&.swiper-slide:has(+.swiper-slide-prev)]/slide:-translate-x-50/100 min-md:group-[&.swiper-slide:has(+.swiper-slide+.swiper-slide-prev)]/slide:-translate-x-full min-md:group-[&.swiper-slide:has(+.swiper-slide+.swiper-slide-prev)]/slide:scale-[0.8]">
+                                <div
+                                    class="image aspect-[71/55] overflow-hidden isolate !rounded-bl-0 !rounded-br-0 rounded-8 xl:rounded-6 md:rounded-3">
+                                    <img class="full-cover translate-z-0 duration-450 group-hover:scale-105"
+                                        src="{{ asset('image/photo/bina_kategori.webp') }}" alt="RE/MAX Loca"
+                                        loading="lazy">
+                                </div>
+                                <div class="content p-6">
+                                    <div
+                                        class="title text-tertiary-950 text-5.5 2xl:text-5 xl:text-4.5 lg:text-4 font-semibold duration-300 group-hover:text-main-700 mb-2">
+                                        Bina</div>
+                                    <p class="expo text-4 xl:text-3.5 font-medium text-[#6D6D6D]">
+                                        {{ __('general.we_categorize_building') }}
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide group/slide min-md:!opacity-100">
+                            <a href="javascript:void(0)"
+                                class="card block group p-1.5 bg-white rounded-8 xl:rounded-6 md:rounded-3 shadow-s2 min-md:opacity-0 duration-450 min-md:group-[&.swiper-slide-active]/slide:opacity-100 min-md:group-[&.swiper-slide-prev]/slide:opacity-100 min-md:group-[&.swiper-slide-prev]/slide:scale-90 min-md:group-[&.swiper-slide-prev]/slide:-translate-x-25/100 min-md:group-[&.swiper-slide-next]/slide:translate-x-full min-md:group-[&.swiper-slide:has(+.swiper-slide-prev)]/slide:opacity-100 min-md:group-[&.swiper-slide:has(+.swiper-slide-prev)]/slide:scale-[0.8] min-md:group-[&.swiper-slide:has(+.swiper-slide-prev)]/slide:-translate-x-50/100 min-md:group-[&.swiper-slide:has(+.swiper-slide+.swiper-slide-prev)]/slide:-translate-x-full min-md:group-[&.swiper-slide:has(+.swiper-slide+.swiper-slide-prev)]/slide:scale-[0.8]">
+                                <div
+                                    class="image aspect-[71/55] overflow-hidden isolate !rounded-bl-0 !rounded-br-0 rounded-8 xl:rounded-6 md:rounded-3">
+                                    <img class="full-cover translate-z-0 duration-450 group-hover:scale-105"
+                                        src="{{ asset('image/photo/arsa_kategori.webp') }}" alt="RE/MAX Loca"
+                                        loading="lazy">
                                 </div>
                                 <div class="content p-6">
                                     <div
                                         class="title text-tertiary-950 text-5.5 2xl:text-5 xl:text-4.5 lg:text-4 font-semibold duration-300 group-hover:text-main-700 mb-2">
                                         Arsa</div>
                                     <p class="expo text-4 xl:text-3.5 font-medium text-[#6D6D6D]">
-                                        {{ __('general.we_categorize') }}
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="swiper-slide group/slide min-md:!opacity-100">
-                            <a href="javascript:void(0)"
-                                class="card block group p-1.5 bg-white rounded-8 xl:rounded-6 md:rounded-3 shadow-s2 min-md:opacity-0 duration-450 min-md:group-[&.swiper-slide-active]/slide:opacity-100 min-md:group-[&.swiper-slide-prev]/slide:opacity-100 min-md:group-[&.swiper-slide-prev]/slide:scale-90 min-md:group-[&.swiper-slide-prev]/slide:-translate-x-25/100 min-md:group-[&.swiper-slide-next]/slide:translate-x-full min-md:group-[&.swiper-slide:has(+.swiper-slide-prev)]/slide:opacity-100 min-md:group-[&.swiper-slide:has(+.swiper-slide-prev)]/slide:scale-[0.8] min-md:group-[&.swiper-slide:has(+.swiper-slide-prev)]/slide:-translate-x-50/100 min-md:group-[&.swiper-slide:has(+.swiper-slide+.swiper-slide-prev)]/slide:-translate-x-full min-md:group-[&.swiper-slide:has(+.swiper-slide+.swiper-slide-prev)]/slide:scale-[0.8]">
-                                <div
-                                    class="image aspect-[71/55] overflow-hidden isolate !rounded-bl-0 !rounded-br-0 rounded-8 xl:rounded-6 md:rounded-3">
-                                    <img class="full-cover translate-z-0 duration-450 group-hover:scale-105"
-                                        src="{{ asset('image/photo/8.webp') }}" alt="" loading="lazy">
-                                </div>
-                                <div class="content p-6">
-                                    <div
-                                        class="title text-tertiary-950 text-5.5 2xl:text-5 xl:text-4.5 lg:text-4 font-semibold duration-300 group-hover:text-main-700 mb-2">
-                                        Konut</div>
-                                    <p class="expo text-4 xl:text-3.5 font-medium text-[#6D6D6D]">
-                                        {{ __('general.we_categorize') }}
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="swiper-slide group/slide min-md:!opacity-100">
-                            <a href="javascript:void(0)"
-                                class="card block group p-1.5 bg-white rounded-8 xl:rounded-6 md:rounded-3 shadow-s2 min-md:opacity-0 duration-450 min-md:group-[&.swiper-slide-active]/slide:opacity-100 min-md:group-[&.swiper-slide-prev]/slide:opacity-100 min-md:group-[&.swiper-slide-prev]/slide:scale-90 min-md:group-[&.swiper-slide-prev]/slide:-translate-x-25/100 min-md:group-[&.swiper-slide-next]/slide:translate-x-full min-md:group-[&.swiper-slide:has(+.swiper-slide-prev)]/slide:opacity-100 min-md:group-[&.swiper-slide:has(+.swiper-slide-prev)]/slide:scale-[0.8] min-md:group-[&.swiper-slide:has(+.swiper-slide-prev)]/slide:-translate-x-50/100 min-md:group-[&.swiper-slide:has(+.swiper-slide+.swiper-slide-prev)]/slide:-translate-x-full min-md:group-[&.swiper-slide:has(+.swiper-slide+.swiper-slide-prev)]/slide:scale-[0.8]">
-                                <div
-                                    class="image aspect-[71/55] overflow-hidden isolate !rounded-bl-0 !rounded-br-0 rounded-8 xl:rounded-6 md:rounded-3">
-                                    <img class="full-cover translate-z-0 duration-450 group-hover:scale-105"
-                                        src="{{ asset('image/photo/12.webp') }}" alt="" loading="lazy">
-                                </div>
-                                <div class="content p-6">
-                                    <div
-                                        class="title text-tertiary-950 text-5.5 2xl:text-5 xl:text-4.5 lg:text-4 font-semibold duration-300 group-hover:text-main-700 mb-2">
-                                        Turistik Tesis</div>
-                                    <p class="expo text-4 xl:text-3.5 font-medium text-[#6D6D6D]">
-                                        {{ __('general.we_categorize') }}
+                                        {{ __('general.we_categorize_land') }}
                                     </p>
                                 </div>
                             </a>
@@ -641,8 +657,8 @@
                                     class="icon icon-location-1 text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
                                 </div>
                                 <div class=" text-3.5 font-medium text-tertiary-950/40 capitalize">
-                                    {{ $portfolio->district->town->province->name }}/{{ $portfolio->district->town->name }}
-                                    , {{ $portfolio->district->name }}
+                                    {{ $portfolio->district->town->province->name }}/{{ $portfolio->district->town->name }},
+                                    {{ $portfolio->district->name }}
                                 </div>
                             </div>
                             <a href="{{ route('frontend.portfolio.show', $portfolio) }}"
@@ -651,27 +667,31 @@
                                 {{ $portfolio->price }}
                             </div>
                             <div class="info flex items-center justify-between gap-7.5 mt-5 md:mt-4">
+
                                 <div
                                     class="tags flex flex-wrap items-center gap-8 2xl:gap-7 xl:gap-6 lg:gap-5 md:gap-4 sm:gap-3">
-                                    <div class="item flex items-center gap-2">
-                                        <div
-                                            class="icon-wrapper w-7.5 aspect-square shrink-0 bg-[#EDF3FE] flex items-center justify-center rounded-full">
+                                    @if (false)
+                                        <div class="item flex items-center gap-2">
                                             <div
-                                                class="icon icon-bedroom text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
+                                                class="icon-wrapper w-7.5 aspect-square shrink-0 bg-[#EDF3FE] flex items-center justify-center rounded-full">
+                                                <div
+                                                    class="icon icon-bedroom text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
+                                                </div>
                                             </div>
+                                            <div class="text text-3.5 font-medium text-tertiary-950/40">3+1</div>
                                         </div>
-                                        <div class="text text-3.5 font-medium text-tertiary-950/40">3+1</div>
-                                    </div>
-                                    <div class="item flex items-center gap-2">
-                                        <div
-                                            class="icon-wrapper w-7.5 aspect-square shrink-0 bg-[#EDF3FE] flex items-center justify-center rounded-full">
+                                        <div class="item flex items-center gap-2">
                                             <div
-                                                class="icon icon-square-meter-1 text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
+                                                class="icon-wrapper w-7.5 aspect-square shrink-0 bg-[#EDF3FE] flex items-center justify-center rounded-full">
+                                                <div
+                                                    class="icon icon-square-meter-1 text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
+                                                </div>
                                             </div>
+                                            <div class="text text-3.5 font-medium text-tertiary-950/40">352 m²</div>
                                         </div>
-                                        <div class="text text-3.5 font-medium text-tertiary-950/40">352 m²</div>
-                                    </div>
+                                    @endif
                                 </div>
+
                                 <button
                                     class="button shrink-0 add-favorite group/button relative duration-300 bg-[#EFF5FF] flex items-center justify-center h-10 aspect-square rounded-full hover:border-tertiary-950/30">
                                     <div class="icon icon-like text-4 h-4 block leading-none duration-300 text-[#DC1C2E]">
