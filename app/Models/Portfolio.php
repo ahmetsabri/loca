@@ -132,11 +132,6 @@ class Portfolio extends Model
         });
     }
 
-    public function scopeSearch(Builder $builder, $val)
-    {
-        return $builder->where('title->tr', 'like', '%'.$val.'%');
-    }
-
     public function scopeUserId(Builder $builder, $val)
     {
         return $builder->where('user_id', $val);
@@ -211,5 +206,21 @@ class Portfolio extends Model
             'x' => sprintf(config('keys.x_share_link'), route('frontend.portfolio.show', $this)),
             'fb' => sprintf(config('keys.fb_share_link'), route('frontend.portfolio.show', $this)),
         ];
+    }
+
+    public function scopeSearch(Builder $builder)
+    {
+        $keyword =request('search');
+        return $keyword ? $builder->whereAny(['title','ad_number'], 'like', "%$keyword%") : $builder;
+    }
+    public function scopeSort(Builder $builder)
+    {
+        $sort = request()->string('sort');
+        $field = $sort->remove('-')->value();
+        $dir = $sort->startsWith('-') ? 'desc' : 'asc';
+        if (!in_array($field, ['created_at','price_in_tl'])) {
+            return $builder;
+        }
+        return $field ? $builder->orderBy($field, $dir) : $builder;
     }
 }

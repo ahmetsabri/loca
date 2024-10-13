@@ -19,7 +19,7 @@ class PortfolioController extends Controller
 {
     public function index()
     {
-        $portfolios = Portfolio::with('category.ancestorsAndSelf')->latest()->paginate();
+        $portfolios = Portfolio::search()->sort()->with('category.ancestorsAndSelf')->latest()->paginate();
 
         return view('admin.portfolios.index', compact('portfolios'));
     }
