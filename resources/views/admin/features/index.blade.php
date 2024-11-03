@@ -6,24 +6,26 @@
     </x-slot>
 
     <div class="py-12">
-   <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <a href="{{ route('feature.create') }}"
                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                 yeni
             </a>
         </div>
     </div>
-    <div class="m-5" x-data="
-    {
-        deleteFeature(url){
-        if(!confirm('emin misiniz')){
-            return
+    <div class="m-5" x-data="{
+        deleteFeature(url) {
+            if (!confirm('emin misiniz')) {
+                return
+            }
+            window.location.href = url
         }
-        window.location.href=url
-    }
-    }
-">
+    }">
+        <div class="w-1/2">
+            @include('search', ['action' => request()->fullUrl()])
+        </div>
+        <br>
         @include('admin.features.new_feature')
-        @include('admin.features.list_feature',['features'=>$features])
+        @include('admin.features.list_feature', ['features' => $features])
     </div>
 </x-app-layout>

@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Spatie\Translatable\HasTranslations;
 
+use Illuminate\Database\Eloquent\Builder;
+
 class Info extends Model
 {
     use HasFactory;
@@ -46,5 +48,11 @@ class Info extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function scopeSearch(Builder $builder)
+    {
+        $keyword =request('search');
+        return $keyword ? $builder->whereAny(['name'], 'like', "%$keyword%") : $builder;
     }
 }

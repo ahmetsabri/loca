@@ -10,7 +10,7 @@ class InfoController extends Controller
 {
     public function index()
     {
-        $infos = Info::with('category.bloodline')->paginate(20);
+        $infos = Info::search()->with('category.bloodline')->paginate(20);
 
         return view('admin.info.index', compact('infos'));
     }
