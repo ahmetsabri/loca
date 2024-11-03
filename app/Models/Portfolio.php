@@ -64,6 +64,10 @@ class Portfolio extends Model
         return $this->belongsTo(District::class);
     }
 
+    public function forms()
+    {
+        return $this->hasMany(Form::class);
+    }
     public static function boot()
     {
         parent::boot();

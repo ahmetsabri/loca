@@ -147,6 +147,7 @@ class PortfolioController extends Controller
 
     public function destroy(Portfolio $portfolio)
     {
+        $portfolio->forms()->delete();
         $portfolio->infos()->delete();
         $portfolio->features()->delete();
         $portfolio->delete();
