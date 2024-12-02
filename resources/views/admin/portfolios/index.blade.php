@@ -20,19 +20,20 @@
     <div class="m-5">
         <div class="flex justify-evenly my-10">
             <div class="w-1/2">
-                @include('search', ['action' => request()->fullUrl()])
+                @include('search', ['action' => url()->full()])
             </div>
             <div class="w-1/2" x-data="{
                 sortBy(s) {
                     const url = `{{ request('sort') }}`
                     const page = `{{ request('page') }}`
+                    const search = `{{ request('search') }}`
 
-                    if (url && page) {
+                    if (url || page || search) {
                         window.location.href = '{{ request()->fullUrlWithoutQuery('sort') }}&sort=' + s
                         return
                     }
 
-                    window.location.href = '{{ request()->fullUrlWithoutQuery('sort') }}?sort=' + s
+                    window.location.href = '{{ request()->fullUrlWithoutQuery('sort') }}sort=' + s
 
                 },
             }">

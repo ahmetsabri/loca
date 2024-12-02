@@ -214,14 +214,24 @@ class Portfolio extends Model
 
     public function scopeSearch(Builder $builder)
     {
-        $keyword =request('search');
-        return $keyword ? $builder->whereAny(['title','ad_number'], 'like', "%$keyword%") : $builder;
+        $keyword = request('search');
+
+        if ($keyword) {
+            $builder->where(function ($query) use ($keyword) {
+                $query->whereRaw('LOWER(JSON_UNQUOTE(title->"$.tr")) like ?', ['%' . strtolower($keyword) . '%'])
+                      ->orWhere('ad_number', 'like', "%$keyword%");
+            });
+        }
+
+        return $builder;
     }
+
     public function scopeSort(Builder $builder)
     {
         $sort = request()->string('sort');
-        $field = $sort->remove('-')->value();
+        $field = $sort->replace('-','')->value();
         $dir = $sort->startsWith('-') ? 'desc' : 'asc';
+
         if (!in_array($field, ['created_at','price_in_tl'])) {
             return $builder;
         }
