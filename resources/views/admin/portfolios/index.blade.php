@@ -24,16 +24,31 @@
             </div>
             <div class="w-1/2" x-data="{
                 sortBy(s) {
+
                     const url = `{{ request('sort') }}`
                     const page = `{{ request('page') }}`
                     const search = `{{ request('search') }}`
 
-                    if (url || page || search) {
-                        window.location.href = '{{ request()->fullUrlWithoutQuery('sort') }}&sort=' + s
-                        return
+                    let newUrl = '{{ request()->fullUrlWithoutQuery('sort') }}'; // Start with the current URL without 'sort' query parameter
+
+                    // Add the 'sort' query parameter
+                    if (newUrl.includes('?')) {
+                        // If there are already other query parameters, append the sort parameter with '&'
+                        newUrl += '&sort=' + s;
+                    } else {
+                        // If there are no existing query parameters, add '?' and then 'sort'
+                        newUrl += '?sort=' + s;
                     }
 
-                    window.location.href = '{{ request()->fullUrlWithoutQuery('sort') }}sort=' + s
+                    // If `page` or `search` are present, ensure they are retained in the URL
+                    if (page) {
+                        newUrl += '&page=' + page;
+                    }
+                    if (search) {
+                        newUrl += '&search=' + search;
+                    }
+
+                    window.location.href = newUrl;
 
                 },
             }">
