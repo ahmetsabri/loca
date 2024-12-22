@@ -64,12 +64,13 @@
             <section class="content-field py-15 2xl:py-14 xl:py-13 lg:pt-12 md:pt-11 sm:pt-10 lg:pb-0">
                 <div class="wrapper max-w-1440 mx-auto w-full px-7.5 md:px-5">
                     <div
-                        class="content-wrapper grid grid-cols-[minmax(0,auto)_minmax(0,450px)] xl:grid-cols-[minmax(0,auto)_minmax(0,400px)] lg:grid-cols-[minmax(0,auto)_minmax(0,350px)] md:grid-cols-[minmax(0,auto)_minmax(0,300px)] sm:grid-cols-1 gap-10 lg:gap-8">
-                        <div class="inner-wrapper">
-                            <div class="image-outer-wrapper relative grid gap-3 mb-18 2xl:mb-15 xl:mb-12 lg:mb-10 md:mb-8">
-                                <div class="image-inner-wrapper flex relative">
+                        class="content-wrapper grid grid-cols-[minmax(0,auto)_minmax(0,450px)] xl:grid-cols-[minmax(0,auto)_minmax(0,400px)] lg:grid-cols-[minmax(0,auto)_minmax(0,350px)] md:grid-cols-[minmax(0,auto)_minmax(0,300px)] sm:grid-cols-1 gap-10 lg:gap-8 sm:gap-0">
+                        <div class="inner-wrapper sm:contents">
+                            <div
+                                class="image-outer-wrapper relative grid gap-3 mb-18 2xl:mb-15 xl:mb-12 lg:mb-10 md:mb-8 sm:order-1">
+                                <div class="image-inner-wrapper flex relative w-full h-auto aspect-[15/8] xs:aspect-[5/4]">
                                     <a href="{{ $portfolio->images->first()->full_url }}"
-                                        class="image block aspect-[15/8] xs:aspect-[5/4] overflow-hidden isolate rounded-6 md:rounded-3 translate-z-0 group"
+                                        class="image block aspect-[15/8] w-full h-full xs:aspect-[5/4] overflow-hidden isolate rounded-6 md:rounded-3 translate-z-0 group"
                                         data-fancybox="gallery"><img
                                             class=" full-cover translate-z-0 group-hover:scale-105 duration-450"
                                             src="{{ $portfolio->images->first()->full_url }}" alt=""
@@ -103,7 +104,7 @@
                                     @endforeach
                                 </div>
                             </div>
-                            <div class="item grid grid-cols-2/10 lg:grid-cols-1 gap-6">
+                            <div class="item grid grid-cols-2/10 lg:grid-cols-1 gap-6 sm:order-3 sm:mt-6">
                                 <div
                                     class="title text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950 capitalize">
                                     {{ __('description') }}
@@ -116,7 +117,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="split h-px w-full bg-black/11 my-10 xl:my-8 lg:my-6"></div>
+                            <div class="split h-px w-full bg-black/11 my-10 xl:my-8 lg:my-6 sm:order-4"></div>
                             @foreach ($portfolio->features->groupBy('feature.name') as $featureName => $features)
                                 <div class="item grid grid-cols-2/10 lg:grid-cols-1 gap-6">
                                     <div
@@ -170,7 +171,7 @@
                             </div>
                             <div class="split h-px w-full bg-black/11 my-10 xl:my-8 lg:my-6"></div>
                             <div
-                                class="item bg-white rounded-6 md:rolunded-3 p-6 grid grid-cols-4/8 md:grid-cols-2 sm:grid-cols-1 gap-18 2xl:gap-15 xl:gap-11 lg:gap-8 md:gap-6">
+                                class="item bg-white rounded-6 md:rolunded-3 p-6 grid grid-cols-4/8 md:grid-cols-2 sm:grid-cols-1 gap-18 2xl:gap-15 xl:gap-11 lg:gap-8 md:gap-6 sm:order-11">
                                 <div class="info-wrapper">
                                     <div class="image aspect-[3/4] overflow-hidden isolate rounded-3 w-full"><img
                                             class="full-cover" src="{{ $portfolio->user->image?->full_url }}"
@@ -287,7 +288,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="sidebar-wrapper">
+                        <div class="sidebar-wrapper sm:order-2">
                             <div class="sticky-el sticky top-0 duration-300">
                                 <div class="inner bg-[#8AA5D3]/15 rounded-4 md:rounded-3 p-7.5 sm:p-6">
                                     <div class="price text-5 font-semibold text-[#224391] px-1.5 mb-4">
