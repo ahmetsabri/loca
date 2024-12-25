@@ -141,11 +141,10 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="split h-px w-full bg-black/11 my-10 xl:my-8 lg:my-6"></div>
                             @endforeach
 
-                            <div class="item">
+                            <div class="item sm:order-9">
                                 <div
                                     class="heading-wrapper mb-6 flex items-center justify-between gap-7.5 sm:flex-col sm:items-start sm:gap-3">
                                     <div
@@ -154,15 +153,6 @@
                                         {{ __('general.location') }}
                                     </div>
                                     <div class="button-wrapper flex items-center gap-3">
-
-                                        {{-- <a href="javascript:void(0)"
-                                            class="button group/button relative duration-300 w-fit flex items-center gap-2 h-7.5 border border-solid border-[#2675FA] px-3 rounded-2 hover:border-tertiary-950">
-                                            <div
-                                                class="icon icon-fullscreen text-3 h-3 block leading-none duration-300 text-[#2675FA]">
-                                            </div>
-                                            <div class="text text-[#2675FA] font-semibold text-3.5 tracking-wider">HARİTAYI
-                                                BÜYÜT</div>
-                                        </a> --}}
                                     </div>
                                 </div>
                                 <div class="detail" style="width: 100%">
