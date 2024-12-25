@@ -107,7 +107,7 @@
                             <div class="item grid grid-cols-2/10 lg:grid-cols-1 gap-6 sm:order-3 sm:mt-6">
                                 <div
                                     class="title text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950 capitalize">
-                                    {{ __('description') }}
+                                    {{ __('general.description') }}
                                 </div>
                                 <div class="detail">
                                     <div class="text-editor text-editor-main">
@@ -118,31 +118,33 @@
                                 </div>
                             </div>
                             <div class="split h-px w-full bg-black/11 my-10 xl:my-8 lg:my-6 sm:order-4"></div>
-                            @foreach ($portfolio->features->groupBy('feature.name') as $featureName => $features)
-                                <div class="item grid grid-cols-2/10 lg:grid-cols-1 gap-6">
-                                    <div
-                                        class="title text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950 capitalize">
-                                        {{ $featureName }}
-                                    </div>
-                                    <div class="detail">
+                            <div class="item grid grid-cols-5/10 lg:grid-cols-1 gap-6 sm:order-5">
+                                @foreach ($portfolio->features->groupBy('feature.name') as $featureName => $features)
+                                    <div class="item grid grid-cols-2/10 lg:grid-cols-1 gap-6">
                                         <div
-                                            class="custom-list grid grid-cols-2 xs:grid-cols-1 gap-6 xl:gap-5 lg:gap-4 md:gap-3 sm:gap-2 xs:gap-1.5">
-                                            @foreach ($features as $feature)
-                                                <div class="item flex items-center gap-3">
-                                                    <div
-                                                        class="dot w-1.5 sm.w-1 aspect-square rounded-full bg-tertiary-950 shrink-0">
+                                            class="title text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950 capitalize">
+                                            {{ $featureName }}
+                                        </div>
+                                        <div class="detail">
+                                            <div
+                                                class="custom-list grid grid-cols-2 xs:grid-cols-1 gap-6 xl:gap-5 lg:gap-4 md:gap-3 sm:gap-2 xs:gap-1.5">
+                                                @foreach ($features as $feature)
+                                                    <div class="item flex items-center gap-3">
+                                                        <div
+                                                            class="dot w-1.5 sm.w-1 aspect-square rounded-full bg-tertiary-950 shrink-0">
+                                                        </div>
+                                                        <div
+                                                            class="text capitalize font-medium text-4.5 xl:text-4 md:text-3.5 text-tertiary-950">
+                                                            {{ $feature->option->name }}
+                                                        </div>
                                                     </div>
-                                                    <div
-                                                        class="text capitalize font-medium text-4.5 xl:text-4 md:text-3.5 text-tertiary-950">
-                                                        {{ $feature->option->name }}
-                                                    </div>
-                                                </div>
-                                            @endforeach
+                                                @endforeach
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="split h-px w-full bg-black/11 my-10 xl:my-8 lg:my-6"></div>
-                            @endforeach
+                                @endforeach
+                            </div>
+                            <div class="split h-px w-full bg-black/11 my-10 xl:my-8 lg:my-6 sm:order-6"></div>
 
                             <div class="item sm:order-9">
                                 <div
@@ -159,6 +161,7 @@
                                     @include('admin.portfolios.single_map', ['model' => $portfolio])
                                 </div>
                             </div>
+
                             <div class="split h-px w-full bg-black/11 my-10 xl:my-8 lg:my-6"></div>
                             <div
                                 class="item bg-white rounded-6 md:rolunded-3 p-6 grid grid-cols-4/8 md:grid-cols-2 sm:grid-cols-1 gap-18 2xl:gap-15 xl:gap-11 lg:gap-8 md:gap-6 sm:order-11">
