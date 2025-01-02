@@ -161,8 +161,8 @@
                                     @include('admin.portfolios.single_map', ['model' => $portfolio])
                                 </div>
                             </div>
+                            <div class="split h-px w-full bg-black/11 my-10 xl:my-8 lg:my-6 sm:order-10"></div>
 
-                            <div class="split h-px w-full bg-black/11 my-10 xl:my-8 lg:my-6"></div>
                             <div
                                 class="item bg-white rounded-6 md:rolunded-3 p-6 grid grid-cols-4/8 md:grid-cols-2 sm:grid-cols-1 gap-18 2xl:gap-15 xl:gap-11 lg:gap-8 md:gap-6 sm:order-11">
                                 <div class="info-wrapper">
