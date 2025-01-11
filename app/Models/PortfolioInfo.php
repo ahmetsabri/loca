@@ -24,4 +24,9 @@ class PortfolioInfo extends Model
     {
         return $this->belongsTo(InfoOption::class, 'value_id')->with('info');
     }
+
+    public function getValueText()
+    {
+        return is_null($this->value_id) ? $this->value : $this->load('option')->option->name;
+    }
 }

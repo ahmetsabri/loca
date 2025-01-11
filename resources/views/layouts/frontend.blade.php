@@ -12,7 +12,7 @@
     @if (isset($portfolio))
         <meta property="og:title" content="{{ $portfolio->title }}" />
         <meta property="og:site_name" content="remaxloca.com/" />
-        <meta property="og:image" itemprop="image" content="{{ $portfolio->images->first()->full_url }}" />
+        <meta property="og:image" itemprop="image" content="{{ $portfolio->getOg }}" />
         <meta property="og:url" content="{{ route('frontend.portfolio.show', $portfolio) }}" />
         <meta property="og:type" content="product" />
     @endif

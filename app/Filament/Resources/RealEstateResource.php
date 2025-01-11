@@ -28,6 +28,8 @@ use App\Forms\Components\RealestateInfosInput;
 use CodeWithDennis\FilamentSelectTree\SelectTree;
 use App\Filament\Resources\RealEstateResource\Pages;
 use App\Livewire\InfoInput;
+use App\Models\Feature;
+use App\Models\FeatureOption;
 use App\Models\Portfolio;
 use Filament\Forms\Components\Component;
 use Filament\Forms\Components\Grid;
@@ -176,9 +178,11 @@ class RealEstateResource extends Resource
                             if (! $categoryId) {
                                 return [];
                             }
-                            $category = Category::findOrFail($categoryId)->load('features');
+                            $features = Feature::where('category_id', $categoryId)
+                            ->pluck('id')
+                            ->toArray();
 
-                            return $category->features
+                            return FeatureOption::whereIn('feature_id', $features)
                                 ->pluck('name', 'id')
                                 ->toArray();
                         })
@@ -205,6 +209,9 @@ class RealEstateResource extends Resource
         return $table
             ->reorderable('sort')
             ->columns([
+
+                TextColumn::make('ad_number')->label('ilan no')
+                    ->searchable(),
                 TextColumn::make('title')->label('Başlık')
                     ->searchable(),
                 TextColumn::make('price')

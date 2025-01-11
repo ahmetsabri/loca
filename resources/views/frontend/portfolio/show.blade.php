@@ -69,15 +69,14 @@
                             <div
                                 class="image-outer-wrapper relative grid gap-3 mb-18 2xl:mb-15 xl:mb-12 lg:mb-10 md:mb-8 sm:order-1">
                                 <div class="image-inner-wrapper flex relative w-full h-auto aspect-[15/8] xs:aspect-[5/4]">
-                                    <a href="{{ $portfolio->images->first()->full_url }}"
+                                    <a href="{{ $portfolio->getOgImage() }}"
                                         class="image block aspect-[15/8] w-full h-full xs:aspect-[5/4] overflow-hidden isolate rounded-6 md:rounded-3 translate-z-0 group"
                                         data-fancybox="gallery"><img
                                             class=" full-cover translate-z-0 group-hover:scale-105 duration-450"
-                                            src="{{ $portfolio->images->first()->full_url }}" alt=""
-                                            loading="lazy"></a>
+                                            src="{{ $portfolio->getOgImage() }}" alt="" loading="lazy"></a>
                                     <div
                                         class="button-wrapper absolute bottom-0 right-0 lg:bottom-auto lg:top-0 p-4 flex items-center gap-2">
-                                        <a href="{{ $portfolio->images->last()->full_url }}" data-fancybox="gallery"
+                                        <a href="{{ $portfolio->getLastImage() }}" data-fancybox="gallery"
                                             class="button group/button bg-white h-12 md:h-11 sm:h-10 px-5 md:px-4 sm:px-3.5 rounded-3 flex items-center justify-center gap-3 sm:gap-2 duration-300 hover:bg-main-50">
                                             <div class="text text-[#454545] text-3.5 sm:text-3 font-medium">Tüm Fotoğraflar
                                             </div>
@@ -135,7 +134,7 @@
                                                         </div>
                                                         <div
                                                             class="text capitalize font-medium text-4.5 xl:text-4 md:text-3.5 text-tertiary-950">
-                                                            {{ $feature->option->name }}
+                                                            {{ $feature->option?->name ?? $feature->name }}
                                                         </div>
                                                     </div>
                                                 @endforeach
@@ -321,7 +320,7 @@
                                                 </div>
                                                 <div
                                                     class="value text-3.5 font-semibold text-tertiary-950 text-right capitalize">
-                                                    {{ $info->value }}
+                                                    {{ $info->getValueText() }}
                                                 </div>
                                             </div>
                                         @endforeach

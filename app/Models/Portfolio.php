@@ -91,7 +91,7 @@ class Portfolio extends Model implements HasMedia
                     unset($portfolio->attributes[$key]);
                 }
             }
-
+            unset($portfolio->attributes['features']);
             $portfolio->slug = str()->slug($portfolio->title);
             $rate = ExchangeRate::whereIn('currency', [CurrencyEnum::USD->value, CurrencyEnum::EUR->value])->get();
             $portfolio->price_in_usd = $portfolio->price_in_tl / $rate?->where('currency', CurrencyEnum::USD->value)?->first()?->rate ?? 1;
@@ -251,5 +251,14 @@ class Portfolio extends Model implements HasMedia
             return $builder;
         }
         return $field ? $builder->orderBy($field, $dir) : $builder;
+    }
+
+    public function getOgImage()
+    {
+        return $this->images?->first()?->full_url ?? $this->media->first()?->original_url;
+    }
+    public function getLastImage()
+    {
+        return $this->images?->last()?->full_url ?? $this->media?->last()?->original_url;
     }
 }
