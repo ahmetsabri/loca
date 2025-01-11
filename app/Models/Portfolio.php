@@ -8,12 +8,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Number;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Translatable\HasTranslations;
 
-class Portfolio extends Model
+class Portfolio extends Model implements HasMedia
 {
     use HasFactory;
     use HasTranslations;
+
+    use  InteractsWithMedia;
+
 
     protected $guarded = [];
 
@@ -31,7 +36,7 @@ class Portfolio extends Model
 
     public function infos()
     {
-        return $this->hasMany(PortfolioInfo::class)->where('value->tr', '<>', null)->with('info');
+        return $this->hasMany(PortfolioInfo::class)->with('info');
     }
 
     public function options()
@@ -42,6 +47,10 @@ class Portfolio extends Model
     public function features()
     {
         return $this->hasMany(PortfolioFeature::class)->with('feature')->with('option');
+    }
+    public function featuresMany()
+    {
+        return $this->belongsToMany(Feature::class, 'portfolio_features')->withPivot('feature_option_id');
     }
 
     public function category()
@@ -77,6 +86,12 @@ class Portfolio extends Model
             });
         });
         static::saving(function (self $portfolio) {
+            foreach ($portfolio->attributes as $key => $value) {
+                if (str_contains($key, 'info_')) {
+                    unset($portfolio->attributes[$key]);
+                }
+            }
+
             $portfolio->slug = str()->slug($portfolio->title);
             $rate = ExchangeRate::whereIn('currency', [CurrencyEnum::USD->value, CurrencyEnum::EUR->value])->get();
             $portfolio->price_in_usd = $portfolio->price_in_tl / $rate?->where('currency', CurrencyEnum::USD->value)?->first()?->rate ?? 1;
@@ -229,7 +244,7 @@ class Portfolio extends Model
     public function scopeSort(Builder $builder)
     {
         $sort = request()->string('sort');
-        $field = $sort->replace('-','')->value();
+        $field = $sort->replace('-', '')->value();
         $dir = $sort->startsWith('-') ? 'desc' : 'asc';
 
         if (!in_array($field, ['created_at','price_in_tl'])) {

@@ -7,12 +7,15 @@ use App\Models\User;
 
 class CategoryPolicy
 {
+    public function before($x, $y)
+    {
+        return true;
+    }
     /**
      * Determine whether the user can view any models.
      */
     public function viewAny(User $user): bool
     {
-        //
     }
 
     /**

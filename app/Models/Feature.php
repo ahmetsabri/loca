@@ -30,4 +30,9 @@ class Feature extends Model
         $keyword =request('search');
         return $keyword ? $builder->whereAny(['name'], 'like', "%$keyword%") : $builder;
     }
+
+    public function getTreeAttribute()
+    {
+        return $this->load('category.bloodline')->category->bloodline->pluck('name')->reverse()->implode(' > ');
+    }
 }

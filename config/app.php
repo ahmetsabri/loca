@@ -125,7 +125,7 @@ return [
 
     'locales' => [
         'tr',
-        'ru',
-        'en',
+        // 'ru',
+        // 'en',
     ],
 ];

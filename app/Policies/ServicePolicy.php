@@ -7,6 +7,10 @@ use App\Models\User;
 
 class ServicePolicy
 {
+    public function before($x, $y)
+    {
+        return true;
+    }
     /**
      * Determine whether the user can view any models.
      */

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Filament\Models\Contracts\FilamentUser;
+use Filament\Support\Concerns\HasMediaFilter;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -10,12 +11,16 @@ use Spatie\Translatable\HasTranslations;
 
 
 use Filament\Panel;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class User extends Authenticatable implements FilamentUser
+class User extends Authenticatable implements FilamentUser, HasMedia
 {
     use HasFactory;
     use HasTranslations;
     use Notifiable;
+    use  InteractsWithMedia;
+
 
     public $translatable = ['bio', 'title'];
 
@@ -76,6 +81,9 @@ class User extends Authenticatable implements FilamentUser
             parent::boot();
             static::saving(function (self $user) {
                 $user->slug = str()->slug($user->name);
+                if (!$user->password) {
+                    $user->password = bcrypt(str()->random());
+                }
             });
         }
 
