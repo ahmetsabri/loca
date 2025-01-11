@@ -2,12 +2,16 @@
 
 namespace App\Models;
 
+use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Translatable\HasTranslations;
 
-class User extends Authenticatable
+
+use Filament\Panel;
+
+class User extends Authenticatable implements FilamentUser
 {
     use HasFactory;
     use HasTranslations;
@@ -85,4 +89,9 @@ class User extends Authenticatable
                     'fb' => sprintf(config('keys.fb_share_link'), route('frontend.user.show', $this)),
                 ];
             }
+
+               public function canAccessPanel(Panel $panel): bool
+               {
+                   return $this->email === 'admin@mail.com';
+               }
 }
