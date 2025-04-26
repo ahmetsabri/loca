@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-@section('title', 'LocaMag | RE/MAX Loca')
+@section('title', 'LocaMag | W Property')
 @section('content')
     <main class="main-field relative pt-[134px] sm:pt-[124px]">
 

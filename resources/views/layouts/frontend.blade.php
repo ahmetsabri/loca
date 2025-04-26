@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>@yield('title', 'RE/MAX Loca')</title>
+    <title>@yield('title', 'W Property')</title>
     <link rel="shortcut icon" href="{{ asset('image/trademark/favicon.webp') }}" type="image/x-icon">
     <script type="module" src="{{ asset('script/script.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('style/style.css') }}">
@@ -56,27 +56,27 @@
                             <div class="icon icon-tiktok text-4 h-4 block leading-none relative z-2"></div>
                         </a>
                     </div>
-                    <a href="tel:+90 543 21 21 212"
+                    <a href="tel:+90 (532) 427 59 36"
                         class="text-3.5 text-white draw-child-underline [--line-color:#FFFFFF]">
                         <span class="font-semibold">TR</span>
-                        <span class="font-medium draw-el">+90 543 21 21 212</span>
+                        <span class="font-medium draw-el">+90 (532) 427 59 36</span>
                     </a>
-                    <a href="tel:+90 543 21 21 212"
+                    <a href="tel:+90 (533) 305 97 79"
                         class="text-3.5 text-white draw-child-underline [--line-color:#FFFFFF]">
-                        <span class="font-semibold">KZ</span>
-                        <span class="font-medium draw-el">+90 543 21 21 212</span>
+                        <span class="font-semibold">EN</span>
+                        <span class="font-medium draw-el">+90 (533) 305 97 79</span>
                     </a>
-                    <a href="tel:+90 543 21 21 212"
+                    <a href="tel:+90 (531) 221 81 41"
                         class="text-3.5 text-white draw-child-underline [--line-color:#FFFFFF]">
-                        <span class="font-semibold">UA</span>
-                        <span class="font-medium draw-el">+90 543 21 21 212</span>
+                        <span class="font-semibold">RU</span>
+                        <span class="font-medium draw-el">+90 (531) 221 81 41</span>
                     </a>
                 </div>
                 <div class="right-wrapper flex items-center lg:hidden">
-                    <a href="mailto:info@remaxloca.com"
+                    <a href="mailto:info@wproperty.com.tr"
                         class="flex items-center gap-2 text-3.5 text-[#8AA5D3] draw-child-underline [--line-color:#8AA5D3]">
                         <div class="icon icon-email-1 text-4 h-4 block leading-none duration-300"></div>
-                        <div class="text font-medium"><span class="draw-el">info@remaxloca.com</span></div>
+                        <div class="text font-medium"><span class="draw-el">info@wproperty.com.tr</span></div>
                     </a>
                 </div>
                 <div class="language-wrapper relative group/wrapper hidden lg:block">
@@ -230,7 +230,7 @@
                             <li class="group/li flex">
                                 <a href="{{ route('videos') }}" class="flex items-center gap-2">
                                     <span
-                                        class="text text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">LOCA</span>
+                                        class="text text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900 min-lg:group-[&:not(.scroll-down)]/header:text-white min-lg:group-[&:not(.scroll-down)]/header:group-hover/li:text-main-100">W</span>
                                     <img class="w-6 h-auto object-contain object-center block pointer-events-none"
                                         src="{{ asset('image/static/1.webp') }}" alt="" loading="lazy">
                                 </a>
@@ -278,7 +278,7 @@
                             <li class="group/li flex">
                                 <a href="{{ route('videos') }}" class="flex items-center gap-2">
                                     <span
-                                        class="text text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">LOCA</span>
+                                        class="text text-tertiary-950 font-medium text-3.5 duration-300 group-hover/li:text-main-900">W</span>
                                     <img class="w-6 h-auto object-contain object-center block pointer-events-none"
                                         src="{{ asset('image/static/1.webp') }}" alt="" loading="lazy">
                                 </a>
@@ -287,25 +287,25 @@
                     @endif
                     <div class="split hidden lg:block w-full h-px my-7.5 bg-tertiary-950/10"></div>
                     <div class="content-wrapper hidden lg:grid gap-4.5">
-                        <a href="tel:+90 543 21 21 212"
+                        <a href="tel:+90 (532) 427 59 36"
                             class="text-3.5 text-main-900 draw-child-underline [--line-color:#144495]">
                             <span class="font-semibold">TR</span>
-                            <span class="font-medium draw-el">+90 543 21 21 212</span>
+                            <span class="font-medium draw-el">+90 (532) 427 59 36</span>
                         </a>
-                        <a href="tel:+90 543 21 21 212"
+                        <a href="tel:+90 (533) 305 97 79"
                             class="text-3.5 text-main-900 draw-child-underline [--line-color:#144495]">
-                            <span class="font-semibold">KZ</span>
-                            <span class="font-medium draw-el">+90 543 21 21 212</span>
+                            <span class="font-semibold">EN</span>
+                            <span class="font-medium draw-el">+90 (533) 305 97 79</span>
                         </a>
-                        <a href="tel:+90 543 21 21 212"
+                        <a href="tel:+90 (531) 221 81 41"
                             class="text-3.5 text-main-900 draw-child-underline [--line-color:#144495]">
-                            <span class="font-semibold">UA</span>
-                            <span class="font-medium draw-el">+90 543 21 21 212</span>
+                            <span class="font-semibold">RU</span>
+                            <span class="font-medium draw-el">+90 (531) 221 81 41</span>
                         </a>
-                        <a href="mailto:info@remaxloca.com"
+                        <a href="mailto:info@wproperty.com.tr"
                             class="flex items-center gap-2 text-3.5 text-main-900 draw-child-underline [--line-color:#144495]">
                             <div class="icon icon-email-1 text-4 h-4 block leading-none duration-300"></div>
-                            <div class="text font-medium"><span class="draw-el">info@remaxloca.com</span></div>
+                            <div class="text font-medium"><span class="draw-el">info@wproperty.com.tr</span></div>
                         </a>
                         <div class="split hidden lg:block w-full h-px bg-tertiary-950/10"></div>
                         <a href="{{ route('buy_sell') }}"
@@ -584,7 +584,7 @@
                                 src="{{ asset('image/static/2.webp') }}" alt="" loading="lazy"></a>
                         <a href="{{ route('videos') }}"
                             class="button group/button relative duration-300 flex items-center justify-center gap-3 h-14 bg-[#34425A] px-3 rounded-2 hover:bg-main-900 sm:w-ful">
-                            <span class="text text-white font-medium text-6">LOCA</span>
+                            <span class="text text-white font-medium text-6">W</span>
                             <img class="w-7.5 h-auto object-contain object-center block pointer-events-none"
                                 src="{{ asset('image/static/1.webp') }}" alt="" loading="lazy">
                         </a>
@@ -654,7 +654,7 @@
                             <div class="icon icon-email-1 text-5 h-5 block leading-none duration-300 text-[#2675FA]">
                             </div>
                             <div class="text text-[#8AA5D3] text-3.5 font-medium"><span
-                                    class="draw-el">info@remax-loca-mrs.com</span></div>
+                                    class="draw-el">info@wproperty.com.tr</span></div>
                         </a>
 
                         <div class="address-wrapper">
@@ -774,7 +774,7 @@
                 </div>
                 <div class="split w-full h-px bg-[#34425A]/75"></div>
                 <div class="copyright-wrapper py-7.5">
-                    <div class="text text-white text-3.5 font-medium sm:text-center">© {{ date('Y') }} Remax Loca
+                    <div class="text text-white text-3.5 font-medium sm:text-center">© {{ date('Y') }} W Property
                     </div>
                 </div>
             </div>

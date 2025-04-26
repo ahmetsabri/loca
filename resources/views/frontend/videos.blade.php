@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title', 'Loca TV | RE/MAX Loca ')
+@section('title', 'Loca TV | W Property ')
 @section('content')
 
     <main class="main-field relative pt-[134px] sm:pt-[124px]">
@@ -15,7 +15,7 @@
                     <div class="title-wrapper flex items-center justify-center gap-4 xl:gap-3 md:gap-2">
                         <h1
                             class="title text-center font-semibold text-white text-11 2xl:text-10 xl:text-8 lg:text-7 md:text-6 sm:text-5.5 tracking-[0.15em] lg:tracking-widest sm:tracking-wider leading-tight">
-                            LOCA</h1>
+                            W</h1>
                         <img class="w-14 2xl:w-13 xl:w-12 lg:w-11 md:w-8 sm:w-6 aspect-square object-contain object-center block pointer-events-none"
                             src="{{ asset('image/static/1.webp') }}" alt="" loading="lazy">
                     </div>
@@ -23,12 +23,12 @@
                         class="tags flex items-center justify-center flex-wrap gap-x-10 2xl:gap-x-9 xl:gap-x-8 lg:gap-x-6 md:gap-x-4 sm:gap-x-2 gap-y-2 md:gap-y-1.5 sm:gap-y-0.5">
                         <div
                             class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
-                            #LOCAdaYeriniAL</div>
-                        <!--<a href="javascript:void(0)" class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0] hover:text-white">#LOCAdaYeriniAL</a>-->
+                            #WdeYeriniAL</div>
+                        <!--<a href="javascript:void(0)" class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0] hover:text-white">#WdeYeriniAL</a>-->
                         <div
                             class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
-                            #LocaFarkYaratır</div>
-                        <!--<a href="javascript:void(0)" class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0] hover:text-white">#LocaFarkYaratır</a>-->
+                            #WFarkYaratır</div>
+                        <!--<a href="javascript:void(0)" class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0] hover:text-white">#WFarkYaratır</a>-->
                         <div
                             class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
                             #eskiusulemlakçılığason</div>

@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title',$user->name.' | RE/MAX Loca')
+@section('title',$user->name.' | W Property')
 @section('content')
 
 <soho-technologies class="block">
@@ -45,10 +45,10 @@
                         class="tags flex items-center justify-center flex-wrap gap-x-10 2xl:gap-x-9 xl:gap-x-8 lg:gap-x-6 md:gap-x-4 sm:gap-x-2 gap-y-2 md:gap-y-1.5 sm:gap-y-0.5">
                         <div
                             class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
-                            #LOCAdaYeriniAL</div>
+                            #WdeYeriniAL</div>
                         <div
                             class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
-                            #LocaFarkYaratır</div>
+                            #WFarkYaratır</div>
                         <div
                             class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
                             #eskiusulemlakçılığason</div>

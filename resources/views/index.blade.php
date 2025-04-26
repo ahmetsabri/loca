@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title', 'RE/MAX LOCA')
+@section('title', 'W Property')
 
 @section('content')
 
@@ -78,16 +78,16 @@
                                     class="tags flex items-center md:justify-center flex-wrap gap-x-10 2xl:gap-x-9 xl:gap-x-8 lg:gap-x-6 md:gap-x-4 sm:gap-x-2 gap-y-2 md:gap-y-1.5 sm:gap-y-0.5 mt-7.5 2xl:mt-6 xl:mt-5 lg:mt-4 md:mt-3">
                                     <div
                                         class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
-                                        #LOCAdaYeriniAL</div>
+                                        #WdeYeriniAL</div>
                                     <div
                                         class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
-                                        #LocaFarkYaratır</div>
+                                        #WFarkYaratır</div>
                                     <div
                                         class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
                                         #EskiUsulEmlakçılığaSon</div>
                                     <div
                                         class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
-                                        #SizinİçinEnİyisiLOCA</div>
+                                        #SizinİçinEnİyisiW</div>
                                 </div>
                             </div>
                         </div>
@@ -100,16 +100,16 @@
                                     class="tags flex items-center md:justify-center flex-wrap gap-x-10 2xl:gap-x-9 xl:gap-x-8 lg:gap-x-6 md:gap-x-4 sm:gap-x-2 gap-y-2 md:gap-y-1.5 sm:gap-y-0.5 mt-7.5 2xl:mt-6 xl:mt-5 lg:mt-4 md:mt-3">
                                     <div
                                         class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
-                                        #LOCAdaYeriniAL</div>
+                                        #WdeYeriniAL</div>
                                     <div
                                         class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
-                                        #LocaFarkYaratır</div>
+                                        #WFarkYaratır</div>
                                     <div
                                         class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
                                         #EskiUsulEmlakçılığaSon</div>
                                     <div
                                         class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
-                                        #SizinİçinEnİyisiLOCA</div>
+                                        #SizinİçinEnİyisiW</div>
                                 </div>
                             </div>
                         </div>
@@ -122,16 +122,16 @@
                                     class="tags flex items-center md:justify-center flex-wrap gap-x-10 2xl:gap-x-9 xl:gap-x-8 lg:gap-x-6 md:gap-x-4 sm:gap-x-2 gap-y-2 md:gap-y-1.5 sm:gap-y-0.5 mt-7.5 2xl:mt-6 xl:mt-5 lg:mt-4 md:mt-3">
                                     <div
                                         class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
-                                        #LOCAdaYeriniAL</div>
+                                        #WdeYeriniAL</div>
                                     <div
                                         class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
-                                        #LocaFarkYaratır</div>
+                                        #WFarkYaratır</div>
                                     <div
                                         class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
                                         #EskiUsulEmlakçılığaSon</div>
                                     <div
                                         class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
-                                        #SizinİçinEnİyisiLOCA</div>
+                                        #SizinİçinEnİyisiW</div>
                                 </div>
                             </div>
                         </div>
@@ -487,7 +487,7 @@
                                 <div
                                     class="image aspect-[71/55] overflow-hidden isolate !rounded-bl-0 !rounded-br-0 rounded-8 xl:rounded-6 md:rounded-3">
                                     <img class="full-cover translate-z-0 duration-450 group-hover:scale-105"
-                                        src="{{ asset('image/photo/is_yeri_kategori.webp') }}" alt="RE/MAX Loca"
+                                        src="{{ asset('image/photo/is_yeri_kategori.webp') }}" alt="W Property"
                                         loading="lazy">
                                 </div>
                                 <div class="content p-6">
@@ -507,7 +507,7 @@
                                 <div
                                     class="image aspect-[71/55] overflow-hidden isolate !rounded-bl-0 !rounded-br-0 rounded-8 xl:rounded-6 md:rounded-3">
                                     <img class="full-cover translate-z-0 duration-450 group-hover:scale-105"
-                                        src="{{ asset('image/photo/konut_kategori.webp') }}" alt="RE/MAX Loca"
+                                        src="{{ asset('image/photo/konut_kategori.webp') }}" alt="W Property"
                                         loading="lazy">
                                 </div>
                                 <div class="content p-6">
@@ -526,7 +526,7 @@
                                 <div
                                     class="image aspect-[71/55] overflow-hidden isolate !rounded-bl-0 !rounded-br-0 rounded-8 xl:rounded-6 md:rounded-3">
                                     <img class="full-cover translate-z-0 duration-450 group-hover:scale-105"
-                                        src="{{ asset('image/photo/turistik_tesis_kategori.webp') }}" alt="RE/MAX Loca"
+                                        src="{{ asset('image/photo/turistik_tesis_kategori.webp') }}" alt="W Property"
                                         loading="lazy">
                                 </div>
                                 <div class="content p-6">
@@ -545,7 +545,7 @@
                                 <div
                                     class="image aspect-[71/55] overflow-hidden isolate !rounded-bl-0 !rounded-br-0 rounded-8 xl:rounded-6 md:rounded-3">
                                     <img class="full-cover translate-z-0 duration-450 group-hover:scale-105"
-                                        src="{{ asset('image/photo/devre_mulk_kategori.webp') }}" alt="RE/MAX Loca"
+                                        src="{{ asset('image/photo/devre_mulk_kategori.webp') }}" alt="W Property"
                                         loading="lazy">
                                 </div>
                                 <div class="content p-6">
@@ -564,7 +564,7 @@
                                 <div
                                     class="image aspect-[71/55] overflow-hidden isolate !rounded-bl-0 !rounded-br-0 rounded-8 xl:rounded-6 md:rounded-3">
                                     <img class="full-cover translate-z-0 duration-450 group-hover:scale-105"
-                                        src="{{ asset('image/photo/bina_kategori.webp') }}" alt="RE/MAX Loca"
+                                        src="{{ asset('image/photo/bina_kategori.webp') }}" alt="W Property"
                                         loading="lazy">
                                 </div>
                                 <div class="content p-6">
@@ -583,7 +583,7 @@
                                 <div
                                     class="image aspect-[71/55] overflow-hidden isolate !rounded-bl-0 !rounded-br-0 rounded-8 xl:rounded-6 md:rounded-3">
                                     <img class="full-cover translate-z-0 duration-450 group-hover:scale-105"
-                                        src="{{ asset('image/photo/arsa_kategori.webp') }}" alt="RE/MAX Loca"
+                                        src="{{ asset('image/photo/arsa_kategori.webp') }}" alt="W Property"
                                         loading="lazy">
                                 </div>
                                 <div class="content p-6">
@@ -810,7 +810,7 @@
         <div class="wrapper max-w-1440 mx-auto w-full px-7.5">
             <h3 class="title flex items-center justify-center gap-3">
                 <div class="text text-11 2xl:text-9 xl:text-8 lg:text-6 md:text-5 font-semibold text-tertiary-950">
-                    Loca</div>
+                    W</div>
                 <img class="w-14 xl:w-12 lg:w-10 sm:w-8 aspect-square object-contain object-center block"
                     src="{{ asset('image/static/1.webp') }}" alt="" loading="lazy">
             </h3>

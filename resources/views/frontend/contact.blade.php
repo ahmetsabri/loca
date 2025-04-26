@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title', ' İletişim | RE/MAX Loca')
+@section('title', ' İletişim | W Property')
 @section('content')
 
     <main class="main-field relative pt-[134px] sm:pt-[124px]">
@@ -54,7 +54,7 @@
                                     </div>
                                 </div>
 
-                                <a href="mailto:info@remax-loca-mrs.com"
+                                <a href="mailto:info@wproperty.com.tr"
                                     class="flex items-start gap-4 draw-child-underline [--line-color:#FFFFFF]">
                                     <div
                                         class="icon icon-email-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
@@ -62,7 +62,7 @@
                                     <div class="text-wrapper">
                                         <div class="title text-3 text-white">{{ __('general.email') }}</div>
                                         <div class="text text-white text-3.5 font-medium"><span
-                                                class="draw-el">info@remax-loca-mrs.com</span></div>
+                                                class="draw-el">info@wproperty.com.tr</span></div>
                                     </div>
                                 </a>
                             </div>
@@ -138,7 +138,7 @@
                                     </div>
                                 </div>
 
-                                <a href="mailto:info@remax-loca-mrs.com"
+                                <a href="mailto:info@wproperty.com.tr"
                                     class="flex items-start gap-4 draw-child-underline [--line-color:#FFFFFF]">
                                     <div
                                         class="icon icon-email-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
@@ -146,7 +146,7 @@
                                     <div class="text-wrapper">
                                         <div class="title text-3 text-white">{{ __('general.email') }}</div>
                                         <div class="text text-white text-3.5 font-medium"><span
-                                                class="draw-el">info@remax-loca-mrs.com</span></div>
+                                                class="draw-el">info@wproperty.com.tr</span></div>
                                     </div>
                                 </a>
                             </div>
