@@ -10,10 +10,9 @@
             <div
                 class="inner rounded-6 md:rounded-3 relative overflow-hidden isolate translate-z-0 py-28 2xl:py-24 xl:py-20 lg:py-16 md:py-12">
                 <div class="background-wrapper absolute left-0 top-0 w-full h-full bg-tertiary-950">
-                    <img class="full-cover opacity-15" src="assets/image/photo/3.webp" alt="" loading="lazy">
+                    <img class="full-cover opacity-15" src="{{ asset('image/photo/3.webp') }}" alt="" loading="lazy">
                 </div>
-                <div
-                    class="wrapper max-w-1440 mx-auto w-full px-7.5 relative z-2 grid gap-6 xl:gap-5 lg:gap-4 sm:gap-3">
+                <div class="wrapper max-w-1440 mx-auto w-full px-7.5 relative z-2 grid gap-6 xl:gap-5 lg:gap-4 sm:gap-3">
                     <h1
                         class="title text-center font-semibold text-white text-11 2xl:text-10 xl:text-8 lg:text-7 md:text-6 sm:text-5.5 tracking-[0.15em] lg:tracking-widest sm:tracking-wider leading-tight">
                         {{ __('general.team') }}
@@ -30,12 +29,17 @@
                         <!--<a href="javascript:void(0)" class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0] hover:text-white">#WFarkYaratır</a>-->
                         <div
                             class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
-                            #eskiusulemlakçılığason</div>
+                            #EskiUsulEmlakçılığaSon</div>
                         <!--<a href="javascript:void(0)" class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0] hover:text-white">#eskiusulemlakçılığason</a>-->
+                        <div
+                            class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
+                            #SizinİçinEnİyisiW</div>
+                        <!--<a href="javascript:void(0)" class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0] hover:text-white">#SizinİçinEnİyisiW</a>-->
                     </div>
                 </div>
             </div>
         </section>
+
         <section class="team-field py-20 2xl:py-16 xl:py-14 lg:py-12 md:py-11 sm:py-10">
             <div class="wrapper max-w-1440 mx-auto w-full px-7.5 md:px-5">
                 <div

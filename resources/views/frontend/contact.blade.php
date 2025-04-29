@@ -29,7 +29,7 @@
                         <div class="detail-wrapper grid grid-cols-2 sm:grid-cols-1 gap-6">
                             <div class="inner grid gap-8 2xl:gap-6 xl:gap-4">
                                 <div class="item-wrapper">
-                                    <a href="https://maps.app.goo.gl/KYeR8YfndhggKMDB8"
+                                    <a href="https://maps.app.goo.gl/6HRwcJkGJQd8ni4J8"
                                         class="flex items-start gap-4 draw-child-underline [--line-color:#FFFFFF]">
                                         <div
                                             class="icon icon-location-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
@@ -37,12 +37,11 @@
                                         <div class="text-wrapper">
                                             <div class="title text-3 text-white">{{ __('general.address') }}</div>
                                             <div class="text text-white text-3.5 font-medium"><span
-                                                    class="draw-el">Dumlupınar Mahallesi.1524 Sokak. Oğuz İş Merkezi
-                                                    No:2/1 Yenişehir / Mersin</span></div>
+                                                    class="draw-el">50. Yıl Mah. 15. Cad. Ekinci Solaris Sitesi A Blok No:40/AD Yenişehir/MERSİN</span></div>
                                         </div>
                                     </a>
                                     <div class="button-wrapper ml-4 pl-5 mt-3">
-                                        <a href="https://maps.app.goo.gl/KYeR8YfndhggKMDB8"
+                                        <a href="https://maps.app.goo.gl/6HRwcJkGJQd8ni4J8"
                                             class="button group/button relative duration-300 w-fit flex items-center gap-2 h-8.5 border border-solid border-[#8AA5D3]/25 px-3 rounded-2 hover:border-[#8AA5D3]/50">
                                             <div
                                                 class="icon icon-map-1 text-3 h-3 block leading-none duration-300 text-[#2675FA]">
@@ -60,7 +59,7 @@
                                         class="icon icon-email-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
                                     </div>
                                     <div class="text-wrapper">
-                                        <div class="title text-3 text-white">{{ __('general.email') }}</div>
+                                        <div class="title text-3 text-white">{{ __('general.email_office') }}</div>
                                         <div class="text text-white text-3.5 font-medium"><span
                                                 class="draw-el">info@wproperty.com.tr</span></div>
                                     </div>
@@ -86,7 +85,7 @@
                                         class="icon icon-cellphone-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
                                     </div>
                                     <div class="text-wrapper">
-                                        <div class="title text-3 text-white capitalize">{{ __('general.phone') }} 1</div>
+                                        <div class="title text-3 text-white capitalize">{{ __('general.phone_office') }} 1</div>
                                         <div class="text text-white text-4 font-medium"><span class="draw-el">+90 (532)
                                                 427 59 36</span></div>
                                     </div>
@@ -97,7 +96,7 @@
                                         class="icon icon-cellphone-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
                                     </div>
                                     <div class="text-wrapper">
-                                        <div class="title text-3 text-white capitalize">{{ __('general.phone') }} 2</div>
+                                        <div class="title text-3 text-white capitalize">{{ __('general.phone_office') }} 2</div>
                                         <div class="text text-white text-4 font-medium"><span class="draw-el">+90 (533)140
                                                 36 29</span></div>
                                     </div>
@@ -120,8 +119,7 @@
                                         <div class="text-wrapper">
                                             <div class="title text-3 text-white">{{ __('general.address') }}</div>
                                             <div class="text text-white text-3.5 font-medium"><span class="draw-el">Deniz
-                                                    Mahallesi, Gazipaşa Cadddesi, Akbusi Sitesi AltıNo:56/B Mezitli /
-                                                    Mersin</span></div>
+                                                    Mah. Gazipaşa Cad. Akbusi Sitesi Altı No:56/B Mezitli/MERSİN</span></div>
                                         </div>
                                     </a>
                                     <div class="button-wrapper ml-4 pl-5 mt-3">
@@ -144,7 +142,7 @@
                                         class="icon icon-email-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
                                     </div>
                                     <div class="text-wrapper">
-                                        <div class="title text-3 text-white">{{ __('general.email') }}</div>
+                                        <div class="title text-3 text-white">{{ __('general.email_office') }}</div>
                                         <div class="text text-white text-3.5 font-medium"><span
                                                 class="draw-el">info@wproperty.com.tr</span></div>
                                     </div>
@@ -171,7 +169,7 @@
                                         class="icon icon-cellphone-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
                                     </div>
                                     <div class="text-wrapper">
-                                        <div class="title text-3 text-white capitalize">{{ __('general.phone') }} 1</div>
+                                        <div class="title text-3 text-white capitalize">{{ __('general.phone_office') }} 1</div>
                                         <div class="text text-white text-4 font-medium"><span class="draw-el">+90 (532)427
                                                 59 36</span></div>
                                     </div>
@@ -182,7 +180,7 @@
                                         class="icon icon-cellphone-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
                                     </div>
                                     <div class="text-wrapper">
-                                        <div class="title text-3 text-white capitalize">{{ __('general.phone') }} 2</div>
+                                        <div class="title text-3 text-white capitalize">{{ __('general.phone_office') }} 2</div>
                                         <div class="text text-white text-4 font-medium"><span class="draw-el">+90 (533)140
                                                 36 29</span></div>
                                     </div>

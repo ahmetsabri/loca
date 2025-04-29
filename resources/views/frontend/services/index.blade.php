@@ -38,6 +38,7 @@
                 </div>
             </div>
         </section>
+        
         <section class="content-field py-20 2xl:py-16 xl:py-14 lg:py-12 md:py-11 sm:py-10">
             <div class="wrapper max-w-1440 mx-auto w-full px-7.5 md:px-5">
                 <div class="heading-wrapper mb-16 2xl:mb-12 xl:mb-9 lg:mb-6 md:mb-3">
