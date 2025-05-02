@@ -64,6 +64,18 @@
                                                 class="draw-el">info@wproperty.com.tr</span></div>
                                     </div>
                                 </a>
+                                <a href="tel:+90 (532) 427 59 36"
+                                    class="flex items-start gap-4 draw-child-underline [--line-color:#FFFFFF]">
+                                    <div
+                                        class="icon icon-cellphone-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
+                                    </div>
+                                    <div class="text-wrapper">
+                                        <div class="title text-3 text-white capitalize">{{ __('general.phone_office') }}</div>
+                                        <div class="text text-white text-4 font-medium"><span class="draw-el">+90 (532)
+                                                427 59 36</span></div>
+                                    </div>
+                                </a>
+
                             </div>
                             <div class="split h-px w-full bg-white/10 hidden sm:block"></div>
                             <div class="inner grid gap-5 2xl:gap-4 xl:gap-3 justify-end sm:justify-start">
@@ -79,115 +91,10 @@
                                                 325 30 30</span></div>
                                     </div>
                                 </a>
-                                <a href="tel:+90 (532) 427 59 36"
-                                    class="flex items-start gap-4 draw-child-underline [--line-color:#FFFFFF]">
-                                    <div
-                                        class="icon icon-cellphone-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
-                                    </div>
-                                    <div class="text-wrapper">
-                                        <div class="title text-3 text-white capitalize">{{ __('general.phone_office') }} 1</div>
-                                        <div class="text text-white text-4 font-medium"><span class="draw-el">+90 (532)
-                                                427 59 36</span></div>
-                                    </div>
-                                </a>
-                                <a href="tel:+90 (533)140 36 29"
-                                    class="flex items-start gap-4 draw-child-underline [--line-color:#FFFFFF]">
-                                    <div
-                                        class="icon icon-cellphone-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
-                                    </div>
-                                    <div class="text-wrapper">
-                                        <div class="title text-3 text-white capitalize">{{ __('general.phone_office') }} 2</div>
-                                        <div class="text text-white text-4 font-medium"><span class="draw-el">+90 (533)140
-                                                36 29</span></div>
-                                    </div>
-                                </a>
                             </div>
                         </div>
                     </div>
-                    <div
-                        class="box rounded-6 md:!rounded-3 !rounded-tr-0 !rounded-br-0  bg-gradient-to-tr from-[#182F56] to-tertiary-950 py-11 2xl:py-9 xl:py-7 px-16 2xl:px-12 xl:px-10 md:px-7.5">
-                        <div class="title text-white text-5 xl:text-4.5 lg:text-4 font-semibold mb-6 xl:mb-5 lg:mb-4">
-                            Tece Ofis</div>
-                        <div class="detail-wrapper grid grid-cols-2 sm:grid-cols-1 gap-6">
-                            <div class="inner grid gap-8 2xl:gap-6 xl:gap-4">
-                                <div class="item-wrapper">
-                                    <a href="https://maps.app.goo.gl/KYeR8YfndhggKMDB8"
-                                        class="flex items-start gap-4 draw-child-underline [--line-color:#FFFFFF]">
-                                        <div
-                                            class="icon icon-location-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
-                                        </div>
-                                        <div class="text-wrapper">
-                                            <div class="title text-3 text-white">{{ __('general.address') }}</div>
-                                            <div class="text text-white text-3.5 font-medium"><span class="draw-el">Deniz
-                                                    Mah. Gazipaşa Cad. Akbusi Sitesi Altı No:56/B Mezitli/MERSİN</span></div>
-                                        </div>
-                                    </a>
-                                    <div class="button-wrapper ml-4 pl-5 mt-3">
-                                        <a href="https://maps.app.goo.gl/KYeR8YfndhggKMDB8"
-                                            class="button group/button relative duration-300 w-fit flex items-center gap-2 h-8.5 border border-solid border-[#8AA5D3]/25 px-3 rounded-2 hover:border-[#8AA5D3]/50">
-                                            <div
-                                                class="icon icon-map-1 text-3 h-3 block leading-none duration-300 text-[#2675FA]">
-                                            </div>
-                                            <div class="text text-white font-semibold text-3.5 tracking-wider">
 
-                                                {{ __('general.directions') }}
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <a href="mailto:info@wproperty.com.tr"
-                                    class="flex items-start gap-4 draw-child-underline [--line-color:#FFFFFF]">
-                                    <div
-                                        class="icon icon-email-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
-                                    </div>
-                                    <div class="text-wrapper">
-                                        <div class="title text-3 text-white">{{ __('general.email_office') }}</div>
-                                        <div class="text text-white text-3.5 font-medium"><span
-                                                class="draw-el">info@wproperty.com.tr</span></div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="split h-px w-full bg-white/10 hidden sm:block"></div>
-                            <div class="inner grid gap-5 2xl:gap-4 xl:gap-3 justify-end sm:justify-start">
-                                <a href="tel:+90 (324)325 30 30"
-                                    class="flex items-start gap-4 draw-child-underline [--line-color:#FFFFFF]">
-                                    <div
-                                        class="icon icon-headset-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
-                                    </div>
-                                    <div class="text-wrapper">
-                                        <div class="title text-3 text-white capitalize">
-                                            {{ __('general.customer_services') }}
-                                        </div>
-                                        <div class="text text-white text-4   font-medium"><span class="draw-el">+90 (324)325
-                                                30 30</span></div>
-                                    </div>
-                                </a>
-                                <a href="tel:+90 (532)427 59 36"
-                                    class="flex items-start gap-4 draw-child-underline [--line-color:#FFFFFF]">
-                                    <div
-                                        class="icon icon-cellphone-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
-                                    </div>
-                                    <div class="text-wrapper">
-                                        <div class="title text-3 text-white capitalize">{{ __('general.phone_office') }} 1</div>
-                                        <div class="text text-white text-4 font-medium"><span class="draw-el">+90 (532)427
-                                                59 36</span></div>
-                                    </div>
-                                </a>
-                                <a href="tel:+90 (533)140 36 29"
-                                    class="flex items-start gap-4 draw-child-underline [--line-color:#FFFFFF]">
-                                    <div
-                                        class="icon icon-cellphone-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
-                                    </div>
-                                    <div class="text-wrapper">
-                                        <div class="title text-3 text-white capitalize">{{ __('general.phone_office') }} 2</div>
-                                        <div class="text text-white text-4 font-medium"><span class="draw-el">+90 (533)140
-                                                36 29</span></div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div
                     class="form-wrapper bg-white rounded-6 md:!rounded-3 !rounded-tl-0 !rounded-bl-0 py-11 2xl:py-9 xl:py-7 px-16 2xl:px-12 xl:px-10 md:px-7.5 flex items-center">

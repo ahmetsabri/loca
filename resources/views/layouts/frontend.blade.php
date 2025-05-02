@@ -35,11 +35,11 @@
                             class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                             <div class="icon icon-whatsapp-1 text-4 h-4 block leading-none relative z-2"></div>
                         </a>
-                        <a target="_blank" href="https://www.facebook.com/remaxloca/"
+                        <a target="_blank" href="https://www.facebook.com/wpropertymersin/"
                             class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                             <div class="icon icon-facebook-1 text-4 h-4 block leading-none relative z-2"></div>
                         </a>
-                        <a target="_blank" href="https://www.instagram.com/remaxloca/"
+                        <a target="_blank" href="https://www.instagram.com/wpropertymersin/"
                             class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                             <div class="icon icon-instagram text-4 h-4 block leading-none relative z-2"></div>
                         </a>
@@ -318,11 +318,11 @@
                                 class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                                 <div class="icon icon-whatsapp-1 text-4 h-4 block leading-none relative z-2"></div>
                             </a>
-                            <a target="_blank" href="https://www.facebook.com/remaxloca/"
+                            <a target="_blank" href="https://www.facebook.com/wpropertymersin/"
                                 class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                                 <div class="icon icon-facebook-1 text-4 h-4 block leading-none relative z-2"></div>
                             </a>
-                            <a target="_blank" href="https://www.instagram.com/remaxloca/"
+                            <a target="_blank" href="https://www.instagram.com/wpropertymersin/"
                                 class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                                 <div class="icon icon-instagram text-4 h-4 block leading-none relative z-2"></div>
                             </a>
@@ -647,7 +647,7 @@
                             <div class="icon icon-headset-1 text-6 h-6 block leading-none duration-300 text-[#2675FA]">
                             </div>
                             <div class="text text-white text-5 font-semibold"><span class="draw-el">+90 (324)
-                                    325-3030</span></div>
+                                    325 30 30</span></div>
                         </a>
                         <a href="javascript:void(0)"
                             class="flex items-center gap-4 draw-child-underline [--line-color:#8AA5D3]">
@@ -667,27 +667,6 @@
                             </a>
                             <div class="button-wrapper ml-4 pl-5 mt-3">
                                 <a href="https://maps.app.goo.gl/6HRwcJkGJQd8ni4J8"
-                                    class="button group/button relative duration-300 w-fit flex items-center gap-2 h-7.5 border border-solid border-[#8AA5D3]/25 px-3 rounded-2 hover:border-[#8AA5D3]/50">
-                                    <div
-                                        class="icon icon-map-1 text-3 h-3 block leading-none duration-300 text-[#2675FA]">
-                                    </div>
-                                    <div class="text text-white font-semibold text-3.5 tracking-wider">
-                                        {{ __('general.directions') }}</div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="address-wrapper">
-                            <a href="https://maps.app.goo.gl/KYeR8YfndhggKMDB8"
-                                class="flex items-center gap-4 draw-child-underline [--line-color:#8AA5D3]">
-                                <div
-                                    class="icon icon-location-3 text-5 h-5 block leading-none duration-300 text-[#2675FA]">
-                                </div>
-                                <div class="text text-[#8AA5D3] text-3.5 font-medium"><span class="draw-el">Deniz
-                                        Mah. Gazipaşa Cad. Akbusi Sitesi Altı No:56/B Mezitli/MERSİN</span>
-                                </div>
-                            </a>
-                            <div class="button-wrapper ml-4 pl-5 mt-3">
-                                <a href="https://maps.app.goo.gl/KYeR8YfndhggKMDB8"
                                     class="button group/button relative duration-300 w-fit flex items-center gap-2 h-7.5 border border-solid border-[#8AA5D3]/25 px-3 rounded-2 hover:border-[#8AA5D3]/50">
                                     <div
                                         class="icon icon-map-1 text-3 h-3 block leading-none duration-300 text-[#2675FA]">
@@ -747,11 +726,11 @@
                                     class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                                     <div class="icon icon-whatsapp-1 text-4 h-4 block leading-none relative z-2"></div>
                                 </a>
-                                <a target="_blank" href="https://www.facebook.com/remaxloca/"
+                                <a target="_blank" href="https://www.facebook.com/wpropertymersin/"
                                     class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                                     <div class="icon icon-facebook-1 text-4 h-4 block leading-none relative z-2"></div>
                                 </a>
-                                <a target="_blank" href="https://www.instagram.com/remaxloca/"
+                                <a target="_blank" href="https://www.instagram.com/wpropertymersin/"
                                     class="block relative text-[#8AA5D3] duration-350 before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:w-150/100 before:aspect-square before:rounded-1 before:-rotate-90 before:opacity-0 before:duration-350 before:bg-[#8AA5D3] hover:before:rotate-0 hover:before:opacity-100 hover:text-tertiary-950">
                                     <div class="icon icon-instagram text-4 h-4 block leading-none relative z-2"></div>
                                 </a>
