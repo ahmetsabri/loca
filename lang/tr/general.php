@@ -68,9 +68,9 @@ return [
 	'we_categorize_touristicfacility' => 'Konforlu oteller ve tatil köyleri. Büyük yatırımlarınız için mükemmel fırsatlar.',
     'consultants' => 'W Property Danışmanlarımız',
     'team_description' => 'Ofisimizde sürekli eğitimlerle desteklenen, kendi bölgelerinde uzmanlaşarak etik kurallara saygılı ve müşteri memnuniyeti odaklı çalışma prensiplerini ilke edinmiş danışman ve ofis kadromuz ile sizlere en kaliteli ve hızlı hizmeti sunuyoruz.',
-    'career' => 'kariyer',
+    'career' => 'Kariyer',
 
-    'iam_in_loca' => 'BenWdeyim Sen Nerdesin',
+    'iam_in_loca' => 'BenWdayım Sen Nerdesin',
     'work_with_us' => 'Büyümeye ve gelişmeye devam ediyoruz, bizimle çalışmak için formu doldurmayı unutma :)',
     'email' => 'E-Posta Adresiniz',
     'email_office' => 'E-Posta',
