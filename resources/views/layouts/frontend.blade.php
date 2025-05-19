@@ -607,7 +607,7 @@
                             <a href="{{ route('career') }}"
                                 class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">{{ __('general.career') }}</span></a>
-                            <a href="portfolio-grid.html"
+                            <a href="{{ route('portfolios') }}"
                                 class="draw-child-underline capitalize text-[#8AA5D3] [--line-color:#8AA5D3] font-medium text-3.5 block"><span
                                     class="draw-el">{{ __('general.portfolios') }}</span></a>
                             <a href="{{ route('projects') }}"
