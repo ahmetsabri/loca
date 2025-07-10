@@ -16,7 +16,7 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $projects = Project::latest()->paginate(20);
+        $projects = Project::search()->paginate(20);
 
         return view('admin.projects.index', compact('projects'));
     }
@@ -24,7 +24,7 @@ class ProjectController extends Controller
     public function create()
     {
         $provinces = Province::all();
-
+        session()->regenerate();
         return view('admin.projects.create', compact('provinces'));
     }
 
@@ -48,7 +48,17 @@ class ProjectController extends Controller
         $this->attachTransportations($project, $transportations);
         $this->attachFlats($project, $flatsData);
 
-        Image::query()->where('token', $request->_token)->update(['imageable_id' => $project->id, 'token' => null]);
+        Image::query()->where('token', $request->_token)
+        ->where('imageable_type', Project::class)
+        ->update(['imageable_id' => $project->id, 'token' => null]);
+
+        Image::query()->where([
+            ['imageable_id', $project->id],
+            ['imageable_type', Project::class],
+        ])->where('token', '<>', $request->_token)
+        ->each(function ($image) {
+            $image->delete();
+        });
 
         return back()->with('success', 'success');
     }

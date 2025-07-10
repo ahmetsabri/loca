@@ -12,7 +12,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::isRoot()->withCount('children')->get();
+        $categories = Category::search()->isRoot()->withCount('children')->paginate();
 
         return view('admin.categories.index', compact('categories'));
     }
@@ -65,8 +65,8 @@ class CategoryController extends Controller
     public function getInfo(Category $category)
     {
         $data =  $category->load('info', 'features');
-        $info =$data->info;
-        $features =$data->features;
+        $info = $data->info;
+        $features = $data->features;
 
         return response()->json(compact('info', 'features'));
     }

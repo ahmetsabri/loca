@@ -12,17 +12,19 @@
                 class="py-2.5 px-5 capitalize me-2 mb-2 text-sm font-medium text-white focus:outline-none bg-indigo-700 rounded-lg border border-blue-200 hover:bg-blue-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-blue-100 dark:focus:ring-blue-700 dark:bg-blue-800 dark:text-blue-400 dark:border-blue-600 dark:hover:text-white dark:hover:bg-blue-700">ekle</a>
         </div>
     </div>
-    <div class="m-5" x-data="
-    {
-        deleteTeam(url){
-        if(!confirm('emin misiniz')){
-            return
+    <div class="m-5" x-data="{
+        deleteTeam(url) {
+            if (!confirm('emin misiniz')) {
+                return
+            }
+            window.location.href = url
         }
-        window.location.href=url
-    }
-    }
-">
-        @include('admin.teams.list_team',['users'=>$users])
+    }">
+        <div class="mb-5">
+            @include('search', ['action' => url()->full()])
+        </div>
+
+        @include('admin.teams.list_team', ['users' => $users])
 
     </div>
 </x-app-layout>

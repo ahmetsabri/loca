@@ -63,15 +63,24 @@ class Project extends Model
         parent::boot();
         static::deleting(function (self $project) {
             $project->images()->each(function ($image) {
+                \Storage::disk('public')->delete($image->path);
                 $image->delete();
             });
         });
 
-        static::saving(function (self $portfolio) {
+        static::saving(function (self $project) {
             $rate = ExchangeRate::whereIn('currency', [CurrencyEnum::USD->value, CurrencyEnum::EUR->value])->get();
-            $portfolio->price_in_usd = $portfolio->price_in_tl / $rate?->where('currency', CurrencyEnum::USD->value)?->first()?->rate ?? 1;
-            $portfolio->price_in_eur = $portfolio->price_in_tl / $rate?->where('currency', CurrencyEnum::EUR->value)?->first()?->rate ?? 1;
+            $project->price_in_usd = $project->price_in_tl / $rate?->where('currency', CurrencyEnum::USD->value)?->first()?->rate ?? 1;
+            $project->price_in_eur = $project->price_in_tl / $rate?->where('currency', CurrencyEnum::EUR->value)?->first()?->rate ?? 1;
         });
+
+
+        static::creating(function (self $project) {
+            if (!$project->location) {
+                $project->location = '(36.8121,34.6415)';
+            }
+        });
+
     }
 
     public function getFullAddressAttribute(): string
@@ -115,11 +124,18 @@ class Project extends Model
         return $builder->where("price_in_{$col}", '<=', $val);
     }
 
-    public function scopeSearch(Builder $builder, $val)
+    public function scopeSearch(Builder $builder)
     {
-        return $builder->where('title->tr', 'like', '%'.$val.'%');
-    }
+        $keyword = request('search');
 
+        if ($keyword) {
+            $builder->where(function ($query) use ($keyword) {
+                $query->whereRaw('LOWER(JSON_UNQUOTE(title->"$.tr")) like ?', ['%' . strtolower($keyword) . '%']);
+            });
+        }
+
+        return $builder;
+    }
     public function scopeProvince(Builder $builder, $val)
     {
         return $builder->where('province_id', $val);

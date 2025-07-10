@@ -76,6 +76,12 @@ class PortfolioController extends Controller
         //     return back()->with('error', 'failed');
         // }
 
+        Image::query()->where([
+            ['imageable_id', $portfolio->id],
+            ['imageable_type', Portfolio::class],
+        ])->where('token', '<>', $request->_token)->each(function ($image) {
+            $image->delete();
+        });
         return back()->with('success', 'success');
     }
 
@@ -215,7 +221,7 @@ class PortfolioController extends Controller
 
         Image::query()->where([
             ['imageable_id', $image->imageable_id],
-            ['imageable_type', \App\Models\Portfolio::class],
+            ['imageable_type', Portfolio::class],
         ])->when($image->token, function ($query) use ($image) {
             $query->where('token', $image->token);
         })->where('id', '<>', $image->id)
@@ -223,7 +229,7 @@ class PortfolioController extends Controller
 
         $images = Image::where([
             ['imageable_id', $image->imageable_id],
-            ['imageable_type', \App\Models\Portfolio::class],
+            ['imageable_type', Portfolio::class],
         ])->when($image->token, function ($query) use ($image) {
             $query->where('token', $image->token);
         })->get();

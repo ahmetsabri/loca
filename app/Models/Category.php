@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -26,5 +27,16 @@ class Category extends Model
     public function features()
     {
         return $this->hasMany(Feature::class)->with('options');
+    }
+
+    public function scopeSearch(Builder $builder)
+    {
+        $keyword = request('search');
+
+        if ($keyword) {
+            $builder->whereRaw('LOWER(JSON_UNQUOTE(name->"$.tr")) like ?', ['%' . strtolower($keyword) . '%']);
+        }
+
+        return $builder;
     }
 }

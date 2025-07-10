@@ -12,7 +12,7 @@ class TeamController extends Controller
 {
     public function index()
     {
-        $users = User::where('id', '<>', auth()->id())->with('image', 'department')->paginate(20);
+        $users = User::search()->where('id', '<>', auth()->id())->with('image', 'department')->paginate(20);
 
         return view('admin.teams.index', compact('users'));
     }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -67,22 +68,36 @@ class User extends Authenticatable
         return 'https://api.whatsapp.com/send/?phone='.$this->whatsapp;
     }
 
-        public static function boot()
-        {
-            parent::boot();
-            static::saving(function (self $user) {
-                $user->slug = str()->slug($user->name);
-            });
+    public static function boot()
+    {
+        parent::boot();
+        static::saving(function (self $user) {
+            $user->slug = str()->slug($user->name);
+        });
+    }
+
+    public function getShareLinksAttribute()
+    {
+        return [
+            'sms' => sprintf(config('keys.sms_share_link'), $this->title.' '.route('frontend.user.show', $this)),
+            'email' => sprintf(config('keys.email_share_link'), $this->title.' '.route('frontend.user.show', $this)),
+            'wp' => sprintf(config('keys.wp_share_link'), $this->title.' '.route('frontend.user.show', $this)),
+            'x' => sprintf(config('keys.x_share_link'), route('frontend.user.show', $this)),
+            'fb' => sprintf(config('keys.fb_share_link'), route('frontend.user.show', $this)),
+        ];
+    }
+
+    public function scopeSearch(Builder $builder)
+    {
+        $keyword = request('search');
+
+        if ($keyword) {
+            $builder->where('name', 'like', "%$keyword%")
+                ->orWhere('email', 'like', "%$keyword%")
+                ->orWhere('phone', 'like', "%$keyword%")
+                ->orWhere('whatsapp', 'like', "%$keyword%");
         }
 
-            public function getShareLinksAttribute()
-            {
-                return [
-                    'sms' => sprintf(config('keys.sms_share_link'), $this->title.' '.route('frontend.user.show', $this)),
-                    'email' => sprintf(config('keys.email_share_link'), $this->title.' '.route('frontend.user.show', $this)),
-                    'wp' => sprintf(config('keys.wp_share_link'), $this->title.' '.route('frontend.user.show', $this)),
-                    'x' => sprintf(config('keys.x_share_link'), route('frontend.user.show', $this)),
-                    'fb' => sprintf(config('keys.fb_share_link'), route('frontend.user.show', $this)),
-                ];
-            }
+        return $builder;
+    }
 }
