@@ -105,9 +105,7 @@ class PortfolioController extends Controller
         // DB::beginTransaction();
         // try {
         $portfolioBasicData = $request->safe();
-
         $portfolio->update($portfolioBasicData->except('images', 'info', 'features'));
-
         // $infos = $request->mapInfo();
 
         foreach ($request->info as $id => $info) {

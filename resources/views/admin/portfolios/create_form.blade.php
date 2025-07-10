@@ -223,6 +223,14 @@
                 <input type="hidden" name="description[en]" id="desc_en">
                 @include('admin.portfolios.info_form')
                 @include('admin.portfolios.feature_form')
+                {{-- checkboc for status --}}
+                <div class="flex items-center mb-4">
+                    <input id="status" type="checkbox" name="status" value="1"
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:focus:ring-offset-gray-800"
+                        @checked(old('status', 1))>
+                    <label for="status"
+                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Yayınla</label>
+                </div>
                 <button type="submit" id="submit-form"
                     class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                     kaydet

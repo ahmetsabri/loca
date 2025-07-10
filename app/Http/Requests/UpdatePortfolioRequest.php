@@ -39,6 +39,7 @@ class UpdatePortfolioRequest extends FormRequest
 
             'features' => ['sometimes', 'array'],
             'features.*.*' => ['sometimes', 'nullable', 'exists:feature_options,id'],
+            'status' => ['sometimes', 'boolean'],
 
         ];
     }

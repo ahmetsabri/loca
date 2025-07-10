@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Number;
 use Spatie\Translatable\HasTranslations;
 
@@ -73,14 +74,23 @@ class Portfolio extends Model
         parent::boot();
         static::deleting(function (self $portfolio) {
             $portfolio->images()->each(function ($image) {
+                Storage::disk('public')->delete($image->path);
                 $image->delete();
             });
         });
         static::saving(function (self $portfolio) {
+            $portfolio->status = request()->boolean('status');
             $portfolio->slug = str()->slug($portfolio->title);
             $rate = ExchangeRate::whereIn('currency', [CurrencyEnum::USD->value, CurrencyEnum::EUR->value])->get();
             $portfolio->price_in_usd = $portfolio->price_in_tl / $rate?->where('currency', CurrencyEnum::USD->value)?->first()?->rate ?? 1;
             $portfolio->price_in_eur = $portfolio->price_in_tl / $rate?->where('currency', CurrencyEnum::EUR->value)?->first()?->rate ?? 1;
+        });
+
+        static::creating(function (self $portfolio) {
+            if (!$portfolio->location) {
+
+                $portfolio->location = '(36.8121,34.6415)';
+            }
         });
     }
 
@@ -229,7 +239,7 @@ class Portfolio extends Model
     public function scopeSort(Builder $builder)
     {
         $sort = request()->string('sort');
-        $field = $sort->replace('-','')->value();
+        $field = $sort->replace('-', '')->value();
         $dir = $sort->startsWith('-') ? 'desc' : 'asc';
 
         if (!in_array($field, ['created_at','price_in_tl'])) {

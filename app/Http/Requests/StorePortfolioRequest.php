@@ -30,7 +30,7 @@ class StorePortfolioRequest extends FormRequest
             'price_in_tl' => ['required', 'integer', 'gt:0'],
             'category_id' => ['required', Rule::exists('categories', 'id')->withoutTrashed()],
             'promotion_url' => ['sometimes', 'nullable', 'url'],
-            'location' => ['required'],
+            'location' => ['sometimes', 'nullable', 'string'],
             'province_id' => ['required', Rule::exists('provinces', 'id')],
             'town_id' => ['required', Rule::exists('towns', 'id')],
             'district_id' => ['required', Rule::exists('districts', 'id')],
@@ -41,6 +41,7 @@ class StorePortfolioRequest extends FormRequest
 
             'features' => ['sometimes', 'array'],
             'features.*.*' => ['sometimes', 'nullable', 'exists:feature_options,id'],
+            'status' => ['sometimes', 'boolean'],
         ];
     }
 
