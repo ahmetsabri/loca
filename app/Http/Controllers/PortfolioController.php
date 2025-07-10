@@ -33,14 +33,14 @@ class PortfolioController extends Controller
 
         $provinces = Province::all();
         $users = User::where('id', '<>', auth()->id())->get();
-
+        session()->regenerate();
         return view('admin.portfolios.create', compact('categories', 'infos', 'features', 'provinces', 'users'));
     }
 
     public function store(StorePortfolioRequest $request)
     {
         // DB::beginTransaction();
-        $portfolioBasicData = $request->safe()->merge(['ad_number'=>random_int(10000000, 1000000000)]);
+        $portfolioBasicData = $request->safe()->merge(['ad_number' => random_int(10000000, 1000000000)]);
         // try {
 
         $portfolio = Portfolio::create($portfolioBasicData->except('images', 'info', 'features'));
@@ -199,13 +199,13 @@ class PortfolioController extends Controller
             'path' => $path,
             'imageable_id' => $lastPortfolioId,
             'token' => $token,
-            'imageable_type' => \App\Models\Portfolio::class,
+            'imageable_type' => Portfolio::class,
         ]);
 
         $images = Image::where([
             ['imageable_id', $lastPortfolioId],
             ['token', $token],
-            ['imageable_type', \App\Models\Portfolio::class],
+            ['imageable_type', Portfolio::class],
         ])->get();
 
         return response()->json(['images' => $images], 200);
