@@ -21,6 +21,7 @@ class PortfolioController extends Controller
             'category.rootAncestor',
             'district.town.province'
         )->allowedFilters([
+            AllowedFilter::scope('status')->default(true),
             AllowedFilter::scope('province'),
             AllowedFilter::scope('town'),
             AllowedFilter::scope('category'),

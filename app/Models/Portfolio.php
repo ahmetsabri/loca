@@ -247,4 +247,9 @@ class Portfolio extends Model
         }
         return $field ? $builder->orderBy($field, $dir) : $builder;
     }
+
+    public function scopeStatus(Builder $builder, $val = true)
+    {
+        return $builder->where('status', $val);
+    }
 }

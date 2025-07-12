@@ -101,6 +101,9 @@
                             fiyat
                         </th>
                         <th scope="col" class="px-6 py-3 text-center">
+                            durum
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-center">
                             işlemler
                         </th>
 
@@ -140,6 +143,12 @@
                                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                 {{ $portfolio->price }}
                             </td>
+
+                            <td scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                {{ $portfolio->status ? 'Aktif' : 'Pasif' }}
+                            </td>
+
                             <td scope="row"
                                 class=" px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                 <a href="{{ route('portfolio.edit', $portfolio) }}"
