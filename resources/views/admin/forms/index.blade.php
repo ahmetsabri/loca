@@ -21,6 +21,7 @@
                 openModalId: null,
                 toggleModal(id) {
                     this.openModalId = this.openModalId === id ? null : id
+                    console.log('Toggling modal:', id, 'Open ID:', this.openModalId)
                 }
         }">
             <div class="w-1/12 my-10">
@@ -137,8 +138,9 @@
                 <div id="messageModal-{{ $form->id }}"
                     class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center"
                     x-show="openModalId === 'messageModal-{{ $form->id }}'" x-transition
-                    @click.outside="toggleModal('messageModal-{{ $form->id }}')">
-                    <div class="relative p-5 border w-11/12 max-w-2xl shadow-lg rounded-md bg-white dark:bg-gray-800">
+                    @click="toggleModal('messageModal-{{ $form->id }}')">
+                    <div class="relative p-5 border w-11/12 max-w-2xl shadow-lg rounded-md bg-white dark:bg-gray-800"
+                        @click.stop>
                         <div class="flex justify-between items-center">
                             <h3 class="text-lg font-medium text-gray-900 dark:text-white">{{ __('Mesaj') }}</h3>
                             <button @click="toggleModal('messageModal-{{ $form->id }}')" type="button"
