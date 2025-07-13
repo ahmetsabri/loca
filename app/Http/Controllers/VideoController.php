@@ -11,7 +11,7 @@ class VideoController extends Controller
 {
     public function index()
     {
-        $videos = Video::all();
+        $videos = Video::search()->paginate();
         $vidoeCategories = VideoCategory::all();
 
         return view('admin.video.index', compact('videos', 'vidoeCategories'));

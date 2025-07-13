@@ -11,7 +11,7 @@ class CommentController extends Controller
 {
     public function index(Request $request)
     {
-        $comments = Comment::latest()->with('user')->paginate();
+        $comments = Comment::search()->latest()->with('user')->paginate();
 
         return view('admin.comments.index', compact('comments'));
     }

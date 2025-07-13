@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -38,5 +39,19 @@ class Post extends Model
             'fb' => sprintf(config('keys.fb_share_link'), route('frontend.post.show', $this)),
             'li' => sprintf(config('keys.li_share_link'), 'http://google.com'),
         ];
+    }
+
+    public function scopeSearch(Builder $builder)
+    {
+        $keyword = request('search');
+
+        if ($keyword) {
+            $builder->where(function ($query) use ($keyword) {
+                $query->whereRaw('LOWER(JSON_UNQUOTE(title->"$.tr")) like ?', ['%' . strtolower($keyword) . '%'])
+                ;
+            });
+        }
+
+        return $builder;
     }
 }

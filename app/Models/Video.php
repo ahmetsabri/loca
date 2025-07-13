@@ -18,10 +18,24 @@ class Video extends Model
 
     public function scopeFilter(Builder $builder, $value)
     {
-        $values = explode(',', $value??'');
+        $values = explode(',', $value ?? '');
         if (!$value) {
             return $builder;
         }
         return $builder->whereIn('video_category_id', $values);
+    }
+
+    public function scopeSearch(Builder $builder)
+    {
+        $keyword = request('search');
+
+        if ($keyword) {
+            $builder->where(function ($query) use ($keyword) {
+                $query->whereRaw('LOWER(JSON_UNQUOTE(title->"$.tr")) like ?', ['%' . strtolower($keyword) . '%'])
+                ;
+            });
+        }
+
+        return $builder;
     }
 }

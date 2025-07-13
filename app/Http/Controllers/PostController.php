@@ -11,7 +11,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::latest()->select('id', 'title', 'created_at')->paginate(1);
+        $posts = Post::search()->latest()->select('id', 'title', 'created_at')->paginate();
 
         return view('admin.blog.index', compact('posts'));
     }

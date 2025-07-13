@@ -14,19 +14,21 @@
             </button>
         </div>
     </div>
-    <div class="m-5" x-data="
-    {
-        deleteCategory(url){
+    <div class="m-5" x-data="{
+        deleteCategory(url) {
             alert(url)
-        if(!confirm('emin misiniz')){
-            return
+            if (!confirm('emin misiniz')) {
+                return
+            }
+            window.location.href = url
         }
-        window.location.href=url
-    }
-    }
-">
-        @include('admin.video_categories.create_form')
-        @include('admin.video_categories.list',['categories'=>$categories])
+    }">
+        <div class="mb-5">
+            @include('search', ['action' => url()->full()])
+        </div>
 
+        @include('admin.video_categories.create_form')
+        @include('admin.video_categories.list', ['categories' => $categories])
+        {{ $categories->links() }}
     </div>
 </x-app-layout>

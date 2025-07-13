@@ -10,7 +10,7 @@ class VideoCategoryController extends Controller
 {
     public function index()
     {
-        $categories = VideoCategory::paginate(10);
+        $categories = VideoCategory::search()->paginate(10);
 
         return view('admin.video_categories.index', compact('categories'));
     }

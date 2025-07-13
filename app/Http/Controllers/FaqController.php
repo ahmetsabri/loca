@@ -9,7 +9,7 @@ class FaqController extends Controller
 {
     public function index()
     {
-        $faqs = Faq::all();
+        $faqs = Faq::search()->paginate();
 
         return view('admin.faq.index', compact('faqs'));
     }
