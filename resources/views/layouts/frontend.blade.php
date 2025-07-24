@@ -63,7 +63,9 @@
         <meta property="og:url" content="https://wproperty.com.tr/portfolios">
         <meta property="og:type" content="website">
         <meta property="og:title" content="Gayrimenkuller | W Property">
-        <meta property="og:description" content="">
+        <meta name="twitter:description"
+            content="12 yıllık sektör tecrübemiz ve başarılı gayrimenkul çözümlerimizle, W Property olarak güvenilir hizmet sunuyor, geleceği birlikte şekillendiriyoruz.">
+
         <meta property="og:image" content="https://wproperty.com.tr/image/trademark/favicon.webp">
 
         <!-- Twitter Meta Tags -->
