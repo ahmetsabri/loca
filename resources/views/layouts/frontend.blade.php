@@ -10,11 +10,26 @@
     <link rel="stylesheet" href="{{ asset('style/style.css') }}">
     <link rel="stylesheet" href="{{ asset('style/utils.css') }}">
     @if (request()->routeIs('frontend.portfolio.show'))
-        <meta property="og:title" content="Gayrimenkuller | W Property {{ $portfolio->title }}" />
-        <meta property="og:site_name" content="wproperty.com.tr" />
-        <meta property="og:image" itemprop="image" content="{{ $portfolio->images->first()->full_url }}" />
-        <meta property="og:url" content="{{ route('frontend.portfolio.show', $portfolio) }}" />
-        <meta property="og:type" content="product" />
+        <!-- HTML Meta Tags -->
+        <title>Gayrimenkuller | W Property {{ $portfolio->title }}</title>
+        <meta name="description" content="{{ $portfolio->description }}">
+
+        <!-- Facebook Meta Tags -->
+        <meta property="og:url" content="{{ route('frontend.portfolio.show', $portfolio) }}">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Gayrimenkuller | W Property {{ $portfolio->title }}">
+        <meta property="og:description" content="{{ $portfolio->description }}">
+        <meta property="og:image" content="{{ $portfolio->images->first()->full_url }}">
+
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="twitter:domain" content="wproperty.com.tr">
+        <meta property="twitter:url" content="{{ route('frontend.portfolio.show', $portfolio) }}">
+        <meta name="twitter:title" content="Gayrimenkuller | W Property {{ $portfolio->title }}">
+        <meta name="twitter:description" content="{{ $portfolio->description }}">
+        <meta name="twitter:image" content="{{ $portfolio->images->first()->full_url }}">
+
+        <!-- Meta Tags Generated via https://www.opengraph.xyz -->
     @endif
 
     @if (request()->is('/'))
@@ -43,10 +58,26 @@
     @endif
 
     @if (request()->routeIs('portfolios'))
-        <meta property="og:title" content="Gayrimenkuller | W Property" />
-        <meta property="og:site_name" content="wproperty.com.tr" />
-        <meta property="og:url" content="{{ route('portfolios') }}" />
+        <!-- HTML Meta Tags -->
+        <title>Gayrimenkuller | W Property</title>
+        <meta name="description" content="">
+
+        <!-- Facebook Meta Tags -->
+        <meta property="og:url" content="https://wproperty.com.tr/portfolios">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Gayrimenkuller | W Property">
+        <meta property="og:description" content="">
         <meta property="og:image" content="https://wproperty.com.tr/image/trademark/favicon.webp">
+
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="twitter:domain" content="wproperty.com.tr">
+        <meta property="twitter:url" content="https://wproperty.com.tr/portfolios">
+        <meta name="twitter:title" content="Gayrimenkuller | W Property">
+        <meta name="twitter:description" content="">
+        <meta name="twitter:image" content="https://wproperty.com.tr/image/trademark/favicon.webp">
+
+        <!-- Meta Tags Generated via https://www.opengraph.xyz -->
     @endif
     @vite(['resources/js/app.js'])
 
