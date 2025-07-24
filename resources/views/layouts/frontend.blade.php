@@ -18,12 +18,29 @@
     @endif
 
     @if (request()->is('/'))
-        <meta property="og:title" content="W Property | 12 Yıllık Deneyimle Geleceği Şekillendiriyoruz" />
+        <!-- HTML Meta Tags -->
+        <title>W Property | 12 Yıllık Deneyimle Geleceği Şekillendiriyoruz</title>
+        <meta name="description"
+            content="12 yıllık sektör tecrübemiz ve başarılı gayrimenkul çözümlerimizle, W Property olarak güvenilir hizmet sunuyor, geleceği birlikte şekillendiriyoruz.">
+
+        <!-- Facebook Meta Tags -->
+        <meta property="og:url" content="https://wproperty.com.tr/">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="W Property | 12 Yıllık Deneyimle Geleceği Şekillendiriyoruz">
         <meta property="og:description"
-            content="12 yıllık sektör tecrübemiz ve başarılı gayrimenkul çözümlerimizle, W Property olarak güvenilir hizmet sunuyor, geleceği birlikte şekillendiriyoruz." />
-        <meta property="og:image" content="{{ asset('image/trademark/favicon.webp') }}" />
-        <meta property="og:url" content="{{ url('/') }}" />
-        <meta property="og:type" content="website" />
+            content="12 yıllık sektör tecrübemiz ve başarılı gayrimenkul çözümlerimizle, W Property olarak güvenilir hizmet sunuyor, geleceği birlikte şekillendiriyoruz.">
+        <meta property="og:image" content="https://wproperty.com.tr/image/trademark/favicon.webp">
+
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="twitter:domain" content="wproperty.com.tr">
+        <meta property="twitter:url" content="https://wproperty.com.tr/">
+        <meta name="twitter:title" content="W Property | 12 Yıllık Deneyimle Geleceği Şekillendiriyoruz">
+        <meta name="twitter:description"
+            content="12 yıllık sektör tecrübemiz ve başarılı gayrimenkul çözümlerimizle, W Property olarak güvenilir hizmet sunuyor, geleceği birlikte şekillendiriyoruz.">
+        <meta name="twitter:image" content="https://wproperty.com.tr/image/trademark/favicon.webp">
+
+        <!-- Meta Tags Generated via https://www.opengraph.xyz -->
     @endif
     @vite(['resources/js/app.js'])
 
