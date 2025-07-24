@@ -12,13 +12,13 @@
     @if (request()->routeIs('frontend.portfolio.show'))
         <!-- HTML Meta Tags -->
         <title>Gayrimenkuller | W Property {{ $portfolio->title }}</title>
-        <meta name="description" content="{{ $portfolio->description }}">
+        <meta name="description" content="{!! str($portfolio->description)->limit(100) !!}">
 
         <!-- Facebook Meta Tags -->
         <meta property="og:url" content="{{ route('frontend.portfolio.show', $portfolio) }}">
         <meta property="og:type" content="website">
         <meta property="og:title" content="Gayrimenkuller | W Property {{ $portfolio->title }}">
-        <meta property="og:description" content="{{ $portfolio->description }}">
+        <meta property="og:description" content="{!! str($portfolio->description)->limit(100) !!}">
         <meta property="og:image" content="{{ $portfolio->images->first()->full_url }}">
 
         <!-- Twitter Meta Tags -->
@@ -26,7 +26,7 @@
         <meta property="twitter:domain" content="wproperty.com.tr">
         <meta property="twitter:url" content="{{ route('frontend.portfolio.show', $portfolio) }}">
         <meta name="twitter:title" content="Gayrimenkuller | W Property {{ $portfolio->title }}">
-        <meta name="twitter:description" content="{{ $portfolio->description }}">
+        <meta name="twitter:description" content="{!! str($portfolio->description)->limit(100) !!}">
         <meta name="twitter:image" content="{{ $portfolio->images->first()->full_url }}">
 
         <!-- Meta Tags Generated via https://www.opengraph.xyz -->
