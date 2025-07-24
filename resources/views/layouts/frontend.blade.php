@@ -9,7 +9,7 @@
     <script type="module" src="{{ asset('script/script.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('style/style.css') }}">
     <link rel="stylesheet" href="{{ asset('style/utils.css') }}">
-    @if (isset($portfolio) && !request()->is('/'))
+    @if (request()->routeIs('frontend.portfolio.show'))
         <meta property="og:title" content="Gayrimenkuller | W Property {{ $portfolio->title }}" />
         <meta property="og:site_name" content="wproperty.com.tr" />
         <meta property="og:image" itemprop="image" content="{{ $portfolio->images->first()->full_url }}" />
@@ -39,8 +39,14 @@
         <meta name="twitter:description"
             content="12 yıllık sektör tecrübemiz ve başarılı gayrimenkul çözümlerimizle, W Property olarak güvenilir hizmet sunuyor, geleceği birlikte şekillendiriyoruz.">
         <meta name="twitter:image" content="https://wproperty.com.tr/image/trademark/favicon.webp">
-
         <!-- Meta Tags Generated via https://www.opengraph.xyz -->
+    @endif
+
+    @if (request()->routeIs('portfolios'))
+        <meta property="og:title" content="Gayrimenkuller | W Property" />
+        <meta property="og:site_name" content="wproperty.com.tr" />
+        <meta property="og:url" content="{{ route('portfolios') }}" />
+        <meta property="og:image" content="https://wproperty.com.tr/image/trademark/favicon.webp">
     @endif
     @vite(['resources/js/app.js'])
 
