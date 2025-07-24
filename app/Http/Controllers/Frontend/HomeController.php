@@ -19,7 +19,8 @@ class HomeController extends Controller
         $videos = Video::limit(5)->get();
         $videoCategories = VideoCategory::all();
         $searchableCategories = $rootCategories->take(5);
+        $funFacts = \App\Models\FunFact::firstOrNew(['id' => 1]);
 
-        return view('index', compact('videos', 'videoCategories', 'portfolios', 'rootCategories', 'provinces', 'searchableCategories'));
+        return view('index', compact('videos', 'videoCategories', 'portfolios', 'rootCategories', 'provinces', 'searchableCategories', 'funFacts'));
     }
 }

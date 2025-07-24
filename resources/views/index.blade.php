@@ -33,7 +33,7 @@
                 axios.get(url).then((res) => {
                     console.log(res.data.towns)
                     self.towns = res.data.towns
-
+        
                 }).catch((err) => {
                     console.log(err)
                 })
@@ -41,11 +41,53 @@
         }">
         <div class="hero-bg-carousel swiper !h-full !absolute left-0 top-0 !w-full">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="slide w-full h-full relative overflow-hidden isolate">
-                        <div class="background absolute left-0 top-0 w-full h-full bg-tertiary-950"><img
-                                data-swiper-parallax-x="50%" data-swiper-parallax-scale="1.25" class="full-cover opacity-20"
-                                src="{{ asset('image/photo/8.webp') }}" alt="" loading="lazy"></div>
+
+                @php
+                    $slides = \App\Models\Slide::where('is_active', true)->orderBy('order')->with('images')->get();
+                    $currentLocale = app()->getLocale();
+                @endphp
+
+                <div class="hero-bg-carousel swiper !h-full !absolute left-0 top-0 !w-full">
+                    <div class="swiper-wrapper">
+                        @foreach ($slides as $slide)
+                            <div class="swiper-slide">
+                                <div class="slide w-full h-full relative overflow-hidden isolate">
+                                    <!-- Background Image -->
+                                    <div class="background absolute left-0 top-0 w-full h-full bg-tertiary-950">
+                                        @if ($slide->images->isNotEmpty())
+                                            <img data-swiper-parallax-x="50%" data-swiper-parallax-scale="1.25"
+                                                class="full-cover opacity-20"
+                                                src="{{ Storage::url($slide->images->first()->path) }}"
+                                                alt="{{ $slide->getTranslation('title', $currentLocale) }}" loading="lazy">
+                                        @endif
+                                    </div>
+
+                                    <!-- Slide Content -->
+                                    <div class="inner max-w-[575px] md:max-w-none absolute inset-0 flex items-center">
+                                        <div class="content-container px-4 md:px-8">
+                                            <!-- Title -->
+                                            <div
+                                                class="title leading-none text-14 2xl:text-12 xl:text-10 lg:text-8 font-semibold text-white md:text-center">
+                                                {{ $slide->getTranslation('title', $currentLocale) }}
+                                            </div>
+
+                                            <!-- Hashtags (for current locale) -->
+                                            @if (isset($slide->hashtags[$currentLocale]))
+                                                <div
+                                                    class="tags flex items-center md:justify-center flex-wrap gap-x-10 2xl:gap-x-9 xl:gap-x-8 lg:gap-x-6 md:gap-x-4 sm:gap-x-2 gap-y-2 md:gap-y-1.5 sm:gap-y-0.5 mt-7.5 2xl:mt-6 xl:mt-5 lg:mt-4 md:mt-3">
+                                                    @foreach (array_filter($slide->hashtags[$currentLocale]) as $hashtag)
+                                                        <div
+                                                            class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
+                                                            #{{ $hashtag }}
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="swiper-slide">
@@ -69,63 +111,24 @@
                 class="wrapper max-w-1440 mx-auto w-full px-7.5 pt-32 2xl:pt-24 xl:pt-16 lg:pt-10 md:pt-8 sm:pt-6 pb-10 md:pb-8 sm:pb-6">
                 <div class="hero-text-carousel swiper !h-auto">
                     <div class="swiper-wrapper !h-auto">
-                        <div class="swiper-slide">
-                            <div class="inner max-w-[575px] md:max-w-none">
-                                <div
-                                    class="title leading-none text-14 2xl:text-12 xl:text-10 lg:text-8 font-semibold text-white md:text-center ">
-                                    {{ __('general.find_land') }}</div>
-                                <div
-                                    class="tags flex items-center md:justify-center flex-wrap gap-x-10 2xl:gap-x-9 xl:gap-x-8 lg:gap-x-6 md:gap-x-4 sm:gap-x-2 gap-y-2 md:gap-y-1.5 sm:gap-y-0.5 mt-7.5 2xl:mt-6 xl:mt-5 lg:mt-4 md:mt-3">
+                        {{-- loop using slides --}}
+                        @foreach ($slides as $slide)
+                            <div class="swiper-slide">
+                                <div class="inner max-w-[575px] md:max-w-none">
                                     <div
-                                        class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
-                                        #GeleceğiŞekillendirir</div>
+                                        class="title leading-none text-14 2xl:text-12 xl:text-10 lg:text-8 font-semibold text-white md:text-center ">
+                                        {{ $slide->title }}</div>
                                     <div
-                                        class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
-                                        #WdeYeriniAL</div>
-                                    <div
-                                        class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
-                                        #ShapestheFuture</div>
+                                        class="tags flex items-center md:justify-center flex-wrap gap-x-10 2xl:gap-x-9 xl:gap-x-8 lg:gap-x-6 md:gap-x-4 sm:gap-x-2 gap-y-2 md:gap-y-1.5 sm:gap-y-0.5 mt-7.5 2xl:mt-6 xl:mt-5 lg:mt-4 md:mt-3">
+                                        @foreach ($slide->hashtags as $tag)
+                                            <div
+                                                class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
+                                                #{{ $tag }}</div>
+                                        @endforeach
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="inner max-w-[575px] md:max-w-none">
-                                <div
-                                    class="title leading-none text-14 2xl:text-12 xl:text-10 lg:text-8 font-semibold text-white md:text-center ">
-                                    {{ __('general.find_land') }}</div>
-                                <div
-                                    class="tags flex items-center md:justify-center flex-wrap gap-x-10 2xl:gap-x-9 xl:gap-x-8 lg:gap-x-6 md:gap-x-4 sm:gap-x-2 gap-y-2 md:gap-y-1.5 sm:gap-y-0.5 mt-7.5 2xl:mt-6 xl:mt-5 lg:mt-4 md:mt-3">
-                                    <div
-                                        class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
-                                        #GeleceğiŞekillendirir</div>
-                                    <div
-                                        class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
-                                        #WdeYeriniAL</div>
-                                    <div
-                                        class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
-                                        #ShapestheFuture</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="inner max-w-[575px] md:max-w-none">
-                                <div
-                                    class="title leading-none text-14 2xl:text-12 xl:text-10 lg:text-8 font-semibold text-white md:text-center ">
-                                    {{ __('general.find_land') }}</div>
-                                <div
-                                    class="tags flex items-center md:justify-center flex-wrap gap-x-10 2xl:gap-x-9 xl:gap-x-8 lg:gap-x-6 md:gap-x-4 sm:gap-x-2 gap-y-2 md:gap-y-1.5 sm:gap-y-0.5 mt-7.5 2xl:mt-6 xl:mt-5 lg:mt-4 md:mt-3">
-                                    <div
-                                        class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
-                                        #GeleceğiŞekillendirir</div>
-                                    <div
-                                        class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
-                                        #WdeYeriniAL</div>
-                                    <div
-                                        class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
-                                        #ShapestheFuture</div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <div
@@ -735,22 +738,24 @@
                     </p>
                 </div>
                 <div class="split w-full h-px bg-black/7 my-14 2xl:my-12 xl:my-10 lg:my-8 md:my-6"></div>
+
                 <div
                     class="list grid grid-cols-3 sm:grid-cols-2 gap-x-7.5 xl:gap-x-6 lg:gap-x-5 md:gap-x-4 gap-y-10 2xl:gap-y-9 xl:gap-y-8 lg:gap-y-7 md:gap-y-6">
                     <div class="item grid gap-1.5">
                         <div
                             class="value text-10 2xl:text-9 xl:text-8 lg:text-6 md:text-5 font-semibold text-secondary-700 leading-tight text-center">
-                            +1,687</div>
+                            +{{ $funFacts->customer_calls ?? 0 }}
+                        </div>
                         <div
                             class="title text-4 xl:text-3.5 sm:text-3 font-medium text-[#6D6D6D] leading-tight text-center">
                             {{ __('general.contacted_customers') }}
-
                         </div>
                     </div>
                     <div class="item grid gap-1.5">
                         <div
                             class="value text-10 2xl:text-9 xl:text-8 lg:text-6 md:text-5 font-semibold text-secondary-700 leading-tight text-center">
-                            +548</div>
+                            +{{ $funFacts->customers_hosted ?? 0 }}
+                        </div>
                         <div
                             class="title text-4 xl:text-3.5 sm:text-3 font-medium text-[#6D6D6D] leading-tight text-center">
                             {{ __('general.hosted_customers') }}
@@ -759,7 +764,8 @@
                     <div class="item grid gap-1.5">
                         <div
                             class="value text-10 2xl:text-9 xl:text-8 lg:text-6 md:text-5 font-semibold text-secondary-700 leading-tight text-center">
-                            42</div>
+                            {{ $funFacts->digital_contracts_signed ?? 0 }}
+                        </div>
                         <div
                             class="title text-4 xl:text-3.5 sm:text-3 font-medium text-[#6D6D6D] leading-tight text-center">
                             {{ __('general.digital_contracts') }}
@@ -768,7 +774,8 @@
                     <div class="item grid gap-1.5">
                         <div
                             class="value text-10 2xl:text-9 xl:text-8 lg:text-6 md:text-5 font-semibold text-secondary-700 leading-tight text-center">
-                            2,670m2</div>
+                            {{ $funFacts->property_transactions_completed ?? 0 }}m²
+                        </div>
                         <div
                             class="title text-4 xl:text-3.5 sm:text-3 font-medium text-[#6D6D6D] leading-tight text-center">
                             {{ __('general.properties') }}
@@ -777,7 +784,8 @@
                     <div class="item grid gap-1.5">
                         <div
                             class="value text-10 2xl:text-9 xl:text-8 lg:text-6 md:text-5 font-semibold text-secondary-700 leading-tight text-center">
-                            +655</div>
+                            +{{ $funFacts->properties_shown ?? 0 }}
+                        </div>
                         <div
                             class="title text-4 xl:text-3.5 sm:text-3 font-medium text-[#6D6D6D] leading-tight text-center">
                             {{ __('general.shown_places') }}
@@ -786,13 +794,15 @@
                     <div class="item grid gap-1.5">
                         <div
                             class="value text-10 2xl:text-9 xl:text-8 lg:text-6 md:text-5 font-semibold text-secondary-700 leading-tight text-center">
-                            +846</div>
+                            +{{ $funFacts->coffees_consumed ?? 0 }}
+                        </div>
                         <div
                             class="title text-4 xl:text-3.5 sm:text-3 font-medium text-[#6D6D6D] leading-tight text-center">
                             {{ __('general.drunk_coffee') }}
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>

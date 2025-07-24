@@ -29,6 +29,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ShowBuySellController;
+use App\Http\Controllers\SlideController;
 use App\Http\Controllers\SubmittedFormController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\VideoCategoryController;
@@ -224,6 +225,20 @@ Route::middleware('auth')->prefix('admin')->withoutMiddleware(LocaleMiddleware::
         Route::get('{post}/edit', [PostController::class, 'edit'])->name('post.edit');
         Route::get('{post}/delete', [PostController::class, 'destroy'])->name('post.delete');
     });
+
+    Route::get('fun-facts', [\App\Http\Controllers\FunFactController::class, 'edit'])->name('fun_facts.edit');
+    Route::post('fun-facts', [\App\Http\Controllers\FunFactController::class, 'update'])->name('fun_facts.create'); // This route is used for updating
+
+
+    Route::resource('slides', SlideController::class)->except(['show'])->names([
+        'index' => 'admin.slides.index',
+        'create' => 'admin.slides.create',
+        'store' => 'admin.slides.store',
+        'edit' => 'admin.slides.edit',
+        'update' => 'admin.slides.update',
+    ]);
+    Route::delete('slides/image/{image}', [SlideController::class, 'deleteImage'])->name('admin.slides.delete-image');
+
 });
 Route::get('towns/{province?}', [CountryController::class, 'towns'])->name('province.towns');
 Route::get('districts/{town?}', [CountryController::class, 'districts'])->name('towns.districts');
