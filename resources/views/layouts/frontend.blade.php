@@ -9,12 +9,21 @@
     <script type="module" src="{{ asset('script/script.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('style/style.css') }}">
     <link rel="stylesheet" href="{{ asset('style/utils.css') }}">
-    @if (isset($portfolio))
-        <meta property="og:title" content="{{ $portfolio->title }}" />
-        <meta property="og:site_name" content="remaxloca.com/" />
+    @if (isset($portfolio) && !request()->is('/'))
+        <meta property="og:title" content="Gayrimenkuller | W Property {{ $portfolio->title }}" />
+        <meta property="og:site_name" content="wproperty.com.tr" />
         <meta property="og:image" itemprop="image" content="{{ $portfolio->images->first()->full_url }}" />
         <meta property="og:url" content="{{ route('frontend.portfolio.show', $portfolio) }}" />
         <meta property="og:type" content="product" />
+    @endif
+
+    @if (request()->is('/'))
+        <meta property="og:title" content="W Property | 12 Yıllık Deneyimle Geleceği Şekillendiriyoruz" />
+        <meta property="og:description"
+            content="12 yıllık sektör tecrübemiz ve başarılı gayrimenkul çözümlerimizle, W Property olarak güvenilir hizmet sunuyor, geleceği birlikte şekillendiriyoruz." />
+        <meta property="og:image" content="{{ asset('image/trademark/favicon.webp') }}" />
+        <meta property="og:url" content="{{ url('/') }}" />
+        <meta property="og:type" content="website" />
     @endif
     @vite(['resources/js/app.js'])
 
@@ -663,7 +672,9 @@
                                 <div
                                     class="icon icon-location-3 text-5 h-5 block leading-none duration-300 text-[#2675FA]">
                                 </div>
-                                <div class="text text-[#8AA5D3] text-3.5 font-medium"><span class="draw-el">50. Yıl Mah. 15. Cad. Ekinci Solaris Sitesi A Blok No:40/AD Yenişehir/MERSİN</span></div>
+                                <div class="text text-[#8AA5D3] text-3.5 font-medium"><span class="draw-el">50. Yıl
+                                        Mah. 15. Cad. Ekinci Solaris Sitesi A Blok No:40/AD Yenişehir/MERSİN</span>
+                                </div>
                             </a>
                             <div class="button-wrapper ml-4 pl-5 mt-3">
                                 <a href="https://maps.app.goo.gl/6HRwcJkGJQd8ni4J8"
