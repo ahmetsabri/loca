@@ -153,5 +153,10 @@ return [
     'sevices_before_sell' => 'SATIŞ VE KİRALAMA ÖNCESİ',
     'service_detail' => 'Satış ve kiralama hizmetlerinizi titizlikle ve detaylı',
     'service_detail2' => 'şekilde takip ediyoruz.',
-    'experience_area' =>'Uzmanlık Bölgesi'
+    'experience_area' =>'Uzmanlık Bölgesi',
+    'top_right_image' => 'Sağ Üst Resmi',
+    'top_left_image' => 'Sol Üst Resmi',
+    'bottom_right_image' => 'Sağ Alt Resmi',
+    'bottom_middle_image' => 'Orta Alt Resmi',
+    'bottom_left_image' => 'Sol Alt Resmi',
 ];

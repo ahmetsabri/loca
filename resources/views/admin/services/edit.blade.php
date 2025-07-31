@@ -84,7 +84,7 @@
                     <div>
                         <label for="{{ $field }}"
                             class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                            {{ str_replace('_', ' ', $field) }}
+                            @lang('general.' . $field)
                         </label>
                         @if ($service->$field)
                             <div class="mb-2">
@@ -104,7 +104,7 @@
                     <div>
                         <label for="{{ $field }}"
                             class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                            {{ str_replace('_', ' ', $field) }}
+                            @lang('general.' . $field)
                         </label>
                         @if ($service->$field)
                             <div class="mb-2">
