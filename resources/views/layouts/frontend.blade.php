@@ -17,14 +17,14 @@
         <meta property="og:url" content="{{ route('frontend.portfolio.show', $portfolio) }}">
         <meta property="og:type" content="website">
         <meta property="og:title" content="Gayrimenkuller | W Property {{ $portfolio->title }}">
-        <meta property="og:image" content="{{ $portfolio->images->first()->full_url }}">
+        <meta property="og:image" itemprop="image" content="{{ $portfolio->images->first()->full_url }}">
 
         <!-- Twitter Meta Tags -->
         <meta name="twitter:card" content="summary_large_image">
         <meta property="twitter:domain" content="wproperty.com.tr">
         <meta property="twitter:url" content="{{ route('frontend.portfolio.show', $portfolio) }}">
         <meta name="twitter:title" content="Gayrimenkuller | W Property {{ $portfolio->title }}">
-        <meta name="twitter:image" content="{{ $portfolio->images->first()->full_url }}">
+        <meta name="twitter:image" itemprop="image" content="{{ $portfolio->images->first()->full_url }}">
 
         <!-- Meta Tags Generated via https://www.opengraph.xyz -->
     @endif
@@ -41,7 +41,7 @@
         <meta property="og:title" content="W Property | 12 Yıllık Deneyimle Geleceği Şekillendiriyoruz">
         <meta property="og:description"
             content="12 yıllık sektör tecrübemiz ve başarılı gayrimenkul çözümlerimizle, W Property olarak güvenilir hizmet sunuyor, geleceği birlikte şekillendiriyoruz.">
-        <meta property="og:image" content="https://wproperty.com.tr/image/trademark/favicon.webp">
+        <meta property="og:image" itemprop="image" content="https://wproperty.com.tr/image/trademark/favicon.webp">
 
         <!-- Twitter Meta Tags -->
         <meta name="twitter:card" content="summary_large_image">
@@ -50,7 +50,7 @@
         <meta name="twitter:title" content="W Property | 12 Yıllık Deneyimle Geleceği Şekillendiriyoruz">
         <meta name="twitter:description"
             content="12 yıllık sektör tecrübemiz ve başarılı gayrimenkul çözümlerimizle, W Property olarak güvenilir hizmet sunuyor, geleceği birlikte şekillendiriyoruz.">
-        <meta name="twitter:image" content="https://wproperty.com.tr/image/trademark/favicon.webp">
+        <meta name="twitter:image" itemprop="image" content="https://wproperty.com.tr/image/trademark/favicon.webp">
         <!-- Meta Tags Generated via https://www.opengraph.xyz -->
     @endif
 
