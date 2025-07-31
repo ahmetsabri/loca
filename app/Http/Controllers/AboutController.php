@@ -24,8 +24,22 @@ class AboutController extends Controller
 
     public function store(StoreAboutRequest $request)
     {
-        About::first()?->delete();
-        $about = About::create(($request->validated()));
+        $about = About::first();
+        // Prepare data for About creation
+        $data = $request->validated();
+
+        // Handle file uploads for images
+        $imageFields = ['top_image', 'bottom_right_image', 'bottom_left_image'];
+        foreach ($imageFields as $field) {
+            if ($request->hasFile($field)) {
+                \Storage::disk('public')->delete($about->$field);
+                $file = $request->file($field);
+                $path = $file->store('about', 'public');
+                $data[$field] = $path;
+            }
+        }
+        // Create new About record
+        $about->update($data);
 
         return back()->with('success', 'success')->with(compact('about'));
     }

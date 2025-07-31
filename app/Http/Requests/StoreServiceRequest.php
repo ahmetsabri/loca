@@ -33,6 +33,11 @@ class StoreServiceRequest extends FormRequest
             'description.ru' => ['sometimes','nullable'],
             'features' => ['required', 'array'],
             'sub_services' => ['sometimes', 'array'],
+            'top_right_image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'top_left_image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'bottom_right_image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'bottom_middle_image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'bottom_left_image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
         ];
     }
 }

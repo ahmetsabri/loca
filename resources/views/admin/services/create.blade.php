@@ -15,14 +15,13 @@
                 @if ($errors->all())
                     <div class="flex justify-center">
                         <a href="#"
-                            class="block  max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                            class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                             <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
                                 @foreach ($errors->all() as $error)
                                     <li class="text-red-700">
                                         {{ $error }}
                                     </li>
                                 @endforeach
-
                             </ul>
                         </a>
                     </div>
@@ -31,49 +30,67 @@
             @csrf
             @foreach (config('app.locales') as $locale)
                 <div>
-                    <label for="team"
+                    <label for="name_{{ $locale }}"
                         class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">
                         hizmet adı {{ $locale }}
                     </label>
-                    <input type="text" name="name[{{ $locale }}]" id="team"
+                    <input type="text" name="name[{{ $locale }}]" id="name_{{ $locale }}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                         required />
                 </div>
             @endforeach
             <div>
-                <label for="team"
+                <label for="promotion_url"
                     class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">Video Linki</label>
-                <input type="url" name="promotion_url" id="team"
+                <input type="url" name="promotion_url" id="promotion_url"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" />
             </div>
 
-
             @foreach (config('app.locales') as $locale)
                 <div>
-                    <label for="team"
+                    <label for="description_{{ $locale }}"
                         class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">
                         Açıklama {{ $locale }}
                     </label>
-                    <textarea type="text" name="description[{{ $locale }}]" id="team"
+                    <textarea type="text" name="description[{{ $locale }}]" id="description_{{ $locale }}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                         rows="7"></textarea>
                 </div>
             @endforeach
+
+            <h3 class="text-2xl font-semibold ">
+                resimler
+            </h3>
+            <div>
+                <label for="top_right_image"
+                    class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    Üst Sağ Resim
+                </label>
+                <input type="file" name="top_right_image" id="top_right_image" accept="image/*"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" />
+            </div>
+            <div>
+                <label for="top_left_image"
+                    class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    Üst Sol Resim
+                </label>
+                <input type="file" name="top_left_image" id="top_left_image" accept="image/*"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" />
+            </div>
+
             <h3 class="text-2xl font-semibold ">
                 özellikler
             </h3>
             <template x-for="feature,index in mainFeatures">
                 <div class="flex justify-evenly">
                     <input placeholder="tr" type="text" :name="`features[${index}][tr]`"
-                        class="bg-gray-50 mx-3 my-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        class="bg-gray-50 mx-3 my-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:ring-primary-500"
                         placeholder="₺2999">
-
                     <input placeholder="ru" type="text" :name="`features[${index}][ru]`"
-                        class="bg-gray-50 border mx-3 my-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        class="bg-gray-50 border mx-3 my-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:ring-primary-500"
                         placeholder="₺2999">
-
                     <input placeholder="en" type="text" :name="`features[${index}][en]`"
-                        class="bg-gray-50 border mx-3 my-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        class="bg-gray-50 border mx-3 my-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:ring-primary-500"
                         placeholder="₺2999">
                 </div>
             </template>
@@ -82,7 +99,6 @@
                 özellik ekle
             </button>
             <hr>
-
 
             <template x-for="i,ind in sections">
                 <div>
@@ -102,7 +118,5 @@
             <button type="submit"
                 class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">gönder</button>
         </form>
-
-
     </div>
 </x-app-layout>

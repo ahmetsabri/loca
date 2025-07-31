@@ -27,7 +27,23 @@ class ServiceController extends Controller
     {
         $data = $request->safe();
 
-        $service = Service::create($request->safe()->except('sub_services', 'features'));
+        // Prepare data for service creation, including uploaded image paths
+        $serviceData = $data->except('sub_services', 'features', 'top_right_image', 'top_left_image', 'bottom_right_image', 'bottom_middle_image', 'bottom_left_image');
+
+        // Handle file uploads for images
+        $imageFields = ['top_right_image', 'top_left_image', 'bottom_right_image', 'bottom_middle_image', 'bottom_left_image'];
+        foreach ($imageFields as $field) {
+            if ($request->hasFile($field)) {
+                $file = $request->file($field);
+                // Store the file in 'public/services' directory with a unique name
+                $path = $file->store('services', 'public');
+                // Add the path to service data
+                $serviceData[$field] = $path;
+            }
+        }
+
+        // Create the service
+        $service = Service::create($serviceData);
 
         foreach ($data->only('features')['features'] as $values) {
             if (! Arr::get($values, 'tr')) {
@@ -67,7 +83,27 @@ class ServiceController extends Controller
     {
         $data = $request->safe();
 
-        $service->update($request->safe()->except('sub_services', 'features'));
+
+        $serviceData = $data->except('sub_services', 'features', 'top_right_image', 'top_left_image', 'bottom_right_image', 'bottom_middle_image', 'bottom_left_image');
+
+        // Handle file uploads for images
+        $imageFields = ['top_right_image', 'top_left_image', 'bottom_right_image', 'bottom_middle_image', 'bottom_left_image'];
+        foreach ($imageFields as $field) {
+            if ($request->hasFile($field)) {
+                if ($service->$field) {
+                    \Storage::disk('public')->delete($service->$field);
+                }
+                // Store new image
+                $file = $request->file($field);
+                $path = $file->store('services', 'public');
+                $serviceData[$field] = $path;
+            }
+        }
+
+        // Update the service
+        $service->update($serviceData);
+
+
         $service->features()->delete();
         foreach ($data->only('features')['features'] as $values) {
             if (! Arr::get($values, 'tr')) {

@@ -1,26 +1,26 @@
 @extends('layouts.frontend')
 
 @section('content')
-<soho-technologies class="block">
+    <soho-technologies class="block">
 
         <main class="main-field relative pt-[134px] sm:pt-[124px]" x-data="{
-            priceCurrency:'tl',
-            price:null,
-            init(){
+            priceCurrency: 'tl',
+            price: null,
+            init() {
                 this.setPriceCurrency()
             },
-            setPriceCurrency(currency='tl'){
-                if(currency == 'eur'){
-
-                 this.price= `{{ \Number::format($project->price_in_eur,locale:'tr') }}` + ' EUR'
-                 return
+            setPriceCurrency(currency = 'tl') {
+                if (currency == 'eur') {
+        
+                    this.price = `{{ \Number::format($project->price_in_eur, locale: 'tr') }}` + ' EUR'
+                    return
                 }
-                if(currency == 'usd' ){
-                    this.price =`{{ \Number::format($project->price_in_usd,locale:'tr') }}` + ' USD'
-                 return
+                if (currency == 'usd') {
+                    this.price = `{{ \Number::format($project->price_in_usd, locale: 'tr') }}` + ' USD'
+                    return
                 }
-                    this.price =`{{ \Number::format($project->price_in_tl,locale:'tr') }}` + ' TL'
-
+                this.price = `{{ \Number::format($project->price_in_tl, locale: 'tr') }}` + ' TL'
+        
             }
         }">
 
@@ -30,7 +30,7 @@
                         class="wrapper max-w-1440 mx-auto w-full px-7.5 flex items-center justify-between md:flex-col md:items-start gap-7.5 md:gap-6">
                         <div class="text-wrapper">
                             <h1 class="title text-6 2xl:text-5.5 xl:text-4.5 font-semibold text-tertiary-950 leading-tight">
-                               {{ $project->title }}
+                                {{ $project->title }}
                             </h1>
                             <div class="location flex items-center gap-2 mt-3">
                                 <div
@@ -62,16 +62,17 @@
                                 <div
                                     class="icon icon-share text-3.5 h-3.5 sm:text-3 sm:h-3 block leading-none duration-300 text-[#454545]">
                                 </div>
-                                <div class="text text-[#454545] text-3.5 sm:text-3 font-medium">{{ __('general.share') }}</div>
-                            </a>
-                            @if($project->brochure_full_url)
-                            <a href="{{ $project->brochure_full_url }}" download
-                                class="button add-favorite group/button h-12 md:h-11 sm:h-10 px-5 md:px-4 sm:px-3.5 rounded-3 border border-solid border-black/13 flex items-center justify-center gap-3 sm:gap-2 duration-300 hover:border-black/25">
-                                <div
-                                    class="icon icon-download text-3.5 h-3.5 sm:text-3 sm:h-3 block leading-none duration-300 text-[#454545]">
+                                <div class="text text-[#454545] text-3.5 sm:text-3 font-medium">{{ __('general.share') }}
                                 </div>
-                                <div class="text text-[#454545] text-3.5 sm:text-3 font-medium">Broşür</div>
                             </a>
+                            @if ($project->brochure_full_url)
+                                <a href="{{ $project->brochure_full_url }}" download
+                                    class="button add-favorite group/button h-12 md:h-11 sm:h-10 px-5 md:px-4 sm:px-3.5 rounded-3 border border-solid border-black/13 flex items-center justify-center gap-3 sm:gap-2 duration-300 hover:border-black/25">
+                                    <div
+                                        class="icon icon-download text-3.5 h-3.5 sm:text-3 sm:h-3 block leading-none duration-300 text-[#454545]">
+                                    </div>
+                                    <div class="text text-[#454545] text-3.5 sm:text-3 font-medium">Broşür</div>
+                                </a>
                             @endif
                         </div>
                     </div>
@@ -82,7 +83,7 @@
                 <div class="wrapper max-w-1440 mx-auto w-full px-7.5 md:px-5">
                     <div class="image-outer-wrapper relative grid grid-cols-2 sm:grid-cols-1 gap-3">
                         <div class="image-inner-wrapper flex">
-                            <a href="{{ ($project->promotion_url) }}"
+                            <a href="{{ $project->promotion_url }}"
                                 class="image bg-tertiary-950 relative block sm:aspect-square overflow-hidden isolate rounded-6 md:rounded-3 translate-z-0 group"
                                 data-fancybox="gallery">
                                 <img class="full-cover translate-z-0 group-hover:scale-105 duration-450 opacity-70 group-hover:opacity-100"
@@ -104,14 +105,14 @@
                                         src="{{ $project->images->first()->full_url }}" alt="" loading="lazy"></a>
                             </div>
                             <div class="image-wrapper grid grid-cols-2 gap-3">
-                                @foreach($project->images as $image)
-                                @if(!$loop->first)
-                                <a href="{{ $image->full_url }}"
-                                    class="image block aspect-[64/57] overflow-hidden isolate rounded-6 md:rounded-3 translate-z-0 group"
-                                    data-fancybox="gallery"><img
-                                        class="full-cover translate-z-0 group-hover:scale-105 duration-450"
-                                        src="{{ $image->full_url }}" alt="" loading="lazy"></a>
-                                @endif
+                                @foreach ($project->images as $image)
+                                    @if (!$loop->first)
+                                        <a href="{{ $image->full_url }}"
+                                            class="image block aspect-[64/57] overflow-hidden isolate rounded-6 md:rounded-3 translate-z-0 group"
+                                            data-fancybox="gallery"><img
+                                                class="full-cover translate-z-0 group-hover:scale-105 duration-450"
+                                                src="{{ $image->full_url }}" alt="" loading="lazy"></a>
+                                    @endif
                                 @endforeach
 
                             </div>
@@ -136,7 +137,7 @@
                                 </div>
                                 <div class="detail">
                                     <div class="text-editor text-editor-main">
-                                        <p>{{ $project->description }}</p>
+                                        <p>{!! $project->description !!}</p>
                                     </div>
                                 </div>
                             </div>
@@ -147,14 +148,15 @@
                                 </div>
                                 <div class="detail">
                                     <div class="custom-list grid grid-cols-2 gap-6 xl:gap-5 lg:gap-4 md:gap-3">
-                                        @foreach($project->features as $feature)
-                                        <div class="item flex items-center gap-3">
-                                            <div class="dot w-1.5 aspect-square rounded-full bg-tertiary-950 shrink-0">
+                                        @foreach ($project->features as $feature)
+                                            <div class="item flex items-center gap-3">
+                                                <div class="dot w-1.5 aspect-square rounded-full bg-tertiary-950 shrink-0">
+                                                </div>
+                                                <div
+                                                    class="text font-medium text-4.5 xl:text-4 md:text-3.5 text-tertiary-950">
+                                                    {{ $feature->value }}
+                                                </div>
                                             </div>
-                                            <div class="text font-medium text-4.5 xl:text-4 md:text-3.5 text-tertiary-950">
-                                                {{ $feature->value }}
-                                            </div>
-                                        </div>
                                         @endforeach
 
                                     </div>
@@ -167,33 +169,32 @@
                                 </div>
                                 <div class="detail">
                                     <div class="custom-list grid gap-6 xl:gap-5 lg:gap-4 md:gap-3">
-                                        @foreach($project->transportations as $transportation)
-
-
-                                        <div class="item grid grid-cols-3">
-                                            <div class="title flex items-center gap-3">
-                                                <div class="dot w-1.5 aspect-square rounded-full bg-tertiary-950 shrink-0">
+                                        @foreach ($project->transportations as $transportation)
+                                            <div class="item grid grid-cols-3">
+                                                <div class="title flex items-center gap-3">
+                                                    <div
+                                                        class="dot w-1.5 aspect-square rounded-full bg-tertiary-950 shrink-0">
+                                                    </div>
+                                                    <div
+                                                        class="text font-medium text-4.5 xl:text-4 md:text-3.5 text-tertiary-950">
+                                                        {{ $transportation->name }}
+                                                    </div>
                                                 </div>
-                                                <div
-                                                    class="text font-medium text-4.5 xl:text-4 md:text-3.5 text-tertiary-950">
-                                                    {{ $transportation->name }}
+                                                <div class="time flex items-center gap-3">
+                                                    <div
+                                                        class="icon icon-walking-distance text-5 h-5 block leading-none duration-300">
+                                                    </div>
+                                                    <div class="value text-3.5 text-tertiary-950">
+
+                                                        {{ $transportation->duration }}dk
+                                                    </div>
+                                                </div>
+                                                <div class="distance">
+                                                    <div class="value text-3.5 text-tertiary-950">
+                                                        {{ $transportation->distance }}
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="time flex items-center gap-3">
-                                                <div
-                                                    class="icon icon-walking-distance text-5 h-5 block leading-none duration-300">
-                                                </div>
-                                                <div class="value text-3.5 text-tertiary-950">
-
-                                                    {{ $transportation->duration }}dk
-                                                </div>
-                                            </div>
-                                            <div class="distance">
-                                                <div class="value text-3.5 text-tertiary-950">
-                                                    {{ $transportation->distance }}
-                                                </div>
-                                            </div>
-                                        </div>
                                         @endforeach
 
                                     </div>
@@ -201,150 +202,164 @@
                             </div>
 
                             <div class="tab-general-wrapper mt-30 2xl:mt-24 xl:mt-18 lg:mt-12 md:mt-8">
-                                <div class="title text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950 mb-6 capitalize">
+                                <div
+                                    class="title text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950 mb-6 capitalize">
                                     {{ __('general.flat_features') }}
                                 </div>
                                 <div class="tab-triggers flex items-center">
-                                    @foreach($project->flats as $mainFlat)
-                                    <div data-id="t{{ $mainFlat->id }}"
-                                        class="item h-15 lg:h-14 sm:h-12 w-full flex items-center justify-center cursor-pointer text-4.5 lg:text-4 sm:text-3.5 font-medium text-tertiary-950 border-0 border-y border-r border-solid border-[#2675FA] first:border-l first:rounded-tl-5 first:rounded-bl-5 md:first:rounded-tl-3 md:first:rounded-bl-3 last:rounded-tr-5 last:rounded-br-5 md:last:rounded-tr-3 md:last:rounded-br-3 duration-300 [&.active]:bg-[#2675FA] [&.active]:text-white [&.active]:pointer-events-none hover:text-[#2675FA] @if($loop->first) active @endif">
-                                       {{ $mainFlat->rooms }}
-                                    </div>
+                                    @foreach ($project->flats as $mainFlat)
+                                        <div data-id="t{{ $mainFlat->id }}"
+                                            class="item h-15 lg:h-14 sm:h-12 w-full flex items-center justify-center cursor-pointer text-4.5 lg:text-4 sm:text-3.5 font-medium text-tertiary-950 border-0 border-y border-r border-solid border-[#2675FA] first:border-l first:rounded-tl-5 first:rounded-bl-5 md:first:rounded-tl-3 md:first:rounded-bl-3 last:rounded-tr-5 last:rounded-br-5 md:last:rounded-tr-3 md:last:rounded-br-3 duration-300 [&.active]:bg-[#2675FA] [&.active]:text-white [&.active]:pointer-events-none hover:text-[#2675FA] @if ($loop->first) active @endif">
+                                            {{ $mainFlat->rooms }}
+                                        </div>
                                     @endforeach
                                 </div>
                                 <div class="tab-panels mt-17 2xl:mt-14 xl:mt-11 lg:mt-8 md:mt-6">
-                                    @foreach($project->flats as $flat)
-                                    <div data-id="t{{ $flat->id }}" class="item hidden [&.active]:block @if($loop->first) active @endif">
-                                        <div class="el">
-                                            <div
-                                                class="title text-4 xl:text-4 md:text-3.5 font-semibold text-tertiary-950 mb-5">
-                                                {{ __('general.description') }}
-                                            </div>
-                                            <div class="info flex items-center gap-7">
-                                                <div class="item flex items-center gap-5">
-                                                    <div
-                                                        class="icon icon-square-meter-2 text-7 h-7 block leading-none duration-300 text-[#2675FA]">
-                                                    </div>
-                                                    <div class="text-wrapper flex items-center gap-4">
-                                                        <div class="text">
-                                                            <div class="title text-3 text-tertiary-950 capitalize">{{ __('general.gross') }}</div>
-                                                            <div class="value text-4 font-medium text-[#1D1D1B]">{{ $flat->gross }} m²
+                                    @foreach ($project->flats as $flat)
+                                        <div data-id="t{{ $flat->id }}"
+                                            class="item hidden [&.active]:block @if ($loop->first) active @endif">
+                                            <div class="el">
+                                                <div
+                                                    class="title text-4 xl:text-4 md:text-3.5 font-semibold text-tertiary-950 mb-5">
+                                                    {{ __('general.description') }}
+                                                </div>
+                                                <div class="info flex items-center gap-7">
+                                                    <div class="item flex items-center gap-5">
+                                                        <div
+                                                            class="icon icon-square-meter-2 text-7 h-7 block leading-none duration-300 text-[#2675FA]">
+                                                        </div>
+                                                        <div class="text-wrapper flex items-center gap-4">
+                                                            <div class="text">
+                                                                <div class="title text-3 text-tertiary-950 capitalize">
+                                                                    {{ __('general.gross') }}</div>
+                                                                <div class="value text-4 font-medium text-[#1D1D1B]">
+                                                                    {{ $flat->gross }} m²
+                                                                </div>
+                                                            </div>
+                                                            <div class="text">
+                                                                <div class="title text-3 text-tertiary-950 capitalize">
+                                                                    {{ __('general.net') }}</div>
+                                                                <div class="value text-4 font-medium text-[#1D1D1B]">
+                                                                    {{ $flat->net }} m²
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <div class="text">
-                                                            <div class="title text-3 text-tertiary-950 capitalize">{{ __('general.net') }}</div>
-                                                            <div class="value text-4 font-medium text-[#1D1D1B]">{{ $flat->net }} m²
+                                                    </div>
+                                                    <div class="split h-7 w-px shrink-0 bg-black/10"></div>
+                                                    <div class="item flex items-center gap-5">
+                                                        <div
+                                                            class="icon icon-bath text-7 h-7 block leading-none duration-300 text-[#2675FA]">
+                                                        </div>
+                                                        <div class="text-wrapper flex items-center gap-4">
+                                                            <div class="text">
+                                                                <div class="title text-3 text-tertiary-950">
+                                                                    {{ __('general.bathroom_count') }}</div>
+                                                                <div class="value text-4 font-medium text-[#1D1D1B]">
+                                                                    {{ $flat->bathroom_count }}
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="split h-7 w-px shrink-0 bg-black/10"></div>
-                                                <div class="item flex items-center gap-5">
-                                                    <div
-                                                        class="icon icon-bath text-7 h-7 block leading-none duration-300 text-[#2675FA]">
-                                                    </div>
-                                                    <div class="text-wrapper flex items-center gap-4">
-                                                        <div class="text">
-                                                            <div class="title text-3 text-tertiary-950">{{ __('general.bathroom_count') }}</div>
-                                                            <div class="value text-4 font-medium text-[#1D1D1B]">
-                                                                {{ $flat->bathroom_count }}
+                                                <div class="text-editor text-editor-main mt-5">
+                                                    <p>
+                                                        {{ $flat->description }}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="split h-px w-full bg-black/11 my-14 2xl:my-12 xl:my-10 lg:my-8 md:my-6">
+                                            </div>
+                                            <div class="item grid grid-cols-2/10 lg:grid-cols-1 gap-6">
+                                                <div
+                                                    class="title text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950 capitalize">
+                                                    {{ __('general.features') }}
+                                                </div>
+                                                <div class="detail">
+                                                    <div class="custom-list grid grid-cols-3 xs:grid-cols-2 gap-3">
+                                                        @foreach ($flat->features as $feature)
+                                                            <div class="item flex items-center gap-3">
+                                                                <div
+                                                                    class="dot w-1 aspect-square rounded-full bg-tertiary-950 shrink-0">
+                                                                </div>
+                                                                <div class="text text-4 md:text-3.5 text-tertiary-950">
+                                                                    {{ $feature->value }}
+                                                                </div>
                                                             </div>
-                                                        </div>
+                                                        @endforeach
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="text-editor text-editor-main mt-5">
-                                                <p>
-                                                    {{ $flat->description }}
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="split h-px w-full bg-black/11 my-14 2xl:my-12 xl:my-10 lg:my-8 md:my-6">
-                                        </div>
-                                        <div class="item grid grid-cols-2/10 lg:grid-cols-1 gap-6">
                                             <div
-                                                class="title text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950 capitalize">
-                                                {{ __('general.features') }}
+                                                class="split h-px w-full bg-black/11 my-14 2xl:my-12 xl:my-10 lg:my-8 md:my-6">
                                             </div>
-                                            <div class="detail">
-                                                <div class="custom-list grid grid-cols-3 xs:grid-cols-2 gap-3">
-                                                    @foreach($flat->features as $feature)
-                                                    <div class="item flex items-center gap-3">
-                                                            <div class="dot w-1 aspect-square rounded-full bg-tertiary-950 shrink-0">
+                                            <div class="item grid grid-cols-2/10 lg:grid-cols-1 gap-6">
+                                                <div
+                                                    class="title text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950 capitalize">
+                                                    {{ __('general.site_features') }}
+                                                </div>
+                                                <div class="detail">
+                                                    <div class="custom-list grid grid-cols-3 xs:grid-cols-2 gap-3">
+                                                        @foreach ($project->siteFeatures as $siteFeature)
+                                                            <div class="item flex items-center gap-3">
+                                                                <div
+                                                                    class="dot w-1 aspect-square rounded-full bg-tertiary-950 shrink-0">
+                                                                </div>
+                                                                <div class="text text-4 md:text-3.5 text-tertiary-950">
+                                                                    {{ $siteFeature->value }}
+                                                                </div>
                                                             </div>
-                                                            <div class="text text-4 md:text-3.5 text-tertiary-950">
-                                                                {{ $feature->value }}
-                                                            </div>
-                                                        </div>
+                                                        @endforeach
 
-                                                    @endforeach
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="split h-px w-full bg-black/11 my-14 2xl:my-12 xl:my-10 lg:my-8 md:my-6">
-                                        </div>
-                                        <div class="item grid grid-cols-2/10 lg:grid-cols-1 gap-6">
-                                            <div
-                                                class="title text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950 capitalize">
-                                                {{ __('general.site_features') }}
-                                            </div>
-                                            <div class="detail">
-                                                <div class="custom-list grid grid-cols-3 xs:grid-cols-2 gap-3">
-                                                    @foreach($project->siteFeatures as $siteFeature)
-                                                    <div class="item flex items-center gap-3">
-                                                        <div class="dot w-1 aspect-square rounded-full bg-tertiary-950 shrink-0">
-                                                        </div>
-                                                        <div class="text text-4 md:text-3.5 text-tertiary-950">
-                                                            {{ $siteFeature->value }}
-                                                        </div>
                                                     </div>
-                                                    @endforeach
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="split h-px w-full bg-black/11 my-14 2xl:my-12 xl:my-10 lg:my-8 md:my-6">
+                                            </div>
+                                            <div class="item grid grid-cols-2/10 lg:grid-cols-1 gap-6">
+                                                <div
+                                                    class="title capitalize text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950">
+                                                    {{ __('general.payment_plan') }}
+                                                </div>
+                                                <div class="detail">
+                                                    <div class="text-editor text-editor-main">
+                                                        <p>{!! $project->payment_plan !!}.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="split h-px w-full bg-black/11 my-14 2xl:my-12 xl:my-10 lg:my-8 md:my-6">
+                                            </div>
+                                            <div class="item grid grid-cols-2/10 lg:grid-cols-1 gap-6">
+                                                <div
+                                                    class="title capitalize text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950">
+                                                    {{ __('general.extra_payment') }}
+                                                </div>
+                                                <div class="detail">
+                                                    <div class="text-editor text-editor-main">
+                                                        <p>{!! $project->extra_payment !!}.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="split h-px w-full bg-black/11 my-14 2xl:my-12 xl:my-10 lg:my-8 md:my-6">
+                                            </div>
+                                            <div class="item grid grid-cols-2/10 lg:grid-cols-1 gap-6">
+                                                <div
+                                                    class="title text-4.5 capitalize xl:text-4 md:text-3.5 font-semibold text-tertiary-950">
+                                                    {{ __('general.location') }}
+                                                </div>
+                                                <div class="detail">
+                                                    <iframe class="w-full h-auto block aspect-[177/73] xs:aspect-[5/4]"
+                                                        src="{{ $project->embed_map_link }}" style="border:0;"
+                                                        allowfullscreen="" loading="lazy"
+                                                        referrerpolicy="no-referrer-when-downgrade" id="locationIframe">
+                                                    </iframe>
 
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="split h-px w-full bg-black/11 my-14 2xl:my-12 xl:my-10 lg:my-8 md:my-6">
-                                        </div>
-                                        <div class="item grid grid-cols-2/10 lg:grid-cols-1 gap-6">
-                                            <div
-                                                class="title capitalize text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950">
-                                               {{__('general.payment_plan')}}
-                                            </div>
-                                            <div class="detail">
-                                                <div class="text-editor text-editor-main">
-                                                    <p>{{$project->payment_plan}}.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="split h-px w-full bg-black/11 my-14 2xl:my-12 xl:my-10 lg:my-8 md:my-6">
-                                        </div>
-                                        <div class="item grid grid-cols-2/10 lg:grid-cols-1 gap-6">
-                                            <div
-                                                class="title capitalize text-4.5 xl:text-4 md:text-3.5 font-semibold text-tertiary-950">
-                                            {{__('general.extra_payment')}}
-                                            </div>
-                                            <div class="detail">
-                                                <div class="text-editor text-editor-main">
-                                                    <p>{{ $project->extra_payment }}.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="split h-px w-full bg-black/11 my-14 2xl:my-12 xl:my-10 lg:my-8 md:my-6">
-                                        </div>
-                                        <div class="item grid grid-cols-2/10 lg:grid-cols-1 gap-6">
-                                            <div
-                                                class="title text-4.5 capitalize xl:text-4 md:text-3.5 font-semibold text-tertiary-950">
-                                            {{ __('general.location') }}
-                                            </div>
-                                            <div class="detail">
-                                              <iframe class="w-full h-auto block aspect-[177/73] xs:aspect-[5/4]"
-                                                    src="{{ $project->embed_map_link }}"
-                                                    style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="locationIframe">
-                                                </iframe>
-
-                                            </div>
-                                        </div>
-                                    </div>
                                     @endforeach
 
                                 </div>
@@ -354,16 +369,17 @@
                             <div class="sticky-el sticky top-0 duration-300">
                                 <div class="inner bg-white rounded-4 md:rounded-3 p-7.5 sm:p-6">
                                     <div class="date text-center text-tertiary-950 font-medium text-4 lg:text-3.5 mb-3">
-                                       {{__('general.delivery_date')}}: {{ $project->delivery_date }}</div>
+                                        {{ __('general.delivery_date') }}: {{ $project->delivery_date }}</div>
                                     <div class="price text-center text-[#2675FA] leading-tight">
                                         <div x-text="price"
                                             class="value flex items-center justify-center font-semibold text-9 2xl:text-8 xl:text-7 lg:text-6 [&_span]:text-4 lg:[&_span]:text-3.5 [&_span]:font-medium">
-                                              </div>
-                                        <div class="joint text-4 lg:text-3.5 font-medium">{{ __('general.starting_price') }}</div>
+                                        </div>
+                                        <div class="joint text-4 lg:text-3.5 font-medium">
+                                            {{ __('general.starting_price') }}</div>
                                     </div>
                                     <div class="custom-radio-group flex items-center justify-center gap-3 xl:gap-2 mt-5">
                                         <div class="custom-radio relative">
-                                            <input type="radio"  name="r1"
+                                            <input type="radio" name="r1"
                                                 class="peer absolute left-0 top-0 w-full h-full opacity-0 cursor-pointer"
                                                 checked @click="setPriceCurrency('tl')">
                                             <div
@@ -372,7 +388,8 @@
                                         </div>
                                         <div class="custom-radio relative">
                                             <input type="radio" name="r1"
-                                                class="peer absolute left-0 top-0 w-full h-full opacity-0 cursor-pointer" @click="setPriceCurrency('eur')">
+                                                class="peer absolute left-0 top-0 w-full h-full opacity-0 cursor-pointer"
+                                                @click="setPriceCurrency('eur')">
                                             <div
                                                 class="box text-3.5 md:text-3 font-medium w-16 xl:w-14 md:w-12 h-12 xl:h-10 md:h-8 rounded-2 flex items-center justify-center text-[#888888] peer-hover:text-tertiary-950 duration-300 border border-solid border-transparent [-webkit-text-stroke:0.5px_transparent] peer-checked:pointer-events-none peer-checked:border-[#144495] peer-checked:bg-[#144495]/5 peer-checked:text-[#144495] peer-checked:[-webkit-text-stroke:0.5px_#144495]">
                                                 EUR</div>
@@ -398,7 +415,8 @@
                                             class="title text-center text-tertiary-950 font-semibold text-6 2xl:text-5.5 xl:text-5 lg:text-4.5">
                                             {{ __('general.contact_me') }}
                                         </h2>
-                                        <p class="expo text-center text-[#888888] text-3.5 font-medium">{{ __('general.fill_form') }}</p>
+                                        <p class="expo text-center text-[#888888] text-3.5 font-medium">
+                                            {{ __('general.fill_form') }}</p>
                                     </div>
 
                                     <form action="{{ route('form.project') }}" method="POST">
@@ -406,7 +424,8 @@
                                         <div class="form-wrapper grid gap-3">
                                             <input type="hidden" name="project_id" value="{{ $project->id }}">
                                             <div class="form-el relative group/form w-full">
-                                                <input name="name" type="text" placeholder="{{ __('general.name') }}"
+                                                <input name="name" type="text"
+                                                    placeholder="{{ __('general.name') }}"
                                                     class="w-full h-14 md:h-12 duration-300 rounded-4 md:rounded-3 pl-13 md:pl-10 pr-7 md:pr-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
                                                 <div
                                                     class="icon icon-person text-3 h-3 md:text-2.5 md:h-2.5 block leading-none duration-300 absolute left-7 md:left-5 top-5.5 md:top-5 text-black/25 pointer-events-none">
@@ -417,7 +436,8 @@
                                             </div>
                                             <div class="form-el relative group/form w-full">
                                                 <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                                <input name="phone" type="tel" placeholder="{{ __('general.phone') }}"
+                                                <input name="phone" type="tel"
+                                                    placeholder="{{ __('general.phone') }}"
                                                     class="w-full h-14 md:h-12 duration-300 rounded-4 md:rounded-3 pl-13 md:pl-10 pr-7 md:pr-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
                                                 <div
                                                     class="icon icon-phone text-3 h-3 md:text-2.5 md:h-2.5 block leading-none duration-300 absolute left-7 md:left-5 top-5.5 md:top-5 text-black/25 pointer-events-none">
@@ -464,21 +484,24 @@
 
                                     <div class="phone-numbers mt-12 2xl:mt-11 xl:mt-10 lg:mt-8 md:mt-6">
                                         <div class="item flex items-center justify-between gap-7.5 px-3 sm:px-2">
-                                            <div class="title text-4 md:text-3.5 font-medium text-[#888888]">{{ __('general.phone') }}</div>
+                                            <div class="title text-4 md:text-3.5 font-medium text-[#888888]">
+                                                {{ __('general.phone') }}</div>
                                             <a href="javascript:void(0)"
                                                 class="draw-underline [--line-color:#0D1523] text-tertiary-950 text-4 md:text-3.5 font-medium">+90
                                                 542 899 33 19</a>
                                         </div>
                                         <div class="split h-px w-full bg-black/8 my-4 xl:my-3.5 lg:my-3 md:my-2.5"></div>
                                         <div class="item flex items-center justify-between gap-7.5 px-3 sm:px-2">
-                                            <div class="title text-4 md:text-3.5 font-medium text-[#888888]">{{ __('general.office') }}</div>
+                                            <div class="title text-4 md:text-3.5 font-medium text-[#888888]">
+                                                {{ __('general.office') }}</div>
                                             <a href="javascript:void(0)"
                                                 class="draw-underline [--line-color:#0D1523] text-tertiary-950 text-4 md:text-3.5 font-medium">+90
                                                 (324) 325 30 30</a>
                                         </div>
                                         <div class="split h-px w-full bg-black/8 my-4 xl:my-3.5 lg:my-3 md:my-2.5"></div>
                                         <div class="item flex items-center justify-between gap-7.5 px-3 sm:px-2">
-                                            <div class="title text-4 md:text-3.5 font-medium text-[#888888]">{{ __('general.languages') }}</div>
+                                            <div class="title text-4 md:text-3.5 font-medium text-[#888888]">
+                                                {{ __('general.languages') }}</div>
                                             <div class="text-tertiary-950 text-4 md:text-3.5 font-medium">Türkçe, İngilizce
                                             </div>
                                         </div>
@@ -494,81 +517,87 @@
                 <div class="wrapper max-w-1440 mx-auto w-full px-7.5">
                     <div class="text-editor text-editor-main mb-12 2xl:mb-10 xl:mb-8 md:mb-6">
                         <!-- .text-editor içerisindeki style attribute değerleri frontendi tasarıma benzetmek adına eklenmiştir, backend aşamasında silinerek panel editöründen tanımlanmalıdır. -->
-                        <h3 style="text-align:center;text-transform: capitalize"><strong>{{ __('general.more') }}</strong></h3>
+                        <h3 style="text-align:center;text-transform: capitalize"><strong>{{ __('general.more') }}</strong>
+                        </h3>
                     </div>
                     <div class="related-carousel swiper !h-auto">
                         <div class="swiper-wrapper !h-auto">
-                            @foreach($projects as $randomProject)
-                            <div class="swiper-slide">
-                                <div
-                                    class="project p-2.5 bg-white rounded-6 md:rounded-3 border border-solid border-transparent hover:border-[#8AA5D3]/35 duration-300">
-                                    <a href="{{ route('frontend.project.show',$randomProject) }}"
-                                        class="image group shadow-s3 block aspect-[17/12] rounded-6 md:rounded-3 overflow-hidden isolate translate-z-0"><img
-                                            class="full-cover group-hover:scale-105 duration-450 translate-z-0"
-                                            src="{{ $randomProject->images->first()->full_url }}" alt="" loading="lazy"></a>
-                                    <div class="content-wrapper p-5 lg:p-4 mt-2.5">
-                                        <a href="{{ route('frontend.project.show',$randomProject) }}"
-                                            class="title text-6 2xl:text-5.5 xl:text-5 lg:text-4.5 leading-tight text-tertiary-950 hover:text-main-700 duration-300 font-semibold mb-6 xl:mb-5 md:mb-4 block">
-                                            {{ $randomProject->title }}
-                                        </a>
-                                        <div class="tags flex flex-wrap items-center gap-4 lg:gap-y-3 sm:gap-y-2">
-                                            <div class="item flex items-center gap-2">
-                                                <div
-                                                    class="icon-wrapper w-7.5 aspect-square shrink-0 bg-[#EDF3FE] flex items-center justify-center rounded-full">
+                            @foreach ($projects as $randomProject)
+                                <div class="swiper-slide">
+                                    <div
+                                        class="project p-2.5 bg-white rounded-6 md:rounded-3 border border-solid border-transparent hover:border-[#8AA5D3]/35 duration-300">
+                                        <a href="{{ route('frontend.project.show', $randomProject) }}"
+                                            class="image group shadow-s3 block aspect-[17/12] rounded-6 md:rounded-3 overflow-hidden isolate translate-z-0"><img
+                                                class="full-cover group-hover:scale-105 duration-450 translate-z-0"
+                                                src="{{ $randomProject->images->first()->full_url }}" alt=""
+                                                loading="lazy"></a>
+                                        <div class="content-wrapper p-5 lg:p-4 mt-2.5">
+                                            <a href="{{ route('frontend.project.show', $randomProject) }}"
+                                                class="title text-6 2xl:text-5.5 xl:text-5 lg:text-4.5 leading-tight text-tertiary-950 hover:text-main-700 duration-300 font-semibold mb-6 xl:mb-5 md:mb-4 block">
+                                                {{ $randomProject->title }}
+                                            </a>
+                                            <div class="tags flex flex-wrap items-center gap-4 lg:gap-y-3 sm:gap-y-2">
+                                                <div class="item flex items-center gap-2">
                                                     <div
-                                                        class="icon icon-location-1 text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
+                                                        class="icon-wrapper w-7.5 aspect-square shrink-0 bg-[#EDF3FE] flex items-center justify-center rounded-full">
+                                                        <div
+                                                            class="icon icon-location-1 text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
+                                                        </div>
+                                                    </div>
+                                                    <div class="text text-3.5 font-medium text-tertiary-950/40">
+                                                        {{ $randomProject->full_address }}
                                                     </div>
                                                 </div>
-                                                <div class="text text-3.5 font-medium text-tertiary-950/40">
-                                                    {{ $randomProject->full_address }}
-                                                </div>
-                                            </div>
 
-                                            <div class="item flex items-center gap-2">
-                                                <div
-                                                    class="icon-wrapper w-7.5 aspect-square shrink-0 bg-[#EDF3FE] flex items-center justify-center rounded-full">
+                                                <div class="item flex items-center gap-2">
                                                     <div
-                                                        class="icon icon-square-meter-1 text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
+                                                        class="icon-wrapper w-7.5 aspect-square shrink-0 bg-[#EDF3FE] flex items-center justify-center rounded-full">
+                                                        <div
+                                                            class="icon icon-square-meter-1 text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
+                                                        </div>
                                                     </div>
+                                                    <div class="text text-3.5 font-medium text-tertiary-950/40">
+                                                        {{ $project->flats?->first()?->net }}
+                                                        m²</div>
                                                 </div>
-                                                <div class="text text-3.5 font-medium text-tertiary-950/40">
-                                            {{ $project->flats?->first()?->net }}
-                                                    m²</div>
                                             </div>
-                                        </div>
-                                        <p
-                                            class="expo text-[#888888] text-4 lg:text-3.5 font-medium mt-6 xl:mt-5 md:mt-4 block">
-                                            {{ $project->description }}
-                                        </p>
-                                        <div class="info flex items-center justify-between gap-7.5 mt-6 xl:mt-5 md:mt-4">
+                                            <p
+                                                class="expo text-[#888888] text-4 lg:text-3.5 font-medium mt-6 xl:mt-5 md:mt-4 block">
+                                                {!! $project->description !!}
+                                            </p>
                                             <div
-                                                class="price text-tertiary-950 flex flex-wrap items-center sm:flex-col gap-1 sm:items-start sm:gap-0">
+                                                class="info flex items-center justify-between gap-7.5 mt-6 xl:mt-5 md:mt-4">
                                                 <div
-                                                    class="value font-semibold text-6 2xl:text-5.5 xl:text-5 lg:text-4.5 md:text-4">
-                                                    {{ $project->price }} TL</div>
-                                                <div class="joint text-4 xl:text-3.5 font-medium">{{ __('general.starting_price') }}
+                                                    class="price text-tertiary-950 flex flex-wrap items-center sm:flex-col gap-1 sm:items-start sm:gap-0">
+                                                    <div
+                                                        class="value font-semibold text-6 2xl:text-5.5 xl:text-5 lg:text-4.5 md:text-4">
+                                                        {{ $project->price }} TL</div>
+                                                    <div class="joint text-4 xl:text-3.5 font-medium">
+                                                        {{ __('general.starting_price') }}
+                                                    </div>
                                                 </div>
+                                                <button
+                                                    class="button shrink-0 add-favorite group/button relative duration-300 bg-[#EFF5FF] flex items-center justify-center h-10 aspect-square rounded-full hover:border-tertiary-950/30">
+                                                    <div
+                                                        class="icon icon-like text-4 h-4 block leading-none duration-300 text-[#DC1C2E]">
+                                                    </div>
+                                                    <div
+                                                        class="icon icon-liked text-4 h-4 block leading-none duration-300 text-[#DC1C2E] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover/button:opacity-100 group-[&.favorited]/button:opacity-100">
+                                                    </div>
+                                                </button>
                                             </div>
-                                            <button
-                                                class="button shrink-0 add-favorite group/button relative duration-300 bg-[#EFF5FF] flex items-center justify-center h-10 aspect-square rounded-full hover:border-tertiary-950/30">
+                                            <a href="{{ route('frontend.project.show', $randomProject) }}"
+                                                class="button group/button flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 h-16 xl:h-14 md:h-12 w-full px-6 bg-[#F0F2F7] hover:bg-main-100 mt-7.5 xl:mt-6 md:mt-5 text-[#2675FA]">
+
                                                 <div
-                                                    class="icon icon-like text-4 h-4 block leading-none duration-300 text-[#DC1C2E]">
-                                                </div>
-                                                <div
-                                                    class="icon icon-liked text-4 h-4 block leading-none duration-300 text-[#DC1C2E] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover/button:opacity-100 group-[&.favorited]/button:opacity-100">
-                                                </div>
-                                            </button>
+                                                    class="text whitespace-nowrap capitalize font-medium text-4 md:text-3.5">
+                                                    {{ __('general.details') }}</div>
+
+                                            </a>
                                         </div>
-                                        <a href="{{ route('frontend.project.show',$randomProject) }}"
-                                            class="button group/button flex items-center justify-center gap-4 md:gap-3 duration-300 rounded-5 md:rounded-3 h-16 xl:h-14 md:h-12 w-full px-6 bg-[#F0F2F7] hover:bg-main-100 mt-7.5 xl:mt-6 md:mt-5 text-[#2675FA]">
-
-                                            <div class="text whitespace-nowrap capitalize font-medium text-4 md:text-3.5">{{ __('general.details') }}</div>
-
-                                        </a>
                                     </div>
                                 </div>
-                            </div>
-@endforeach
+                            @endforeach
                         </div>
                     </div>
                     <div
@@ -579,11 +608,11 @@
 
         </main>
 
-@include('frontend.project.share',['project'=>$project])
+        @include('frontend.project.share', ['project' => $project])
     </soho-technologies>
 @endsection
 <script>
     @session('success')
-        alert('İlginiz için teşekkürler')
+    alert('İlginiz için teşekkürler')
     @endsession
 </script>

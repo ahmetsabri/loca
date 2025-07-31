@@ -170,7 +170,7 @@ Route::middleware('auth')->prefix('admin')->withoutMiddleware(LocaleMiddleware::
         Route::get('/create', [ServiceController::class, 'create'])->name('service.create');
         Route::post('/', [ServiceController::class, 'store'])->name('service.store');
         Route::get('/{service}', [ServiceController::class, 'edit'])->name('service.edit');
-        Route::post('/{service}', [ServiceController::class, 'update'])->name('service.update');
+        Route::put('/{service}', [ServiceController::class, 'update'])->name('service.update');
         Route::get('{service}/delete', [ServiceController::class, 'destroy'])->name('service.delete');
     });
 

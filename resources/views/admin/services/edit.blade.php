@@ -16,37 +16,36 @@
                 @if ($errors->all())
                     <div class="flex justify-center">
                         <a href="#"
-                            class="block  max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                            class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                             <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
                                 @foreach ($errors->all() as $error)
                                     <li class="text-red-700">
                                         {{ $error }}
                                     </li>
                                 @endforeach
-
                             </ul>
                         </a>
                     </div>
                 @endif
             </div>
             @csrf
+            @method('PUT')
             @foreach (config('app.locales') as $locale)
                 <div>
-                    <label for="team"
+                    <label for="name_{{ $locale }}"
                         class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">
                         hizmet adı {{ $locale }}
                     </label>
                     <input type="text" value="{{ $service->getTranslation('name', $locale) }}"
-                        name="name[{{ $locale }}]" id="team"
+                        name="name[{{ $locale }}]" id="name_{{ $locale }}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                         required />
                 </div>
             @endforeach
             <div>
-                <label for="team"
-                    class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">Video
-                    Linki</label>
-                <input value="{{ $service->promotion_url }}" type="url" name="promotion_url" id="team"
+                <label for="promotion_url"
+                    class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">Video Linki</label>
+                <input value="{{ $service->promotion_url }}" type="url" name="promotion_url" id="promotion_url"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" />
             </div>
             <div>
@@ -66,15 +65,61 @@
 
             @foreach (config('app.locales') as $locale)
                 <div>
-                    <label for="team"
+                    <label for="description_{{ $locale }}"
                         class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">
                         Açıklama {{ $locale }}
                     </label>
-                    <textarea type="text" name="description[{{ $locale }}]" id="team"
+                    <textarea type="text" name="description[{{ $locale }}]" id="description_{{ $locale }}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                         rows="7">{{ $service->getTranslation('description', $locale) }}</textarea>
                 </div>
             @endforeach
+
+            <h3 class="text-2xl font-semibold ">
+                resimler
+            </h3>
+            @if ($service->id !== 18)
+
+                @foreach (['top_right_image', 'top_left_image'] as $field)
+                    <div>
+                        <label for="{{ $field }}"
+                            class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                            {{ str_replace('_', ' ', $field) }}
+                        </label>
+                        @if ($service->$field)
+                            <div class="mb-2">
+                                <img src="{{ asset('storage/' . $service->$field) }}" alt="{{ $field }}"
+                                    class="h-32 w-auto rounded-lg">
+                                <p class="text-sm text-gray-600">Mevcut resim. Yeni bir resim yüklemek için aşağıyı
+                                    kullanın.</p>
+                            </div>
+                        @endif
+                        <input type="file" name="{{ $field }}" id="{{ $field }}" accept="image/*"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" />
+                    </div>
+                @endforeach
+            @endif
+            @if ($service->id === 18)
+                @foreach (['bottom_right_image', 'bottom_middle_image', 'bottom_left_image'] as $field)
+                    <div>
+                        <label for="{{ $field }}"
+                            class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                            {{ str_replace('_', ' ', $field) }}
+                        </label>
+                        @if ($service->$field)
+                            <div class="mb-2">
+                                <img src="{{ asset('storage/' . $service->$field) }}" alt="{{ $field }}"
+                                    class="h-32 w-auto rounded-lg">
+                                <p class="text-sm text-gray-600">Mevcut resim. Yeni bir resim yüklemek için aşağıyı
+                                    kullanın.</p>
+                            </div>
+                        @endif
+                        <input type="file" name="{{ $field }}" id="{{ $field }}" accept="image/*"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" />
+                    </div>
+                @endforeach
+            @endif
+
             <h3 class="text-2xl font-semibold ">
                 özellikler
             </h3>
@@ -111,25 +156,26 @@
                 <h1 class="text-left font-bold text-2xl capitalize">bölüm <span>{{ $index + 1 }}</span> </h1>
                 @foreach (config('app.locales') as $locale)
                     <div>
-                        <label for="team"
+                        <label for="sub_service_name_{{ $index }}_{{ $locale }}"
                             class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">
                             hizmet adı {{ $locale }}
                         </label>
                         <input type="text" value="{{ $subService->getTranslation('name', $locale) }}"
-                            name="sub_services[{{ $index }}][name][{{ $locale }}]" id="team"
+                            name="sub_services[{{ $index }}][name][{{ $locale }}]"
+                            id="sub_service_name_{{ $index }}_{{ $locale }}"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                             required />
                     </div>
                 @endforeach
 
-
                 @foreach (config('app.locales') as $locale)
                     <div>
-                        <label for="team"
+                        <label for="sub_service_description_{{ $index }}_{{ $locale }}"
                             class="block capitalize mb-2 text-sm font-medium text-gray-900 dark:text-white">
                             Açıklama {{ $locale }}
                         </label>
-                        <textarea type="text" name="sub_services[{{ $index }}][description][{{ $locale }}]" id="team"
+                        <textarea type="text" name="sub_services[{{ $index }}][description][{{ $locale }}]"
+                            id="sub_service_description_{{ $index }}_{{ $locale }}"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                             rows="7">{{ $subService->getTranslation('description', $locale) }}</textarea>
                     </div>
@@ -168,7 +214,6 @@
                     özellik ekle
                 </button>
             @endforeach
-
 
             <template x-for="i,ind in sections">
                 <div>

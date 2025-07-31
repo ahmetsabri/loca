@@ -21,20 +21,17 @@
                         <div
                             class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
                             #GeleceğiŞekillendirir</div>
-                        <!--<a href="javascript:void(0)" class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0] hover:text-white">#GeleceğiŞekillendirir</a>-->
                         <div
                             class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
                             #WdeYeriniAL</div>
-                        <!--<a href="javascript:void(0)" class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0] hover:text-white">#WdeYeriniAL</a>-->
                         <div
                             class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0]">
                             #ShapestheFuture</div>
-                        <!--<a href="javascript:void(0)" class="block w-fit text-4.5 xl:text-4 lg:text-3.5 md:text-3 font-medium duration-300 text-[#B0B0B0] hover:text-white">#ShapestheFuture</a>-->
                     </div>
                 </div>
             </div>
         </section>
-        
+
         <section class="content-field py-20 2xl:py-16 xl:py-14 lg:py-12 md:py-11 sm:py-10">
             <div class="wrapper max-w-1440 mx-auto w-full px-7.5 md:px-5">
                 <div class="heading-wrapper mb-16 2xl:mb-12 xl:mb-9 lg:mb-6 md:mb-3">
@@ -43,7 +40,6 @@
                         {{ __('general.sevices_before_sell') }}
                     </div>
                     <div class="text-editor text-editor-main mt-4">
-                        <!-- .text-editor içerisindeki style attribute değerleri frontendi tasarıma benzetmek adına eklenmiştir, backend aşamasında silinerek panel editöründen tanımlanmalıdır. -->
                         <h2 style="text-align:center;"><strong>
                                 {{ __('general.service_detail') }} <br> {{ __('general.service_detail2') }}
                             </strong></h2>
@@ -79,18 +75,19 @@
                                 <div class="image-wrapper grid gap-2 sm:grid-cols-2">
                                     <div
                                         class="image aspect-[37/26] sm:aspect-square rounded-6 md:rounded-3 overflow-hidden isolate max-w-[370px] xl:max-w-[300px] md:max-w-[250px] sm:max-w-none w-full h-auto mr-0 ml-auto">
-                                        <img class="full-cover" src="{{ asset('image/photo/4.webp') }}" alt=""
-                                            loading="lazy">
+                                        <img class="full-cover"
+                                            src="{{ $service->top_right_image ? asset('storage/' . $service->top_right_image) : asset('image/photo/4.webp') }}"
+                                            alt="{{ $service->name }} top right" loading="lazy">
                                     </div>
                                     <div
                                         class="image aspect-[34/21] sm:aspect-square rounded-6 md:rounded-3 overflow-hidden isolate max-w-[340px] xl:max-w-[250px] md:max-w-[200px] sm:max-w-none w-full h-auto ml-0 mr-auto">
-                                        <img class="full-cover" src="{{ asset('image/photo/2.webp') }}" alt=""
-                                            loading="lazy">
+                                        <img class="full-cover"
+                                            src="{{ $service->top_left_image ? asset('storage/' . $service->top_left_image) : asset('image/photo/2.webp') }}"
+                                            alt="{{ $service->name }} top left" loading="lazy">
                                     </div>
                                 </div>
                                 <div class="text-wrapper">
                                     <div class="text-editor mb-12 2xl:mb-10 xl:mb-9 lg:mb-8 md:mb-6 sm:mb-5">
-                                        <!-- .text-editor içerisindeki style attribute değerleri frontendi tasarıma benzetmek adına eklenmiştir, backend aşamasında silinerek panel editöründen tanımlanmalıdır. -->
                                         <h4 style="color:#2675FA"><strong>{{ $service->name }}</strong></h4>
                                     </div>
                                     <ul
@@ -106,17 +103,12 @@
                                                 </div>
                                             </li>
                                         @endforeach
-
-
                                     </ul>
-
                                     <div class="text-editor">
                                         <h6 style="font-weight:500;color:#6D6D6D">{{ $service->description }}</h6>
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
                     @endforeach
 
@@ -151,7 +143,8 @@
                                         <div
                                             class="image w-full h-full rounded-5 md:rounded-3 overflow-hidden isolate translate-z-0 bg-tertiary-950">
                                             <img class="full-cover opacity-85 duration-450 group-hover:opacity-100 group-hover:scale-105"
-                                                src="{{ asset('image/other/10.webp') }}" alt="" loading="lazy">
+                                                src="{{ $footerAServices->bottom_middle_image ? asset('storage/' . $footerAServices->bottom_middle_image) : asset('image/other/10.webp') }}"
+                                                alt="{{ $footerAServices->id }} bottom middle" loading="lazy">
                                         </div>
                                         <div
                                             class="icon-wrapper w-13 xl:w-11 md:w-9 rounded-full aspect-square bg-secondary-600 flex items-center justify-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 duration-450 group-hover:delay-150 group-hover:scale-125">
@@ -169,18 +162,21 @@
                         <div class="image-wrapper grid gap-2 sm:grid-cols-3">
                             <div
                                 class="image relative z-3 aspect-[37/26] sm:aspect-square rounded-6 md:rounded-3 overflow-hidden isolate max-w-[325px] xl:max-w-[300px] md:max-w-[250px] sm:max-w-none w-full h-auto mx-auto">
-                                <img class="full-cover" src="{{ asset('image/photo/4.webp') }}" alt=""
-                                    loading="lazy">
+                                <img class="full-cover"
+                                    src="{{ $footerBServices->bottom_middle_image ? asset('storage/' . $footerBServices->bottom_middle_image) : asset('image/photo/4.webp') }}"
+                                    alt="{{ $footerBServices->name }} top right" loading="lazy">
                             </div>
                             <div
                                 class="image relative z-2 aspect-[34/21] sm:aspect-square rounded-6 md:rounded-3 overflow-hidden isolate max-w-[280px] xl:max-w-[225px] md:max-w-[175px] sm:max-w-none w-full h-auto ml-0 mr-auto -mt-24 xl:-mt-12 sm:mt-0">
-                                <img class="full-cover" src="{{ asset('image/photo/2.webp') }}" alt=""
-                                    loading="lazy">
+                                <img class="full-cover"
+                                    src="{{ $footerBServices->bottom_left_image ? asset('storage/' . $footerBServices->bottom_left_image) : asset('image/photo/2.webp') }}"
+                                    alt="{{ $footerBServices->name }} top left" loading="lazy">
                             </div>
                             <div
                                 class="image relative z-1 aspect-[34/21] sm:aspect-square rounded-6 md:rounded-3 overflow-hidden isolate max-w-[300px] xl:max-w-[275px] md:max-w-[200px] sm:max-w-none w-full h-auto mr-0 ml-auto -mt-30 xl:-mt-24 sm:mt-0">
-                                <img class="full-cover" src="{{ asset('image/photo/21.webp') }}" alt=""
-                                    loading="lazy">
+                                <img class="full-cover"
+                                    src="{{ $footerBServices->bottom_right_image ? asset('storage/' . $footerBServices->bottom_right_image) : asset('image/photo/21.webp') }}"
+                                    alt="{{ $footerBServices->name }} bottom right" loading="lazy">
                             </div>
                         </div>
                         <div class="text-wrapper">
@@ -189,7 +185,6 @@
                                 {{ $footerBServices->name }}
                             </div>
                             <div class="text-editor text-editor-main mb-12 2xl:mb-10 xl:mb-9 lg:mb-8 md:mb-6 sm:mb-5">
-                                <!-- .text-editor içerisindeki style attribute değerleri frontendi tasarıma benzetmek adına eklenmiştir, backend aşamasında silinerek panel editöründen tanımlanmalıdır. -->
                                 <h3><strong>{{ $footerBServices->description }}</strong>
                                 </h3>
                             </div>
@@ -205,10 +200,8 @@
                                         </div>
                                     </li>
                                 @endforeach
-
                             </ul>
                         </div>
-
                     </div>
                 </div>
             </div>

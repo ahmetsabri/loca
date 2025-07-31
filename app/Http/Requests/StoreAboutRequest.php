@@ -27,6 +27,9 @@ class StoreAboutRequest extends FormRequest
             'description_1' => ['required', 'array'],
             'description_2' => ['required', 'array'],
             'quote' => ['required', 'array'],
+            'top_image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'bottom_right_image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'bottom_left_image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
         ];
     }
 }
