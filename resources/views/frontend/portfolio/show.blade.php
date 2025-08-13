@@ -20,8 +20,8 @@
                                     class="icon icon-location-1 text-4 h-4 xl:text-3.5 xl:h-3.5 block leading-none text-[#2675FA]">
                                 </div>
                                 <div class="text text-[#888888] font-medium text-4 xl:text-3.5">
-                                    {{ $portfolio->district->town->province->name }}/{{ $portfolio->district->town->name }}
-                                    , {{ $portfolio->district->name }}
+                                    {{ $portfolio->district->town->province->name }}/{{ $portfolio->district->town->name }},
+                                    {{ $portfolio->district->name }}
                                 </div>
                             </div>
                         </div>
@@ -300,8 +300,8 @@
                                             <div class="title text-3.5 font-medium text-tertiary-950">
                                                 {{ __('general.province') }} / {{ __('general.town') }}</div>
                                             <div class="value text-3.5 font-semibold text-tertiary-950 text-right">
-                                                {{ $portfolio->district->town->province->name }}/{{ $portfolio->district->town->name }}
-                                                , {{ $portfolio->district->name }}
+                                                {{ $portfolio->district->town->province->name }}/{{ $portfolio->district->town->name }},
+                                                {{ $portfolio->district->name }}
                                             </div>
                                         </div>
                                         <div class="split w-full h-px bg-[#8AA5D3]/30 my-2"></div>
@@ -395,8 +395,8 @@
                                             class="icon icon-location-1 text-3.5 h-3.5 block leading-none duration-300 text-[#2675FA]">
                                         </div>
                                         <div class=" text-3.5 font-medium text-tertiary-950/40 capitalize">
-                                            {{ $rportfolio->district->town->province->name }}/{{ $rportfolio->district->town->name }}
-                                            , {{ $rportfolio->district->name }}
+                                            {{ $rportfolio->district->town->province->name }}/{{ $rportfolio->district->town->name }},
+                                            {{ $rportfolio->district->name }}
                                         </div>
                                     </div>
                                     <a href="{{ route('frontend.portfolio.show', $rportfolio) }}"

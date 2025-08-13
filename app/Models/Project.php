@@ -16,6 +16,11 @@ class Project extends Model
 
     protected $guarded = [];
 
+    //casts
+    protected $casts = [
+        'delivery_date' => 'date',
+    ];
+
     public $translatable = ['title', 'description', 'payment_plan', 'extra_payment'];
 
     public function features()
@@ -127,7 +132,6 @@ class Project extends Model
     public function scopeSearch(Builder $builder)
     {
         $keyword = request('search');
-
         if ($keyword) {
             $builder->where(function ($query) use ($keyword) {
                 $query->whereRaw('LOWER(JSON_UNQUOTE(title->"$.tr")) like ?', ['%' . strtolower($keyword) . '%']);

@@ -37,7 +37,7 @@ class Post extends Model
             'wp' => sprintf(config('keys.wp_share_link'), $this->title.' '.route('frontend.post.show', $this)),
             'x' => sprintf(config('keys.x_share_link'), route('frontend.post.show', $this)),
             'fb' => sprintf(config('keys.fb_share_link'), route('frontend.post.show', $this)),
-            'li' => sprintf(config('keys.li_share_link'), 'http://google.com'),
+            'li' => sprintf(config('keys.li_share_link'), route('frontend.post.show', $this)),
         ];
     }
 

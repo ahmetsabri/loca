@@ -720,7 +720,7 @@
                         </a>
 
                         <div class="address-wrapper">
-                            <a href="https://maps.app.goo.gl/6HRwcJkGJQd8ni4J8"
+                            <a target="_blank" href="https://maps.app.goo.gl/6HRwcJkGJQd8ni4J8"
                                 class="flex items-center gap-4 draw-child-underline [--line-color:#8AA5D3]">
                                 <div
                                     class="icon icon-location-3 text-5 h-5 block leading-none duration-300 text-[#2675FA]">
@@ -730,7 +730,7 @@
                                 </div>
                             </a>
                             <div class="button-wrapper ml-4 pl-5 mt-3">
-                                <a href="https://maps.app.goo.gl/6HRwcJkGJQd8ni4J8"
+                                <a target="_blank" href="https://maps.app.goo.gl/6HRwcJkGJQd8ni4J8"
                                     class="button group/button relative duration-300 w-fit flex items-center gap-2 h-7.5 border border-solid border-[#8AA5D3]/25 px-3 rounded-2 hover:border-[#8AA5D3]/50">
                                     <div
                                         class="icon icon-map-1 text-3 h-3 block leading-none duration-300 text-[#2675FA]">

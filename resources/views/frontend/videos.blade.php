@@ -102,8 +102,8 @@
                         @foreach ($videos as $video)
                             <div>
                                 <iframe width="350" height="200" style="border-radius: 10px"
-                                    src="{{ str_replace('/watch?v=', '/embed/', $video->url) }}" title="YouTube video player"
-                                    frameborder="0"
+                                    src="{{ str_replace('/watch?v=', '/embed/', $video->url) }}"
+                                    title="YouTube video player" frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                                 <div

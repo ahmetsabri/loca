@@ -11,8 +11,13 @@
                 <div class="wrapper max-w-1440 mx-auto w-full px-7.5">
                     <div class="text-editor !gap-2 md:text-center">
                         <!-- .text-editor içerisindeki style attribute değerleri frontendi tasarıma benzetmek adına eklenmiştir, backend aşamasında silinerek panel editöründen tanımlanmalıdır. -->
-                        <h2 style="color:#224391;"><strong>
-                                {{ __('general.contact_us') }}
+                        <h2><strong>
+                                <span style="color:#224391;">
+                                    {{ __('general.contact_us_1') }}
+                                </span>
+                                <span style="color:#DB0520;">
+                                    {{ __('general.contact_us_2') }}
+                                </span>
                         </h2>
                     </div>
                 </div>
@@ -36,8 +41,9 @@
                                         </div>
                                         <div class="text-wrapper">
                                             <div class="title text-3 text-white">{{ __('general.address') }}</div>
-                                            <div class="text text-white text-3.5 font-medium"><span
-                                                    class="draw-el">50. Yıl Mah. 15. Cad. Ekinci Solaris Sitesi A Blok No:40/AD Yenişehir/MERSİN</span></div>
+                                            <div class="text text-white text-3.5 font-medium"><span class="draw-el">50. Yıl
+                                                    Mah. 15. Cad. Ekinci Solaris Sitesi A Blok No:40/AD
+                                                    Yenişehir/MERSİN</span></div>
                                         </div>
                                     </a>
                                     <div class="button-wrapper ml-4 pl-5 mt-3">
@@ -70,7 +76,8 @@
                                         class="icon icon-cellphone-2 text-6 h-6 block leading-none duration-300 text-[#2675FA] translate-y-15/100">
                                     </div>
                                     <div class="text-wrapper">
-                                        <div class="title text-3 text-white capitalize">{{ __('general.phone_office') }}</div>
+                                        <div class="title text-3 text-white capitalize">{{ __('general.phone_office') }}
+                                        </div>
                                         <div class="text text-white text-4 font-medium"><span class="draw-el">+90 (532)
                                                 427 59 36</span></div>
                                     </div>
@@ -118,8 +125,7 @@
                                 </div>
                                 <div class="form-el relative group/form w-full">
                                     <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                    <input required name="email" type="email"
-                                        placeholder="{{ __('general.email') }}"
+                                    <input required name="email" type="email" placeholder="{{ __('general.email') }}"
                                         class="w-full h-14 md:h-12 duration-300 rounded-4 md:rounded-3 px-7 md:px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
                                     @error('email')
                                         <div class="tooltip text-secondary-700 text-3 mt-2 hidden group-[&.error]/form:block">
@@ -129,8 +135,7 @@
                                 </div>
                                 <div class="form-el relative group/form w-full">
                                     <!-- Buraya `error` classı gelince ilgili style değişiyor -->
-                                    <input required name="phone" type="tel"
-                                        placeholder="{{ __('general.phone') }}"
+                                    <input required name="phone" type="tel" placeholder="{{ __('general.phone') }}"
                                         class="w-full h-14 md:h-12 duration-300 rounded-4 md:rounded-3 px-7 md:px-5 bg-bodyColor placeholder:text-[#6D6D6D] text-tertiary-950 font-medium text-3.5 border border-solid border-transparent hover:border-[#8AA5D3]/30 focus:border-main-700 group-[&.error]/form:border-secondary-700">
                                     @error('phone')
                                         <div class="tooltip text-secondary-700 text-3 mt-2 hidden group-[&.error]/form:block">
@@ -186,3 +191,9 @@
     </main>
 
 @endsection
+
+<script>
+    @session('success')
+    alert('Teşekkürler, mesajınız bize ulaştı. En kısa sürede sizinle iletişime geçeceğiz.');
+    @endsession
+</script>

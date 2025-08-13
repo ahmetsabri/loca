@@ -8,24 +8,24 @@
                 <div class="share-wrapper absolute right-7.5 top-0 h-full md:relative md:right-auto md:top-auto">
                     <div
                         class="sticky-el sticky top-0 duration-300 grid gap-10 xl:gap-7 md:flex md:gap-5 sm:gap-4 md:items-center md:mb-6 sm:mb-5">
-                        <a href="{{ $post->share_links['wp'] }}"
+                        <a target="_blank" href="{{ $post->share_links['wp'] }}"
                             class="block text-[#AAB0BA] duration-300 hover:text-[#2675FA]">
                             <div
                                 class="icon icon-whatsapp-1 text-6 h-6 xl:text-5 xl:h-5 md:text-4 md:h-4 block leading-none">
                             </div>
                         </a>
-                        <a href="{{ $post->share_links['fb'] }}"
+                        <a target="_blank" href="{{ $post->share_links['fb'] }}"
                             class="block text-[#AAB0BA] duration-300 hover:text-[#2675FA]">
                             <div
                                 class="icon icon-facebook-2 text-6 h-6 xl:text-5 xl:h-5 md:text-4 md:h-4 block leading-none">
                             </div>
                         </a>
-                        <a href="{{ $post->share_links['x'] }}"
+                        <a target="_blank" href="{{ $post->share_links['x'] }}"
                             class="block text-[#AAB0BA] duration-300 hover:text-[#2675FA]">
                             <div class="icon icon-twitter text-6 h-6 xl:text-5 xl:h-5 md:text-4 md:h-4 block leading-none">
                             </div>
                         </a>
-                        <a href="{{ $post->share_links['li'] }}"
+                        <a target="_blank" href="{{ $post->share_links['li'] }}"
                             class="block text-[#AAB0BA] duration-300 hover:text-[#2675FA]">
                             <div
                                 class="icon icon-linkedin-2 text-6 h-6 xl:text-5 xl:h-5 md:text-4 md:h-4 block leading-none">

@@ -1,17 +1,26 @@
 @extends('layouts.frontend')
-@section('title', 'W Property')
+@section('title', ' Projeler | RE/MAX Loca')
 @section('content')
     <soho-technologies class="block">
 
         <main class="main-field relative pt-[134px] sm:pt-[124px]" x-data="{
             towns: [],
-            category: 1,
-            map: 0,
+            selectedTown: `{{ request('filter.town') }}`,
+            selectedTownName: '',
             addToFavorites(id) {
-                localStorage.setItem(`project_${id}`, id)
+                localStorage.setItem(`portfolio_${id}`, id)
+            },
+            init() {
+                if (`{{ request('filter.province') }}`) {
+                    this.loadTowns(`{{ route('province.towns', request('filter.province', 1)) }}`)
+                }
+            },
+            sortBy(s) {
+                window.location.href = '{{ request()->url() }}?sort=' + s
             },
             loadTowns(url) {
                 const self = this
+
                 axios.get(url).then((res) => {
                     self.towns = res.data.towns
                     self.selectedTownName = res.data.towns.filter(town => town.id == self.selectedTown)[0]?.name
@@ -56,7 +65,7 @@
             <section class="filter-field -mt-30 md:mt-0 md:pt-10">
                 <div class="wrapper max-w-1280 mx-auto w-full px-7.5 md:px-5">
                     <div class="filter-wrapper bg-[#E3EDF5]/85 backdrop-blur-lg p-5 rounded-7.5 xl:rounded-5 md:rounded-3">
-                        <form action="{{ route('projects') }}" class="w-full" method="GET">
+                        <form action="{{ url()->current() }}" class="w-full" method="GET">
                             <input type="hidden" name="map" :value="map" />
                             <div class="form-wrapper grid grid-cols-10/2 md:grid-cols-1 gap-3">
                                 <div class="input-wrapper grid grid-cols-7/5 md:grid-cols-2 sm:grid-cols-1 gap-3">
@@ -68,8 +77,7 @@
                                                 class="block text-3.5 font-semibold text-tertiary-950 mb-1">
                                                 {{ __('general.search') }}
                                             </label>
-                                            <input name="filter[search]" id="q1" type="text"
-                                                placeholder="Örn: 3+1 Satılık veya İlan No"
+                                            <input name="search" id="q1" type="text" placeholder="Örn: Proje adı"
                                                 class="text-4 placeholder:text-[#B0B0B0] font-medium text-tertiary-950 w-full">
                                         </div>
                                         <div
@@ -160,14 +168,15 @@
                                             <!-- Buraya `error` classı gelince ilgili style değişiyor -->
                                             <div
                                                 class="custom-select relative h-22 sm:h-16 bg-white rounded-6 md:rounded-3 px-10 2xl:px-9 xl:px-8 lg:px-7 md:px-6 flex flex-col justify-center border border-solid border-transparent duration-300 group-[&.error]/form:border-secondary-700">
-                                                <select name="filter[province]"
+                                                <select
+                                                    @change="loadTowns(`{{ route('province.towns') }}/`+$event.target.value)"
+                                                    name="filter[province]"
                                                     class="peer w-full h-full text-4 sm:text-3.5 font-semibold text-tertiary-950">
                                                     <option value="" selected disabled>{{ __('general.province') }}
                                                     </option>
                                                     @foreach ($provinces as $province)
-                                                        <option @selected($province->id == request('filter.province'))
-                                                            @click="loadTowns(`{{ route('province.towns', $province) }}`)"
-                                                            value="{{ $province->id }}">{{ $province->name }}
+                                                        <option @selected($province->id == request('filter.province')) value="{{ $province->id }}">
+                                                            {{ $province->name }}
                                                         </option>
                                                     @endforeach
                                                 </select>
@@ -238,7 +247,7 @@
                                 </strong></h3>
                         </div>
                         <div class="info text-5 2xl:text-4.5 xl:text-4 lg:text-3.5 text-[#888888] fon">
-                            {{ __('total') }}: {{ $projects->total() }}</div>
+                            {{ __('general.total') }}: {{ $projects->total() }}</div>
                     </div>
                     @if (request('map') == 1)
                         <div style="margin-bottom: 50px">
@@ -287,7 +296,7 @@
                                     </div>
                                     <p
                                         class="expo text-[#888888] text-4 lg:text-3.5 font-medium mt-6 xl:mt-5 md:mt-4 block">
-                                        {!! $project->description !!}
+                                        {!! str($project->description)->limit(50) !!}
                                     </p>
                                     <div class="info flex items-center justify-between gap-7.5 mt-6 xl:mt-5 md:mt-4">
                                         <div

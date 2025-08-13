@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-
+@section('title', $project->title . ' | RE/MAX Loca')
 @section('content')
     <soho-technologies class="block">
 
@@ -11,7 +11,7 @@
             },
             setPriceCurrency(currency = 'tl') {
                 if (currency == 'eur') {
-        
+
                     this.price = `{{ \Number::format($project->price_in_eur, locale: 'tr') }}` + ' EUR'
                     return
                 }
@@ -20,7 +20,7 @@
                     return
                 }
                 this.price = `{{ \Number::format($project->price_in_tl, locale: 'tr') }}` + ' TL'
-        
+
             }
         }">
 
@@ -369,7 +369,8 @@
                             <div class="sticky-el sticky top-0 duration-300">
                                 <div class="inner bg-white rounded-4 md:rounded-3 p-7.5 sm:p-6">
                                     <div class="date text-center text-tertiary-950 font-medium text-4 lg:text-3.5 mb-3">
-                                        {{ __('general.delivery_date') }}: {{ $project->delivery_date }}</div>
+                                        {{ __('general.delivery_date') }}: {{ $project->delivery_date?->format('d-m-Y') }}
+                                    </div>
                                     <div class="price text-center text-[#2675FA] leading-tight">
                                         <div x-text="price"
                                             class="value flex items-center justify-center font-semibold text-9 2xl:text-8 xl:text-7 lg:text-6 [&_span]:text-4 lg:[&_span]:text-3.5 [&_span]:font-medium">

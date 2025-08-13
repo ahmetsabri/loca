@@ -152,3 +152,9 @@
     </main>
 
 @endsection
+
+<script>
+    @session('success')
+    alert('Teşekkürler,  bize ulaştı. En kısa sürede sizinle iletişime geçeceğiz.');
+    @endsession
+</script>
